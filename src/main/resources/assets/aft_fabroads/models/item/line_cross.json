@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_cross",
+  "textures": {
+    "bottom": "block/line_cross",
+    "top": "block/line_cross",
+    "side": "block/line_cross"
+  }
+}
+

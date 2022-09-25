@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_corner",
+  "textures": {
+    "bottom": "block/line_corner",
+    "top": "block/line_corner",
+    "side": "block/line_corner"
+  }
+}
+

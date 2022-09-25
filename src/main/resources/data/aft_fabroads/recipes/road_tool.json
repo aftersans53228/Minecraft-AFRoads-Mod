@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WW ",
+    "WRW",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "aft_fabroads:road_block"
+    }
+  },
+  "result": {
+    "item": "aft_fabroads:road_tool",
+    "count": 1
+  }
+}
+
