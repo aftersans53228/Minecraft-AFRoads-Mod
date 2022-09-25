@@ -1,38 +1,9 @@
-# Minecraft AFRoads Mod
+# Fabric Example Mod
 
-此模组旧库已经弃用，改为此新库，
-以下详细介绍内容没变过。
+## Setup
 
--------
+For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
-草，一个在fabric上的mc道路模组
-  
+## License
 
-
-## 获取最新构建Mod  
-### 方法1  
-
-打开Actions  
-
-选择最新的成功构建的Actions(注意找到你需要的游戏版本)  
-
-打开，最下面，Mods点击  
-
-下载下来就是一个zip  
-
-解压即可获得最新成功构建的Mod文件  
-
-
-### 方法2   
-
-打开release   
-
-选择更新release的模组版本(注意找到你需要的游戏版本)   
-
-下载不带sources后缀的jar模组文件  
-  
--------  
-
-## 许可证  
-
-Under the CC0 license  
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.

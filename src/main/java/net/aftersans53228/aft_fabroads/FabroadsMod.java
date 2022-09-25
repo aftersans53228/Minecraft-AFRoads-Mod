@@ -4,7 +4,6 @@ package net.aftersans53228.aft_fabroads;
 import net.aftersans53228.aft_fabroads.block.*;
 import net.aftersans53228.aft_fabroads.block.arrowblock.*;
 import net.aftersans53228.aft_fabroads.block.pillarBlock.*;
-import net.aftersans53228.aft_fabroads.command.AftCommand;
 import net.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import net.aftersans53228.aft_fabroads.item.RoadDecoration;
 import net.aftersans53228.aft_fabroads.item.RoadStickers;
@@ -15,9 +14,11 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
@@ -50,8 +51,6 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block RoadBlockConcrete = new RoadBlockConcrete();
 	public static final Block ManholeCover = new ManholeCover();
 	public static final Block ManholeCoverConcrete = new ManholeCoverConcrete();
-	public static final Block RoadSeamsBlock = new RoadSeamsBlock();
-	public static final Block RoadSeamsBlockConcrete = new RoadSeamsBlockConcrete();
 	//创建划线贴纸
 	public static final Block LineStraight = new LineStraight();
 	public static final Block LineCorner = new LineCorner();
@@ -78,10 +77,7 @@ public class FabroadsMod implements ModInitializer {
 	//创建装饰方块
 	public static final Block Railings = new Railings();
 	public static final Block PavementRailings = new PavementRailings();
-	public static final Block ExpresswayRailingsBase = new ExpresswayRailingsBase();
 	public static final Block ExpresswayRailings = new ExpresswayRailings();
-	public static final Block ExpresswayRailingsType2 = new ExpresswayRailingsType2();
-	public static final Block InsulationPanelsRailings = new InsulationPanelsRailings();
 	public static final Block BarrierBar = new BarrierBar();
 	public static final Block TrafficLight = new TrafficLight();
 	public static final Block PillarBase = new PillarBase();
@@ -97,7 +93,7 @@ public class FabroadsMod implements ModInitializer {
 	public static final ItemGroup RoadDecorationsGROUP = RoadDecoration.get();
 
 
-    @Override
+	@Override
 	public void onInitialize() {
 		// 只要 Minecraft 处于 mod-load-ready 状态，此代码就会运行。
 		// 但是，有些东西（比如资源）可能仍然未初始化。
@@ -121,12 +117,6 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","manhole_cover_concrete"),ManholeCoverConcrete);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","manhole_cover_concrete"),new BlockItem(ManholeCoverConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
-
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block"),RoadSeamsBlock);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block"),new BlockItem(RoadSeamsBlock,new Item.Settings().group(NormalRoadBlockGROUP)));
-
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
 
 		LOGGER.info("Normal blocks Initialized...");
 
@@ -205,18 +195,8 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","pavement_railings"), PavementRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","pavement_railings"),new BlockItem(PavementRailings,new Item.Settings().group(RoadDecorationsGROUP)));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_base"), ExpresswayRailingsBase);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_base"),new BlockItem(ExpresswayRailingsBase,new Item.Settings().group(RoadDecorationsGROUP)));
-
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings"), ExpresswayRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings"),new BlockItem(ExpresswayRailings,new Item.Settings().group(RoadDecorationsGROUP)));
-
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_type2"), ExpresswayRailingsType2);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_type2"),new BlockItem(ExpresswayRailingsType2,new Item.Settings().group(RoadDecorationsGROUP)));
-
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_railings"), InsulationPanelsRailings);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_railings"),new BlockItem(InsulationPanelsRailings,new Item.Settings().group(RoadDecorationsGROUP)));
-
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","barrier_bar"), BarrierBar);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","barrier_bar"),new BlockItem(BarrierBar,new Item.Settings().group(RoadDecorationsGROUP)));
@@ -252,8 +232,32 @@ public class FabroadsMod implements ModInitializer {
 		TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
 
 		//command
-		new AftCommand();
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("aft")
+						.then(literal("reset_timer")
+								.executes(context -> {
+									traffic_lights_timer =0;
+									ServerPlayerEntity player = context.getSource().getPlayer();
+									player.sendMessage(new LiteralText("§8§o [aft_fabroads]:将traffic_lights_timer设置为 0"), false);
+									return 1;
+								})
+						)
+						.then(literal("help")
+								.executes(context -> {
+									ServerPlayerEntity player = context.getSource().getPlayer();
+									player.sendMessage(new LiteralText("§8§o aftersans53228's fabric roads"), false);
+									player.sendMessage(new LiteralText("aftersans53228制作"), false);
+									player.sendMessage(new LiteralText("本模组命名空间为aft_fabroads"), false);
+									player.sendMessage(new LiteralText("版本为1.0.0@Prerealeas-TrafficLightPreview"), false);
+									player.sendMessage(new LiteralText("本模组命名空间为aft_fabroads"), false);
+									player.sendMessage(new LiteralText(""), false);
+									player.sendMessage(new LiteralText("今天来点大家想看的东西"), false);
+									return 1;
+								})
+						)
+
+			);
+		});
 
 		//红绿灯计时器逻辑
 		ServerTickEvents.END_SERVER_TICK.register((server)->
