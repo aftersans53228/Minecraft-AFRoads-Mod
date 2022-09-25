@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WRW",
+    "WWW"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:water_bucket"
+    },
+    "W": {
+      "item": "minecraft:black_concrete_powder"
+    }
+  },
+  "result": {
+    "item": "aft_fabroads:road_block",
+    "count": 8
+  }
+}
+

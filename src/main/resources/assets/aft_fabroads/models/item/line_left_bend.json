@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_left_bend",
+  "textures": {
+    "bottom": "block/line_left_bend",
+    "top": "block/line_left_bend",
+    "side": "block/line_left_bend"
+  }
+}
+
