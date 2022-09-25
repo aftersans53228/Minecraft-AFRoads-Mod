@@ -1,4 +1,9 @@
-# -A-Minecraft-roads-mod-on-fabricmc  
+# Minecraft AFRoads Mod
+
+此模组旧库已经弃用，改为此新库，
+以下详细介绍内容没变过。
+
+-------
 
 草，一个在fabric上的mc道路模组
   
