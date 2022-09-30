@@ -10,7 +10,7 @@
 
     "block.aft_fabroads.line_straight": "直线",
     "block.aft_fabroads.line_corner":"转角线",
-    "block.aft_fabroads.line_tshaped":"T字形线",
+    "block.aft_fabroads.line_tshaped":"T 字形线",
     "block.aft_fabroads.line_cross":"交叉线",
     "block.aft_fabroads.line_diagonal":"斜线",
     "block.aft_fabroads.line_left_bend":"弯曲线(朝左)",
@@ -45,14 +45,14 @@
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 
-    "item.aft_fabroads.road_tool.tip1": "§8§o这是一个道路工具,用于调整一些方块",
-    "item.aft_fabroads.road_tool.tip2": "§8§o使用右键来修改方块属性",
-    "item.aft_fabroads.road_tool.tip3": "§8§o使用特殊按键来调整一些东西",
-    "item.aft_fabroads.road_tool.tip4": "§9§o无耐久 无挖掘等级 只作为模组的工具",
-    "item.aft_fabroads.line_tip": "§8§o使用道路工具更改白色黄色模式.",
-    "item.aft_fabroads.arrow_tip": "§8§o使用道路工具更改大小模式.",
-    "item.aft_fabroads.manhole": "§8§o仅仅是一个井盖.",
-    "item.aft_fabroads.traffic_light_tip": "§8§o相隔一段时间自动转换颜色.",
+    "item.aft_fabroads.road_tool.tip1": "§8§o这是一个道路工具，用于调整一些方块。",
+    "item.aft_fabroads.road_tool.tip2": "§8§o使用右键来修改方块属性。",
+    "item.aft_fabroads.road_tool.tip3": "§8§o使用特殊按键来调整一些东西。",
+    "item.aft_fabroads.road_tool.tip4": "§9§o无耐久，无挖掘等级，只作为模组的工具。",
+    "item.aft_fabroads.line_tip": "§8§o使用道路工具更改白色黄色模式。",
+    "item.aft_fabroads.arrow_tip": "§8§o使用道路工具更改大小模式。",
+    "item.aft_fabroads.manhole": "§8§o仅仅是一个井盖。",
+    "item.aft_fabroads.traffic_light_tip": "§8§o相隔一段时间自动转换颜色。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模型"
