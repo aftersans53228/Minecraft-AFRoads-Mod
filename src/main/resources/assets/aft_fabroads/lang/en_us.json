@@ -33,7 +33,10 @@
 
     "block.aft_fabroads.railings": "Railings",
     "block.aft_fabroads.barrier_bar": "Barrier Bar",
+    "block.aft_fabroads.expressway_railings_base": "Expressway Railings Base",
     "block.aft_fabroads.expressway_railings": "Expressway Railings",
+    "block.aft_fabroads.expressway_railings_type2": "Expressway Railings(Type2)",
+    "block.aft_fabroads.insulation_panels_railings": "Insulation Panels Railings",
     "block.aft_fabroads.pavement_railings": "Pavement Railings",
     "block.aft_fabroads.traffic_light": "Traffic Light",
     "block.aft_fabroads.pillar_base": "Pillar Base",
@@ -55,7 +58,7 @@
     "item.aft_fabroads.manhole": "§8§oJust a manhole cover.",
     "item.aft_fabroads.traffic_light_tip": "§8§oAutomatically convert colors at intervals.",
 
-    "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - keys.",
+    "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool model"
 
 

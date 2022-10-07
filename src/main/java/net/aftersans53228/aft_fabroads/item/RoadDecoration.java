@@ -17,7 +17,10 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(FabroadsMod.Railings));
                 stacks.add(new ItemStack(FabroadsMod.BarrierBar));
                 stacks.add(new ItemStack(FabroadsMod.PavementRailings));
+                stacks.add(new ItemStack(FabroadsMod.ExpresswayRailingsBase));
                 stacks.add(new ItemStack(FabroadsMod.ExpresswayRailings));
+                stacks.add(new ItemStack(FabroadsMod.ExpresswayRailingsType2));
+                stacks.add(new ItemStack(FabroadsMod.InsulationPanelsRailings));
                 stacks.add(new ItemStack(FabroadsMod.TrafficLight));
                 stacks.add(new ItemStack(FabroadsMod.PillarBase));
                 stacks.add(new ItemStack(FabroadsMod.HorizontalStraightPillar));
