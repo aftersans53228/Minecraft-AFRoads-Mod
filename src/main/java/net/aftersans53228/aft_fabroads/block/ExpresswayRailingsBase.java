@@ -26,10 +26,10 @@ public class ExpresswayRailingsBase extends HorizontalFacingBlock {
         switch(dir) {
             case NORTH:
             case SOUTH:
-                return VoxelShapes.cuboid(0.125f, 0.0f, 0.0f, 0.875f, 1.5f, 1.0f);
+                return VoxelShapes.cuboid(0.125f, 0.0f, 0.0f, 0.875f, 1.0f, 1.0f);
             case EAST:
             case WEST:
-                return VoxelShapes.cuboid(0.0f, 0.0f, 0.125f, 1.0f, 1.5f, 0.875f);
+                return VoxelShapes.cuboid(0.0f, 0.0f, 0.125f, 1.0f, 1.0f, 0.875f);
             default:
                 return VoxelShapes.fullCube();
         }
