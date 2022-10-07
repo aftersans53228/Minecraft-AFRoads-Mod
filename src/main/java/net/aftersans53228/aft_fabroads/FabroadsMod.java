@@ -76,6 +76,7 @@ public class FabroadsMod implements ModInitializer {
 	//创建装饰方块
 	public static final Block Railings = new Railings();
 	public static final Block PavementRailings = new PavementRailings();
+	public static final Block ExpresswayRailingsBase = new ExpresswayRailingsBase();
 	public static final Block ExpresswayRailings = new ExpresswayRailings();
 	public static final Block ExpresswayRailingsType2 = new ExpresswayRailingsType2();
 	public static final Block InsulationPanelsRailings = new InsulationPanelsRailings();
@@ -195,6 +196,9 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","pavement_railings"), PavementRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","pavement_railings"),new BlockItem(PavementRailings,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_base"), ExpresswayRailingsBase);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_base"),new BlockItem(ExpresswayRailingsBase,new Item.Settings().group(RoadDecorationsGROUP)));
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings"), ExpresswayRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings"),new BlockItem(ExpresswayRailings,new Item.Settings().group(RoadDecorationsGROUP)));

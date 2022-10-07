@@ -62,6 +62,7 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.Railings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.BarrierBar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.PavementRailings, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailingsBase, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailingsType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsRailings, RenderLayer.getTranslucent());
