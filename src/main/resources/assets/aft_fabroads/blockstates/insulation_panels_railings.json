@@ -1,0 +1,8 @@
+{
+    "variants": {
+      "facing=north": { "model": "aft_fabroads:block/insulation_panels_railings"},
+      "facing=east":  { "model": "aft_fabroads:block/insulation_panels_railings", "y":  90},
+      "facing=south": { "model": "aft_fabroads:block/insulation_panels_railings", "y": 180},
+      "facing=west":  { "model": "aft_fabroads:block/insulation_panels_railings", "y": 270 }
+    }
+  }

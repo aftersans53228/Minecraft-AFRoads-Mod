@@ -77,6 +77,8 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block Railings = new Railings();
 	public static final Block PavementRailings = new PavementRailings();
 	public static final Block ExpresswayRailings = new ExpresswayRailings();
+	public static final Block ExpresswayRailingsType2 = new ExpresswayRailingsType2();
+	public static final Block InsulationPanelsRailings = new InsulationPanelsRailings();
 	public static final Block BarrierBar = new BarrierBar();
 	public static final Block TrafficLight = new TrafficLight();
 	public static final Block PillarBase = new PillarBase();
@@ -197,6 +199,13 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings"), ExpresswayRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings"),new BlockItem(ExpresswayRailings,new Item.Settings().group(RoadDecorationsGROUP)));
 
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_type2"), ExpresswayRailingsType2);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_type2"),new BlockItem(ExpresswayRailingsType2,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_railings"), InsulationPanelsRailings);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_railings"),new BlockItem(InsulationPanelsRailings,new Item.Settings().group(RoadDecorationsGROUP)));
+
+
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","barrier_bar"), BarrierBar);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","barrier_bar"),new BlockItem(BarrierBar,new Item.Settings().group(RoadDecorationsGROUP)));
 
@@ -232,9 +241,7 @@ public class FabroadsMod implements ModInitializer {
 
 		//command
 		new AftCommand();
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				AftCommand.register(dispatcher);
-		});
+		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
 
 		//红绿灯计时器逻辑
 		ServerTickEvents.END_SERVER_TICK.register((server)->

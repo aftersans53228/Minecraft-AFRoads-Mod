@@ -33,7 +33,10 @@
 
     "block.aft_fabroads.railings": "护栏",
     "block.aft_fabroads.barrier_bar": "屏障杆",
-    "block.aft_fabroads.expressway_railings": "快速路护栏",
+    "block.aft_fabroads.expressway_railings": "快速路护栏(类型1)",
+    "block.aft_fabroads.expressway_railings_type2": "快速路护栏(类型2)",
+    "block.aft_fabroads.insulation_panels_railings": "隔音板栏杆",
+    "block.aft_fabroads.traffic_light": "交通灯",
     "block.aft_fabroads.pavement_railings": "路口护栏",
     "block.aft_fabroads.pillar_base": "支柱底座",
     "block.aft_fabroads.horizontal_straight_pillar": "直支柱(水平)",
@@ -56,6 +59,7 @@
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模型"
+
 
 
 }
