@@ -35,15 +35,14 @@ public class AftCommand {
                         })
                 )
                 .then(literal("tool-model")
-                    .executes(context -> {
-                        ServerPlayerEntity player = context.getSource().getPlayer();
-                        FabroadsClientMod.is_logo_tool = !FabroadsClientMod.is_logo_tool;
-                        assert player != null;
-                        player.sendMessage(new LiteralText("道路工具模型已修改为"+FabroadsClientMod.is_logo_tool+"."), true);
-                        return 1;
-                    })
+                        .executes(context -> {
+                            ServerPlayerEntity player = context.getSource().getPlayer();
+                            FabroadsClientMod.is_logo_tool = !FabroadsClientMod.is_logo_tool;
+                            player.sendMessage(new LiteralText("道路工具模型已修改为"+FabroadsClientMod.is_logo_tool+"."), true);
+                            return 1;
+                        })
                 )
             );
-    };
+    }
 }
 
