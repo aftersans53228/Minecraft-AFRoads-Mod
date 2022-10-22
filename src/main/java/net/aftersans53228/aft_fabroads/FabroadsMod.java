@@ -50,6 +50,8 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block RoadBlockConcrete = new RoadBlockConcrete();
 	public static final Block ManholeCover = new ManholeCover();
 	public static final Block ManholeCoverConcrete = new ManholeCoverConcrete();
+	public static final Block RoadSeamsBlock = new RoadSeamsBlock();
+	public static final Block RoadSeamsBlockConcrete = new RoadSeamsBlockConcrete();
 	//创建划线贴纸
 	public static final Block LineStraight = new LineStraight();
 	public static final Block LineCorner = new LineCorner();
@@ -95,7 +97,7 @@ public class FabroadsMod implements ModInitializer {
 	public static final ItemGroup RoadDecorationsGROUP = RoadDecoration.get();
 
 
-	@Override
+    @Override
 	public void onInitialize() {
 		// 只要 Minecraft 处于 mod-load-ready 状态，此代码就会运行。
 		// 但是，有些东西（比如资源）可能仍然未初始化。
@@ -119,6 +121,12 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","manhole_cover_concrete"),ManholeCoverConcrete);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","manhole_cover_concrete"),new BlockItem(ManholeCoverConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block"),RoadSeamsBlock);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block"),new BlockItem(RoadSeamsBlock,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
 
 		LOGGER.info("Normal blocks Initialized...");
 

@@ -35,6 +35,8 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadBlockConcrete, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ManholeCover, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ManholeCoverConcrete, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadSeamsBlock, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadSeamsBlockConcrete, RenderLayer.getCutoutMipped());
         //地面划线
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.LineStraight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.LineCorner, RenderLayer.getCutout());

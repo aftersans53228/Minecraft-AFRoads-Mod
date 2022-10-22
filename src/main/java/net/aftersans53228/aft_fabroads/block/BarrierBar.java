@@ -15,6 +15,6 @@ public class BarrierBar extends Block {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
-        return VoxelShapes.cuboid(0.4375, 0.0f, 0.4375, 0.5625, 1.0f, 0.5625);
+        return VoxelShapes.cuboid(0.4375, 0.0f, 0.4375, 0.5625, 1.26f, 0.5625);
     }
 }
