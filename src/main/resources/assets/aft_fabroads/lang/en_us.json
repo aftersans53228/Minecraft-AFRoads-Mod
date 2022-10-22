@@ -55,8 +55,10 @@
     "item.aft_fabroads.road_tool.tip4": "§9§oNo Durability;No Mining Grade;Only as a tool for mod.",
     "item.aft_fabroads.line_tip": "§8§oUse the Road tool to change the white/yellow mode.",
     "item.aft_fabroads.arrow_tip": "§8§oUse the Road tool to change the large/mini mode..",
-    "item.aft_fabroads.manhole": "§8§oJust a manhole cover.",
-    "item.aft_fabroads.traffic_light_tip": "§8§oAutomatically convert colors at intervals.",
+    "item.aft_fabroads.railing_tip": "§8§oUse the Road tool to change the normal/turn mode.",
+    "item.aft_fabroads.manhole": "§8§oJust a manhole cover,like a gray pie.",
+    "item.aft_fabroads.road_seams": "§8§o...I think it is a road seam,right..?",
+    "item.aft_fabroads.traffic_light_tip": "§8§oWow,this is a traffic light!Automatically convert colors at intervals.",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool model"
