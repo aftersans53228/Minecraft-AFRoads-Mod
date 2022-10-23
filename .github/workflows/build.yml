@@ -7,7 +7,7 @@ name: Build Mods (1.17.1)
 on: [pull_request, push]
 
 jobs:
-  build:
+  build-1_17_1:
     strategy:
       matrix:
         # Use these Java versions
