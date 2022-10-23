@@ -6,7 +6,7 @@ import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+// import net.minecraft.text.TranslatableText;
 import net.minecraft.world.BlockView;
 
 import java.util.List;
@@ -17,6 +17,6 @@ public class ManholeCoverConcrete extends Block {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.aft_fabroads.manhole") );
+        // tooltip.add( new TranslatableText("item.aft_fabroads.manhole") );
     }
 }

@@ -10,7 +10,7 @@ import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredica
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.LiteralText;
+// import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.system.CallbackI;
@@ -81,7 +81,7 @@ public class FabroadsClientMod implements ClientModInitializer {
             while (keyBinding.wasPressed()) {
                 is_logo_tool = !is_logo_tool;
                 assert client.player != null;
-                client.player.sendMessage(new LiteralText("道路工具模型已修改为"+is_logo_tool+"."), true);
+                // client.player.sendMessage(new LiteralText("道路工具模型已修改为"+is_logo_tool+"."), true);
             }
         });
 

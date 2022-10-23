@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+// import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
@@ -30,6 +30,6 @@ public class RoadSeamsBlockConcrete extends HorizontalFacingBlock {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_seams") );
+        // tooltip.add( new TranslatableText("item.aft_fabroads.road_seams") );
     }
 }

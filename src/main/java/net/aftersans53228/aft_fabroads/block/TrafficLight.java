@@ -14,7 +14,7 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+// import net.minecraft.text.TranslatableText;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
@@ -122,7 +122,7 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_tip"));
+        // tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_tip"));
     }
 
 
