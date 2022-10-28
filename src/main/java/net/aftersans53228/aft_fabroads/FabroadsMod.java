@@ -4,6 +4,8 @@ package net.aftersans53228.aft_fabroads;
 import net.aftersans53228.aft_fabroads.block.*;
 import net.aftersans53228.aft_fabroads.block.arrowblock.*;
 import net.aftersans53228.aft_fabroads.block.pillarBlock.*;
+import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionLeft;
+import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionRight;
 import net.aftersans53228.aft_fabroads.command.AftCommand;
 import net.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import net.aftersans53228.aft_fabroads.item.RoadDecoration;
@@ -91,6 +93,8 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block VerticalCornerPillar = new VerticalCornerPillar();
 	public static final Block HorizontalTshapedPillar = new HorizontalTshapedPillar();
 	public static final Block VerticalTshapedPillar = new VerticalTshapedPillar();
+	public static final Block SignIndicatorDirectionLeft = new SignIndicatorDirectionLeft();
+	public static final Block SignIndicatorDirectionRight = new SignIndicatorDirectionRight();
 	//创建物品组
 	public static final ItemGroup NormalRoadBlockGROUP = NormalRoadBlock.get();
 	public static final ItemGroup RoadStickersGROUP = RoadStickers.get();
@@ -244,6 +248,12 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar"), VerticalTshapedPillar);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar"),new BlockItem(VerticalTshapedPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_left"), SignIndicatorDirectionLeft);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_left"),new BlockItem(SignIndicatorDirectionLeft,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_right"), SignIndicatorDirectionRight);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_right"),new BlockItem(SignIndicatorDirectionRight,new Item.Settings().group(RoadDecorationsGROUP)));
 
 
 		LOGGER.info("aft's Fabroads Initialized...");

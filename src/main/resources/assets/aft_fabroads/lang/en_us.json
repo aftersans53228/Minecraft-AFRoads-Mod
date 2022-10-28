@@ -7,6 +7,8 @@
     "block.aft_fabroads.road_block_concrete": "Concrete road block ",
     "block.aft_fabroads.manhole_cover": "Manhole-cover block",
     "block.aft_fabroads.manhole_cover_concrete": "Concrete manhole-cover block",
+    "block.aft_fabroads.road_seams_block": "Road Seam",
+    "block.aft_fabroads.road_seams_block_concrete": "Concrete Road Seam",
 
     "block.aft_fabroads.line_straight":"Straight line",
     "block.aft_fabroads.line_corner":"Corner Line",
@@ -46,6 +48,9 @@
     "block.aft_fabroads.vertical_corner_pillar": "Corner Pillar (Vertical)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "Tshaped Pillar (Horizontal)",
     "block.aft_fabroads.vertical_tshaped_pillar": "Tshaped Pillar (Vertical)",
+    "block.aft_fabroads.sign_indicator_direction_left": "Indicator Sign:Direction Left",
+    "block.aft_fabroads.sign_indicator_direction_right": "Indicator Sign:Direction Right",
+
 
     "item.aft_fabroads.road_tool":"§4§lRoad tool",
 

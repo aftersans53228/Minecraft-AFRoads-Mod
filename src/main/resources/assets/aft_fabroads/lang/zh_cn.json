@@ -7,6 +7,8 @@
     "block.aft_fabroads.road_block_concrete": "混凝土道路方块",
     "block.aft_fabroads.manhole_cover": "井盖方块",
     "block.aft_fabroads.manhole_cover_concrete": "混凝土井盖方块",
+    "block.aft_fabroads.road_seams_block": "路面接缝",
+    "block.aft_fabroads.road_seams_block_concrete": "混凝土路面接缝",
 
     "block.aft_fabroads.line_straight": "直线",
     "block.aft_fabroads.line_corner":"转角线",
@@ -46,6 +48,8 @@
     "block.aft_fabroads.vertical_corner_pillar": "转角支柱(垂直)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "T字型支柱(水平)",
     "block.aft_fabroads.vertical_tshaped_pillar": "T字型支柱(垂直)",
+    "block.aft_fabroads.sign_indicator_direction_left": "指示标志：向左",
+    "block.aft_fabroads.sign_indicator_direction_right": "指示标志：向右",
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 
