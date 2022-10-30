@@ -48,8 +48,11 @@
     "block.aft_fabroads.vertical_corner_pillar": "转角支柱(垂直)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "T字型支柱(水平)",
     "block.aft_fabroads.vertical_tshaped_pillar": "T字型支柱(垂直)",
+    "block.aft_fabroads.vertical_tshaped_pillar_type2": "T字型支柱(垂直，类型2)",
     "block.aft_fabroads.sign_indicator_direction_left": "指示标志：向左",
     "block.aft_fabroads.sign_indicator_direction_right": "指示标志：向右",
+    "block.aft_fabroads.sign_indicator_direction_car": "指示标志：机动车方向",
+    "block.aft_fabroads.sign_indicator_direction_bicycle": "指示标志：非机动车方向",
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 

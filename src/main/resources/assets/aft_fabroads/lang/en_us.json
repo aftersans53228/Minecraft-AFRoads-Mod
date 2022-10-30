@@ -48,8 +48,11 @@
     "block.aft_fabroads.vertical_corner_pillar": "Corner Pillar (Vertical)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "Tshaped Pillar (Horizontal)",
     "block.aft_fabroads.vertical_tshaped_pillar": "Tshaped Pillar (Vertical)",
+    "block.aft_fabroads.vertical_tshaped_pillar_type2": "Tshaped Pillar (Vertical,Type2)",
     "block.aft_fabroads.sign_indicator_direction_left": "Indicator Sign:Direction Left",
     "block.aft_fabroads.sign_indicator_direction_right": "Indicator Sign:Direction Right",
+    "block.aft_fabroads.sign_indicator_direction_car": "Indicator Sign:Direction Car",
+    "block.aft_fabroads.sign_indicator_direction_bicycle": "Indicator Sign:Direction Bicycle",
 
 
     "item.aft_fabroads.road_tool":"§4§lRoad tool",

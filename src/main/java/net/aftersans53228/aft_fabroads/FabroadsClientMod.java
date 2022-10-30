@@ -74,9 +74,12 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.VerticalStraightPillar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.HorizontalCornerPillar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.VerticalTshapedPillar, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.VerticalTshapedPillarType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.HorizontalTshapedPillar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionLeft, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionRight, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionCar, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionBicycle, RenderLayer.getTranslucent());
 
 
         //运行按键绑定

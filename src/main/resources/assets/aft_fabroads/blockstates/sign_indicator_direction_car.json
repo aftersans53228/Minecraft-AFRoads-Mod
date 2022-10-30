@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "aft_fabroads:block/sign/sign_indicator_direction_car"
+    },
+    "facing=east": {
+      "model": "aft_fabroads:block/sign/sign_indicator_direction_car",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "aft_fabroads:block/sign/sign_indicator_direction_car",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aft_fabroads:block/sign/sign_indicator_direction_car",
+      "y": 270
+    }
+  }
+}
