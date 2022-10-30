@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
+name: Build Mods (1.17.1)
 on: [pull_request, push]
 
 jobs:
@@ -12,10 +12,10 @@ jobs:
       matrix:
         # Use these Java versions
         java: [
-          16,    # Current Java LTS & minimum supported by Minecraft
+          17,    # Current Java LTS & minimum supported by Minecraft
         ]
         # and run on both Linux and Windows
-        os: [ubuntu-20.04, windows-2022]
+        os: [ubuntu-22.10, windows-2022]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -32,8 +32,7 @@ jobs:
       - name: Build Mods
         run: ./gradlew build
       - name: Capture Build Artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '16' }} # Only upload artifacts built from latest java on one OS
+        if: ${{ runner.os == 'Linux' }} # Only upload artifacts built on one OS
         uses: actions/upload-artifact@v2
         with:
-          name: Mods
           path: build/libs/
