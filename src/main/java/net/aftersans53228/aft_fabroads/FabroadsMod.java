@@ -4,10 +4,7 @@ package net.aftersans53228.aft_fabroads;
 import net.aftersans53228.aft_fabroads.block.*;
 import net.aftersans53228.aft_fabroads.block.arrowblock.*;
 import net.aftersans53228.aft_fabroads.block.pillarBlock.*;
-import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionBicycle;
-import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionCar;
-import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionLeft;
-import net.aftersans53228.aft_fabroads.block.signBlock.SignIndicatorDirectionRight;
+import net.aftersans53228.aft_fabroads.block.signBlock.*;
 import net.aftersans53228.aft_fabroads.command.AftCommand;
 import net.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import net.aftersans53228.aft_fabroads.item.RoadDecoration;
@@ -96,10 +93,13 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block HorizontalTshapedPillar = new HorizontalTshapedPillar();
 	public static final Block VerticalTshapedPillar = new VerticalTshapedPillar();
 	public static final Block VerticalTshapedPillarType2 = new VerticalTshapedPillarType2();
+	public static final Block RoadMastPillarBase = new RoadMastPillarBase();
+	public static final Block RoadMastPillar = new RoadMastPillar();
 	public static final Block SignIndicatorDirectionLeft = new SignIndicatorDirectionLeft();
 	public static final Block SignIndicatorDirectionRight = new SignIndicatorDirectionRight();
 	public static final Block SignIndicatorDirectionCar = new SignIndicatorDirectionCar();
 	public static final Block SignIndicatorDirectionBicycle = new SignIndicatorDirectionBicycle();
+	public static final Block SignBanNoDrive = new SignBanNoDrive();
 	//创建物品组
 	public static final ItemGroup NormalRoadBlockGROUP = NormalRoadBlock.get();
 	public static final ItemGroup RoadStickersGROUP = RoadStickers.get();
@@ -257,6 +257,12 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"), VerticalTshapedPillarType2);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"),new BlockItem(VerticalTshapedPillarType2,new Item.Settings().group(RoadDecorationsGROUP)));
 
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_mast_pillar_base"), RoadMastPillarBase);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_mast_pillar_base"),new BlockItem(RoadMastPillarBase,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_mast_pillar"), RoadMastPillar);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_mast_pillar"),new BlockItem(RoadMastPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_left"), SignIndicatorDirectionLeft);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_left"),new BlockItem(SignIndicatorDirectionLeft,new Item.Settings().group(RoadDecorationsGROUP)));
 
@@ -268,6 +274,9 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"), SignIndicatorDirectionBicycle);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"),new BlockItem(SignIndicatorDirectionBicycle,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_no_drive"), SignBanNoDrive);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_no_drive"),new BlockItem(SignBanNoDrive,new Item.Settings().group(RoadDecorationsGROUP)));
 
 
 		LOGGER.info("aft's Fabroads Initialized...");

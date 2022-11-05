@@ -49,10 +49,13 @@
     "block.aft_fabroads.horizontal_tshaped_pillar": "T字型支柱(水平)",
     "block.aft_fabroads.vertical_tshaped_pillar": "T字型支柱(垂直)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "T字型支柱(垂直，类型2)",
+    "block.aft_fabroads.road_mast_pillar_base": "道路门架支柱底座",
+    "block.aft_fabroads.road_mast_pillar": "道路门架支柱",
     "block.aft_fabroads.sign_indicator_direction_left": "指示标志：向左",
     "block.aft_fabroads.sign_indicator_direction_right": "指示标志：向右",
     "block.aft_fabroads.sign_indicator_direction_car": "指示标志：机动车方向",
     "block.aft_fabroads.sign_indicator_direction_bicycle": "指示标志：非机动车方向",
+    "block.aft_fabroads.sign_ban_no_drive": "禁止标志:禁止驶入",
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 
@@ -65,7 +68,8 @@
     "item.aft_fabroads.railing_tip": "§8§o使用道路工具更改普通和转向模式。",
     "item.aft_fabroads.manhole": "§8§o仅仅是一个井盖，像个灰色的手抓饼。",
     "item.aft_fabroads.road_seams": "§8§o...呃，我认为他是个道路接缝？",
-    "item.aft_fabroads.traffic_light_tip": "§8§o我去，这是个交通灯！相隔一段时间自动转换颜色。",
+    "item.aft_fabroads.traffic_light_tip": "§8§o我去，这是个交通灯，相隔一段时间自动转换颜色。",
+    "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模型"

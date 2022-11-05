@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "aft_fabroads:block/sign/sign_ban_no_drive"
+    },
+    "facing=east": {
+      "model": "aft_fabroads:block/sign/sign_ban_no_drive",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "aft_fabroads:block/sign/sign_ban_no_drive",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aft_fabroads:block/sign/sign_ban_no_drive",
+      "y": 270
+    }
+  }
+}

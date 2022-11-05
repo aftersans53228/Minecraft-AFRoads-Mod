@@ -26,7 +26,7 @@ public class AftCommand {
                             player.sendMessage(new LiteralText("§8§o aftersans53228's fabric roads"), false);
                             player.sendMessage(new LiteralText("aftersans53228制作"), false);
                             player.sendMessage(new LiteralText("本模组命名空间为aft_fabroads"), false);
-                            player.sendMessage(new LiteralText("版本为1.0.1Beta-update3-build1"), false);
+                            player.sendMessage(new LiteralText("版本为1.0.1Beta-SIGN-UPDATE1.0-build1"), false);
                             player.sendMessage(new LiteralText("此版本mod支持mc版本为1.17.1"), false);
                             player.sendMessage(new LiteralText("本模组命名空间为aft_fabroads"), false);
                             player.sendMessage(new LiteralText(""), false);

@@ -30,10 +30,13 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(FabroadsMod.HorizontalTshapedPillar));
                 stacks.add(new ItemStack(FabroadsMod.VerticalTshapedPillar));
                 stacks.add(new ItemStack(FabroadsMod.VerticalTshapedPillarType2));
+                stacks.add(new ItemStack(FabroadsMod.RoadMastPillarBase));
+                stacks.add(new ItemStack(FabroadsMod.RoadMastPillar));
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionLeft));
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionRight));
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionCar));
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionBicycle));
+                stacks.add(new ItemStack(FabroadsMod.SignBanNoDrive));
             })
             .build();
 }

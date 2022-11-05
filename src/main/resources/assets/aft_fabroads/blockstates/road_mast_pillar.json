@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=north,is_bracket=false": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar"
+    },
+    "facing=east,is_bracket=false": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar",
+      "y": 90
+    },
+    "facing=south,is_bracket=false": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar",
+      "y": 180
+    },
+    "facing=west,is_bracket=false": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar",
+      "y": 270
+    },
+
+    "facing=north,is_bracket=true": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_bracket"
+    },
+    "facing=east,is_bracket=true": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_bracket",
+      "y": 90
+    },
+    "facing=south,is_bracket=true": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_bracket",
+      "y": 180
+    },
+    "facing=west,is_bracket=true": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_bracket",
+      "y": 270
+    }
+  }
+}

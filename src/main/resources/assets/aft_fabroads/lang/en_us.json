@@ -49,10 +49,13 @@
     "block.aft_fabroads.horizontal_tshaped_pillar": "Tshaped Pillar (Horizontal)",
     "block.aft_fabroads.vertical_tshaped_pillar": "Tshaped Pillar (Vertical)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "Tshaped Pillar (Vertical,Type2)",
+    "block.aft_fabroads.road_mast_pillar_base": "Road Mast Pillar Base",
+    "block.aft_fabroads.road_mast_pillar": "Road Mast Pillar",
     "block.aft_fabroads.sign_indicator_direction_left": "Indicator Sign:Direction Left",
     "block.aft_fabroads.sign_indicator_direction_right": "Indicator Sign:Direction Right",
     "block.aft_fabroads.sign_indicator_direction_car": "Indicator Sign:Direction Car",
     "block.aft_fabroads.sign_indicator_direction_bicycle": "Indicator Sign:Direction Bicycle",
+    "block.aft_fabroads.sign_ban_no_drive": "Ban Sign:No Drive",
 
 
     "item.aft_fabroads.road_tool":"§4§lRoad tool",
@@ -67,6 +70,7 @@
     "item.aft_fabroads.manhole": "§8§oJust a manhole cover,like a gray pie.",
     "item.aft_fabroads.road_seams": "§8§o...I think it is a road seam,right..?",
     "item.aft_fabroads.traffic_light_tip": "§8§oWow,this is a traffic light!Automatically convert colors at intervals.",
+    "item.aft_fabroads.mast-pillar_tip": "§8§oUse the Road tool to change the normal/bracket mode..",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool model"

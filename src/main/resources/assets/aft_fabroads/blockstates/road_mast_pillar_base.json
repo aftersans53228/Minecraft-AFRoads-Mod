@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_base"
+    },
+    "facing=east": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_base",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_base",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aft_fabroads:block/pillar/road_mast_pillar_base",
+      "y": 270
+    }
+  }
+}
