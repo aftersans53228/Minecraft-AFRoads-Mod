@@ -58,14 +58,4 @@ public class TrafficLightEntity  extends BlockEntity {
     }
 
 
-
-    /*public class FabroadsMod implements ModInitializer{
-        public FabroadsMod INSTANCE;
-        public FabroadsMod(){INSTANCE=this;}
-
-        @Override
-        public void onInitialize() {}
-    }
-    */
-
 }

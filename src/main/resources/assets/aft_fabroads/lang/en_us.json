@@ -56,6 +56,17 @@
     "block.aft_fabroads.sign_indicator_direction_car": "Indicator Sign:Direction Car",
     "block.aft_fabroads.sign_indicator_direction_bicycle": "Indicator Sign:Direction Bicycle",
     "block.aft_fabroads.sign_ban_no_drive": "Ban Sign:No Drive",
+    "block.aft_fabroads.sign_ban_stop": "Ban Sign:Stop",
+    "block.aft_fabroads.sign_ban_speed_limit_05": "Speed Limit:5km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_20": "Speed Limit:20km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_30": "Speed Limit:30km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_40": "Speed Limit:40km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_50": "Speed Limit:50km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_60": "Speed Limit:60km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_70": "Speed Limit:70km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_80": "Speed Limit:80km/h",
+
+
 
 
     "item.aft_fabroads.road_tool":"§4§lRoad tool",
@@ -71,6 +82,7 @@
     "item.aft_fabroads.road_seams": "§8§o...I think it is a road seam,right..?",
     "item.aft_fabroads.traffic_light_tip": "§8§oWow,this is a traffic light!Automatically convert colors at intervals.",
     "item.aft_fabroads.mast-pillar_tip": "§8§oUse the Road tool to change the normal/bracket mode..",
+    "item.aft_fabroads.item.aft_fabroads.stop_tip": "§8§oStop and stop.",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool model"

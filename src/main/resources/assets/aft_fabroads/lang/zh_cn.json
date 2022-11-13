@@ -56,6 +56,15 @@
     "block.aft_fabroads.sign_indicator_direction_car": "指示标志：机动车方向",
     "block.aft_fabroads.sign_indicator_direction_bicycle": "指示标志：非机动车方向",
     "block.aft_fabroads.sign_ban_no_drive": "禁止标志:禁止驶入",
+    "block.aft_fabroads.sign_ban_stop": "禁止标志:停",
+    "block.aft_fabroads.sign_ban_speed_limit_05": "限速:5km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_20": "限速:20km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_30": "限速:30km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_40": "限速:40km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_50": "限速:50km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_60": "限速:60km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_70": "限速:70km/h",
+    "block.aft_fabroads.sign_ban_speed_limit_80": "限速:80km/h",
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 
@@ -70,6 +79,7 @@
     "item.aft_fabroads.road_seams": "§8§o...呃，我认为他是个道路接缝？",
     "item.aft_fabroads.traffic_light_tip": "§8§o我去，这是个交通灯，相隔一段时间自动转换颜色。",
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
+    "item.aft_fabroads.item.aft_fabroads.stop_tip": "§8§o你先别急。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模型"

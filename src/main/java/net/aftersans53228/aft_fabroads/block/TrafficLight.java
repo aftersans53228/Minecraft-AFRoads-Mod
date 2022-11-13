@@ -32,7 +32,7 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
 
 
     public TrafficLight(){
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque());
+        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque().luminance(3));
         setDefaultState(getStateManager().getDefaultState().with(TrafficType, 0));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
@@ -131,7 +131,6 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
         return new TrafficLightEntity(pos, state);
     }
     public BlockRenderType getRenderType(BlockState state) {
-        // 由于继承了BlockWithEntity，这个默认为INVISIBLE，所以我们需要更改它！
         return BlockRenderType.MODEL;
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {

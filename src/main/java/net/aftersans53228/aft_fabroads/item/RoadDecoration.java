@@ -37,6 +37,15 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionCar));
                 stacks.add(new ItemStack(FabroadsMod.SignIndicatorDirectionBicycle));
                 stacks.add(new ItemStack(FabroadsMod.SignBanNoDrive));
+                stacks.add(new ItemStack(FabroadsMod.SignBanStop));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit05));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit20));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit30));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit40));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit50));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit60));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit70));
+                stacks.add(new ItemStack(FabroadsMod.SignBanSpeedLimit80));
             })
             .build();
 }

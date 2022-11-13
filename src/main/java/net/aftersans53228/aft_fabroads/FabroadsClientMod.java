@@ -83,6 +83,16 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionCar, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionBicycle, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanNoDrive, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanStop, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit05, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit20, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit30, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit40, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit50, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit60, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit70, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit80, RenderLayer.getTranslucent());
+
 
 
         //运行按键绑定

@@ -100,6 +100,16 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block SignIndicatorDirectionCar = new SignIndicatorDirectionCar();
 	public static final Block SignIndicatorDirectionBicycle = new SignIndicatorDirectionBicycle();
 	public static final Block SignBanNoDrive = new SignBanNoDrive();
+	public static final Block SignBanStop = new SignBanStop();
+	public static final Block SignBanSpeedLimit05 = new SignBanSpeedLimit05();
+	public static final Block SignBanSpeedLimit20 = new SignBanSpeedLimit20();
+	public static final Block SignBanSpeedLimit30 = new SignBanSpeedLimit30();
+	public static final Block SignBanSpeedLimit40 = new SignBanSpeedLimit40();
+	public static final Block SignBanSpeedLimit50 = new SignBanSpeedLimit50();
+	public static final Block SignBanSpeedLimit60 = new SignBanSpeedLimit60();
+	public static final Block SignBanSpeedLimit70 = new SignBanSpeedLimit70();
+	public static final Block SignBanSpeedLimit80 = new SignBanSpeedLimit80();
+
 	//创建物品组
 	public static final ItemGroup NormalRoadBlockGROUP = NormalRoadBlock.get();
 	public static final ItemGroup RoadStickersGROUP = RoadStickers.get();
@@ -277,6 +287,37 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_no_drive"), SignBanNoDrive);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_no_drive"),new BlockItem(SignBanNoDrive,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_stop"), SignBanStop);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_stop"),new BlockItem(SignBanStop,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_05"), SignBanSpeedLimit05);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_05"),new BlockItem(SignBanSpeedLimit05,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_20"), SignBanSpeedLimit20);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_20"),new BlockItem(SignBanSpeedLimit20,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_30"), SignBanSpeedLimit30);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_30"),new BlockItem(SignBanSpeedLimit30,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_40"), SignBanSpeedLimit40);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_40"),new BlockItem(SignBanSpeedLimit40,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_50"), SignBanSpeedLimit50);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_50"),new BlockItem(SignBanSpeedLimit50,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_60"), SignBanSpeedLimit60);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_60"),new BlockItem(SignBanSpeedLimit60,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_70"), SignBanSpeedLimit70);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_70"),new BlockItem(SignBanSpeedLimit70,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_80"), SignBanSpeedLimit80);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_80"),new BlockItem(SignBanSpeedLimit80,new Item.Settings().group(RoadDecorationsGROUP)));
+
+
+
+
 
 
 		LOGGER.info("aft's Fabroads Initialized...");
