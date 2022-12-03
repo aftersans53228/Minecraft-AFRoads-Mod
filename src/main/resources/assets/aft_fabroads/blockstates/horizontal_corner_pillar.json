@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aft_fabroads:block/pillar/horizontal_corner_pillar"},
+    "facing=east":  { "model": "aft_fabroads:block/pillar/horizontal_corner_pillar", "y":  90},
+    "facing=south": { "model": "aft_fabroads:block/pillar/horizontal_corner_pillar", "y": 180},
+    "facing=west":  { "model": "aft_fabroads:block/pillar/horizontal_corner_pillar", "y": 270 }
+  }
+}

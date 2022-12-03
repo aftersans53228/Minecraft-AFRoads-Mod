@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_straight",
+  "textures": {
+    "bottom": "block/line_straight",
+    "top": "block/line_straight",
+    "side": "block/line_straight"
+  }
+}
+

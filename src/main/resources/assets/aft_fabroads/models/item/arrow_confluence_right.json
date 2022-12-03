@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/arrow/arrow_confluence_right_mini",
+  "textures": {
+    "bottom": "block/arrow/arrow_confluence_right",
+    "top": "block/arrow/arrow_confluence_right",
+    "side": "block/arrow/arrow_confluence_right"
+  }
+}
+

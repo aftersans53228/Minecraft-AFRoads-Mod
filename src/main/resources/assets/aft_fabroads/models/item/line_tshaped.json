@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_tshaped",
+  "textures": {
+    "bottom": "block/line_tshaped",
+    "top": "block/line_tshaped",
+    "side": "block/line_tshaped"
+  }
+}
+

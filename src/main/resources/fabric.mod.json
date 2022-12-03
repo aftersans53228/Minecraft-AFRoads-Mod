@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "aft_fabroads",
+  "version": "${version}",
+
+  "name": "Aftersans53228's fabric roads",
+  "description": "是的，这只是个fabric上的道路模组.\n有什么问题github敲issue.\n\n一坨使这个模组。",
+  "authors": [
+    "aftersans53228(暗访谈到你家访谈你)"
+  ],
+  "contact": {
+    "homepage": "https://space.bilibili.com/407495850",
+    "sources": "https://github.com/aftersans53228/-A-Minecraft-roads-mod-on-fabricmc"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/aft_fabroads/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.aftersans53228.aft_fabroads.FabroadsMod"
+    ],
+    "client": [
+      "net.aftersans53228.aft_fabroads.FabroadsClientMod"
+    ]
+  },
+  "mixins": [
+    "aft_fabroads.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "~1.19",
+    "java": ">=17",
+    "fabric-key-binding-api-v1": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

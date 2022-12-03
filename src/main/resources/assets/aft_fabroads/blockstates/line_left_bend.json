@@ -1,0 +1,39 @@
+{
+    "variants": {
+        "is_yellow=false,facing=north": {
+          "model": "aft_fabroads:block/line_left_bend"
+          },
+        "is_yellow=false,facing=east": {
+          "model": "aft_fabroads:block/line_left_bend",
+          "y": 90
+          },
+        "is_yellow=false,facing=south": {
+          "model": "aft_fabroads:block/line_left_bend",
+          "y": 180
+          },
+        "is_yellow=false,facing=west": {
+          "model": "aft_fabroads:block/line_left_bend",
+          "y": 270
+          },
+
+
+
+
+        "is_yellow=true,facing=north": {
+          "model": "aft_fabroads:block/line_left_bend_yellow"
+          },
+        "is_yellow=true,facing=east": {
+          "model": "aft_fabroads:block/line_left_bend_yellow",
+          "y": 90
+        },
+        "is_yellow=true,facing=south": {
+          "model": "aft_fabroads:block/line_left_bend_yellow",
+          "y": 180
+          },
+        "is_yellow=true,facing=west": {
+          "model": "aft_fabroads:block/line_left_bend_yellow",
+          "y": 270
+          }
+  }
+}
+

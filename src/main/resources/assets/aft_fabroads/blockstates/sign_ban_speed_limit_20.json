@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "aft_fabroads:block/sign/sign_ban_speed_limit_20"
+    },
+    "facing=east": {
+      "model": "aft_fabroads:block/sign/sign_ban_speed_limit_20",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "aft_fabroads:block/sign/sign_ban_speed_limit_20",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aft_fabroads:block/sign/sign_ban_speed_limit_20",
+      "y": 270
+    }
+  }
+}

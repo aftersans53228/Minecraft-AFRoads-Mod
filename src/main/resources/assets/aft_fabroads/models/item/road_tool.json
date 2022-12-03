@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "aft_fabroads:item/road_tool"
+  },
+  "overrides": [
+
+    {
+      "predicate": {
+        "is_logo_tool": 0
+      },
+      "model": "aft_fabroads:item/road_tool_normal"
+    },
+
+    {
+      "predicate": {
+        "is_logo_tool": 1
+      },
+      "model": "aft_fabroads:item/road_tool_logo"
+    }
+
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_fork_left",
+  "textures": {
+    "bottom": "block/line_fork_left",
+    "top": "block/line_fork_left",
+    "side": "block/line_fork_left"
+  }
+}
+

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "aft_fabroads:block/road_block"
+  }
+}
+

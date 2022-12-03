@@ -1,0 +1,102 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [48, 32],
+	"textures": {
+		"0": "aft_fabroads:block/railings_texture",
+		"particle": "aft_fabroads:block/railings_texture"
+	},
+	"elements": [
+		{
+			"name": "11",
+			"from": [-1, 0, 0],
+			"to": [3, 13, 16],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"east": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"south": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"up": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 1, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "22",
+			"from": [12, -6, 0],
+			"to": [16, 7, 16],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"east": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"south": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"up": {"uv": [0, 8, 1, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 1, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "core",
+			"from": [4, 0, 0],
+			"to": [12, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"east": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"south": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"up": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 2.66667, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "core",
+			"from": [3, 0, 0],
+			"to": [13, 3, 16],
+			"faces": {
+				"north": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"east": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"south": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"up": {"uv": [0, 8, 2.66667, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 2.66667, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"translation": [7.5, 7.25, 0],
+			"scale": [0.63, 0.63, 0.63]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 0.5, 0],
+			"scale": [0.45, 0.45, 0.45]
+		},
+		"head": {
+			"translation": [0, 14.25, -0.25]
+		},
+		"fixed": {
+			"translation": [0, 1, -4.75],
+			"scale": [0.6, 0.6, 0.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "Railings",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}
