@@ -1,13 +1,18 @@
 {
     "variants": {
-      "facing=north,is_turn=false": { "model": "aft_fabroads:block/expressway_railings_type2"},
-      "facing=east,is_turn=false":  { "model": "aft_fabroads:block/expressway_railings_type2", "y":  90},
-      "facing=south,is_turn=false": { "model": "aft_fabroads:block/expressway_railings_type2", "y": 180},
-      "facing=west,is_turn=false":  { "model": "aft_fabroads:block/expressway_railings_type2", "y": 270 },
+      "facing=north,is_turn=0": { "model": "aft_fabroads:block/expressway_railings_type2"},
+      "facing=east,is_turn=0":  { "model": "aft_fabroads:block/expressway_railings_type2", "y":  90},
+      "facing=south,is_turn=0": { "model": "aft_fabroads:block/expressway_railings_type2", "y": 180},
+      "facing=west,is_turn=0":  { "model": "aft_fabroads:block/expressway_railings_type2", "y": 270 },
 
-      "facing=north,is_turn=true": { "model": "aft_fabroads:block/expressway_railings_type2_turn"},
-      "facing=east,is_turn=true":  { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y":  90},
-      "facing=south,is_turn=true": { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y": 180},
-      "facing=west,is_turn=true":  { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y": 270 }
+      "facing=north,is_turn=1": { "model": "aft_fabroads:block/expressway_railings_type2_turn"},
+      "facing=east,is_turn=1":  { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y":  90},
+      "facing=south,is_turn=1": { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y": 180},
+      "facing=west,is_turn=1":  { "model": "aft_fabroads:block/expressway_railings_type2_turn", "y": 270 },
+
+      "facing=north,is_turn=2": { "model": "aft_fabroads:block/expressway_railings_type2_turn2"},
+      "facing=east,is_turn=2":  { "model": "aft_fabroads:block/expressway_railings_type2_turn2", "y":  90},
+      "facing=south,is_turn=2": { "model": "aft_fabroads:block/expressway_railings_type2_turn2", "y": 180},
+      "facing=west,is_turn=2":  { "model": "aft_fabroads:block/expressway_railings_type2_turn2", "y": 270 }
     }
   }

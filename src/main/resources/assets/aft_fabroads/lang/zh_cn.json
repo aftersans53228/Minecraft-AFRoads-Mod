@@ -75,11 +75,11 @@
     "item.aft_fabroads.line_tip": "§8§o使用道路工具更改白色黄色模式。",
     "item.aft_fabroads.arrow_tip": "§8§o使用道路工具更改大小模式。",
     "item.aft_fabroads.railing_tip": "§8§o使用道路工具更改普通和转向模式。",
-    "item.aft_fabroads.manhole": "§8§o仅仅是一个井盖，像个灰色的手抓饼。",
-    "item.aft_fabroads.road_seams": "§8§o...呃，我认为他是个道路接缝？",
-    "item.aft_fabroads.traffic_light_tip": "§8§o我去，这是个交通灯，相隔一段时间自动转换颜色。",
+    "item.aft_fabroads.manhole": "§8§o仅仅是一个井盖，灰色的手抓饼。",
+    "item.aft_fabroads.road_seams": "§8§o我认为他是个道路接缝",
+    "item.aft_fabroads.traffic_light_tip": "§8§o这是个交通灯，相隔一段时间自动转换颜色。",
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
-    "item.aft_fabroads.item.aft_fabroads.stop_tip": "§8§o你先别急。",
+    "item.aft_fabroads.stop_tip": "§8§o你先别急。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模型"

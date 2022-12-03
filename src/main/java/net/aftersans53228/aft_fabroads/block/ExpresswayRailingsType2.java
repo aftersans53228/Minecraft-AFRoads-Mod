@@ -9,6 +9,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -25,11 +26,11 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ExpresswayRailingsType2 extends HorizontalFacingBlock {
-    public static final BooleanProperty is_Turn = BooleanProperty.of("is_turn");
+    public static final IntProperty is_Turn = IntProperty.of("is_turn",0,2);
     public ExpresswayRailingsType2() {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
-        setDefaultState(getStateManager().getDefaultState().with(is_Turn, false));
+        setDefaultState(getStateManager().getDefaultState().with(is_Turn, 0));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
@@ -38,8 +39,11 @@ public class ExpresswayRailingsType2 extends HorizontalFacingBlock {
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem()== FabroadsMod.RoadTool){
-            if (state.get(is_Turn)) world.setBlockState(pos, state.with(is_Turn, false));
-            else world.setBlockState(pos, state.with(is_Turn, true));
+            switch (state.get(is_Turn)) {
+                case 0 -> world.setBlockState(pos, state.with(is_Turn, 1));
+                case 1 -> world.setBlockState(pos, state.with(is_Turn, 2));
+                case 2 -> world.setBlockState(pos, state.with(is_Turn, 0));
+            }
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

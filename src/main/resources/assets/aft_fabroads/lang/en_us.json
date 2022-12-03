@@ -82,7 +82,7 @@
     "item.aft_fabroads.road_seams": "§8§o...I think it is a road seam,right..?",
     "item.aft_fabroads.traffic_light_tip": "§8§oWow,this is a traffic light!Automatically convert colors at intervals.",
     "item.aft_fabroads.mast-pillar_tip": "§8§oUse the Road tool to change the normal/bracket mode..",
-    "item.aft_fabroads.item.aft_fabroads.stop_tip": "§8§oStop and stop.",
+    "item.aft_fabroads.stop_tip": "§8§oStop and stop.",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool model"
