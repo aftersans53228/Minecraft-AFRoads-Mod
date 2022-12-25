@@ -6,21 +6,23 @@ import net.aftersans53228.aft_fabroads.block.arrowblock.*;
 import net.aftersans53228.aft_fabroads.block.pillarBlock.*;
 import net.aftersans53228.aft_fabroads.block.signBlock.*;
 import net.aftersans53228.aft_fabroads.command.AftCommand;
-import net.aftersans53228.aft_fabroads.item.NormalRoadBlock;
-import net.aftersans53228.aft_fabroads.item.RoadDecoration;
-import net.aftersans53228.aft_fabroads.item.RoadStickers;
 import net.aftersans53228.aft_fabroads.item.RoadTool;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -106,11 +108,6 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block SignBanSpeedLimit70 = new SignBanSpeedLimit70();
 	public static final Block SignBanSpeedLimit80 = new SignBanSpeedLimit80();
 
-	//创建物品组
-	public static final ItemGroup NormalRoadBlockGROUP = NormalRoadBlock.get();
-	public static final ItemGroup RoadStickersGROUP = RoadStickers.get();
-	public static final ItemGroup RoadDecorationsGROUP = RoadDecoration.get();
-
 
 
     @Override
@@ -122,195 +119,195 @@ public class FabroadsMod implements ModInitializer {
 		LOGGER.info("aft's Fabroads Initializing...");
 
 		//物品注册
-		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "road_tool"),RoadTool);
+		Registry.register(Registries.ITEM, new Identifier("aft_fabroads", "road_tool"),RoadTool);
 		LOGGER.info("Item Initialized...");
 
 		//普通方块注册
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_block"),RoadBlock);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_block"),new BlockItem(RoadBlock,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_block"),RoadBlock);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_block"),new BlockItem(RoadBlock,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_block_concrete"),RoadBlockConcrete);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_block_concrete"),new BlockItem(RoadBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_block_concrete"),RoadBlockConcrete);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_block_concrete"),new BlockItem(RoadBlockConcrete,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","manhole_cover"),ManholeCover);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","manhole_cover"),new BlockItem(ManholeCover,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","manhole_cover"),ManholeCover);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","manhole_cover"),new BlockItem(ManholeCover,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","manhole_cover_concrete"),ManholeCoverConcrete);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","manhole_cover_concrete"),new BlockItem(ManholeCoverConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","manhole_cover_concrete"),ManholeCoverConcrete);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","manhole_cover_concrete"),new BlockItem(ManholeCoverConcrete,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block"),RoadSeamsBlock);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block"),new BlockItem(RoadSeamsBlock,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_seams_block"),RoadSeamsBlock);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_seams_block"),new BlockItem(RoadSeamsBlock,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new FabricItemSettings()));
 
 		LOGGER.info("Normal blocks Initialized...");
 
 		//地面划线注册
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_straight"),LineStraight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_straight"),new BlockItem(LineStraight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_straight"),LineStraight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_straight"),new BlockItem(LineStraight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_corner"),LineCorner);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_corner"),new BlockItem(LineCorner,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_corner"),LineCorner);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_corner"),new BlockItem(LineCorner,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_tshaped"),LineTshaped);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_tshaped"),new BlockItem(LineTshaped,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_tshaped"),LineTshaped);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_tshaped"),new BlockItem(LineTshaped,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_cross"),LineCross);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_cross"),new BlockItem(LineCross,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_cross"),LineCross);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_cross"),new BlockItem(LineCross,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_diagonal"),LineDiagonal);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_diagonal"),new BlockItem(LineDiagonal,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_diagonal"),LineDiagonal);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_diagonal"),new BlockItem(LineDiagonal,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_left_bend"),LineLeftBend);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_left_bend"),new BlockItem(LineLeftBend,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_left_bend"),LineLeftBend);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_left_bend"),new BlockItem(LineLeftBend,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_right_bend"),LineRightBend);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_right_bend"),new BlockItem(LineRightBend,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_right_bend"),LineRightBend);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_right_bend"),new BlockItem(LineRightBend,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_fork_left"),LineForkLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_fork_left"),new BlockItem(LineForkLeft,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_fork_left"),LineForkLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_fork_left"),new BlockItem(LineForkLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_fork_right"),LineForkRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_fork_right"),new BlockItem(LineForkRight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","line_fork_right"),LineForkRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","line_fork_right"),new BlockItem(LineForkRight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","thick_line_straight"),LineStraightThick);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","thick_line_straight"),new BlockItem(LineStraightThick,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","thick_line_straight"),LineStraightThick);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","thick_line_straight"),new BlockItem(LineStraightThick,new FabricItemSettings()));
 
 		LOGGER.info("Line blocks Initialized...");
 
 		//地面箭头注册
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_forward"),ArrowForward);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_forward"),new BlockItem(ArrowForward,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_forward"),ArrowForward);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_forward"),new BlockItem(ArrowForward,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_left"),ArrowLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_left"),new BlockItem(ArrowLeft,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_left"),ArrowLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_left"),new BlockItem(ArrowLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_right"),ArrowRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_right"),new BlockItem(ArrowRight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_right"),ArrowRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_right"),new BlockItem(ArrowRight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_forward_left"),ArrowForwardLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_forward_left"),new BlockItem(ArrowForwardLeft,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_forward_left"),ArrowForwardLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_forward_left"),new BlockItem(ArrowForwardLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_forward_right"),ArrowForwardRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_forward_right"),new BlockItem(ArrowForwardRight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_forward_right"),ArrowForwardRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_forward_right"),new BlockItem(ArrowForwardRight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_back"),ArrowBack);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_back"),new BlockItem(ArrowBack,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_back"),ArrowBack);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_back"),new BlockItem(ArrowBack,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_left_right"), ArrowLeftRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_left_right"),new BlockItem(ArrowLeftRight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_left_right"), ArrowLeftRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_left_right"),new BlockItem(ArrowLeftRight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_back_left"), ArrowBackLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_back_left"),new BlockItem(ArrowBackLeft,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_back_left"), ArrowBackLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_back_left"),new BlockItem(ArrowBackLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_back_forward"), ArrowBackForward);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_back_forward"),new BlockItem(ArrowBackForward,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_back_forward"), ArrowBackForward);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_back_forward"),new BlockItem(ArrowBackForward,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_confluence_left"), ArrowConfluenceLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_confluence_left"),new BlockItem(ArrowConfluenceLeft,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_confluence_left"), ArrowConfluenceLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_confluence_left"),new BlockItem(ArrowConfluenceLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_confluence_right"), ArrowConfluenceRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_confluence_right"),new BlockItem(ArrowConfluenceRight,new Item.Settings().group(RoadStickersGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","arrow_confluence_right"), ArrowConfluenceRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","arrow_confluence_right"),new BlockItem(ArrowConfluenceRight,new FabricItemSettings()));
 		LOGGER.info("Arrow blocks Initialized...");
 
 		//道路装饰注册
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","railings"), Railings);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","railings"),new BlockItem(Railings,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","railings"), Railings);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","railings"),new BlockItem(Railings,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","pavement_railings"), PavementRailings);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","pavement_railings"),new BlockItem(PavementRailings,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","pavement_railings"), PavementRailings);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","pavement_railings"),new BlockItem(PavementRailings,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_base"), ExpresswayRailingsBase);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_base"),new BlockItem(ExpresswayRailingsBase,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","expressway_railings_base"), ExpresswayRailingsBase);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","expressway_railings_base"),new BlockItem(ExpresswayRailingsBase,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings"), ExpresswayRailings);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings"),new BlockItem(ExpresswayRailings,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","expressway_railings"), ExpresswayRailings);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","expressway_railings"),new BlockItem(ExpresswayRailings,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","expressway_railings_type2"), ExpresswayRailingsType2);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","expressway_railings_type2"),new BlockItem(ExpresswayRailingsType2,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","expressway_railings_type2"), ExpresswayRailingsType2);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","expressway_railings_type2"),new BlockItem(ExpresswayRailingsType2,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_railings"), InsulationPanelsRailings);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_railings"),new BlockItem(InsulationPanelsRailings,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","insulation_panels_railings"), InsulationPanelsRailings);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","insulation_panels_railings"),new BlockItem(InsulationPanelsRailings,new FabricItemSettings()));
 
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","barrier_bar"), BarrierBar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","barrier_bar"),new BlockItem(BarrierBar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","barrier_bar"), BarrierBar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","barrier_bar"),new BlockItem(BarrierBar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","traffic_light"), TrafficLight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","traffic_light"),new BlockItem(TrafficLight,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","traffic_light"), TrafficLight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","traffic_light"),new BlockItem(TrafficLight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","pillar_base"), PillarBase);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","pillar_base"),new BlockItem(PillarBase,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","pillar_base"), PillarBase);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","pillar_base"),new BlockItem(PillarBase,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","horizontal_straight_pillar"), HorizontalStraightPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","horizontal_straight_pillar"),new BlockItem(HorizontalStraightPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","horizontal_straight_pillar"), HorizontalStraightPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","horizontal_straight_pillar"),new BlockItem(HorizontalStraightPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_straight_pillar"), VerticalStraightPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_straight_pillar"),new BlockItem(VerticalStraightPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","vertical_straight_pillar"), VerticalStraightPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","vertical_straight_pillar"),new BlockItem(VerticalStraightPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","horizontal_corner_pillar"), HorizontalCornerPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","horizontal_corner_pillar"),new BlockItem(HorizontalCornerPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","horizontal_corner_pillar"), HorizontalCornerPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","horizontal_corner_pillar"),new BlockItem(HorizontalCornerPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_corner_pillar"), VerticalCornerPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_corner_pillar"),new BlockItem(VerticalCornerPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","vertical_corner_pillar"), VerticalCornerPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","vertical_corner_pillar"),new BlockItem(VerticalCornerPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","horizontal_tshaped_pillar"), HorizontalTshapedPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","horizontal_tshaped_pillar"),new BlockItem(HorizontalTshapedPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","horizontal_tshaped_pillar"), HorizontalTshapedPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","horizontal_tshaped_pillar"),new BlockItem(HorizontalTshapedPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar"), VerticalTshapedPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar"),new BlockItem(VerticalTshapedPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar"), VerticalTshapedPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar"),new BlockItem(VerticalTshapedPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"), VerticalTshapedPillarType2);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"),new BlockItem(VerticalTshapedPillarType2,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"), VerticalTshapedPillarType2);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","vertical_tshaped_pillar_type2"),new BlockItem(VerticalTshapedPillarType2,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_mast_pillar_base"), RoadMastPillarBase);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_mast_pillar_base"),new BlockItem(RoadMastPillarBase,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_mast_pillar_base"), RoadMastPillarBase);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_mast_pillar_base"),new BlockItem(RoadMastPillarBase,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_mast_pillar"), RoadMastPillar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_mast_pillar"),new BlockItem(RoadMastPillar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","road_mast_pillar"), RoadMastPillar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","road_mast_pillar"),new BlockItem(RoadMastPillar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_left"), SignIndicatorDirectionLeft);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_left"),new BlockItem(SignIndicatorDirectionLeft,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_left"), SignIndicatorDirectionLeft);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_left"),new BlockItem(SignIndicatorDirectionLeft,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_right"), SignIndicatorDirectionRight);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_right"),new BlockItem(SignIndicatorDirectionRight,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_right"), SignIndicatorDirectionRight);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_right"),new BlockItem(SignIndicatorDirectionRight,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_car"), SignIndicatorDirectionCar);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_car"),new BlockItem(SignIndicatorDirectionCar,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_car"), SignIndicatorDirectionCar);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_car"),new BlockItem(SignIndicatorDirectionCar,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"), SignIndicatorDirectionBicycle);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"),new BlockItem(SignIndicatorDirectionBicycle,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"), SignIndicatorDirectionBicycle);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_indicator_direction_bicycle"),new BlockItem(SignIndicatorDirectionBicycle,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_no_drive"), SignBanNoDrive);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_no_drive"),new BlockItem(SignBanNoDrive,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_no_drive"), SignBanNoDrive);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_no_drive"),new BlockItem(SignBanNoDrive,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_stop"), SignBanStop);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_stop"),new BlockItem(SignBanStop,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_stop"), SignBanStop);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_stop"),new BlockItem(SignBanStop,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_05"), SignBanSpeedLimit05);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_05"),new BlockItem(SignBanSpeedLimit05,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_05"), SignBanSpeedLimit05);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_05"),new BlockItem(SignBanSpeedLimit05,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_20"), SignBanSpeedLimit20);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_20"),new BlockItem(SignBanSpeedLimit20,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_20"), SignBanSpeedLimit20);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_20"),new BlockItem(SignBanSpeedLimit20,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_30"), SignBanSpeedLimit30);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_30"),new BlockItem(SignBanSpeedLimit30,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_30"), SignBanSpeedLimit30);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_30"),new BlockItem(SignBanSpeedLimit30,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_40"), SignBanSpeedLimit40);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_40"),new BlockItem(SignBanSpeedLimit40,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_40"), SignBanSpeedLimit40);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_40"),new BlockItem(SignBanSpeedLimit40,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_50"), SignBanSpeedLimit50);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_50"),new BlockItem(SignBanSpeedLimit50,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_50"), SignBanSpeedLimit50);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_50"),new BlockItem(SignBanSpeedLimit50,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_60"), SignBanSpeedLimit60);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_60"),new BlockItem(SignBanSpeedLimit60,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_60"), SignBanSpeedLimit60);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_60"),new BlockItem(SignBanSpeedLimit60,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_70"), SignBanSpeedLimit70);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_70"),new BlockItem(SignBanSpeedLimit70,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_70"), SignBanSpeedLimit70);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_70"),new BlockItem(SignBanSpeedLimit70,new FabricItemSettings()));
 
-		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_80"), SignBanSpeedLimit80);
-		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_80"),new BlockItem(SignBanSpeedLimit80,new Item.Settings().group(RoadDecorationsGROUP)));
+		Registry.register(Registries.BLOCK,new Identifier("aft_fabroads","sign_ban_speed_limit_80"), SignBanSpeedLimit80);
+		Registry.register(Registries.ITEM,new Identifier("aft_fabroads","sign_ban_speed_limit_80"),new BlockItem(SignBanSpeedLimit80,new FabricItemSettings()));
 
 		//audio注册
 
@@ -320,7 +317,7 @@ public class FabroadsMod implements ModInitializer {
 		LOGGER.info("aft's Fabroads Initialized...");
 
 		//注册某个方块实体
-		TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
+		TRAFFIC_LIGHT_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
 
 		//command
 		new AftCommand();
@@ -335,13 +332,90 @@ public class FabroadsMod implements ModInitializer {
 			}
 		});
 
+		//普通方块组添加
+		ItemGroupEvents.modifyEntriesEvent(NormalRoadBlockGROUP).register(contect -> {
+			contect.add(new ItemStack(FabroadsMod.RoadBlock));
+			contect.add(new ItemStack(FabroadsMod.ManholeCover));
+			contect.add(new ItemStack(FabroadsMod.ManholeCoverConcrete));
+			contect.add(new ItemStack(FabroadsMod.RoadSeamsBlock));
+			contect.add(new ItemStack(FabroadsMod.RoadSeamsBlockConcrete));
+		});
 
+		//指针方块组添加
+		ItemGroupEvents.modifyEntriesEvent(RoadStickersGROUP).register(contect -> {
+			contect.add(new ItemStack(FabroadsMod.LineStraight));
+			contect.add(new ItemStack(FabroadsMod.LineCorner));
+			contect.add(new ItemStack(FabroadsMod.LineTshaped));
+			contect.add(new ItemStack(FabroadsMod.LineCross));
+			contect.add(new ItemStack(FabroadsMod.LineDiagonal));
+			contect.add(new ItemStack(FabroadsMod.LineLeftBend));
+			contect.add(new ItemStack(FabroadsMod.LineRightBend));
+			contect.add(new ItemStack(FabroadsMod.LineForkLeft));
+			contect.add(new ItemStack(FabroadsMod.LineForkRight));
+			contect.add(new ItemStack(FabroadsMod.LineStraightThick));
 
+			contect.add(new ItemStack(FabroadsMod.ArrowForward));
+			contect.add(new ItemStack(FabroadsMod.ArrowLeft));
+			contect.add(new ItemStack(FabroadsMod.ArrowRight));
+			contect.add(new ItemStack(FabroadsMod.ArrowForwardLeft));
+			contect.add(new ItemStack(FabroadsMod.ArrowForwardRight));
+			contect.add(new ItemStack(FabroadsMod.ArrowLeftRight));
+			contect.add(new ItemStack(FabroadsMod.ArrowBack));
+			contect.add(new ItemStack(FabroadsMod.ArrowBackLeft));
+			contect.add(new ItemStack(FabroadsMod.ArrowBackForward));
+			contect.add(new ItemStack(FabroadsMod.ArrowConfluenceLeft));
+			contect.add(new ItemStack(FabroadsMod.ArrowConfluenceRight));
+		});
 
-
-
-
-
+		//物品方块组添加
+		ItemGroupEvents.modifyEntriesEvent(RoadDecorationsGROUP).register(contect -> {
+			contect.add(new ItemStack(FabroadsMod.Railings));
+			contect.add(new ItemStack(FabroadsMod.BarrierBar));
+			contect.add(new ItemStack(FabroadsMod.PavementRailings));
+			contect.add(new ItemStack(FabroadsMod.ExpresswayRailingsBase));
+			contect.add(new ItemStack(FabroadsMod.ExpresswayRailings));
+			contect.add(new ItemStack(FabroadsMod.ExpresswayRailingsType2));
+			contect.add(new ItemStack(FabroadsMod.InsulationPanelsRailings));
+			contect.add(new ItemStack(FabroadsMod.TrafficLight));
+			contect.add(new ItemStack(FabroadsMod.PillarBase));
+			contect.add(new ItemStack(FabroadsMod.HorizontalStraightPillar));
+			contect.add(new ItemStack(FabroadsMod.VerticalStraightPillar));
+			contect.add(new ItemStack(FabroadsMod.HorizontalCornerPillar));
+			contect.add(new ItemStack(FabroadsMod.VerticalCornerPillar));
+			contect.add(new ItemStack(FabroadsMod.HorizontalTshapedPillar));
+			contect.add(new ItemStack(FabroadsMod.VerticalTshapedPillar));
+			contect.add(new ItemStack(FabroadsMod.VerticalTshapedPillarType2));
+			contect.add(new ItemStack(FabroadsMod.RoadMastPillarBase));
+			contect.add(new ItemStack(FabroadsMod.RoadMastPillar));
+			contect.add(new ItemStack(FabroadsMod.SignIndicatorDirectionLeft));
+			contect.add(new ItemStack(FabroadsMod.SignIndicatorDirectionRight));
+			contect.add(new ItemStack(FabroadsMod.SignIndicatorDirectionCar));
+			contect.add(new ItemStack(FabroadsMod.SignIndicatorDirectionBicycle));
+			contect.add(new ItemStack(FabroadsMod.SignBanNoDrive));
+			contect.add(new ItemStack(FabroadsMod.SignBanStop));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit05));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit20));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit30));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit40));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit50));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit60));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit70));
+			contect.add(new ItemStack(FabroadsMod.SignBanSpeedLimit80));
+		});
 	}
 
+	//普通方块组注册
+	public static final ItemGroup NormalRoadBlockGROUP = FabricItemGroup.builder(new Identifier("aft_fabroads", "normal_road_blocks"))
+			.icon(() -> new ItemStack(FabroadsMod.RoadBlock))
+			.build();
+
+	//指针方块组注册
+	public static final ItemGroup RoadStickersGROUP = FabricItemGroup.builder(new Identifier("aft_fabroads", "normal_road_blocks"))
+			.icon(() -> new ItemStack(FabroadsMod.LineStraight))
+			.build();
+
+	//物品方块类注册
+	public static final ItemGroup RoadDecorationsGROUP = FabricItemGroup.builder(new Identifier("aft_fabroads", "normal_road_blocks"))
+			.icon(() -> new ItemStack(FabroadsMod.Railings))
+			.build();
 }
