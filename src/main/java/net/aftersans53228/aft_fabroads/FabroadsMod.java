@@ -36,13 +36,14 @@ public class FabroadsMod implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("aft_fabroads");
 
 
-	// 如果有半透明纹理，可以将 RenderLayer.getCutout() 替换为 RenderLayer.getTranslucent()。
+
 
 	//交通灯计时器
 	public static int traffic_lights_timer =0 ;
 
 	//方块实体
 	public static BlockEntityType<TrafficLightEntity> TRAFFIC_LIGHT_ENTITY;
+	public static BlockEntityType<TrafficLightPavementEntity> TRAFFIC_LIGHT_PAVEMENT_ENTITY;
 
 	//创建物品
 	public static final Item RoadTool = new RoadTool();
@@ -85,6 +86,7 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block InsulationPanelsRailings = new InsulationPanelsRailings();
 	public static final Block BarrierBar = new BarrierBar();
 	public static final Block TrafficLight = new TrafficLight();
+	public static final Block TrafficLightPavement = new TrafficLightPavement();
 	public static final Block PillarBase = new PillarBase();
 	public static final Block HorizontalStraightPillar = new HorizontalStraightPillar();
 	public static final Block VerticalStraightPillar = new VerticalStraightPillar();
@@ -122,11 +124,9 @@ public class FabroadsMod implements ModInitializer {
 		// 但是，有些东西（比如资源）可能仍然未初始化。
 		// 谨慎行事。
 
-		LOGGER.info("aft's Fabroads Initializing...");
 
 		//物品注册
 		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "road_tool"),RoadTool);
-		LOGGER.info("Item Initialized...");
 
 		//普通方块注册
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_block"),RoadBlock);
@@ -147,7 +147,7 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
 
-		LOGGER.info("Normal blocks Initialized...");
+
 
 		//地面划线注册
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_straight"),LineStraight);
@@ -180,7 +180,7 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","thick_line_straight"),LineStraightThick);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","thick_line_straight"),new BlockItem(LineStraightThick,new Item.Settings().group(RoadStickersGROUP)));
 
-		LOGGER.info("Line blocks Initialized...");
+
 
 		//地面箭头注册
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_forward"),ArrowForward);
@@ -215,7 +215,6 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","arrow_confluence_right"), ArrowConfluenceRight);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","arrow_confluence_right"),new BlockItem(ArrowConfluenceRight,new Item.Settings().group(RoadStickersGROUP)));
-		LOGGER.info("Arrow blocks Initialized...");
 
 		//道路装饰注册
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","railings"), Railings);
@@ -242,6 +241,9 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","traffic_light"), TrafficLight);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","traffic_light"),new BlockItem(TrafficLight,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","traffic_light_pavement"), TrafficLightPavement);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","traffic_light_pavement"),new BlockItem(TrafficLightPavement,new Item.Settings().group(RoadDecorationsGROUP)));
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","pillar_base"), PillarBase);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","pillar_base"),new BlockItem(PillarBase,new Item.Settings().group(RoadDecorationsGROUP)));
@@ -320,10 +322,11 @@ public class FabroadsMod implements ModInitializer {
 
 
 
-		LOGGER.info("aft's Fabroads Initialized...");
+		LOGGER.info("AFRoads Initialized");
 
 		//注册某个方块实体
 		TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
+		TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_pavement_entity", FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
 
 		//command
 		new AftCommand();

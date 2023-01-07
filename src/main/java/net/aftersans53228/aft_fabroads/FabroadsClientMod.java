@@ -30,6 +30,7 @@ public class FabroadsClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         //client Initialize
+        // 如果有半透明纹理，可以将 RenderLayer.getCutout() 替换为 RenderLayer.getTranslucent()。
         //普通方块
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadBlock, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadBlockConcrete, RenderLayer.getCutoutMipped());
@@ -69,6 +70,7 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailingsType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsRailings, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.TrafficLight, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.TrafficLightPavement, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.PillarBase, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.HorizontalStraightPillar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.VerticalStraightPillar, RenderLayer.getCutout());
@@ -78,20 +80,20 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.HorizontalTshapedPillar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadMastPillarBase, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadMastPillar, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionLeft, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionRight, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionCar, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionBicycle, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanNoDrive, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanStop, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit05, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit20, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit30, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit40, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit50, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit60, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit70, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit80, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionLeft, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionRight, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionCar, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignIndicatorDirectionBicycle, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanNoDrive, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanStop, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit05, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit20, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit30, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit40, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit50, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit60, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit70, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.SignBanSpeedLimit80, RenderLayer.getCutout());
 
 
 

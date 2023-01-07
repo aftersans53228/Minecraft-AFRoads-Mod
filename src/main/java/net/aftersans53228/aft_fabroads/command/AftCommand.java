@@ -27,7 +27,7 @@ public class AftCommand {
                             player.sendMessage(new LiteralText("aftersans53228制作"), false);
                             player.sendMessage(new LiteralText("本模组命名空间为aft_fabroads"), false);
                             player.sendMessage(new LiteralText("版本为1.0.1Release"), false);
-                            player.sendMessage(new LiteralText("此版本mod支持mc版本为1.18.x"), false);
+                            player.sendMessage(new LiteralText("此版本mod支持mc版本为1.17.x"), false);
                             player.sendMessage(new LiteralText("mc百科:https://www.mcmod.cn/class/5636.html"), false);
                             player.sendMessage(new LiteralText("modrinth:https://modrinth.com/mod/aftersans53228-fabric-road"), false);
                             player.sendMessage(new LiteralText("code-github:https://github.com/aftersans53228/Minecraft-AFRoads-Mod"), false);

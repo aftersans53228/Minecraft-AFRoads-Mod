@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "aft_fabroads:block/tl_green",
-		"particle": "aft_fabroads:block/tl_green"
+		"1": "aft_fabroads:block/traffic_light/tl_green",
+		"particle": "aft_fabroads:block/traffic_light/tl_green"
 	},
 	"elements": [
 		{
