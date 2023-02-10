@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aft_fabroads:block/structureblock/concrete_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/light_gray_concrete"
+    },
+    "type=top": {
+      "model": "aft_fabroads:block/structureblock/concrete_slab_top"
+    }
+  }
+}

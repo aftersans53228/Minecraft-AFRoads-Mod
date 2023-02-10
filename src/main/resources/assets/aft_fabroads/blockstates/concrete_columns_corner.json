@@ -1,0 +1,21 @@
+
+{
+  "variants": {
+    "facing=north": {
+      "model": "aft_fabroads:block/structureblock/concrete_columns_corner"
+    },
+    "facing=east": {
+      "model": "aft_fabroads:block/structureblock/concrete_columns_corner",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "aft_fabroads:block/structureblock/concrete_columns_corner",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aft_fabroads:block/structureblock/concrete_columns_corner",
+      "y": 270
+    }
+  }
+}
+
