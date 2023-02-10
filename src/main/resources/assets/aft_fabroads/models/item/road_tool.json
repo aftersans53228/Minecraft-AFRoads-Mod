@@ -7,14 +7,14 @@
 
     {
       "predicate": {
-        "is_logo_tool": 0
+        "tool_mode": 0
       },
       "model": "aft_fabroads:item/road_tool_normal"
     },
 
     {
       "predicate": {
-        "is_logo_tool": 1
+        "tool_mode": 1
       },
       "model": "aft_fabroads:item/road_tool_logo"
     }

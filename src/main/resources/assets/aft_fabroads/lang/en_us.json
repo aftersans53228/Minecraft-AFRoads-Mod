@@ -9,6 +9,10 @@
     "block.aft_fabroads.manhole_cover_concrete": "Concrete manhole-cover block",
     "block.aft_fabroads.road_seams_block": "Road Seam",
     "block.aft_fabroads.road_seams_block_concrete": "Concrete Road Seam",
+    "block.aft_fabroads.concrete_slab": "Concrete Slab",
+    "block.aft_fabroads.concrete_stairs": "Concrete Stairs",
+    "block.aft_fabroads.concrete_stairs_smooth": " Smooth Concrete Stairs",
+    "block.aft_fabroads.concrete_columns_corner": " Concrete Columns Corner",
 
     "block.aft_fabroads.line_straight":"Straight line",
     "block.aft_fabroads.line_corner":"Corner Line",
@@ -39,6 +43,12 @@
     "block.aft_fabroads.expressway_railings": "Expressway Railings",
     "block.aft_fabroads.expressway_railings_type2": "Expressway Railings(Type2)",
     "block.aft_fabroads.insulation_panels_railings": "Insulation Panels Railings",
+    "block.aft_fabroads.insulation_panels_gray_part1": "Gray Insulation Panels(Part1)",
+    "block.aft_fabroads.insulation_panels_gray_part2": "Gray Insulation Panels(Part2)",
+    "block.aft_fabroads.insulation_panels_gray_part3": "Gray Insulation Panels(Part3)",
+    "block.aft_fabroads.insulation_panels_gray_part4": "Gray Insulation Panels(Part4)",
+    "block.aft_fabroads.insulation_panels_gray_part5": "Gray Insulation Panels(Part5)",
+    "block.aft_fabroads.insulation_panels_gray_part6": "Gray Insulation Panels(Part6)",
     "block.aft_fabroads.pavement_railings": "Pavement Railings",
     "block.aft_fabroads.traffic_light": "Traffic Light(Road)",
     "block.aft_fabroads.traffic_light_pavement": "Traffic Light(Pavement)",
@@ -74,7 +84,7 @@
 
     "item.aft_fabroads.road_tool.tip1": "§8§oThis is a road tool that adjusts some blocks.",
     "item.aft_fabroads.road_tool.tip2": "§8§oUse the right mouse button to modify the block properties.",
-    "item.aft_fabroads.road_tool.tip3": "§8§oUse special keys to adjust something.",
+    "item.aft_fabroads.road_tool.tip3": "§8§oUse the binding key press to change the modes(WIP)",
     "item.aft_fabroads.road_tool.tip4": "§9§oNo Durability;No Mining Grade;Only as a tool for mod.",
     "item.aft_fabroads.line_tip": "§8§oUse the Road tool to change the white/yellow mode.",
     "item.aft_fabroads.arrow_tip": "§8§oUse the Road tool to change the large/mini mode..",
@@ -84,9 +94,13 @@
     "item.aft_fabroads.traffic_light_tip": "§8§oThis is a traffic light!Automatically convert colors at intervals.",
     "item.aft_fabroads.mast-pillar_tip": "§8§oUse the Road tool to change the normal/bracket mode..",
     "item.aft_fabroads.stop_tip": "§8§oStop and stop.",
+    "item.aft_fabroads.tool2slab_tip":"Please use for TOP/BOTTOM slab to change the state.",
+    "item.aft_fabroads.insulation_gray_tip": "§8§oThis is a part of gray insulation panels.",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
-    "key.aft_fabroads.change_tool_model":"Change road-tool model"
+    "key.aft_fabroads.change_tool_model":"Change road-tool mode",
+    "item.aft_fabroads.tool-mode_connect": "The tool mode has changed to \"Connection Mode\" ",
+    "item.aft_fabroads.tool-mode_normal": "The tool mode has changed to \"Switching Mode\" "
 
 
 

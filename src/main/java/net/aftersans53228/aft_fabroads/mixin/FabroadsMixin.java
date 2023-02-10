@@ -19,7 +19,7 @@ public class FabroadsMixin {/*
 是的现在如你所见
 我他妈根本就没用mixin字节码
 这玩意我也懒得删
-写这一段注释纯属糊弄
+纯属糊弄
 也没用到
 fabric模组示例自带（认真
  */

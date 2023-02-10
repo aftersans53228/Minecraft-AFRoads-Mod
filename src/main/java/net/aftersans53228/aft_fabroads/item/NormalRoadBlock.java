@@ -20,6 +20,10 @@ public class NormalRoadBlock {
                 stacks.add(new ItemStack(FabroadsMod.ManholeCoverConcrete));
                 stacks.add(new ItemStack(FabroadsMod.RoadSeamsBlock));
                 stacks.add(new ItemStack(FabroadsMod.RoadSeamsBlockConcrete));
+                stacks.add(new ItemStack(FabroadsMod.ConcreteSlab));
+                stacks.add(new ItemStack(FabroadsMod.ConcreteStairs));
+                stacks.add(new ItemStack(FabroadsMod.ConcreteStairsSmooth));
+                stacks.add(new ItemStack(FabroadsMod.ConcreteColumnsCorner));
             })
             .build();
 }

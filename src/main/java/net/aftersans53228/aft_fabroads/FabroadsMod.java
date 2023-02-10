@@ -5,6 +5,10 @@ import net.aftersans53228.aft_fabroads.block.*;
 import net.aftersans53228.aft_fabroads.block.arrowblock.*;
 import net.aftersans53228.aft_fabroads.block.pillarBlock.*;
 import net.aftersans53228.aft_fabroads.block.signBlock.*;
+import net.aftersans53228.aft_fabroads.block.structureBlock.ConcreteColumnsCorner;
+import net.aftersans53228.aft_fabroads.block.structureBlock.ConcreteSlab;
+import net.aftersans53228.aft_fabroads.block.structureBlock.ConcreteStairs;
+import net.aftersans53228.aft_fabroads.block.structureBlock.ConcreteStairsSmooth;
 import net.aftersans53228.aft_fabroads.command.AftCommand;
 import net.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import net.aftersans53228.aft_fabroads.item.RoadDecoration;
@@ -13,11 +17,13 @@ import net.aftersans53228.aft_fabroads.item.RoadTool;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -47,6 +53,10 @@ public class FabroadsMod implements ModInitializer {
 
 	//创建物品
 	public static final Item RoadTool = new RoadTool();
+	//方块实体渲染物品
+	public static final Item TrafficLightBulbRed = new Item(new FabricItemSettings());
+	public static final Item TrafficLightBulbGreen = new Item(new FabricItemSettings());
+	public static final Item TrafficLightBulbYellow = new Item(new FabricItemSettings());
 	//创建普通道路方块
 	public static final Block RoadBlock = new RoadBlock();
 	public static final Block RoadBlockConcrete = new RoadBlockConcrete();
@@ -54,6 +64,10 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block ManholeCoverConcrete = new ManholeCoverConcrete();
 	public static final Block RoadSeamsBlock = new RoadSeamsBlock();
 	public static final Block RoadSeamsBlockConcrete = new RoadSeamsBlockConcrete();
+	public static final Block ConcreteSlab = new ConcreteSlab();
+	public static final Block ConcreteStairs = new ConcreteStairs();
+	public static final Block ConcreteStairsSmooth = new ConcreteStairsSmooth();
+	public static final Block ConcreteColumnsCorner = new ConcreteColumnsCorner();
 	//创建划线贴纸
 	public static final Block LineStraight = new LineStraight();
 	public static final Block LineCorner = new LineCorner();
@@ -84,6 +98,13 @@ public class FabroadsMod implements ModInitializer {
 	public static final Block ExpresswayRailings = new ExpresswayRailings();
 	public static final Block ExpresswayRailingsType2 = new ExpresswayRailingsType2();
 	public static final Block InsulationPanelsRailings = new InsulationPanelsRailings();
+	public static final Block InsulationPanelsGrayPart1 = new InsulationPanelsGrayPart1();
+	public static final Block InsulationPanelsGrayPart2 = new InsulationPanelsGrayPart2();
+	public static final Block InsulationPanelsGrayPart3 = new InsulationPanelsGrayPart3();
+	public static final Block InsulationPanelsGrayPart4 = new InsulationPanelsGrayPart4();
+	public static final Block InsulationPanelsGrayPart5 = new InsulationPanelsGrayPart5();
+	public static final Block InsulationPanelsGrayPart6 = new InsulationPanelsGrayPart6();
+
 	public static final Block BarrierBar = new BarrierBar();
 	public static final Block TrafficLight = new TrafficLight();
 	public static final Block TrafficLightPavement = new TrafficLightPavement();
@@ -118,6 +139,8 @@ public class FabroadsMod implements ModInitializer {
 	public static final ItemGroup RoadDecorationsGROUP = RoadDecoration.get();
 
 
+
+
     @Override
 	public void onInitialize() {
 		// 只要 Minecraft 处于 mod-load-ready 状态，此代码就会运行。
@@ -127,6 +150,11 @@ public class FabroadsMod implements ModInitializer {
 
 		//物品注册
 		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "road_tool"),RoadTool);
+
+		//方块实体渲染物品
+		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "traffic_light_greenrender"),TrafficLightBulbGreen);
+		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "traffic_light_redrender"),TrafficLightBulbRed);
+		Registry.register(Registry.ITEM, new Identifier("aft_fabroads", "traffic_light_yellowrender"),TrafficLightBulbYellow);
 
 		//普通方块注册
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_block"),RoadBlock);
@@ -146,6 +174,18 @@ public class FabroadsMod implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","road_seams_block_concrete"),RoadSeamsBlockConcrete);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","road_seams_block_concrete"),new BlockItem(RoadSeamsBlockConcrete,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","concrete_slab"),ConcreteSlab);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","concrete_slab"),new BlockItem(ConcreteSlab,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","concrete_stairs"),ConcreteStairs);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","concrete_stairs"),new BlockItem(ConcreteStairs,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","concrete_stairs_smooth"),ConcreteStairsSmooth);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","concrete_stairs_smooth"),new BlockItem(ConcreteStairsSmooth,new Item.Settings().group(NormalRoadBlockGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","concrete_columns_corner"), ConcreteColumnsCorner);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","concrete_columns_corner"),new BlockItem(ConcreteColumnsCorner,new Item.Settings().group(NormalRoadBlockGROUP)));
 
 
 
@@ -235,6 +275,24 @@ public class FabroadsMod implements ModInitializer {
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_railings"), InsulationPanelsRailings);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_railings"),new BlockItem(InsulationPanelsRailings,new Item.Settings().group(RoadDecorationsGROUP)));
 
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part1"), InsulationPanelsGrayPart1);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part1"),new BlockItem(InsulationPanelsGrayPart1,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part2"), InsulationPanelsGrayPart2);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part2"),new BlockItem(InsulationPanelsGrayPart2,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part3"), InsulationPanelsGrayPart3);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part3"),new BlockItem(InsulationPanelsGrayPart3,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part4"), InsulationPanelsGrayPart4);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part4"),new BlockItem(InsulationPanelsGrayPart4,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part5"), InsulationPanelsGrayPart5);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part5"),new BlockItem(InsulationPanelsGrayPart5,new Item.Settings().group(RoadDecorationsGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","insulation_panels_gray_part6"), InsulationPanelsGrayPart6);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","insulation_panels_gray_part6"),new BlockItem(InsulationPanelsGrayPart6,new Item.Settings().group(RoadDecorationsGROUP)));
+
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","barrier_bar"), BarrierBar);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","barrier_bar"),new BlockItem(BarrierBar,new Item.Settings().group(RoadDecorationsGROUP)));
@@ -322,14 +380,13 @@ public class FabroadsMod implements ModInitializer {
 
 
 
-		LOGGER.info("AFRoads Initialized");
+		LOGGER.info("AFRoads Blocks Initialized");
 
 		//注册某个方块实体
 		TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
 		TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_pavement_entity", FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
 
 		//command
-		new AftCommand();
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
 
 		//红绿灯计时器逻辑
@@ -340,6 +397,8 @@ public class FabroadsMod implements ModInitializer {
 				traffic_lights_timer = 0;
 			}
 		});
+
+		LOGGER.info("AFRoads Misc Initialized");
 
 
 

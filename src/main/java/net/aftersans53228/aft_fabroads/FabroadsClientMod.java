@@ -1,23 +1,27 @@
 package net.aftersans53228.aft_fabroads;
 
+import net.aftersans53228.aft_fabroads.block.TrafficLightEntity;
+import net.aftersans53228.aft_fabroads.block.TrafficLightEntityRender;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.system.CallbackI;
 
 @Environment(EnvType.CLIENT)
 public class FabroadsClientMod implements ClientModInitializer {
-    public static boolean is_logo_tool = false;
+    public static int tool_mode = 0;
 
     private static KeyBinding keyBinding;{
         keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
@@ -38,6 +42,10 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ManholeCoverConcrete, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadSeamsBlock, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.RoadSeamsBlockConcrete, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ConcreteSlab, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ConcreteStairs, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ConcreteStairsSmooth, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ConcreteColumnsCorner, RenderLayer.getCutout());
         //地面划线
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.LineStraight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.LineCorner, RenderLayer.getCutout());
@@ -69,6 +77,12 @@ public class FabroadsClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.ExpresswayRailingsType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsRailings, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart1, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart2, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart3, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart4, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart5, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.InsulationPanelsGrayPart6, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.TrafficLight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.TrafficLightPavement, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(FabroadsMod.PillarBase, RenderLayer.getCutout());
@@ -100,22 +114,25 @@ public class FabroadsClientMod implements ClientModInitializer {
         //运行按键绑定
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
-                is_logo_tool = !is_logo_tool;
-                assert client.player != null;
-                client.player.sendMessage(new LiteralText("道路工具模型已修改为"+is_logo_tool+"."), true);
+                if (tool_mode == 0) {
+                    assert client.player != null;
+                    tool_mode = 1;
+                    client.player.sendMessage(new TranslatableText("item.aft_fabroads.tool-mode_connect"), true);
+                }
+                else{
+                    if(tool_mode == 1){
+                        assert client.player != null;
+                        tool_mode = 0;
+                        client.player.sendMessage(new TranslatableText("item.aft_fabroads.tool-mode_normal"), true);
+                    }
+                }
             }
         });
 
         //注册一个道路工具变种模型
-        FabricModelPredicateProviderRegistry.register(FabroadsMod.RoadTool, new Identifier("is_logo_tool"), (itemStack, clientWorld, livingEntity , i) -> {
-            if(FabroadsClientMod.is_logo_tool){
-                return 1;
-            }
-            else{
-                return 0;
-            }
-        });
+        FabricModelPredicateProviderRegistry.register(FabroadsMod.RoadTool, new Identifier("tool_mode"), (itemStack, clientWorld, livingEntity , i) -> FabroadsClientMod.tool_mode);
 
-        //结束客户端
+        //注册方块实体渲染
+        BlockEntityRendererRegistry.register(FabroadsMod.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
     }
 }

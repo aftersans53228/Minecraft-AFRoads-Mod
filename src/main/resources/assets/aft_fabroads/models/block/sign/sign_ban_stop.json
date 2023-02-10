@@ -3,8 +3,7 @@
 	"textures": {
 		"0": "aft_fabroads:block/sign/sign_ban_background",
 		"1": "aft_fabroads:block/sign/stop",
-		"particle": "aft_fabroads:block/sign/sign_ban_background",
-		"missing": "aft_fabroads:block/white"
+		"particle": "aft_fabroads:block/sign/sign_ban_background"
 	},
 	"elements": [
 		{
@@ -71,7 +70,7 @@
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0.875, 0, 15.4375, 16], "texture": "#1"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
 				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
 				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
@@ -148,6 +147,7 @@
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [-88.09, -4.22, 176.81],

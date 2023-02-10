@@ -9,6 +9,10 @@
     "block.aft_fabroads.manhole_cover_concrete": "混凝土井盖方块",
     "block.aft_fabroads.road_seams_block": "路面接缝",
     "block.aft_fabroads.road_seams_block_concrete": "混凝土路面接缝",
+    "block.aft_fabroads.concrete_slab": "混凝土半砖",
+    "block.aft_fabroads.concrete_stairs": "混凝土阶梯",
+    "block.aft_fabroads.concrete_stairs_smooth": " 混凝土斜面",
+    "block.aft_fabroads.concrete_columns_corner": " 混凝土柱子拐角",
 
     "block.aft_fabroads.line_straight": "直线",
     "block.aft_fabroads.line_corner":"转角线",
@@ -39,6 +43,12 @@
     "block.aft_fabroads.expressway_railings": "快速路护栏(类型1)",
     "block.aft_fabroads.expressway_railings_type2": "快速路护栏(类型2)",
     "block.aft_fabroads.insulation_panels_railings": "隔音板栏杆",
+    "block.aft_fabroads.insulation_panels_gray_part1": "灰色隔音板(部件1)",
+    "block.aft_fabroads.insulation_panels_gray_part2": "灰色隔音板(部件2)",
+    "block.aft_fabroads.insulation_panels_gray_part3": "灰色隔音板(部件3)",
+    "block.aft_fabroads.insulation_panels_gray_part4": "灰色隔音板(部件4)",
+    "block.aft_fabroads.insulation_panels_gray_part5": "灰色隔音板(部件5)",
+    "block.aft_fabroads.insulation_panels_gray_part6": "灰色隔音板(部件6)",
     "block.aft_fabroads.traffic_light": "交通灯(道路)",
     "block.aft_fabroads.traffic_light_pavement": "交通灯(人行道)",
     "block.aft_fabroads.pavement_railings": "路口护栏",
@@ -71,7 +81,7 @@
 
     "item.aft_fabroads.road_tool.tip1": "§8§o这是一个道路工具，用于调整一些方块。",
     "item.aft_fabroads.road_tool.tip2": "§8§o使用右键来修改方块属性。",
-    "item.aft_fabroads.road_tool.tip3": "§8§o使用特殊按键来调整一些东西。",
+    "item.aft_fabroads.road_tool.tip3": "§8§o按下绑定键切换模式（未完成）。",
     "item.aft_fabroads.road_tool.tip4": "§9§o无耐久，无挖掘等级，只作为模组的工具。",
     "item.aft_fabroads.line_tip": "§8§o使用道路工具更改白色黄色模式。",
     "item.aft_fabroads.arrow_tip": "§8§o使用道路工具更改大小模式。",
@@ -81,9 +91,13 @@
     "item.aft_fabroads.traffic_light_tip": "§8§o这是个交通灯，相隔一段时间自动转换颜色。",
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
     "item.aft_fabroads.stop_tip": "§8§o你先别急。",
+    "item.aft_fabroads.tool2slab_tip":"请对单独的上/下半砖使用道路工具修改状态。",
+    "item.aft_fabroads.insulation_gray_tip": "§8§o这是计划的一部分。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
-    "key.aft_fabroads.change_tool_model":"更改道路工具模型"
+    "key.aft_fabroads.change_tool_model":"更改道路工具模式",
+    "item.aft_fabroads.tool-mode_connect": "道路工具模式切换为\"连接模式\" ",
+    "item.aft_fabroads.tool-mode_normal": "道路工具模式切换为\"切换模式\" "
 
 
 
