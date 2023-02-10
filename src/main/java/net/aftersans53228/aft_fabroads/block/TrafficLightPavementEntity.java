@@ -10,11 +10,10 @@ import net.minecraft.world.World;
 
 public class TrafficLightPavementEntity extends BlockEntity {
 
-
     public TrafficLightPavementEntity(BlockPos pos, BlockState state) {
         super(FabroadsMod.TRAFFIC_LIGHT_PAVEMENT_ENTITY, pos, state);
     }
-    public static <TrafficLightPavementEntity> void tick(World world, BlockPos pos, BlockState state, TrafficLightPavementEntity be ,Direction dir) {
+    public static void tick(World world, BlockPos pos, BlockState state, Direction dir) {
         int timer =  FabroadsMod.traffic_lights_timer;
         switch(dir) {
             case SOUTH:

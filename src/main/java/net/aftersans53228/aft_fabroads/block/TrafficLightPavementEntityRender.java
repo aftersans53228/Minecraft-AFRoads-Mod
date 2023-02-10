@@ -16,26 +16,25 @@ import net.minecraft.util.math.Vec3f;
 import static net.minecraft.util.math.Direction.*;
 
 
-public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLightEntity> {
+public class TrafficLightPavementEntityRender implements BlockEntityRenderer<TrafficLightPavementEntity> {
     //获得物品stack
-    private static final ItemStack stackRed = new ItemStack(FabroadsMod.TrafficLightBulbRed, 1);
-    private static final ItemStack stackGreen = new ItemStack(FabroadsMod.TrafficLightBulbGreen, 1);
-    private static final ItemStack stackYellow = new ItemStack(FabroadsMod.TrafficLightBulbYellow, 1);
+    private static final ItemStack stackRed = new ItemStack(FabroadsMod.TrafficLightPavementBulbRed, 1);
+    private static final ItemStack stackGreen = new ItemStack(FabroadsMod.TrafficLightPavementBulbGreen, 1);
 
 
-    public TrafficLightEntityRender(BlockEntityRendererFactory.Context ctx) {}
+    public TrafficLightPavementEntityRender(BlockEntityRendererFactory.Context ctx) {}
 
     @Override
-    public void render(TrafficLightEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    public void render(TrafficLightPavementEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         /*
         //测试用1
         FabroadsMod.LOGGER.info(blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING));
-        FabroadsMod.LOGGER.info(blockEntity.getCachedState().get(TrafficLight.TrafficType));
+        FabroadsMod.LOGGER.info(blockEntity.getCachedState().get(TrafficLightPavement.TrafficType));
          */
         /*
         //测试用2
         System.out.println(blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING));
-        System.out.println(blockEntity.getCachedState().get(TrafficLight.TrafficType));
+        System.out.println(blockEntity.getCachedState().get(TrafficLightPavement.TrafficType));
         */
 
         //调用GL
@@ -66,15 +65,15 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
             }
         }
         //选择渲染类型
-        if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==0){
+        if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==0){
             MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
         }
         else{
-            if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==1){
-                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+            if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==1){
+                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
             }
             else{
-                if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==2){
+                if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==2){
                     MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                 }
                 else{

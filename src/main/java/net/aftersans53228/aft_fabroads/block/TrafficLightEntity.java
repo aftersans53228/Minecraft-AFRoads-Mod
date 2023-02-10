@@ -22,34 +22,28 @@ public class TrafficLightEntity  extends BlockEntity {
             case NORTH:
                 if (timer > 0 & timer < 40) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 1));
-
                     break;
                 }
                 if (timer > 40 & timer <= 620) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 0));
-
                     break;
                 }
                 if (timer > 620) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 2));
-
                     break;
                 }
             case EAST:
             case WEST:
                 if (timer > 40 & timer < 580) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 2));
-
                     break;
                 }
                 if (timer >= 580 & timer <= 620) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 1));
-
                     break;
                 }
                 if (timer > 620) {
                     world.setBlockState(pos, state.with(TrafficLight.TrafficType, 0));
-
                     break;
                 }
         }

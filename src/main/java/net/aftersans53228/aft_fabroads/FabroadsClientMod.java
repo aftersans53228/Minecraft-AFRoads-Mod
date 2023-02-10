@@ -2,6 +2,7 @@ package net.aftersans53228.aft_fabroads;
 
 import net.aftersans53228.aft_fabroads.block.TrafficLightEntity;
 import net.aftersans53228.aft_fabroads.block.TrafficLightEntityRender;
+import net.aftersans53228.aft_fabroads.block.TrafficLightPavementEntityRender;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -134,5 +135,6 @@ public class FabroadsClientMod implements ClientModInitializer {
 
         //注册方块实体渲染
         BlockEntityRendererRegistry.register(FabroadsMod.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
+        BlockEntityRendererRegistry.register(FabroadsMod.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
     }
 }

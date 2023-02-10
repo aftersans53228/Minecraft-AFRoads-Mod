@@ -78,6 +78,6 @@ public  class TrafficLightPavement extends BlockWithEntity implements BlockEntit
         return BlockRenderType.MODEL;
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, FabroadsMod.TRAFFIC_LIGHT_PAVEMENT_ENTITY, (world1, pos, state1, be) -> TrafficLightPavementEntity.tick(world1, pos, state1, be,state.get(FACING)));
+        return checkType(type, FabroadsMod.TRAFFIC_LIGHT_PAVEMENT_ENTITY, (world1, pos, state1, be) -> TrafficLightPavementEntity.tick(world1, pos, state1, state.get(FACING)));
     }
 }
