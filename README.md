@@ -32,9 +32,10 @@ And then download the mod file(without "-source")
 
 ### Way3（Stable version） 
 
-Find my mod on Modrinth.com or Mcmod.cn(A Chinese Minecraft Mods website)
+Find my mod on Modrinth.com or Mcmod.cn(One Chinese Minecraft Mods website)
 
 And you can download stable version.
+
 -------  
 
 ## License    
