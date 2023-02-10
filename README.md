@@ -5,38 +5,38 @@
 
 -------
 
-草，一个在fabric上的mc道路模组
+## Minecraft AFRoads Mod
   
 
 
-## 获取Mod方式  
-### 方法1（获得最新构建）  
+## How to get mod file
+### Way1（Latest version）  
 
-打开Actions  
+Open"Actions"  
 
-选择最新的成功构建的Actions(注意找到你需要的游戏版本)  
+Choose the latest successful build "Actions"(Be careful to find the version of the game you need)  
 
-打开，最下面，Mods点击  
+Click"Mods"(bottom)
 
-下载下来就是一个zip  
-
-解压即可获得最新成功构建的Mod文件  
+Finally,you can download mod zip file and then unzip it.
 
 
-### 方法2（稳定版本）   
+### Way2（Stable version）   
 
-打开release   
+Open"Release"  
 
-选择更新release的模组版本(注意找到你需要的游戏版本)   
+Choose the version of mod.(Be careful to find the version of the game you need)   
 
-下载不带sources后缀的jar模组文件  
+And then download the mod file(without "-source")
 
 
-### 方法3（稳定版本） 
+### Way3（Stable version） 
 
-  在mcmod/modrinth上搜索AFRoads，可以找到模组下载文件
+Find my mod on Modrinth.com or Mcmod.cn(A Chinese Minecraft Mods website)
+
+And you can download stable version.
 -------  
 
-## 许可证  
+## License    
 
 Under the CC0 license  
