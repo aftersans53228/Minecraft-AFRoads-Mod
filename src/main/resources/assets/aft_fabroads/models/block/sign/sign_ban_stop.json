@@ -13,9 +13,9 @@
 			"rotation": {"angle": 45, "axis": "z", "origin": [8, 8, 2]},
 			"faces": {
 				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
-				"east": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
 				"south": {"uv": [5.5, 0.5, 6.5, 15.5], "texture": "#0"},
-				"west": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
 				"up": {"uv": [0.5, 1.5, 1, 2.5], "texture": "#0"},
 				"down": {"uv": [0.5, 1, 1, 2], "texture": "#0"}
 			}
@@ -27,9 +27,9 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 2]},
 			"faces": {
 				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
-				"east": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
 				"south": {"uv": [2, 0.5, 15, 15.5], "texture": "#0"},
-				"west": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
 				"up": {"uv": [0.5, 1.5, 1, 9.5], "texture": "#0"},
 				"down": {"uv": [0.5, 1, 1, 2], "texture": "#0"}
 			}
@@ -44,8 +44,8 @@
 				"east": {"uv": [0.5, 0.5, 1, 15], "texture": "#0"},
 				"south": {"uv": [0.5, 4, 15.5, 11], "texture": "#0"},
 				"west": {"uv": [0.5, 1.5, 1, 2.5], "texture": "#0"},
-				"up": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"down": {"uv": [0, 0, 1, 1], "texture": "#missing"}
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
 			}
 		},
 		{
@@ -58,8 +58,8 @@
 				"east": {"uv": [7, 15, 8, 15.5], "texture": "#0"},
 				"south": {"uv": [0.5, 7, 15.5, 8.5], "texture": "#0"},
 				"west": {"uv": [0.5, 1.5, 1, 2.5], "texture": "#0"},
-				"up": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"down": {"uv": [0, 0, 1, 1], "texture": "#missing"}
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
 			}
 		},
 		{
@@ -177,16 +177,21 @@
 		{
 			"name": "octagon",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [0, 1, 2, 3]
 		},
 		{
 			"name": "image",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [4]
 		},
 		{
 			"name": "octagon",
 			"origin": [8, 8, 8],
+			"color": 0,
 			"children": [5, 6, 7, 8]
-		}, 9]
+		},
+		9
+	]
 }

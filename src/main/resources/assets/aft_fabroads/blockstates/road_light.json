@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "type=0,facing=north": {
+      "model": "aft_fabroads:block/road_light_cold"
+    },
+    "type=0,facing=south": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  180
+    },
+    "type=0,facing=west": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  270
+    },
+    "type=0,facing=east": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  90
+    },
+
+
+
+    "type=1,facing=north": {
+      "model": "aft_fabroads:block/road_light_cold"
+    },
+    "type=1,facing=south": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  180
+    },
+    "type=1,facing=west": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  270
+    },
+    "type=1,facing=east": {
+      "model": "aft_fabroads:block/road_light_cold" , "y":  90
+    }
+  }
+}

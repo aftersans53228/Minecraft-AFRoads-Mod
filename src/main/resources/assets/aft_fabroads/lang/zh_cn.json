@@ -52,6 +52,7 @@
     "block.aft_fabroads.traffic_light": "交通灯(道路)",
     "block.aft_fabroads.traffic_light_pavement": "交通灯(人行道)",
     "block.aft_fabroads.pavement_railings": "路口护栏",
+    "block.aft_fabroads.road_light": "路灯",
     "block.aft_fabroads.pillar_base": "支柱底座",
     "block.aft_fabroads.horizontal_straight_pillar": "直支柱(水平)",
     "block.aft_fabroads.vertical_straight_pillar": "直支柱(垂直)",
@@ -60,6 +61,9 @@
     "block.aft_fabroads.horizontal_tshaped_pillar": "T字型支柱(水平)",
     "block.aft_fabroads.vertical_tshaped_pillar": "T字型支柱(垂直)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "T字型支柱(垂直，类型2)",
+    "block.aft_fabroads.horizontal_straight_pillar_thin": "细直支柱(水平)",
+    "block.aft_fabroads.vertical_straight_pillar_thin": "细直支柱(垂直)",
+    "block.aft_fabroads.vertical_corner_pillar_thin": "细转角支柱(垂直)",
     "block.aft_fabroads.road_mast_pillar_base": "道路门架支柱底座",
     "block.aft_fabroads.road_mast_pillar": "道路门架支柱",
     "block.aft_fabroads.sign_indicator_direction_left": "指示标志：向左",
@@ -76,6 +80,9 @@
     "block.aft_fabroads.sign_ban_speed_limit_60": "限速:60km/h",
     "block.aft_fabroads.sign_ban_speed_limit_70": "限速:70km/h",
     "block.aft_fabroads.sign_ban_speed_limit_80": "限速:80km/h",
+    "block.aft_fabroads.rubbish_bin_metal": "金属垃圾桶",
+    "block.aft_fabroads.trash_bin_green": "绿色垃圾箱",
+    "block.aft_fabroads.road_name_sign": "道路名称标牌",
 
     "item.aft_fabroads.road_tool":"§4§l道路工具",
 
@@ -89,16 +96,27 @@
     "item.aft_fabroads.manhole": "§8§o一个井盖。",
     "item.aft_fabroads.road_seams": "§8§o这是个道路接缝。",
     "item.aft_fabroads.traffic_light_tip": "§8§o这是个交通灯，相隔一段时间自动转换颜色。",
+    "item.aft_fabroads.traffic_light_tip2": "§8§o使用道路工具更改普通或倒数计时器模式。(未完成)",
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
     "item.aft_fabroads.stop_tip": "§8§o你先别急。",
     "item.aft_fabroads.tool2slab_tip":"请对单独的上/下半砖使用道路工具修改状态。",
     "item.aft_fabroads.insulation_gray_tip": "§8§o这是计划的一部分。",
+    "item.aft_fabroads.trash_bin": "§a立 及 甬",
+    "item.aft_fabroads.road_light": "§8§o使用道路工具更改冷暖色光。",
+    "item.aft_fabroads.road_name_sign": "§8§o使用道路工具打开文字设置。",
 
     "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
     "key.aft_fabroads.change_tool_model":"更改道路工具模式",
     "item.aft_fabroads.tool-mode_connect": "道路工具模式切换为\"连接模式\" ",
-    "item.aft_fabroads.tool-mode_normal": "道路工具模式切换为\"切换模式\" "
-
-
-
+    "item.aft_fabroads.tool-mode_normal": "道路工具模式切换为\"切换模式\" ",
+    "text.gui.aft_fabroads.road_name_sign_name": "中文路名",
+    "text.gui.aft_fabroads.road_name_sign_name2": "英文路名",
+    "text.gui.aft_fabroads.road_name_sign_dir_left": "方向：位于左侧",
+    "text.gui.aft_fabroads.road_name_sign_dir_right": "方向：位于右侧",
+    "text.gui.aft_fabroads.road_name_sign_apply": "应用",
+    "text.gui.aft_fabroads.road_name_sign_cancel": "取消",
+    "text.gui.aft_fabroads.road_name_sign_name-tip": "输入道路名称...",
+    "text.gui.aft_fabroads.road_name_sign_name-tip2rd": "输入英语道路名称...",
+    "text.gui.aft_fabroads.render_enable_text_font": "启用文字渲染",
+    "text.gui.aft_fabroads.config_title": "AFRoads客户端设置"
 }

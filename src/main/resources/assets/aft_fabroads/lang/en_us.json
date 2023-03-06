@@ -52,6 +52,7 @@
     "block.aft_fabroads.pavement_railings": "Pavement Railings",
     "block.aft_fabroads.traffic_light": "Traffic Light(Road)",
     "block.aft_fabroads.traffic_light_pavement": "Traffic Light(Pavement)",
+    "block.aft_fabroads.road_light": "Road Light",
     "block.aft_fabroads.pillar_base": "Pillar Base",
     "block.aft_fabroads.horizontal_straight_pillar": "Straight Pillar (Horizontal)",
     "block.aft_fabroads.vertical_straight_pillar": "Straight Pillar (Vertical)",
@@ -60,6 +61,9 @@
     "block.aft_fabroads.horizontal_tshaped_pillar": "Tshaped Pillar (Horizontal)",
     "block.aft_fabroads.vertical_tshaped_pillar": "Tshaped Pillar (Vertical)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "Tshaped Pillar (Vertical,Type2)",
+    "block.aft_fabroads.horizontal_straight_pillar_thin": "Thin Straight Pillar (Horizontal)",
+    "block.aft_fabroads.vertical_straight_pillar_thin": "Thin Straight Pillar (Vertical)",
+    "block.aft_fabroads.vertical_corner_pillar_thin": "Thin Corner Pillar (Vertical)",
     "block.aft_fabroads.road_mast_pillar_base": "Road Mast Pillar Base",
     "block.aft_fabroads.road_mast_pillar": "Road Mast Pillar",
     "block.aft_fabroads.sign_indicator_direction_left": "Indicator Sign:Direction Left",
@@ -76,6 +80,15 @@
     "block.aft_fabroads.sign_ban_speed_limit_60": "Speed Limit:60km/h",
     "block.aft_fabroads.sign_ban_speed_limit_70": "Speed Limit:70km/h",
     "block.aft_fabroads.sign_ban_speed_limit_80": "Speed Limit:80km/h",
+    "block.aft_fabroads.rubbish_bin_metal": "Metal Rubbish Bin",
+    "block.aft_fabroads.trash_bin_green": "Green Trash Bin",
+    "block.aft_fabroads.road_name_sign": "Road Name Sign",
+    "text.gui.aft_fabroads.road_name_sign_dir_left": "Direction:Left Placed",
+    "text.gui.aft_fabroads.road_name_sign_dir_right": "Direction:Right Placed",
+    "text.gui.aft_fabroads.road_name_sign_apply": "Apply",
+    "text.gui.aft_fabroads.road_name_sign_cancel": "Cancel",
+    "text.gui.aft_fabroads.road_name_sign_name-tip": "Road name",
+    "text.gui.aft_fabroads.road_name_sign_name-tip2rd": "2rd Road name",
 
 
 
@@ -92,15 +105,23 @@
     "item.aft_fabroads.manhole": "§8§oJust a manhole cover.",
     "item.aft_fabroads.road_seams": "§8§oIt is a road seam...",
     "item.aft_fabroads.traffic_light_tip": "§8§oThis is a traffic light!Automatically convert colors at intervals.",
+    "item.aft_fabroads.traffic_light_tip2": "§8§oUse the Road tool to change the normal/timer mode..(WIP)",
     "item.aft_fabroads.mast-pillar_tip": "§8§oUse the Road tool to change the normal/bracket mode..",
     "item.aft_fabroads.stop_tip": "§8§oStop and stop.",
     "item.aft_fabroads.tool2slab_tip":"Please use for TOP/BOTTOM slab to change the state.",
     "item.aft_fabroads.insulation_gray_tip": "§8§oThis is a part of gray insulation panels.",
+    "item.aft_fabroads.trash_bin": " ",
+    "item.aft_fabroads.road_light": "§8§oUse the Road tool to change the cold/warm light.",
+    "item.aft_fabroads.road_name_sign": "§8§oUse the Road tool to open text settings.",
 
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road - Keys.",
     "key.aft_fabroads.change_tool_model":"Change road-tool mode",
     "item.aft_fabroads.tool-mode_connect": "The tool mode has changed to \"Connection Mode\" ",
-    "item.aft_fabroads.tool-mode_normal": "The tool mode has changed to \"Switching Mode\" "
+    "item.aft_fabroads.tool-mode_normal": "The tool mode has changed to \"Switching Mode\" ",
+    "text.gui.aft_fabroads.road_name_sign_name": "Road Name",
+    "text.gui.aft_fabroads.road_name_sign_name2": "2RD Name",
+    "text.gui.aft_fabroads.render_enable_text_font": "Enable Text Render",
+    "text.gui.aft_fabroads.config_title": "AFRoads Client Config"
 
 
 

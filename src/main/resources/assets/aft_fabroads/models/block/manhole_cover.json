@@ -7,129 +7,355 @@
 	},
 	"elements": [
 		{
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
+			"from": [0.00442, 0, 0],
+			"to": [16.00442, 15.8, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0.00442, 0, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#particle"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#particle"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#particle"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#particle"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#particle"},
+				"up": {"uv": [11.0625, 15.07422, 16, 16], "texture": "#manhole_cover"},
 				"down": {"uv": [0, 0, 16, 16], "texture": "#particle"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [4.68629, 16, 0],
-			"to": [11.31371, 16.15, 4],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 17, 8]},
+			"from": [5.44071, 15.85, 0.75],
+			"to": [10.56813, 15.9, 3.95],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [4.68629, 16, 0],
-			"to": [11.31371, 16.15, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 17, 8]},
+			"from": [4.74071, 15.85, 1.05],
+			"to": [11.26813, 15.9, 14.95],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [4.68629, 16, 12],
-			"to": [11.31371, 16.15, 16],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 17, 8]},
+			"from": [5.44071, 15.85, 12.05],
+			"to": [10.56813, 15.9, 15.25],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [0, 16, 4.68629],
-			"to": [4, 16.15, 11.31371],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 17, 8]},
+			"from": [0.75442, 15.85, 5.43629],
+			"to": [3.95442, 15.9, 10.56371],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [12, 16, 4.68629],
-			"to": [16, 16.15, 11.31371],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 17, 8]},
+			"from": [11.75442, 15.85, 5.43629],
+			"to": [15.25442, 15.9, 10.56371],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
 			}
 		},
 		{
 			"name": "octagon",
-			"from": [0, 16, 4.68629],
-			"to": [16, 16.15, 11.31371],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 17, 8]},
+			"from": [1.05442, 15.85, 4.73629],
+			"to": [14.95442, 15.9, 11.26371],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.00442, 16.8, 8]},
 			"faces": {
-				"north": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"east": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"south": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"west": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"up": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"},
-				"down": {"uv": [15.05882, 0, 16, 1], "texture": "#manhole_cover"}
+				"north": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"east": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"south": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"west": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"up": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"},
+				"down": {"uv": [15.18382, 1.39453, 15.875, 2.39453], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [5.39071, 15.8, 15.35],
+			"to": [10.61813, 15.95, 16.7],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
+			"faces": {
+				"north": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [12.34254, 15.8, 14.05183],
+			"to": [15.96996, 15.95, 16.00183],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 14.15183]},
+			"faces": {
+				"north": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [14.35442, 15.8, 12.05183],
+			"to": [16.00684, 15.95, 16.00183],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 14.15183]},
+			"faces": {
+				"north": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [13.18382, 8.30078, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [3.64254, 15.8, 15.05183],
+			"to": [12.34496, 15.95, 16.00183],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 14.15183]},
+			"faces": {
+				"north": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [-0.00808, 15.8, 3.64879],
+			"to": [0.94192, 15.95, 12.35121],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.99375, 15.875, 8]},
+			"faces": {
+				"north": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 14.21484, 14.8125, 12.94922], "rotation": 270, "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 14.21484, 14.8125, 12.94922], "rotation": 90, "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [15.04558, 15.8, 3.64879],
+			"to": [16.02058, 15.95, 12.35121],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.99375, 15.875, 8]},
+			"faces": {
+				"north": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 12.94922, 14.8125, 14.21484], "rotation": 270, "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "rotation": 90, "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [5.39071, 15.8, 15.35],
+			"to": [10.61813, 15.95, 16.7],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8.00442, 16.8, 8]},
+			"faces": {
+				"north": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 12.94922, 10.30882, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [0.03888, 15.8, 14.05183],
+			"to": [3.6663, 15.95, 16.00183],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.85259, 15.875, 14.15183]},
+			"faces": {
+				"north": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 12.94922, 10.30882, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [0.002, 15.8, 12.05183],
+			"to": [1.65442, 15.95, 16.00183],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.85259, 15.875, 14.15183]},
+			"faces": {
+				"north": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 8.30078, 13.18382, 14.21484], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [5.39071, 15.8, -0.7],
+			"to": [10.61813, 15.95, 0.65],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8.00442, 16.8, 8]},
+			"faces": {
+				"north": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [12.34254, 15.8, -0.00183],
+			"to": [15.96996, 15.95, 1.94817],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 1.84817]},
+			"faces": {
+				"north": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [14.35442, 15.8, -0.00183],
+			"to": [16.00684, 15.95, 3.94817],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 1.84817]},
+			"faces": {
+				"north": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [13.18382, 14.21484, 14.8125, 8.30078], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [3.64254, 15.8, -0.00183],
+			"to": [12.34496, 15.95, 0.94817],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.15625, 15.875, 1.84817]},
+			"faces": {
+				"north": {"uv": [14.8125, 14.01172, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [14.8125, 13.87891, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [14.8125, 12.94922, 13.37132, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [10.30882, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"},
+				"down": {"uv": [13.37132, 14.21484, 14.8125, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [5.39071, 15.8, -0.7],
+			"to": [10.61813, 15.95, 0.65],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00442, 16.8, 8]},
+			"faces": {
+				"north": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 14.21484, 10.30882, 12.94922], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 14.21484, 13.37132, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [0.03888, 15.8, -0.00183],
+			"to": [3.6663, 15.95, 1.94817],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.85259, 15.875, 1.84817]},
+			"faces": {
+				"north": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 14.21484, 10.30882, 12.94922], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 14.21484, 13.37132, 12.94922], "texture": "#manhole_cover"}
+			}
+		},
+		{
+			"name": "octagon",
+			"from": [0.002, 15.8, -0.00183],
+			"to": [1.65442, 15.95, 3.94817],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.85259, 15.875, 1.84817]},
+			"faces": {
+				"north": {"uv": [13.37132, 14.01172, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"east": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"south": {"uv": [13.37132, 12.94922, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"west": {"uv": [13.37132, 13.87891, 14.8125, 14.21484], "texture": "#manhole_cover"},
+				"up": {"uv": [14.8125, 14.21484, 13.18382, 8.30078], "texture": "#manhole_cover"},
+				"down": {"uv": [14.8125, 14.21484, 13.37132, 12.94922], "texture": "#manhole_cover"}
 			}
 		}
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [90, 0, 0],
-			"translation": [0, 4, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
 		},
 		"thirdperson_lefthand": {
-			"rotation": [90, 0, 0],
-			"translation": [0, 3.75, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
 		},
 		"firstperson_righthand": {
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"firstperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"ground": {
-			"translation": [-5.5, 0, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
 		},
 		"gui": {
-			"rotation": [28.94, 30, 2.57],
-			"scale": [0.5, 0.5, 0.5]
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
 		},
 		"fixed": {
-			"translation": [0, 0, -4],
 			"scale": [0.5, 0.5, 0.5]
 		}
 	},
@@ -140,6 +366,42 @@
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [1, 2, 3, 4, 5, 6]
+		},
+		{
+			"name": "rd",
+			"origin": [14.15183, 15.875, 14.15183],
+			"color": 0,
+			"children": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				{
+					"name": "rd",
+					"origin": [14.15183, 15.875, 14.15183],
+					"color": 0,
+					"children": [13, 14, 15]
+				},
+				{
+					"name": "rd",
+					"origin": [14.15183, 15.875, 14.15183],
+					"color": 0,
+					"children": [
+						16,
+						17,
+						18,
+						19,
+						{
+							"name": "rd",
+							"origin": [14.15183, 15.875, 14.15183],
+							"color": 0,
+							"children": [20, 21, 22]
+						}
+					]
+				}
+			]
 		}
 	]
 }

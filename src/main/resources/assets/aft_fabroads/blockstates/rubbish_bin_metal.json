@@ -1,0 +1,8 @@
+{
+    "variants": {
+      "facing=north": { "model": "aft_fabroads:block/rubbish_bin_metal"},
+      "facing=east":  { "model": "aft_fabroads:block/rubbish_bin_metal", "y":  90},
+      "facing=south": { "model": "aft_fabroads:block/rubbish_bin_metal", "y": 180},
+      "facing=west":  { "model": "aft_fabroads:block/rubbish_bin_metal", "y": 270 }
+    }
+  }

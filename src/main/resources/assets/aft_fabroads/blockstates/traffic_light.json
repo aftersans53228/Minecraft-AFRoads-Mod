@@ -1,48 +1,30 @@
 {
   "variants": {
-    "type=0,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_red"
+    "has_timer=false,facing=north": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light"
     },
-    "type=0,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_red" , "y":  180
+    "has_timer=false,facing=south": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  180
     },
-    "type=0,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_red" , "y":  270
+    "has_timer=false,facing=west": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  270
     },
-    "type=0,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_red" , "y":  90
-    },
-
-
-
-    "type=1,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_yellow"
-    },
-    "type=1,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_yellow" , "y":  180
-    },
-    "type=1,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_yellow" , "y":  270
-    },
-    "type=1,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_yellow" , "y":  90
+    "has_timer=false,facing=east": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  90
     },
 
-
-
-    "type=2,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_green"
+    "has_timer=true,facing=north": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer"
     },
-    "type=2,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_green" , "y":  180
+    "has_timer=true,facing=south": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  180
     },
-
-    "type=2,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_green" , "y":  270
+    "has_timer=true,facing=west": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  270
     },
-
-    "type=2,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_green" , "y":  90
+    "has_timer=true,facing=east": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  90
     }
+
   }
 }

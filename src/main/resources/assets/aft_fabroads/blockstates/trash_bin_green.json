@@ -1,0 +1,13 @@
+{
+    "variants": {
+      "facing=north,cr200j=false": { "model": "aft_fabroads:block/trash_bin_green"},
+      "facing=east,cr200j=false":  { "model": "aft_fabroads:block/trash_bin_green", "y":  90},
+      "facing=south,cr200j=false": { "model": "aft_fabroads:block/trash_bin_green", "y": 180},
+      "facing=west,cr200j=false":  { "model": "aft_fabroads:block/trash_bin_green", "y": 270 },
+
+      "facing=north,cr200j=true": { "model": "aft_fabroads:block/trash_bin_green_cr"},
+      "facing=east,cr200j=true":  { "model": "aft_fabroads:block/trash_bin_green_cr", "y":  90},
+      "facing=south,cr200j=true": { "model": "aft_fabroads:block/trash_bin_green_cr", "y": 180},
+      "facing=west,cr200j=true":  { "model": "aft_fabroads:block/trash_bin_green_cr", "y": 270 }
+    }
+  }

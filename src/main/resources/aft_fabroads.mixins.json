@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.aftersans53228.aft_fabroads.mixin",
+  "package": "io.github.aftersans53228.aft_fabroads.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],
   "client": [
-    "FabroadsMixin"
+    "AFRoadsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
