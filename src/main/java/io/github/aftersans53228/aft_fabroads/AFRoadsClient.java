@@ -7,6 +7,7 @@ import io.github.aftersans53228.aft_fabroads.gui.ConfigScreen;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
 import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
+import io.github.aftersans53228.aft_fabroads.render.RoadNameSignEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.TrafficLightEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.TrafficLightPavementEntityRender;
 import net.fabricmc.api.ClientModInitializer;
@@ -159,6 +160,7 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(AFRoads.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoads.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoads.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
+        BlockEntityRendererRegistry.register(AFRoads.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);
 
         //gui
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:road_name_sign_gui_open"), (client, handler, buf, responseSender) -> {

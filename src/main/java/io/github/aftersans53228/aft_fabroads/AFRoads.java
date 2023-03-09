@@ -450,7 +450,8 @@ public class AFRoads implements ModInitializer {
 			String roadName = buf.readString();//路名
 			String roadName2rd = buf.readString();//路名2
 			NbtCompound roadNames = new NbtCompound();
-			roadNames.putString("road_names",roadName+"`"+roadName2rd);
+			roadNames.putString("road_names",roadName);
+			roadNames.putString("road_name2rd",roadName2rd);
 			boolean dirLeft =buf.readBoolean();//左边
 			boolean dirRight =buf.readBoolean();//右边
 			AFRoads.LOGGER.info(Boolean.toString(dirLeft)+ dirRight);
@@ -458,11 +459,12 @@ public class AFRoads implements ModInitializer {
 			server.execute(()->{
 				BlockEntity blockEntity_ = (player.getEntityWorld().getBlockEntity(signPos));
 				if (blockEntity_ != null && blockEntity_.getType() == ROAD_NAME_SIGN_ENTITY) {
-					blockEntity_.writeNbt(roadNames);
+					NbtCompound nbt = blockEntity_.writeNbt(roadNames);
 					blockEntity_.setCachedState(blockEntity_.getCachedState().with(BooleanProperty.of("dir_left"), dirLeft));
 					blockEntity_.setCachedState(blockEntity_.getCachedState().with(BooleanProperty.of("dir_right"), dirRight));
+					blockEntity_.markDirty();
 
-					AFRoads.LOGGER.info("Set Sign Name Sign "+roadNames + " " + blockEntity_.getCachedState());
+					AFRoads.LOGGER.info("Set Sign Name Sign "+roadNames+" "+roadName2rd+ " " + blockEntity_.getCachedState());
 				} else if (blockEntity_ == null) {
 					AFRoads.LOGGER.info("Invalid Block Entity");
 				}
