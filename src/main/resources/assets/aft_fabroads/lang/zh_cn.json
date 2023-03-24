@@ -24,6 +24,13 @@
     "block.aft_fabroads.line_fork_left": "分叉线(朝左)",
     "block.aft_fabroads.line_fork_right": "分叉线(朝右)",
     "block.aft_fabroads.thick_line_straight":"粗直线",
+    "block.aft_fabroads.line_duo_straight":"双直线",
+    "block.aft_fabroads.thick_line_duo_straight":"粗双直线",
+    "block.aft_fabroads.thick_line_duo_straight_dashed": "粗双直虚线",
+    "block.aft_fabroads.line_decelerate": "减速线",
+    "block.aft_fabroads.line_decelerate_flip": "减速线(翻转)",
+    "block.aft_fabroads.line_decelerate_w_line": "减速线&直线",
+    "block.aft_fabroads.line_decelerate_w_line_flip": "D减速线&直线(翻转)",
 
     "block.aft_fabroads.arrow_forward":"直行箭头",
     "block.aft_fabroads.arrow_left":"左转箭头",

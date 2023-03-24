@@ -24,6 +24,13 @@ public class RoadStickers {
                 stacks.add(new ItemStack(AFRoads.LineForkLeft));
                 stacks.add(new ItemStack(AFRoads.LineForkRight));
                 stacks.add(new ItemStack(AFRoads.LineStraightThick));
+                stacks.add(new ItemStack(AFRoads.LineStraightDuoLine));
+                stacks.add(new ItemStack(AFRoads.LineStraightDuoThick));
+                stacks.add(new ItemStack(AFRoads.LineStraightDuoThickDashed));
+                stacks.add(new ItemStack(AFRoads.LineDecelerateNoLine));
+                stacks.add(new ItemStack(AFRoads.LineDecelerateNoLineFlip));
+                stacks.add(new ItemStack(AFRoads.LineDecelerateWithLine));
+                stacks.add(new ItemStack(AFRoads.LineDecelerateWithLineFlip));
 
                 stacks.add(new ItemStack(AFRoads.ArrowForward));
                 stacks.add(new ItemStack(AFRoads.ArrowLeft));

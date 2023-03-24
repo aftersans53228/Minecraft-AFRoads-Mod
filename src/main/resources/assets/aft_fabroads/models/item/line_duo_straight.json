@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_duo_straight",
+  "textures": {
+    "bottom": "block/line_duo_straight",
+    "top": "block/line_duo_straight",
+    "side": "block/line_duo_straight"
+  }
+}
+

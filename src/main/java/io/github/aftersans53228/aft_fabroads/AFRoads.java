@@ -2,13 +2,13 @@ package io.github.aftersans53228.aft_fabroads;
 
 
 import io.github.aftersans53228.aft_fabroads.block.*;
-import io.github.aftersans53228.aft_fabroads.block.arrowblock.*;
-import io.github.aftersans53228.aft_fabroads.block.pillarBlock.*;
-import io.github.aftersans53228.aft_fabroads.block.signBlock.*;
-import io.github.aftersans53228.aft_fabroads.block.structureBlock.ConcreteColumnsCorner;
-import io.github.aftersans53228.aft_fabroads.block.structureBlock.ConcreteSlab;
-import io.github.aftersans53228.aft_fabroads.block.structureBlock.ConcreteStairs;
-import io.github.aftersans53228.aft_fabroads.block.structureBlock.ConcreteStairsSmooth;
+import io.github.aftersans53228.aft_fabroads.block.stickerblock.*;
+import io.github.aftersans53228.aft_fabroads.block.pillarblock.*;
+import io.github.aftersans53228.aft_fabroads.block.signblock.*;
+import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteColumnsCorner;
+import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteSlab;
+import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairs;
+import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairsSmooth;
 import io.github.aftersans53228.aft_fabroads.command.AftCommand;
 import io.github.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import io.github.aftersans53228.aft_fabroads.item.RoadDecoration;
@@ -21,7 +21,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -34,8 +33,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Objects;
 
 
 public class AFRoads implements ModInitializer {
@@ -86,6 +83,13 @@ public class AFRoads implements ModInitializer {
 	public static final Block LineForkLeft = new LineBlocks();
 	public static final Block LineForkRight = new LineBlocks();
 	public static final Block LineStraightThick = new LineBlocks();
+	public static final Block LineStraightDuoLine = new LineBlocks();
+	public static final Block LineStraightDuoThick = new LineBlocks();
+	public static final Block LineStraightDuoThickDashed = new LineBlocks();
+	public static final Block LineDecelerateWithLine = new LineBlocks();
+	public static final Block LineDecelerateWithLineFlip = new LineBlocks();
+	public static final Block LineDecelerateNoLine = new LineBlocks();
+	public static final Block LineDecelerateNoLineFlip = new LineBlocks();
 	//创建箭头贴纸
 	public static final Block ArrowForward = new ArrowBlocks();
 	public static final Block ArrowLeft = new ArrowBlocks();
@@ -241,6 +245,27 @@ public class AFRoads implements ModInitializer {
 
 		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","thick_line_straight"),LineStraightThick);
 		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","thick_line_straight"),new BlockItem(LineStraightThick,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_duo_straight"),LineStraightDuoLine);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_duo_straight"),new BlockItem(LineStraightDuoLine,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","thick_line_duo_straight"),LineStraightDuoThick);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","thick_line_duo_straight"),new BlockItem(LineStraightDuoThick,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","thick_line_duo_straight_dashed"),LineStraightDuoThickDashed);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","thick_line_duo_straight_dashed"),new BlockItem(LineStraightDuoThickDashed,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_decelerate"),LineDecelerateNoLine);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_decelerate"),new BlockItem(LineDecelerateNoLine,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_decelerate_flip"),LineDecelerateNoLineFlip);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_decelerate_flip"),new BlockItem(LineDecelerateNoLineFlip,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_decelerate_w_line"),LineDecelerateWithLine);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_decelerate_w_line"),new BlockItem(LineDecelerateWithLine,new Item.Settings().group(RoadStickersGROUP)));
+
+		Registry.register(Registry.BLOCK,new Identifier("aft_fabroads","line_decelerate_w_line_flip"),LineDecelerateWithLineFlip);
+		Registry.register(Registry.ITEM,new Identifier("aft_fabroads","line_decelerate_w_line_flip"),new BlockItem(LineDecelerateWithLineFlip,new Item.Settings().group(RoadStickersGROUP)));
 
 
 

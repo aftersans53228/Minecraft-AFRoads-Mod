@@ -1,9 +1,9 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.block.VOXEL.PtlEast;
-import io.github.aftersans53228.aft_fabroads.block.VOXEL.PtlNorth;
-import io.github.aftersans53228.aft_fabroads.block.VOXEL.PtlSouth;
-import io.github.aftersans53228.aft_fabroads.block.VOXEL.PtlWest;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlEast;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlNorth;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlSouth;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlWest;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

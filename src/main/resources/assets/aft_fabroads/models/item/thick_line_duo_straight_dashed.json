@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/thick_line_duo_straight_dashed",
+  "textures": {
+    "bottom": "block/thick_line_duo_straight_dashed",
+    "top": "block/thick_line_duo_straight_dashed",
+    "side": "block/thick_line_duo_straight_dashed"
+  }
+}
+

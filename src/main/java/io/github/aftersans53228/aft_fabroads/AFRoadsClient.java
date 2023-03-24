@@ -1,7 +1,5 @@
 package io.github.aftersans53228.aft_fabroads;
 
-import io.github.aftersans53228.aft_fabroads.block.RoadNameSign;
-import io.github.aftersans53228.aft_fabroads.block.signBlock.SignBanNoDrive;
 import io.github.aftersans53228.aft_fabroads.gui.ConfigGui;
 import io.github.aftersans53228.aft_fabroads.gui.ConfigScreen;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
@@ -19,12 +17,9 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -69,6 +64,13 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineForkLeft, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineForkRight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineStraightThick, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineStraightDuoLine, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineStraightDuoThick, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineStraightDuoThickDashed, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineDecelerateNoLine, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineDecelerateNoLineFlip, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineDecelerateWithLine, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.LineDecelerateWithLineFlip, RenderLayer.getCutout());
         //地面箭头
         BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.ArrowForward, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(AFRoads.ArrowLeft, RenderLayer.getCutout());

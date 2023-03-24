@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_decelerate",
+  "textures": {
+    "top": "block/line_deceleration_n_line",
+    "bottom": "block/line_deceleration_n_line",
+    "side": "block/line_deceleration_n_line"
+  }
+}
+
