@@ -1,8 +1,10 @@
 # Minecraft AFRoads Mod
 
+此模组旧库已经弃用，改为此新库，
+以下详细介绍内容没变过。
 
 -------
-Minecraft AFRoads Mod  add the ability to create roads when in creative mode. Users can utilize several different types of blocks to create a realistic networks of roads with features such as road signs, traffic lights, and elevated roads.
+Minecraft AFRoads Mod utilizes Fabric to add the ability to create roads when in creative mode. Users can utilize several different types of blocks to create a realistic networks of roads with features such as road signs, traffic lights, and elevated roads.
 
 ## Prerequisites
 * Requires the installation of [Fabric API](https://fabricmc.net/use/installer/)
@@ -23,11 +25,11 @@ The following block types are included in this mod:
 
 ## Installation
 
-|    Version     | Instructions                                                                                                                                                                                                                                                                                                                 |
-|:--------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Latest Version | 1. Open the "Actions" tab <br> 2. Click on the most recent build on the left side of the page (taking into account which version of the game you have) <br> 3. Click on the most recent successful push <br> 4. Scroll down to "Artifacts" and click on the link to download the .zip file <br> 5. Unzip the file and enjoy! |
-| Stable Version | 1. Click on "Releases" on the right side of the page <br> 2. Find the most recent release (taking into account which version of the game you have) <br> 3. Click on the dropdown tab "Assets" <br> 4. Click to download the .jar file without "-source"                                                                      |
-| Stable Version | 1. Use the download link and instructions on [modrinth.com](https://modrinth.com/mod/aftersans53228-fabric-road) or [mcmod.cn](https://www.mcmod.cn/class/5636.html)                                                                                                                                                         |                                                                                                                                                     
+Version|Instructions
+| :---: | :---
+| Latest Version | 1. Open the "Actions" tab <br> 2. Click on the most recent build on the left side of the page (taking into account which version of the game you have) <br> 3. Click on the most recent successful push <br> 4. Scroll down to "Artifacts" and click on the link to download the .zip file <br> 5. Unzip the file and enjoy!
+| Stable Version | 1. Click on "Releases" on the right side of the page <br> 2. Find the most recent release (taking into account which version of the game you have) <br> 3. Click on the dropdown tab "Assets" <br> 4. Click to download the .jar file without "-source"
+| Stable Version | 1. Use the download link and instructions on [modrinth.com](https://modrinth.com/mod/aftersans53228-fabric-road) or [mcmod.cn](https://www.mcmod.cn/class/5636.html)
 
 
 After downloading the mod, place the file into the "mods" folder in your Minecraft install folder. Then launch the game with Fabric and enjoy!
