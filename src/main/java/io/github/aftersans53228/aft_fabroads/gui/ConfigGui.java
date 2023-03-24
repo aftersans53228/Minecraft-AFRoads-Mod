@@ -5,7 +5,9 @@ import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WButton;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WToggleButton;
+import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
+import io.github.cottonmc.cotton.gui.widget.data.VerticalAlignment;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -30,7 +32,8 @@ public class ConfigGui extends LightweightGuiDescription {
         root.add(render_enable, 0, 2, 2, 2);
 
         WButton cancel = new WButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_cancel"));
-        root.add(cancel, 19, 18, 4, 3);
+        cancel.setAlignment(HorizontalAlignment.RIGHT);
+        root.add(cancel, 19, 18, 5, 3);
 
         //当取消被按下后关闭gui
         cancel.setOnClick(() -> {

@@ -24,10 +24,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-
-public class LineCorner extends HorizontalFacingBlock {
+public class LineBlocks extends HorizontalFacingBlock {
     public static final BooleanProperty is_Yellow = BooleanProperty.of("is_yellow");
-    public LineCorner() {
+    public LineBlocks() {
         super(FabricBlockSettings.of(Material.STONE).hardness(0.1f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(is_Yellow,false));

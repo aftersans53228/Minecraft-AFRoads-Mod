@@ -80,11 +80,6 @@ public class RoadNameSignGui extends LightweightGuiDescription {
             boolean dirRight = toggleButtonRight.getToggle();
             String roadName = road_name.getText();
             String roadName2 = road_name2rd.getText();
-            if (roadName.contains("`") & roadName2.contains("`")){
-                AFRoads.LOGGER.info("Invalid Road Name!");
-                MinecraftClient.getInstance().setScreen((Screen)null);
-            }
-            else {
                 //output value
                 PacketByteBuf buf = PacketByteBufs.create();
                 buf.writeBlockPos(posofblock);//方块坐标
@@ -96,7 +91,7 @@ public class RoadNameSignGui extends LightweightGuiDescription {
                 AFRoads.LOGGER.info("Close the\"Road Name Sign\"'s gui. ");
                 ClientPlayNetworking.send(new Identifier("aft_fabroads:road_name_sign_gui_close"), buf);
                 MinecraftClient.getInstance().setScreen((Screen) null);
-            }
+
         });
 
 

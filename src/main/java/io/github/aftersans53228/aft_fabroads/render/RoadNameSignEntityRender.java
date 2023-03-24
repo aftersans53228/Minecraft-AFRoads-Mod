@@ -42,6 +42,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         matrices.translate(0,0.60625f,1);
 
         //设置旋转
+        /*
         if (entity.getCachedState().get(Properties.HORIZONTAL_FACING)==SOUTH){
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
         }
@@ -58,6 +59,8 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             AFRoads.LOGGER.info("Unexpected road name sign orientation state.");
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
         }
+        */
+
 
         int lightAbove = WorldRenderer.getLightmapCoordinates(entity.getWorld(), entity.getPos().up());
         this.textRenderer.draw(roadName,0f,1,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);

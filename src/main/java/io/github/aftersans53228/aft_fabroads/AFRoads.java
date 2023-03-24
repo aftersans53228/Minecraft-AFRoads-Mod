@@ -76,28 +76,28 @@ public class AFRoads implements ModInitializer {
 	public static final Block ConcreteStairsSmooth = new ConcreteStairsSmooth();
 	public static final Block ConcreteColumnsCorner = new ConcreteColumnsCorner();
 	//创建划线贴纸
-	public static final Block LineStraight = new LineStraight();
-	public static final Block LineCorner = new LineCorner();
-	public static final Block LineTshaped = new LineTshaped();
-	public static final Block LineCross = new LineCross();
-	public static final Block LineDiagonal = new LineDiagonal();
-	public static final Block LineLeftBend = new LineLeftBend();
-	public static final Block LineRightBend = new LineRightBend();
-	public static final Block LineForkLeft = new LineForkLeft();
-	public static final Block LineForkRight = new LineForkRight();
-	public static final Block LineStraightThick = new LineStraightThick();
+	public static final Block LineStraight = new LineBlocks();
+	public static final Block LineCorner = new LineBlocks();
+	public static final Block LineTshaped = new LineBlocks();
+	public static final Block LineCross = new LineBlocks();
+	public static final Block LineDiagonal = new LineBlocks();
+	public static final Block LineLeftBend = new LineBlocks();
+	public static final Block LineRightBend = new LineBlocks();
+	public static final Block LineForkLeft = new LineBlocks();
+	public static final Block LineForkRight = new LineBlocks();
+	public static final Block LineStraightThick = new LineBlocks();
 	//创建箭头贴纸
-	public static final Block ArrowForward = new ArrowForward();
-	public static final Block ArrowLeft = new ArrowLeft();
-	public static final Block ArrowRight = new ArrowRight();
-	public static final Block ArrowForwardLeft = new ArrowForwardLeft();
-	public static final Block ArrowForwardRight = new ArrowForwardRight();
-	public static final Block ArrowBack = new ArrowBack();
-	public static final Block ArrowLeftRight = new ArrowLeftRight();
-	public static final Block ArrowBackLeft = new ArrowBackLeft();
-	public static final Block ArrowBackForward = new ArrowBackForward();
-	public static final Block ArrowConfluenceLeft = new ArrowConfluenceLeft();
-	public static final Block ArrowConfluenceRight = new ArrowConfluenceRight();
+	public static final Block ArrowForward = new ArrowBlocks();
+	public static final Block ArrowLeft = new ArrowBlocks();
+	public static final Block ArrowRight = new ArrowBlocks();
+	public static final Block ArrowForwardLeft = new ArrowBlocks();
+	public static final Block ArrowForwardRight = new ArrowBlocks();
+	public static final Block ArrowBack = new ArrowBlocks();
+	public static final Block ArrowLeftRight = new ArrowBlocks();
+	public static final Block ArrowBackLeft = new ArrowBlocks();
+	public static final Block ArrowBackForward = new ArrowBlocks();
+	public static final Block ArrowConfluenceLeft = new ArrowBlocks();
+	public static final Block ArrowConfluenceRight = new ArrowBlocks();
 	//创建装饰方块
 	public static final Block Railings = new Railings();
 	public static final Block PavementRailings = new PavementRailings();
@@ -165,7 +165,6 @@ public class AFRoads implements ModInitializer {
 		// 只要 Minecraft 处于 mod-load-ready 状态，此代码就会运行。
 		// 但是，有些东西（比如资源）可能仍然未初始化。
 		// 谨慎行事。
-		//GUI
 
 
 
