@@ -24,6 +24,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public class LineBlocks extends HorizontalFacingBlock {
     public static final BooleanProperty is_Yellow = BooleanProperty.of("is_yellow");
     public LineBlocks() {
@@ -37,7 +39,7 @@ public class LineBlocks extends HorizontalFacingBlock {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== AFRoads.RoadTool){
+        if (player.getMainHandStack().getItem()== RoadTool){
             if (state.get(is_Yellow)) world.setBlockState(pos, state.with(is_Yellow, false));
             else world.setBlockState(pos, state.with(is_Yellow, true));
         }

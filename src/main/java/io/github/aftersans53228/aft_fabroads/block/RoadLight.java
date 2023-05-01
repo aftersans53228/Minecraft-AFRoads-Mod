@@ -28,6 +28,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
     public static final IntProperty LightType = IntProperty.of("type",0,1);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
@@ -44,7 +46,7 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== AFRoads.RoadTool){
+        if (player.getMainHandStack().getItem()== RoadTool){
             if(state.get(LightType)==0) {
                 world.setBlockState(pos, state.with(LightType,1));
 

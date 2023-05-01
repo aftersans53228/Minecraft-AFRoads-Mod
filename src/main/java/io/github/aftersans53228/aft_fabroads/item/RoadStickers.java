@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
 
 public class RoadStickers {
     public static ItemGroup get() {
@@ -12,37 +14,37 @@ public class RoadStickers {
     }
 
     private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier("aft_fabroads", "road_stickers"))
-            .icon(() -> new ItemStack(AFRoads.ArrowForward))
+            .icon(() -> new ItemStack(ArrowForwardItem))
             .appendItems(stacks -> {
-                stacks.add(new ItemStack(AFRoads.LineStraight));
-                stacks.add(new ItemStack(AFRoads.LineCorner));
-                stacks.add(new ItemStack(AFRoads.LineTshaped));
-                stacks.add(new ItemStack(AFRoads.LineCross));
-                stacks.add(new ItemStack(AFRoads.LineDiagonal));
-                stacks.add(new ItemStack(AFRoads.LineLeftBend));
-                stacks.add(new ItemStack(AFRoads.LineRightBend));
-                stacks.add(new ItemStack(AFRoads.LineForkLeft));
-                stacks.add(new ItemStack(AFRoads.LineForkRight));
-                stacks.add(new ItemStack(AFRoads.LineStraightThick));
-                stacks.add(new ItemStack(AFRoads.LineStraightDuoLine));
-                stacks.add(new ItemStack(AFRoads.LineStraightDuoThick));
-                stacks.add(new ItemStack(AFRoads.LineStraightDuoThickDashed));
-                stacks.add(new ItemStack(AFRoads.LineDecelerateNoLine));
-                stacks.add(new ItemStack(AFRoads.LineDecelerateNoLineFlip));
-                stacks.add(new ItemStack(AFRoads.LineDecelerateWithLine));
-                stacks.add(new ItemStack(AFRoads.LineDecelerateWithLineFlip));
+                stacks.add(new ItemStack(LineStraightItem));
+                stacks.add(new ItemStack(LineCornerItem));
+                stacks.add(new ItemStack(LineTshapedItem));
+                stacks.add(new ItemStack(LineCrossItem));
+                stacks.add(new ItemStack(LineDiagonalItem));
+                stacks.add(new ItemStack(LineLeftBendItem));
+                stacks.add(new ItemStack(LineRightBendItem));
+                stacks.add(new ItemStack(LineForkLeftItem));
+                stacks.add(new ItemStack(LineForkRightItem));
+                stacks.add(new ItemStack(LineStraightThickItem));
+                stacks.add(new ItemStack(LineStraightDuoLineItem));
+                stacks.add(new ItemStack(LineStraightDuoThickItem));
+                stacks.add(new ItemStack(LineStraightDuoThickDashedItem));
+                stacks.add(new ItemStack(LineDecelerateNoLineItem));
+                stacks.add(new ItemStack(LineDecelerateNoLineFlipItem));
+                stacks.add(new ItemStack(LineDecelerateWithLineItem));
+                stacks.add(new ItemStack(LineDecelerateWithLineFlipItem));
 
-                stacks.add(new ItemStack(AFRoads.ArrowForward));
-                stacks.add(new ItemStack(AFRoads.ArrowLeft));
-                stacks.add(new ItemStack(AFRoads.ArrowRight));
-                stacks.add(new ItemStack(AFRoads.ArrowForwardLeft));
-                stacks.add(new ItemStack(AFRoads.ArrowForwardRight));
-                stacks.add(new ItemStack(AFRoads.ArrowLeftRight));
-                stacks.add(new ItemStack(AFRoads.ArrowBack));
-                stacks.add(new ItemStack(AFRoads.ArrowBackLeft));
-                stacks.add(new ItemStack(AFRoads.ArrowBackForward));
-                stacks.add(new ItemStack(AFRoads.ArrowConfluenceLeft));
-                stacks.add(new ItemStack(AFRoads.ArrowConfluenceRight));
+                stacks.add(new ItemStack(ArrowForwardItem));
+                stacks.add(new ItemStack(ArrowLeftItem));
+                stacks.add(new ItemStack(ArrowRightItem));
+                stacks.add(new ItemStack(ArrowForwardLeftItem));
+                stacks.add(new ItemStack(ArrowForwardRightItem));
+                stacks.add(new ItemStack(ArrowLeftRightItem));
+                stacks.add(new ItemStack(ArrowBackItem));
+                stacks.add(new ItemStack(ArrowBackLeftItem));
+                stacks.add(new ItemStack(ArrowBackForwardItem));
+                stacks.add(new ItemStack(ArrowConfluenceLeftItem));
+                stacks.add(new ItemStack(ArrowConfluenceRightItem));
             })
             .build();
 }

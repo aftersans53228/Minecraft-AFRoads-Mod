@@ -31,6 +31,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public  class TrafficLight extends BlockWithEntity implements BlockEntityProvider {
     public static final IntProperty TrafficType = IntProperty.of("type",0,2);
     public static final BooleanProperty hasTimer = BooleanProperty.of("has_timer");
@@ -50,7 +52,7 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
         stateManager.add(hasTimer);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== AFRoads.RoadTool){
+        if (player.getMainHandStack().getItem()== RoadTool){
             world.setBlockState(pos, state.with(hasTimer,! state.get(hasTimer)));
             return ActionResult.SUCCESS;
         }

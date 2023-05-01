@@ -36,30 +36,30 @@ public class RoadNameSignGui extends LightweightGuiDescription {
         //标题
         WLabel title = new WLabel(new TranslatableText("block.aft_fabroads.road_name_sign"));
         title.setVerticalAlignment(VerticalAlignment.TOP);
-        root.add(title,10, 0, 12, 3);
+        root.add(title,0, 0, 12, 3);
 
         //内容
         WLabel label = new WLabel(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name"));
-        root.add(label,11, 2, 8, 2);
+        root.add(label,0, 2, 8, 2);
 
 
         WLabel label2 = new WLabel(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name2"));
-        root.add(label2, 11, 7, 8, 2);
+        root.add(label2, 0, 7, 8, 2);
 
         //路牌名输入
         WTextField road_name = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip"));
-        root.add(road_name,8,4,10,2);
+        root.add(road_name,0,4,10,2);
         WTextField road_name2rd = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip2rd"));
-        root.add(road_name2rd,8,9,10,2);
+        root.add(road_name2rd,0,9,10,2);
 
         //放置于左右的方向设置
         WToggleButton toggleButtonLeft = new WToggleButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_dir_left"));
         toggleButtonLeft.setToggle(true);
-        root.add(toggleButtonLeft, 8, 12, 2, 2);
+        root.add(toggleButtonLeft, 0, 12, 2, 2);
 
         WToggleButton toggleButtonRight = new WToggleButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_dir_right"));
         toggleButtonRight.setToggle(true);
-        root.add(toggleButtonRight, 8,14, 2, 2);
+        root.add(toggleButtonRight, 0,14, 2, 2);
 
         //应用和取消
         WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_apply"));

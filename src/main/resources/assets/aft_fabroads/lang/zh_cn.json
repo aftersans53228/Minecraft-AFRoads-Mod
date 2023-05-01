@@ -112,7 +112,7 @@
     "item.aft_fabroads.road_light": "§8§o使用道路工具更改冷暖色光。",
     "item.aft_fabroads.road_name_sign": "§8§o使用道路工具打开文字设置。",
 
-    "key.aft_fabroads.tool_keys": "暗访谈的fabric道路-按键",
+    "key.aft_fabroads.tool_keys": "暗访谈的fabric道路",
     "key.aft_fabroads.change_tool_model":"更改道路工具模式",
     "item.aft_fabroads.tool-mode_connect": "道路工具模式切换为\"连接模式\" ",
     "item.aft_fabroads.tool-mode_normal": "道路工具模式切换为\"切换模式\" ",

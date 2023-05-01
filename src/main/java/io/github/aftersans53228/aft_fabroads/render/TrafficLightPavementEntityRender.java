@@ -4,6 +4,7 @@ import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavementEntity;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavement;
 import io.github.aftersans53228.aft_fabroads.item.RoadTool;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -20,8 +21,8 @@ import static net.minecraft.util.math.Direction.*;
 
 public class TrafficLightPavementEntityRender implements BlockEntityRenderer<TrafficLightPavementEntity> {
     //获得物品stack
-    private static final ItemStack stackRed = new ItemStack(AFRoads.TrafficLightPavementBulbRed, 1);
-    private static final ItemStack stackGreen = new ItemStack(AFRoads.TrafficLightPavementBulbGreen, 1);
+    private static final ItemStack stackRed = new ItemStack(AFRoadsItemRegistry.TrafficLightPavementBulbRed, 1);
+    private static final ItemStack stackGreen = new ItemStack(AFRoadsItemRegistry.TrafficLightPavementBulbGreen, 1);
 
 
     public TrafficLightPavementEntityRender(BlockEntityRendererFactory.Context ctx) {}

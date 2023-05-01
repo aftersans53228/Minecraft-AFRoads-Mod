@@ -4,6 +4,7 @@ import io.github.aftersans53228.aft_fabroads.block.TrafficLight;
 import io.github.aftersans53228.aft_fabroads.block.TrafficLightEntity;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.item.RoadTool;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -22,9 +23,9 @@ import static net.minecraft.util.math.Direction.*;
 @Environment(EnvType.CLIENT)
 public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLightEntity> {
     //获得物品stack
-    private static final ItemStack stackRed = new ItemStack(AFRoads.TrafficLightBulbRed, 1);
-    private static final ItemStack stackGreen = new ItemStack(AFRoads.TrafficLightBulbGreen, 1);
-    private static final ItemStack stackYellow = new ItemStack(AFRoads.TrafficLightBulbYellow, 1);
+    private static final ItemStack stackRed = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbRed, 1);
+    private static final ItemStack stackGreen = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbGreen, 1);
+    private static final ItemStack stackYellow = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbYellow, 1);
 
 
     public TrafficLightEntityRender(BlockEntityRendererFactory.Context ctx) {}

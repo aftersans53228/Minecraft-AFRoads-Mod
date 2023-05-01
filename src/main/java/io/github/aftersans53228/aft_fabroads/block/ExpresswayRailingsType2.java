@@ -24,6 +24,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public class ExpresswayRailingsType2 extends HorizontalFacingBlock {
     public static final IntProperty is_Turn = IntProperty.of("is_turn",0,2);
     public ExpresswayRailingsType2() {
@@ -37,7 +39,7 @@ public class ExpresswayRailingsType2 extends HorizontalFacingBlock {
         stateManager.add(is_Turn);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== AFRoads.RoadTool){
+        if (player.getMainHandStack().getItem()== RoadTool){
             switch (state.get(is_Turn)) {
                 case 0 -> world.setBlockState(pos, state.with(is_Turn, 1));
                 case 1 -> world.setBlockState(pos, state.with(is_Turn, 2));

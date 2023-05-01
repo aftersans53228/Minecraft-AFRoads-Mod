@@ -30,6 +30,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public  class RoadNameSign extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty DirLeft = BooleanProperty.of("dir_left");
@@ -49,7 +51,7 @@ public  class RoadNameSign extends BlockWithEntity implements BlockEntityProvide
         stateManager.add(DirRight);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient() && player.getMainHandStack().getItem()== AFRoads.RoadTool) {
+        if (!world.isClient() && player.getMainHandStack().getItem()== RoadTool) {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeBlockPos(pos);
             ServerPlayNetworking.send((ServerPlayerEntity) player, new Identifier("aft_fabroads:road_name_sign_gui_open"), buf);

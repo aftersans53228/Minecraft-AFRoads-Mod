@@ -12,13 +12,15 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+
 public class ConcreteSlab extends SlabBlock {
     public ConcreteSlab() {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.8f).nonOpaque());
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== AFRoads.RoadTool){
+        if (player.getMainHandStack().getItem()== RoadTool){
             if (state.get(TYPE) == SlabType.BOTTOM) {
                 world.setBlockState(pos, state.with(TYPE, SlabType.TOP));
                 return ActionResult.SUCCESS;

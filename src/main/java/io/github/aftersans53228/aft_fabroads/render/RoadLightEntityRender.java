@@ -1,8 +1,9 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
+import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.RoadLight;
 import io.github.aftersans53228.aft_fabroads.block.RoadLightEntity;
-import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -17,13 +18,12 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.Vec3f;
 
 import static net.minecraft.util.math.Direction.*;
-import static net.minecraft.util.math.Direction.WEST;
 
 @Environment(EnvType.CLIENT)
 public class RoadLightEntityRender implements BlockEntityRenderer<RoadLightEntity> {
     //获得物品stack
-    private static final ItemStack RoadLightBulbCold = new ItemStack(AFRoads.RoadLightBulbCold, 1);
-    private static final ItemStack RoadLightBulbWarm = new ItemStack(AFRoads.RoadLightBulbWarm, 1);
+    private static final ItemStack RoadLightBulbCold = new ItemStack(AFRoadsItemRegistry.RoadLightBulbCold, 1);
+    private static final ItemStack RoadLightBulbWarm = new ItemStack(AFRoadsItemRegistry.RoadLightBulbWarm, 1);
 
     public RoadLightEntityRender(BlockEntityRendererFactory.Context ctx) {}
     @Override

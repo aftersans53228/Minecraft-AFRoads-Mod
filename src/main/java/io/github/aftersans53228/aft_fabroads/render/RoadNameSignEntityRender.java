@@ -30,14 +30,15 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
     @Override
     public void render(RoadNameSignEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         //获取路牌属性
-        NbtCompound nbt_road_name = entity.getNbt_road_name();
-        String roadName = entity.roadName;
-        String roadName2rd = entity.roadName2rd;
+        String roadName =entity.getRoadNames().get(0);
+        String roadName2rd=entity.getRoadNames().get(1);
         Boolean dirLeft = entity.getCachedState().get(BooleanProperty.of("dir_left"));
         Boolean dirRight = entity.getCachedState().get(BooleanProperty.of("dir_right"));
 
         matrices.push();
         //设置坐标
+        matrices.translate(0.5f,0.5f,0.5f);
+        matrices.multiply(Vec3f.NEGATIVE_Z.getDegreesQuaternion(180));
         matrices.scale(0.04f,0.0375f,0);
         matrices.translate(0,0.60625f,1);
 

@@ -1,10 +1,7 @@
 # Minecraft AFRoads Mod
 
-此模组旧库已经弃用，改为此新库，
-以下详细介绍内容没变过。
-
 -------
-Minecraft AFRoads Mod utilizes Fabric to add the ability to create roads when in creative mode. Users can utilize several different types of blocks to create a realistic networks of roads with features such as road signs, traffic lights, and elevated roads.
+Minecraft AFRoads Mod is a Fabric mod to help u create roads when in creative mode. Users can utilize several different types of blocks to create a realistic networks of roads with features such as road signs, traffic lights, and elevated roads.
 
 ## Prerequisites
 * Requires the installation of [Fabric API](https://fabricmc.net/use/installer/)
