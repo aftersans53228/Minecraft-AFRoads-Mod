@@ -7,6 +7,7 @@ import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignWest;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.command.PublishCommand;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -15,10 +16,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class SignIndicatorDirectionCar extends HorizontalFacingBlock {
-
-    public SignIndicatorDirectionCar(){
-        super(FabricBlockSettings.of(Material.STONE).hardness(0.1f));
+public class SignNormal  extends HorizontalFacingBlock {
+    public SignNormal() {
+        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
@@ -45,3 +45,4 @@ public class SignIndicatorDirectionCar extends HorizontalFacingBlock {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
 }
+

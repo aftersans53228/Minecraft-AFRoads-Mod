@@ -1,0 +1,23 @@
+{
+  "multipart": [
+    {   "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_center" }},
+    {   "when": { "north": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar", "uvlock": true }
+    },
+    {   "when": { "east": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar", "y": 90, "uvlock": true }
+    },
+    {   "when": { "south": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar", "y": 180, "uvlock": true }
+    },
+    {   "when": { "west": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar", "y": 270, "uvlock": true }
+    },
+    {   "when": { "up": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar","x":270, "uvlock": true }
+    },
+    {   "when": { "down": "true" },
+      "apply": { "model": "aft_fabroads:block/pillar/smart_pillar_thin_bar","x":90, "uvlock": true }
+    }
+  ]
+}

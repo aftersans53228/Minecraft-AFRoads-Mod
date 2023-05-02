@@ -2,8 +2,12 @@ package io.github.aftersans53228.aft_fabroads.block.pillarblock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -16,7 +20,7 @@ import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
 
 public class SmartPillar extends ConnectingBlock {
     public SmartPillar() {
-        super(0.0625f, FabricBlockSettings.of(Material.STONE).hardness(1.5f) );
+        super(0.125f, FabricBlockSettings.of(Material.STONE).hardness(1.5f) );
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(NORTH, false)
                 .with(EAST, false)
@@ -39,7 +43,7 @@ public class SmartPillar extends ConnectingBlock {
         BlockState blockState5 = world.getBlockState(pos.south());
         BlockState blockState6 = world.getBlockState(pos.west());
         return this.getDefaultState()
-                .with(DOWN, blockState.isOf(this) || blockState.isOf(SmartPillarThin) || isStateInList(blockState,PILLAR_BLOCKS))
+                .with(DOWN, blockState.isOf(this) || blockState.isOf(SmartPillarThin) || isStateInList(blockState,PILLAR_BLOCKS)||blockState.isFullCube(world,pos.down()))
                 .with(UP, blockState2.isOf(this) || blockState2.isOf(SmartPillarThin)|| isStateInList(blockState2,PILLAR_BLOCKS))
                 .with(NORTH, blockState3.isOf(this) || blockState3.isOf(SmartPillarThin)|| isStateInList(blockState3,PILLAR_BLOCKS))
                 .with(EAST, blockState4.isOf(this) || blockState4.isOf(SmartPillarThin)|| isStateInList(blockState4,PILLAR_BLOCKS))
@@ -67,5 +71,9 @@ public class SmartPillar extends ConnectingBlock {
             }
         }
         return false;
+    }
+    @Override
+    public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add( new TranslatableText("item.aft_fabroads.smart_pillar") );
     }
 }

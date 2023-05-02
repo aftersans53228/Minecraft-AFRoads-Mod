@@ -28,15 +28,15 @@ public class ConfigGui extends LightweightGuiDescription {
         //定义root
         WGridPanel root = new WGridPanel(9);
         setFullscreen(true);
-        setTitleColor(0xFFFFFF);
+        setTitleColor(0xFFFFFFFF);
 
 
         root.setInsets(Insets.ROOT_PANEL);
         setRootPanel(root);
 
         WLabel info = new WLabel(new LiteralText(String.format("AFRoads:(%s),version:{%s}.", MOD_ID,MOD_VERSION)));
-        info.setVerticalAlignment(VerticalAlignment.TOP);
-        root.add( info,0, 23, 12, 3);
+        info.setColor(0xFFFFFFFF);
+        root.add(info,0, 23, 12, 3);
 
         WToggleButton render_enable = new WToggleButton(new TranslatableText("text.gui.aft_fabroads.render_enable_text_font"));
         render_enable.setToggle(true);

@@ -10,17 +10,18 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
 import java.util.List;
 
-public class RoadSeamsBlock extends HorizontalFacingBlock {
-    public RoadSeamsBlock() {
+public class RoadFullBlock extends HorizontalFacingBlock {
+    private String type = "";
+    public RoadFullBlock(String type) {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
+        this.type = type;
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
@@ -30,6 +31,19 @@ public class RoadSeamsBlock extends HorizontalFacingBlock {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_seams") );
+        switch (this.type){
+            case "road_block":
+                tooltip.add( new TranslatableText("item.aft_fabroads.road_block") );
+                break;
+            case "road_manhole_cover":
+                tooltip.add( new TranslatableText("item.aft_fabroads.manhole") );
+                break;
+            case "road_seam":
+                tooltip.add( new TranslatableText("item.aft_fabroads.road_seams") );
+                break;
+            default:
+                tooltip.add(new LiteralText(""));
+                break;
+        }
     }
 }

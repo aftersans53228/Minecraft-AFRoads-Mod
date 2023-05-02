@@ -121,12 +121,12 @@ public class AFRoadsBlockRegistry {
     
     
     static{
-         RoadBlock =register("road_block",new RoadBlock());
-         RoadBlockConcrete =register("road_block_concrete",new RoadBlockConcrete());
-         ManholeCover =register("manhole_cover",new ManholeCover());
-         ManholeCoverConcrete =register("manhole_cover_concrete",new ManholeCoverConcrete());
-         RoadSeamsBlock =register("road_seams_block",new RoadSeamsBlock());
-         RoadSeamsBlockConcrete =register("road_seams_block_concrete",new RoadSeamsBlockConcrete());
+         RoadBlock =register("road_block",new RoadFullBlock("road_block"));
+         RoadBlockConcrete =register("road_block_concrete",new RoadFullBlock("road_block"));
+         ManholeCover =register("manhole_cover",new RoadFullBlock("road_manhole_cover"));
+         ManholeCoverConcrete =register("manhole_cover_concrete",new RoadFullBlock("road_manhole_cover"));
+         RoadSeamsBlock =register("road_seams_block",new RoadFullBlock("road_seam"));
+         RoadSeamsBlockConcrete =register("road_seams_block_concrete",new RoadFullBlock("road_seam"));
          ConcreteSlab =register("concrete_slab",new ConcreteSlab());
          ConcreteStairs =register("concrete_stairs",new ConcreteStairs());
          ConcreteStairsSmooth =register("concrete_stairs_smooth",new ConcreteStairsSmooth());
@@ -194,22 +194,22 @@ public class AFRoadsBlockRegistry {
          VerticalStraightPillarThin =registerPillar("vertical_straight_pillar_thin",new VerticalStraightPillarThin());
          VerticalCornerPillarThin =registerPillar("vertical_corner_pillar_thin",new VerticalCornerPillarThin());
          SmartPillar =registerPillar("smart_pillar",new SmartPillar());
-        SmartPillarThin =registerPillar("smart_pillar_thin",new SmartPillar());
+         SmartPillarThin =registerPillar("smart_pillar_thin",new SmartPillar());
 
-         SignIndicatorDirectionLeft =register("sign_indicator_direction_left",new SignIndicatorDirectionLeft());
-         SignIndicatorDirectionRight =register("sign_indicator_direction_right",new SignIndicatorDirectionRight());
-         SignIndicatorDirectionCar =register("sign_indicator_direction_car",new SignIndicatorDirectionCar());
-         SignIndicatorDirectionBicycle =register("sign_indicator_direction_bicycle",new SignIndicatorDirectionBicycle());
-         SignBanNoDrive =register("sign_ban_no_drive",new SignBanNoDrive());
-         SignBanStop =register("sign_ban_stop",new SignBanStop());
-         SignBanSpeedLimit05 =register("sign_ban_speed_limit_05",new SignBanSpeedLimit05());
-         SignBanSpeedLimit20 =register("sign_ban_speed_limit_20",new SignBanSpeedLimit20());
-         SignBanSpeedLimit30 =register("sign_ban_speed_limit_30",new SignBanSpeedLimit30());
-         SignBanSpeedLimit40 =register("sign_ban_speed_limit_40",new SignBanSpeedLimit40());
-         SignBanSpeedLimit50 =register("sign_ban_speed_limit_50",new SignBanSpeedLimit50());
-         SignBanSpeedLimit60 =register("sign_ban_speed_limit_60",new SignBanSpeedLimit60());
-         SignBanSpeedLimit70 =register("sign_ban_speed_limit_70",new SignBanSpeedLimit70());
-         SignBanSpeedLimit80 =register("sign_ban_speed_limit_80",new SignBanSpeedLimit80());
+         SignIndicatorDirectionLeft =register("sign_indicator_direction_left",new SignNormal());
+         SignIndicatorDirectionRight =register("sign_indicator_direction_right",new SignNormal());
+         SignIndicatorDirectionCar =register("sign_indicator_direction_car",new SignNormal());
+         SignIndicatorDirectionBicycle =register("sign_indicator_direction_bicycle",new SignNormal());
+         SignBanNoDrive =register("sign_ban_no_drive",new SignNormal());
+         SignBanStop =register("sign_ban_stop",new SignNormal());
+         SignBanSpeedLimit05 =register("sign_ban_speed_limit_05",new SignNormal());
+         SignBanSpeedLimit20 =register("sign_ban_speed_limit_20",new SignNormal());
+         SignBanSpeedLimit30 =register("sign_ban_speed_limit_30",new SignNormal());
+         SignBanSpeedLimit40 =register("sign_ban_speed_limit_40",new SignNormal());
+         SignBanSpeedLimit50 =register("sign_ban_speed_limit_50",new SignNormal());
+         SignBanSpeedLimit60 =register("sign_ban_speed_limit_60",new SignNormal());
+         SignBanSpeedLimit70 =register("sign_ban_speed_limit_70",new SignNormal());
+         SignBanSpeedLimit80 =register("sign_ban_speed_limit_80",new SignNormal());
 
          RubbishBinMetal =register("rubbish_bin_metal",new RubbishBinMetal());
          TrashBinGreen =register("trash_bin_green",new TrashBinGreen());
