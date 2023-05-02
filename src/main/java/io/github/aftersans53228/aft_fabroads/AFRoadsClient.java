@@ -73,6 +73,8 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateNoLineFlip, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateWithLine, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateWithLineFlip, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LineReversibleLanes, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LineReversibleLanesFlip, RenderLayer.getCutout());
         //地面箭头
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowForward, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowLeft, RenderLayer.getCutout());

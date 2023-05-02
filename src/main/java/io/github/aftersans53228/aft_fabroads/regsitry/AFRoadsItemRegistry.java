@@ -74,6 +74,8 @@ public class AFRoadsItemRegistry {
       public static final Item LineDecelerateWithLineFlipItem ;
       public static final Item LineDecelerateNoLineItem ;
       public static final Item LineDecelerateNoLineFlipItem ;
+      public static final Item LineReversibleLanesItem ;
+      public static final Item LineReversibleLanesFlipItem ;
     //创建箭头贴纸
       public static final Item ArrowForwardItem;
       public static final Item ArrowLeftItem ;
@@ -180,6 +182,8 @@ public class AFRoadsItemRegistry {
          LineDecelerateWithLineFlipItem =registerSticker("line_decelerate_w_line_flip"   ,LineDecelerateWithLineFlip);
          LineDecelerateNoLineItem =registerSticker("line_decelerate", LineDecelerateNoLine);
          LineDecelerateNoLineFlipItem =registerSticker("line_decelerate_flip",LineDecelerateNoLineFlip);
+         LineReversibleLanesItem =registerSticker("line_reversible_lanes",LineReversibleLanes);
+        LineReversibleLanesFlipItem =registerSticker("line_reversible_lanes_flip",LineReversibleLanesFlip);
         //创建箭头贴纸
          ArrowForwardItem =registerSticker("arrow_forward",ArrowForward);
          ArrowLeftItem =registerSticker("arrow_left",ArrowLeft);

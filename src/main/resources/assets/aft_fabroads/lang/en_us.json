@@ -31,6 +31,8 @@
     "block.aft_fabroads.line_decelerate_flip": "Decelerate Line (flip)",
     "block.aft_fabroads.line_decelerate_w_line": "Decelerate Line&Straight Line",
     "block.aft_fabroads.line_decelerate_w_line_flip": "Decelerate Line&Straight Line (flip)",
+    "block.aft_fabroads.line_reversible_lanes": "Reversible Lanes Line",
+    "block.aft_fabroads.line_reversible_lanes_flip": "Reversible Lanes Line (flip)",
 
     "block.aft_fabroads.arrow_forward":"Forward Arrow",
     "block.aft_fabroads.arrow_left":"Left Arrow",

@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/line_reversible_lanes_flip",
+  "textures": {
+    "top": "block/line_reversible_lanes_flip",
+    "bottom": "block/line_reversible_lanes_flip",
+    "side": "block/line_reversible_lanes_flip"
+  }
+}
+

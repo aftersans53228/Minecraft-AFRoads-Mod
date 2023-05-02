@@ -53,6 +53,8 @@ public class AFRoadsBlockRegistry {
     public static final Block LineDecelerateWithLineFlip ;
     public static final Block LineDecelerateNoLine ;
     public static final Block LineDecelerateNoLineFlip ;
+    public static final Block LineReversibleLanes  ;
+    public static final Block LineReversibleLanesFlip  ;
     //创建箭头贴纸
     public static final Block ArrowForward;
     public static final Block ArrowLeft ;
@@ -149,6 +151,8 @@ public class AFRoadsBlockRegistry {
          LineDecelerateWithLineFlip =register("line_decelerate_w_line_flip",new LineBlocks());
          LineDecelerateNoLine =register("line_decelerate",new LineBlocks());
          LineDecelerateNoLineFlip =register("line_decelerate_flip",new LineBlocks());
+         LineReversibleLanes=register("line_reversible_lanes",new LineBlocks());
+         LineReversibleLanesFlip=register("line_reversible_lanes_flip",new LineBlocks());
         //创建箭头贴纸
          ArrowForward =register("arrow_forward",new ArrowBlocks());
          ArrowLeft =register("arrow_left",new ArrowBlocks());
