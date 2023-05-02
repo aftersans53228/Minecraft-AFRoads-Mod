@@ -118,6 +118,8 @@ public class AFRoadsItemRegistry {
       public static final Item HorizontalStraightPillarThinItem ;
       public static final Item VerticalStraightPillarThinItem ;
       public static final Item VerticalCornerPillarThinItem;
+      public static final Item SmartPillarItem;
+      public static final Item SmartPillarThinItem;
 
       public static final Item SignIndicatorDirectionLeftItem ;
       public static final Item SignIndicatorDirectionRightItem;
@@ -222,6 +224,8 @@ public class AFRoadsItemRegistry {
          HorizontalStraightPillarThinItem =registerDecoration("horizontal_straight_pillar_thin",HorizontalStraightPillarThin);
          VerticalStraightPillarThinItem =registerDecoration("vertical_straight_pillar_thin",VerticalStraightPillarThin);
          VerticalCornerPillarThinItem =registerDecoration("vertical_corner_pillar_thin",VerticalCornerPillarThin);
+         SmartPillarItem =registerDecoration("smart_pillar",SmartPillar);
+         SmartPillarThinItem =registerDecoration("smart_pillar_thin",SmartPillarThin);
 
          SignIndicatorDirectionLeftItem =registerDecoration("sign_indicator_direction_left",SignIndicatorDirectionLeft);
          SignIndicatorDirectionRightItem =registerDecoration("sign_indicator_direction_right",SignIndicatorDirectionRight);

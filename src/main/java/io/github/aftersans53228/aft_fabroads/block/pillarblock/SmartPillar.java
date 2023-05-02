@@ -9,6 +9,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
+import java.util.List;
+
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
+
 public class SmartPillar extends ConnectingBlock {
     public SmartPillar() {
         super(0.0625f, FabricBlockSettings.of(Material.STONE).hardness(1.5f) );
@@ -34,12 +39,12 @@ public class SmartPillar extends ConnectingBlock {
         BlockState blockState5 = world.getBlockState(pos.south());
         BlockState blockState6 = world.getBlockState(pos.west());
         return this.getDefaultState()
-                .with(DOWN, blockState.isOf(this) || blockState.isOf(Blocks.CHORUS_FLOWER) || blockState.isOf(Blocks.END_STONE))
-                .with(UP, blockState2.isOf(this) || blockState2.isOf(Blocks.CHORUS_FLOWER))
-                .with(NORTH, blockState3.isOf(this) || blockState3.isOf(Blocks.CHORUS_FLOWER))
-                .with(EAST, blockState4.isOf(this) || blockState4.isOf(Blocks.CHORUS_FLOWER))
-                .with(SOUTH, blockState5.isOf(this) || blockState5.isOf(Blocks.CHORUS_FLOWER))
-                .with(WEST, blockState6.isOf(this) || blockState6.isOf(Blocks.CHORUS_FLOWER));
+                .with(DOWN, blockState.isOf(this) || blockState.isOf(SmartPillarThin) || isStateInList(blockState,PILLAR_BLOCKS))
+                .with(UP, blockState2.isOf(this) || blockState2.isOf(SmartPillarThin)|| isStateInList(blockState2,PILLAR_BLOCKS))
+                .with(NORTH, blockState3.isOf(this) || blockState3.isOf(SmartPillarThin)|| isStateInList(blockState3,PILLAR_BLOCKS))
+                .with(EAST, blockState4.isOf(this) || blockState4.isOf(SmartPillarThin)|| isStateInList(blockState4,PILLAR_BLOCKS))
+                .with(SOUTH, blockState5.isOf(this) || blockState5.isOf(SmartPillarThin)|| isStateInList(blockState5,PILLAR_BLOCKS))
+                .with(WEST, blockState6.isOf(this) || blockState6.isOf(SmartPillarThin)|| isStateInList(blockState6,PILLAR_BLOCKS));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -50,7 +55,17 @@ public class SmartPillar extends ConnectingBlock {
         boolean bl =
                 neighborState.isOf(this) ||
                 neighborState.isOf(Blocks.CHORUS_FLOWER) ||
-                direction == Direction.DOWN && neighborState.isOf(Blocks.END_STONE);
+                isStateInList(neighborState,PILLAR_BLOCKS)
+                ;
         return state.with(FACING_PROPERTIES.get(direction), bl);
+    }
+
+    public boolean isStateInList(BlockState state, List<Block> list){
+        for(Block block :list){
+            if (state.isOf(block)){
+                return true;
+            }
+        }
+        return false;
     }
 }

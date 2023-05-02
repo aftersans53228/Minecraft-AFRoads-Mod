@@ -45,6 +45,8 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(VerticalCornerPillarThinItem));
                 stacks.add(new ItemStack(RoadMastPillarBaseItem));
                 stacks.add(new ItemStack(RoadMastPillarItem));
+                stacks.add(new ItemStack(SmartPillarItem));
+                stacks.add(new ItemStack(SmartPillarThinItem));
                 stacks.add(new ItemStack(SignIndicatorDirectionLeftItem));
                 stacks.add(new ItemStack(SignIndicatorDirectionRightItem));
                 stacks.add(new ItemStack(SignIndicatorDirectionCarItem));

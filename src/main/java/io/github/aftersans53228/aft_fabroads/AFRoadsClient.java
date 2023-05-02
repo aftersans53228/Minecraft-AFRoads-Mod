@@ -115,6 +115,8 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(VerticalCornerPillarThin, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RoadMastPillarBase, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RoadMastPillar, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SmartPillar, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SmartPillarThin, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SignIndicatorDirectionLeft, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SignIndicatorDirectionRight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SignIndicatorDirectionCar, RenderLayer.getCutout());

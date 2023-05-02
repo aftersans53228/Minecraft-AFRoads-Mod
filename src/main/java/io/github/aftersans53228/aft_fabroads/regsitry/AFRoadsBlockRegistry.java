@@ -20,6 +20,10 @@ public class AFRoadsBlockRegistry {
     private static Block register(String id, Block block) {
         return (Block)Registry.register(Registry.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
     }
+    private static Block registerPillar(String id, Block block) {
+        AFRoadsStatics.PILLAR_BLOCKS.add(block);
+        return (Block)Registry.register(Registry.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
+    }
 
     public static final Block RoadBlock;
     public static final Block RoadBlockConcrete;
@@ -93,6 +97,8 @@ public class AFRoadsBlockRegistry {
     public static final Block HorizontalStraightPillarThin ;
     public static final Block VerticalStraightPillarThin ;
     public static final Block VerticalCornerPillarThin;
+    public static final Block SmartPillar;
+    public static final Block SmartPillarThin;
 
     public static final Block SignIndicatorDirectionLeft ;
     public static final Block SignIndicatorDirectionRight;
@@ -174,19 +180,21 @@ public class AFRoadsBlockRegistry {
          TrafficLightPavement =register("traffic_light_pavement",new TrafficLightPavement());
          RoadLight =register("road_light",new RoadLight());
 
-         PillarBase =register("pillar_base",new PillarBase());
-         HorizontalStraightPillar =register("horizontal_straight_pillar",new HorizontalStraightPillar());
-         VerticalStraightPillar =register("vertical_straight_pillar",new VerticalStraightPillar());
-         HorizontalCornerPillar =register("horizontal_corner_pillar",new HorizontalCornerPillar());
-         VerticalCornerPillar =register("vertical_corner_pillar",new VerticalCornerPillar());
-         HorizontalTshapedPillar =register("horizontal_tshaped_pillar",new HorizontalTshapedPillar());
-         VerticalTshapedPillar =register("vertical_tshaped_pillar",new VerticalTshapedPillar());
-         VerticalTshapedPillarType2 =register("vertical_tshaped_pillar_type2",new VerticalTshapedPillarType2());
-         RoadMastPillarBase =register("road_mast_pillar_base",new RoadMastPillarBase());
-         RoadMastPillar =register("road_mast_pillar",new RoadMastPillar());
-         HorizontalStraightPillarThin =register("horizontal_straight_pillar_thin",new HorizontalStraightPillarThin());
-         VerticalStraightPillarThin =register("vertical_straight_pillar_thin",new VerticalStraightPillarThin());
-         VerticalCornerPillarThin =register("vertical_corner_pillar_thin",new VerticalCornerPillarThin());
+         PillarBase =registerPillar("pillar_base",new PillarBase());
+         HorizontalStraightPillar =registerPillar("horizontal_straight_pillar",new HorizontalStraightPillar());
+         VerticalStraightPillar =registerPillar("vertical_straight_pillar",new VerticalStraightPillar());
+         HorizontalCornerPillar =registerPillar("horizontal_corner_pillar",new HorizontalCornerPillar());
+         VerticalCornerPillar =registerPillar("vertical_corner_pillar",new VerticalCornerPillar());
+         HorizontalTshapedPillar =registerPillar("horizontal_tshaped_pillar",new HorizontalTshapedPillar());
+         VerticalTshapedPillar =registerPillar("vertical_tshaped_pillar",new VerticalTshapedPillar());
+         VerticalTshapedPillarType2 =registerPillar("vertical_tshaped_pillar_type2",new VerticalTshapedPillarType2());
+         RoadMastPillarBase =registerPillar("road_mast_pillar_base",new RoadMastPillarBase());
+         RoadMastPillar =registerPillar("road_mast_pillar",new RoadMastPillar());
+         HorizontalStraightPillarThin =registerPillar("horizontal_straight_pillar_thin",new HorizontalStraightPillarThin());
+         VerticalStraightPillarThin =registerPillar("vertical_straight_pillar_thin",new VerticalStraightPillarThin());
+         VerticalCornerPillarThin =registerPillar("vertical_corner_pillar_thin",new VerticalCornerPillarThin());
+         SmartPillar =registerPillar("smart_pillar",new SmartPillar());
+        SmartPillarThin =registerPillar("smart_pillar_thin",new SmartPillar());
 
          SignIndicatorDirectionLeft =register("sign_indicator_direction_left",new SignIndicatorDirectionLeft());
          SignIndicatorDirectionRight =register("sign_indicator_direction_right",new SignIndicatorDirectionRight());
