@@ -46,6 +46,9 @@
     "block.aft_fabroads.arrow_confluence_left":"向左汇流箭头",
     "block.aft_fabroads.arrow_confluence_right":"向右汇流箭头",
 
+    "block.aft_fabroads.icon_decelerate_sticker":"减速标志",
+    "block.aft_fabroads.icon_stop_sticker":"停车标志",
+
     "block.aft_fabroads.railings": "护栏",
     "block.aft_fabroads.barrier_bar": "屏障杆",
     "block.aft_fabroads.expressway_railings_base": "底座",

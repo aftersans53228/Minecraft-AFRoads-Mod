@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/icon/icon_decelerate_sticker",
+  "textures": {
+    "bottom": "block/icon/icon_decelerate_sticker",
+    "top": "block/icon/icon_decelerate_sticker",
+    "side": "block/icon/icon_decelerate_sticker"
+  }
+}
+

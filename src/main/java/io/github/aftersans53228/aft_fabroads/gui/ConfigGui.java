@@ -34,7 +34,7 @@ public class ConfigGui extends LightweightGuiDescription {
         root.setInsets(Insets.ROOT_PANEL);
         setRootPanel(root);
 
-        WLabel info = new WLabel(new LiteralText(String.format("AFRoads:(%s),version:{%s}.", MOD_ID,MOD_VERSION)));
+        WLabel info = new WLabel(new LiteralText(String.format("AFRoads:(%s) version:{%s}.", MOD_ID,MOD_VERSION)));
         info.setColor(0xFFFFFFFF);
         root.add(info,0, 23, 12, 3);
 
@@ -47,7 +47,7 @@ public class ConfigGui extends LightweightGuiDescription {
         root.add(cancel, 0, 18, 5, 3);
 
         WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_apply"));
-        root.add(apply, 0, 21, 5, 3);
+        root.add(apply, 0, 20, 5, 3);
 
         //当取消被按下后关闭gui
         cancel.setOnClick(() -> {

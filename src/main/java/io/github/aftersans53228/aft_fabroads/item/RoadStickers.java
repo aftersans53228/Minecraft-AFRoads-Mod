@@ -47,6 +47,9 @@ public class RoadStickers {
                 stacks.add(new ItemStack(ArrowBackForwardItem));
                 stacks.add(new ItemStack(ArrowConfluenceLeftItem));
                 stacks.add(new ItemStack(ArrowConfluenceRightItem));
+
+                stacks.add(new ItemStack(IconDecelerateStickerItem));
+                stacks.add(new ItemStack(IconStopStickerItem));
             })
             .build();
 }

@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/icon/icon_stop_sticker",
+  "textures": {
+    "bottom": "block/icon/icon_stop_sticker",
+    "top": "block/icon/icon_stop_sticker",
+    "side": "block/icon/icon_stop_sticker"
+  }
+}
+

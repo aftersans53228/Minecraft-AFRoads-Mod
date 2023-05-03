@@ -87,6 +87,9 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowBackForward, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowConfluenceLeft, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowConfluenceRight, RenderLayer.getCutout());
+        //地面图标
+        BlockRenderLayerMap.INSTANCE.putBlock(IconDecelerateSticker, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(IconStopSticker, RenderLayer.getCutout());
         //道路装饰
         BlockRenderLayerMap.INSTANCE.putBlock(Railings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BarrierBar, RenderLayer.getCutout());

@@ -46,6 +46,9 @@
     "block.aft_fabroads.arrow_confluence_left":"Confluence-left Arrow",
     "block.aft_fabroads.arrow_confluence_right":"Confluence-right Arrow",
 
+    "block.aft_fabroads.icon_decelerate_sticker":"Decelerate Icon",
+    "block.aft_fabroads.icon_stop_sticker":"Stop Icon",
+
     "block.aft_fabroads.railings": "Railings",
     "block.aft_fabroads.barrier_bar": "Barrier Bar",
     "block.aft_fabroads.expressway_railings_base": "Expressway Railings Base",
