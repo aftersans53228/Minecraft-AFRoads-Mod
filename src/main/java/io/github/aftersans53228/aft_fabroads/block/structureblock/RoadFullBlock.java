@@ -1,4 +1,4 @@
-package io.github.aftersans53228.aft_fabroads.block;
+package io.github.aftersans53228.aft_fabroads.block.structureblock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;

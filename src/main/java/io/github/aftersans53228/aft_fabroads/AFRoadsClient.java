@@ -20,15 +20,24 @@ import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredica
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.glfw.GLFW;
+import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
+
+import java.util.function.Consumer;
+
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
 
 @Environment(EnvType.CLIENT)
 public class AFRoadsClient implements ClientModInitializer {
+    public static void registerNetworkReceiver(Identifier id, Consumer<PacketByteBuf> consumer) {
+        ClientPlayNetworking.registerGlobalReceiver(id, (client, handler, packet, responseSender) -> consumer.accept(packet));
+    }
+
     public static int tool_mode = 0;
 
     private static KeyBinding keyBinding;{
@@ -188,5 +197,8 @@ public class AFRoadsClient implements ClientModInitializer {
                 AFRoads.LOGGER.info("Open the\"Config Menu\"");
             });
         });
+
+        registerNetworkReceiver(new Identifier(AFRoadsStatics.MOD_ID,"version_check"),OnConnectingVersionCheck::receiveVersionCheck);
+
     }
 }

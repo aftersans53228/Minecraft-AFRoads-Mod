@@ -9,14 +9,18 @@ import io.github.aftersans53228.aft_fabroads.command.AftCommand;
 import io.github.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import io.github.aftersans53228.aft_fabroads.item.RoadDecoration;
 import io.github.aftersans53228.aft_fabroads.item.RoadStickers;
+import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.networking.v1.C2SPlayChannelEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -24,6 +28,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
+
+import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
@@ -33,6 +40,15 @@ public class AFRoads implements ModInitializer {
 	// 使用您的 mod id 作为记录器的名称被认为是最佳实践。
 	// 这样一来，很清楚哪个 mod 写了信息、警告和错误。
 	public static final Logger LOGGER = LogManager.getLogger("aft_fabroads");
+
+	public static void registerPlayerJoinEvent(Consumer<ServerPlayerEntity> consumer) {
+		ServerEntityEvents.ENTITY_LOAD.register((entity, serverWorld) -> {
+			if (entity instanceof ServerPlayerEntity
+			) {
+				consumer.accept((ServerPlayerEntity) entity);
+			}
+		});
+	}
 
 
 
@@ -109,6 +125,12 @@ public class AFRoads implements ModInitializer {
 				}
 			});
 		});
+
+
+		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);
+
+
+
 		LOGGER.info("AFRoads Misc Initialized");
 
 

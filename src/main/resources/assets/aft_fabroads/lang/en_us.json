@@ -137,7 +137,10 @@
     "text.gui.aft_fabroads.road_name_sign_name": "Road Name",
     "text.gui.aft_fabroads.road_name_sign_name2": "2RD Name",
     "text.gui.aft_fabroads.render_enable_text_font": "Enable Text Render",
-    "text.gui.aft_fabroads.config_title": "AFRoads Client Config"
+    "text.gui.aft_fabroads.config_title": "AFRoads Client Config",
+    "text.gui.aft_fabroads.version_mistake": "AFRoads Version Inconsistency(between Client and Server).",
+    "text.gui.aft_fabroads.version_mistake_client": "AFRoads Client Version:",
+    "text.gui.aft_fabroads.version_mistake_server": "AFRoads Server Version:"
 
 
 

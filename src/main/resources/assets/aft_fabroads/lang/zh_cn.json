@@ -134,5 +134,8 @@
     "text.gui.aft_fabroads.road_name_sign_name-tip": "输入道路名称...",
     "text.gui.aft_fabroads.road_name_sign_name-tip2rd": "输入英语道路名称...",
     "text.gui.aft_fabroads.render_enable_text_font": "启用文字渲染",
-    "text.gui.aft_fabroads.config_title": "AFRoads客户端设置"
+    "text.gui.aft_fabroads.config_title": "AFRoads客户端设置",
+    "text.gui.aft_fabroads.version_mistake": "AFRoads版本不一致(在客户端和服务端之间).",
+    "text.gui.aft_fabroads.version_mistake_client": "AFRoads客户端版本:",
+    "text.gui.aft_fabroads.version_mistake_server": "AFRoads服务端版本:"
 }
