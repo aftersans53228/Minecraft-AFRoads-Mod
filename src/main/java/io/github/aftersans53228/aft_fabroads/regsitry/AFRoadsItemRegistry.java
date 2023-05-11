@@ -26,6 +26,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistr
 public class AFRoadsItemRegistry {
     private static Item register(String id, Item item) {
         return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), item);
+
     }
     private static Item registerBlock(String id, Block block) {
         return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(NormalRoadBlockGROUP)));
@@ -37,116 +38,116 @@ public class AFRoadsItemRegistry {
         return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadDecorationsGROUP)));
     }
     
-    public static final Item RoadTool;
-    public static final Item TrafficLightBulbRed;
-    public static final Item TrafficLightBulbGreen;
-    public static final Item TrafficLightBulbYellow;
-    public static final Item TrafficLightPavementBulbRed;
-    public static final Item TrafficLightPavementBulbGreen;
-    public static final Item RoadLightBulbCold;
-    public static final Item RoadLightBulbWarm;
+    public static  Item RoadTool;
+    public static  Item TrafficLightBulbRed;
+    public static  Item TrafficLightBulbGreen;
+    public static  Item TrafficLightBulbYellow;
+    public static  Item TrafficLightPavementBulbRed;
+    public static  Item TrafficLightPavementBulbGreen;
+    public static  Item RoadLightBulbCold;
+    public static  Item RoadLightBulbWarm;
 
-    public static final Item RoadBlockItem;
-    public static final Item RoadBlockConcreteItem;
-    public static final Item ManholeCoverItem;
-    public static final Item ManholeCoverConcreteItem;
-    public static final Item RoadSeamsBlockItem ;
-    public static final Item RoadSeamsBlockConcreteItem ;
-    public static final Item ConcreteSlabItem ;
-    public static final Item ConcreteStairsItem;
-    public static final Item ConcreteStairsSmoothItem ;
-    public static final Item ConcreteColumnsCornerItem;
+    public static  Item RoadBlockItem;
+    public static  Item RoadBlockConcreteItem;
+    public static  Item ManholeCoverItem;
+    public static  Item ManholeCoverConcreteItem;
+    public static  Item RoadSeamsBlockItem ;
+    public static  Item RoadSeamsBlockConcreteItem ;
+    public static  Item ConcreteSlabItem ;
+    public static  Item ConcreteStairsItem;
+    public static  Item ConcreteStairsSmoothItem ;
+    public static  Item ConcreteColumnsCornerItem;
     //创建划线贴纸
-    public static final Item LineStraightItem;
-    public static final Item LineCornerItem ;
-    public static final Item LineTshapedItem ;
-    public static final Item LineCrossItem ;
-    public static final Item LineDiagonalItem ;
-    public static final Item LineLeftBendItem ;
-    public static final Item LineRightBendItem ;
-    public static final Item LineForkLeftItem ;
-    public static final Item LineForkRightItem ;
-    public static final Item LineStraightThickItem;
-    public static final Item LineStraightDuoLineItem;
-    public static final Item LineStraightDuoThickItem;
-    public static final Item LineStraightDuoThickDashedItem;
-    public static final Item LineDecelerateWithLineItem ;
-    public static final Item LineDecelerateWithLineFlipItem ;
-    public static final Item LineDecelerateNoLineItem ;
-    public static final Item LineDecelerateNoLineFlipItem ;
-    public static final Item LineReversibleLanesItem ;
-    public static final Item LineReversibleLanesFlipItem ;
+    public static  Item LineStraightItem;
+    public static  Item LineCornerItem ;
+    public static  Item LineTshapedItem ;
+    public static  Item LineCrossItem ;
+    public static  Item LineDiagonalItem ;
+    public static  Item LineLeftBendItem ;
+    public static  Item LineRightBendItem ;
+    public static  Item LineForkLeftItem ;
+    public static  Item LineForkRightItem ;
+    public static  Item LineStraightThickItem;
+    public static  Item LineStraightDuoLineItem;
+    public static  Item LineStraightDuoThickItem;
+    public static  Item LineStraightDuoThickDashedItem;
+    public static  Item LineDecelerateWithLineItem ;
+    public static  Item LineDecelerateWithLineFlipItem ;
+    public static  Item LineDecelerateNoLineItem ;
+    public static  Item LineDecelerateNoLineFlipItem ;
+    public static  Item LineReversibleLanesItem ;
+    public static  Item LineReversibleLanesFlipItem ;
     //创建箭头贴纸
-    public static final Item ArrowForwardItem;
-    public static final Item ArrowLeftItem ;
-    public static final Item ArrowRightItem;
-    public static final Item ArrowForwardLeftItem ;
-    public static final Item ArrowForwardRightItem ;
-    public static final Item ArrowBackItem ;
-    public static final Item ArrowLeftRightItem ;
-    public static final Item ArrowBackLeftItem ;
-    public static final Item ArrowBackForwardItem ;
-    public static final Item ArrowConfluenceLeftItem ;
-    public static final Item ArrowConfluenceRightItem ;
+    public static  Item ArrowForwardItem;
+    public static  Item ArrowLeftItem ;
+    public static  Item ArrowRightItem;
+    public static  Item ArrowForwardLeftItem ;
+    public static  Item ArrowForwardRightItem ;
+    public static  Item ArrowBackItem ;
+    public static  Item ArrowLeftRightItem ;
+    public static  Item ArrowBackLeftItem ;
+    public static  Item ArrowBackForwardItem ;
+    public static  Item ArrowConfluenceLeftItem ;
+    public static  Item ArrowConfluenceRightItem ;
     //创建图标贴纸
-    public static final Item IconDecelerateStickerItem;
-    public static final Item IconStopStickerItem;
+    public static  Item IconDecelerateStickerItem;
+    public static  Item IconStopStickerItem;
     //创建装饰方块
-    public static final Item RailingsItem ;
-    public static final Item PavementRailingsItem ;
-    public static final Item ExpresswayRailingsBaseItem ;
-    public static final Item ExpresswayRailingsItem ;
-    public static final Item ExpresswayRailingsType2Item ;
-    public static final Item InsulationPanelsRailingsItem ;
-    public static final Item InsulationPanelsGrayPart1Item ;
-    public static final Item InsulationPanelsGrayPart2Item;
-    public static final Item InsulationPanelsGrayPart3Item ;
-    public static final Item InsulationPanelsGrayPart4Item;
-    public static final Item InsulationPanelsGrayPart5Item;
-    public static final Item InsulationPanelsGrayPart6Item ;
+    public static  Item RailingsItem ;
+    public static  Item PavementRailingsItem ;
+    public static  Item ExpresswayRailingsBaseItem ;
+    public static  Item ExpresswayRailingsItem ;
+    public static  Item ExpresswayRailingsType2Item ;
+    public static  Item InsulationPanelsRailingsItem ;
+    public static  Item InsulationPanelsGrayPart1Item ;
+    public static  Item InsulationPanelsGrayPart2Item;
+    public static  Item InsulationPanelsGrayPart3Item ;
+    public static  Item InsulationPanelsGrayPart4Item;
+    public static  Item InsulationPanelsGrayPart5Item;
+    public static  Item InsulationPanelsGrayPart6Item ;
 
-    public static final Item BarrierBarItem;
-    public static final Item TrafficLightItem ;
-    public static final Item TrafficLightPavementItem ;
-    public static final Item RoadLightItem ;
+    public static  Item BarrierBarItem;
+    public static  Item TrafficLightItem ;
+    public static  Item TrafficLightPavementItem ;
+    public static  Item RoadLightItem ;
 
-    public static final Item PillarBaseItem ;
-    public static final Item HorizontalStraightPillarItem;
-    public static final Item VerticalStraightPillarItem ;
-    public static final Item HorizontalCornerPillarItem ;
-    public static final Item VerticalCornerPillarItem ;
-    public static final Item HorizontalTshapedPillarItem ;
-    public static final Item VerticalTshapedPillarItem ;
-    public static final Item VerticalTshapedPillarType2Item ;
-    public static final Item RoadMastPillarBaseItem ;
-    public static final Item RoadMastPillarItem;
-    public static final Item HorizontalStraightPillarThinItem ;
-    public static final Item VerticalStraightPillarThinItem ;
-    public static final Item VerticalCornerPillarThinItem;
-    public static final Item SmartPillarItem;
-    public static final Item SmartPillarThinItem;
+    public static  Item PillarBaseItem ;
+    public static  Item HorizontalStraightPillarItem;
+    public static  Item VerticalStraightPillarItem ;
+    public static  Item HorizontalCornerPillarItem ;
+    public static  Item VerticalCornerPillarItem ;
+    public static  Item HorizontalTshapedPillarItem ;
+    public static  Item VerticalTshapedPillarItem ;
+    public static  Item VerticalTshapedPillarType2Item ;
+    public static  Item RoadMastPillarBaseItem ;
+    public static  Item RoadMastPillarItem;
+    public static  Item HorizontalStraightPillarThinItem ;
+    public static  Item VerticalStraightPillarThinItem ;
+    public static  Item VerticalCornerPillarThinItem;
+    public static  Item SmartPillarItem;
+    public static  Item SmartPillarThinItem;
 
-    public static final Item SignIndicatorDirectionLeftItem ;
-    public static final Item SignIndicatorDirectionRightItem;
-    public static final Item SignIndicatorDirectionCarItem ;
-    public static final Item SignIndicatorDirectionBicycleItem ;
-    public static final Item SignBanNoDriveItem ;
-    public static final Item SignBanStopItem;
-    public static final Item SignBanSpeedLimit05Item ;
-    public static final Item SignBanSpeedLimit20Item ;
-    public static final Item SignBanSpeedLimit30Item ;
-    public static final Item SignBanSpeedLimit40Item ;
-    public static final Item SignBanSpeedLimit50Item ;
-    public static final Item SignBanSpeedLimit60Item ;
-    public static final Item SignBanSpeedLimit70Item ;
-    public static final Item SignBanSpeedLimit80Item ;
+    public static  Item SignIndicatorDirectionLeftItem ;
+    public static  Item SignIndicatorDirectionRightItem;
+    public static  Item SignIndicatorDirectionCarItem ;
+    public static  Item SignIndicatorDirectionBicycleItem ;
+    public static  Item SignBanNoDriveItem ;
+    public static  Item SignBanStopItem;
+    public static  Item SignBanSpeedLimit05Item ;
+    public static  Item SignBanSpeedLimit20Item ;
+    public static  Item SignBanSpeedLimit30Item ;
+    public static  Item SignBanSpeedLimit40Item ;
+    public static  Item SignBanSpeedLimit50Item ;
+    public static  Item SignBanSpeedLimit60Item ;
+    public static  Item SignBanSpeedLimit70Item ;
+    public static  Item SignBanSpeedLimit80Item ;
 
-    public static final Item RubbishBinMetalItem;
-    public static final Item TrashBinGreenItem;
-    public static final Item RoadNameSignItem ;
+    public static  Item RubbishBinMetalItem;
+    public static  Item TrashBinGreenItem;
+    public static  Item RoadNameSignItem ;
     
     
-    static{
+    public static void RegisterItem(){
         //Items
         RoadTool=register("road_tool",new RoadTool());
         TrafficLightBulbRed=register("traffic_light_green_bulb", new Item(new FabricItemSettings()));

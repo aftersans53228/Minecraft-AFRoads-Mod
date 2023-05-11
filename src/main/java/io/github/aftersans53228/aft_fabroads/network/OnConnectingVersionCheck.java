@@ -29,9 +29,9 @@ public class OnConnectingVersionCheck {
                 if (connection != null ){
                     connection.disconnect(
                             new LiteralText(
-                            I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n"
-                            +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+AFRoadsStatics.MOD_VERSION+"\n"
-                            +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+version+"\n"
+                            I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n\n"
+                            +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+"§4"+AFRoadsStatics.MOD_VERSION+"\n"
+                            +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+"§2"+version+"\n"
                             )
                     );
                 }

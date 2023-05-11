@@ -10,9 +10,9 @@ import io.github.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import io.github.aftersans53228.aft_fabroads.item.RoadDecoration;
 import io.github.aftersans53228.aft_fabroads.item.RoadStickers;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.networking.v1.C2SPlayChannelEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -28,7 +28,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 
 import java.util.function.Consumer;
 
@@ -74,11 +73,8 @@ public class AFRoads implements ModInitializer {
 
     @Override
 	public void onInitialize() {
-		// 只要 Minecraft 处于 mod-load-ready 状态，此代码就会运行。
-		// 但是，有些东西（比如资源）可能仍然未初始化。
-		// 谨慎行事。
-
-
+		AFRoadsBlockRegistry.RegisterBlock();
+		AFRoadsItemRegistry.RegisterItem();
 		//注册方块实体
 		TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_entity", FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
 		TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "aft_fabroads:traffic_light_pavement_entity", FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));

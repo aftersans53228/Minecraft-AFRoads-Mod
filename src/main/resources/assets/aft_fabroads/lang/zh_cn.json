@@ -115,7 +115,7 @@
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具更改普通或支撑架模式。",
     "item.aft_fabroads.stop_tip": "§8§o你先别急。",
     "item.aft_fabroads.tool2slab_tip":"请对单独的上/下半砖使用道路工具修改状态。",
-    "item.aft_fabroads.insulation_gray_tip": "§8§o这是计划的一部分。",
+    "item.aft_fabroads.insulation_gray_tip": "§8§o灰色隔音板的一部分。",
     "item.aft_fabroads.trash_bin": "§a立 及 甬",
     "item.aft_fabroads.road_light": "§8§o使用道路工具更改冷暖色光。",
     "item.aft_fabroads.road_name_sign": "§8§o使用道路工具打开文字设置。",
@@ -136,6 +136,6 @@
     "text.gui.aft_fabroads.render_enable_text_font": "启用文字渲染",
     "text.gui.aft_fabroads.config_title": "AFRoads客户端设置",
     "text.gui.aft_fabroads.version_mistake": "AFRoads版本不一致(在客户端和服务端之间).",
-    "text.gui.aft_fabroads.version_mistake_client": "AFRoads客户端版本:",
-    "text.gui.aft_fabroads.version_mistake_server": "AFRoads服务端版本:"
+    "text.gui.aft_fabroads.version_mistake_client": "§fAFRoads客户端版本:",
+    "text.gui.aft_fabroads.version_mistake_server": "§fAFRoads服务端版本:"
 }
