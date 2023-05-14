@@ -2,6 +2,8 @@ package io.github.aftersans53228.aft_fabroads.gui;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsClient;
+import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
+import io.github.aftersans53228.aft_fabroads.network.GuiCloseNetwork;
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
@@ -89,7 +91,7 @@ public class RoadNameSignGui extends LightweightGuiDescription {
                 buf.writeBoolean(dirRight);//右侧方向指示
 
                 AFRoads.LOGGER.info("Close the\"Road Name Sign\"'s gui. ");
-                ClientPlayNetworking.send(new Identifier("aft_fabroads:road_name_sign_gui_close"), buf);
+                GuiCloseNetwork.sendGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"),buf);
                 MinecraftClient.getInstance().setScreen((Screen) null);
 
         });

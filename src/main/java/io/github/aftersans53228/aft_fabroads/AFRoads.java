@@ -9,6 +9,7 @@ import io.github.aftersans53228.aft_fabroads.command.AftCommand;
 import io.github.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import io.github.aftersans53228.aft_fabroads.item.RoadDecoration;
 import io.github.aftersans53228.aft_fabroads.item.RoadStickers;
+import io.github.aftersans53228.aft_fabroads.network.GuiCloseNetwork;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
@@ -20,6 +21,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
@@ -29,6 +31,7 @@ import net.minecraft.world.World;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
@@ -46,6 +49,11 @@ public class AFRoads implements ModInitializer {
 			) {
 				consumer.accept((ServerPlayerEntity) entity);
 			}
+		});
+	}
+	public static void registerGuiClose(Identifier id,BiConsumer<PacketByteBuf,ServerPlayerEntity> consumer) {
+		ServerPlayNetworking.registerGlobalReceiver(id,(server, player, handler, buf, responseSender)->{
+			consumer.accept(buf,player);
 		});
 	}
 
@@ -93,37 +101,9 @@ public class AFRoads implements ModInitializer {
 			}
 		});
 
-		//服务端接包
-		ServerPlayNetworking.registerGlobalReceiver(new Identifier("aft_fabroads:road_name_sign_gui_close"), (server, player, handler, buf, responseSender)->{
-			BlockPos signPos =buf.readBlockPos();//坐标
-			String roadName = buf.readString();//路名
-			String roadName2rd = buf.readString();//路名2
-			boolean dirLeft =buf.readBoolean();//左边
-			boolean dirRight =buf.readBoolean();//右边
-			server.execute(()->{
-				if (player.getEntityWorld().getBlockEntity(signPos) != null && player.getEntityWorld().getBlockEntity(signPos).getType() == ROAD_NAME_SIGN_ENTITY) {
-					RoadNameSignEntity blockEntity__ = (RoadNameSignEntity) player.getEntityWorld().getBlockEntity(signPos);
-					World world =player.getEntityWorld();
-					world.setBlockState(signPos,world.getBlockState(signPos).with(BooleanProperty.of("dir_left"), dirLeft));
-					world.setBlockState(signPos,world.getBlockState(signPos).with(BooleanProperty.of("dir_right"), dirRight));
-					blockEntity__.setCachedState(blockEntity__.getCachedState().with(BooleanProperty.of("dir_left"), dirLeft));
-					blockEntity__.setCachedState(blockEntity__.getCachedState().with(BooleanProperty.of("dir_right"), dirRight));
-					if (roadName !=null && roadName2rd !=null){
-						blockEntity__.setRoadNames(roadName,roadName2rd);
-					}
-					else{
-						AFRoads.LOGGER.info("Invalid Road Name");
-					}
-					AFRoads.LOGGER.info("Set Sign Name Sign {"+roadName+"} {"+roadName2rd+ "} " + blockEntity__.getCachedState());
-				}
-				else if (player.getEntityWorld().getBlockEntity(signPos) == null) {
-					AFRoads.LOGGER.info("Invalid Block Entity");
-				}
-			});
-		});
-
-
+		//服务端接发包
 		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);
+		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"), GuiCloseNetwork::receiveGuiCloseRNS);
 
 
 
