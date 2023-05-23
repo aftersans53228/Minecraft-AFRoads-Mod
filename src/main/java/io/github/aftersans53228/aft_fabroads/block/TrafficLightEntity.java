@@ -1,6 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 public class TrafficLightEntity  extends BlockEntity {
 
     public TrafficLightEntity(BlockPos pos, BlockState state) {
-        super(AFRoads.TRAFFIC_LIGHT_ENTITY, pos, state);
+        super(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, pos, state);
     }
     public static void tick(World world, BlockPos pos, BlockState state, Direction dir) {
         int timer =  AFRoads.traffic_lights_timer;

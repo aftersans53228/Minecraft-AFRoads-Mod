@@ -32,7 +32,7 @@ public class AFRoadsItemRegistry {
         return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(NormalRoadBlockGROUP)));
     }
     private static Item registerSticker(String id, Block block) {
-        return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadStickersGROUP)));
+        return (Item)Registry.register(Registry.ITEM,new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadStickersGROUP)));
     }
     private static Item registerDecoration(String id, Block block) {
         return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadDecorationsGROUP)));
@@ -75,8 +75,11 @@ public class AFRoadsItemRegistry {
     public static  Item LineDecelerateWithLineFlipItem ;
     public static  Item LineDecelerateNoLineItem ;
     public static  Item LineDecelerateNoLineFlipItem ;
+    public static  Item LineDecelerateDoubleWLItem ;
+    public static  Item LineDecelerateDoubleNLItem ;
     public static  Item LineReversibleLanesItem ;
     public static  Item LineReversibleLanesFlipItem ;
+    public static  Item LineReversibleLanesDoubleItem ;
     //创建箭头贴纸
     public static  Item ArrowForwardItem;
     public static  Item ArrowLeftItem ;
@@ -186,8 +189,11 @@ public class AFRoadsItemRegistry {
         LineDecelerateWithLineFlipItem =registerSticker("line_decelerate_w_line_flip"   ,LineDecelerateWithLineFlip);
         LineDecelerateNoLineItem =registerSticker("line_decelerate", LineDecelerateNoLine);
         LineDecelerateNoLineFlipItem =registerSticker("line_decelerate_flip",LineDecelerateNoLineFlip);
+        LineDecelerateDoubleWLItem =registerSticker("line_decelerate_d_w_l",LineDecelerateDoubleWL);
+        LineDecelerateDoubleNLItem =registerSticker("line_decelerate_d_n_l",LineDecelerateDoubleNL);
         LineReversibleLanesItem =registerSticker("line_reversible_lanes",LineReversibleLanes);
         LineReversibleLanesFlipItem =registerSticker("line_reversible_lanes_flip",LineReversibleLanesFlip);
+        LineReversibleLanesDoubleItem =registerSticker("line_reversible_lanes_double",LineReversibleLanesDouble);
         //创建箭头贴纸
         ArrowForwardItem =registerSticker("arrow_forward",ArrowForward);
         ArrowLeftItem =registerSticker("arrow_left",ArrowLeft);

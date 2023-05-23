@@ -31,8 +31,11 @@
     "block.aft_fabroads.line_decelerate_flip": "减速线(翻转)",
     "block.aft_fabroads.line_decelerate_w_line": "减速线&直线",
     "block.aft_fabroads.line_decelerate_w_line_flip": "减速线&直线(翻转)",
+    "block.aft_fabroads.line_decelerate_d_w_l": "减速线&直线(双向)",
+    "block.aft_fabroads.line_decelerate_d_n_l": "减速线(双向)",
     "block.aft_fabroads.line_reversible_lanes": "可变车道标线",
     "block.aft_fabroads.line_reversible_lanes_flip": "可变车道标线(翻转)",
+    "block.aft_fabroads.line_reversible_lanes_double": "可变车道标线(双向)",
 
     "block.aft_fabroads.arrow_forward":"直行箭头",
     "block.aft_fabroads.arrow_left":"左转箭头",

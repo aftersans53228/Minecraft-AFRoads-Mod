@@ -1,6 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -152,6 +153,6 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
         return BlockRenderType.MODEL;
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, AFRoads.TRAFFIC_LIGHT_ENTITY, (world1, pos, state1, be) -> TrafficLightEntity.tick(world1, pos, state1, state.get(FACING)));
+        return checkType(type, AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, (world1, pos, state1, be) -> TrafficLightEntity.tick(world1, pos, state1, state.get(FACING)));
     }
 }

@@ -34,8 +34,7 @@ public class ConfigGui extends LightweightGuiDescription {
         root.setInsets(Insets.ROOT_PANEL);
         setRootPanel(root);
 
-        WLabel info = new WLabel(new LiteralText(String.format("AFRoads:(%s) version:{%s}.", MOD_ID,MOD_VERSION)));
-        info.setColor(0xFFFFFFFF);
+        WLabel info = new WLabel(new LiteralText(String.format("§fAFRoads-(§2§l%s§r§f) version-{§2§l%s§r§f}.", MOD_ID,MOD_VERSION)));
         root.add(info,0, 23, 12, 3);
 
         WToggleButton render_enable = new WToggleButton(new TranslatableText("text.gui.aft_fabroads.render_enable_text_font"));
@@ -51,6 +50,12 @@ public class ConfigGui extends LightweightGuiDescription {
 
         //当取消被按下后关闭gui
         cancel.setOnClick(() -> {
+            // Close gui
+            AFRoads.LOGGER.info("Close the\"Config\"'s gui. ");
+
+            MinecraftClient.getInstance().setScreen((Screen)null);
+        });
+        apply.setOnClick(() -> {
             // Close gui
             AFRoads.LOGGER.info("Close the\"Config\"'s gui. ");
 

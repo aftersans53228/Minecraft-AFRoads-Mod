@@ -4,14 +4,18 @@ import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import io.github.aftersans53228.aft_fabroads.block.*;
 import io.github.aftersans53228.aft_fabroads.block.pillarblock.*;
-import io.github.aftersans53228.aft_fabroads.block.signblock.*;
+import io.github.aftersans53228.aft_fabroads.block.signblock.SignNormal;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.ArrowBlocks;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.IconBlocks;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.*;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import static io.github.aftersans53228.aft_fabroads.block.voxelshapes.RailingsFacing.*;
 
 public class AFRoadsBlockRegistry {
     
@@ -26,6 +30,7 @@ public class AFRoadsBlockRegistry {
         AFRoadsStatics.CAN_PILLAR_CONNECT.add(block);
         return block;
     }
+
 
     public static  Block RoadBlock;
     public static  Block RoadBlockConcrete;
@@ -55,8 +60,11 @@ public class AFRoadsBlockRegistry {
     public static  Block LineDecelerateWithLineFlip ;
     public static  Block LineDecelerateNoLine ;
     public static  Block LineDecelerateNoLineFlip ;
+    public static  Block LineDecelerateDoubleNL ;
+    public static  Block LineDecelerateDoubleWL ;
     public static  Block LineReversibleLanes  ;
     public static  Block LineReversibleLanesFlip  ;
+    public static  Block LineReversibleLanesDouble ;
     //创建箭头贴纸
     public static  Block ArrowForward;
     public static  Block ArrowLeft ;
@@ -126,6 +134,12 @@ public class AFRoadsBlockRegistry {
     public static  Block TrashBinGreen;
     public static  Block RoadNameSign ;
 
+    //方块实体
+    public static BlockEntityType<TrafficLightEntity> TRAFFIC_LIGHT_ENTITY;
+    public static BlockEntityType<TrafficLightPavementEntity> TRAFFIC_LIGHT_PAVEMENT_ENTITY;
+    public static BlockEntityType<RoadLightEntity>ROAD_LIGHT_ENTITY;
+    public static BlockEntityType<RoadNameSignEntity>ROAD_NAME_SIGN_ENTITY;
+
 
     public static void RegisterBlock(){
         RoadBlock =register("road_block",new RoadFullBlock("road_block"));
@@ -156,8 +170,11 @@ public class AFRoadsBlockRegistry {
         LineDecelerateWithLineFlip =register("line_decelerate_w_line_flip",new LineBlocks());
         LineDecelerateNoLine =register("line_decelerate",new LineBlocks());
         LineDecelerateNoLineFlip =register("line_decelerate_flip",new LineBlocks());
+        LineDecelerateDoubleWL =register("line_decelerate_d_w_l",new LineBlocks());
+        LineDecelerateDoubleNL =register("line_decelerate_d_n_l",new LineBlocks());
         LineReversibleLanes=register("line_reversible_lanes",new LineBlocks());
         LineReversibleLanesFlip=register("line_reversible_lanes_flip",new LineBlocks());
+        LineReversibleLanesDouble = register("line_reversible_lanes_double",new LineBlocks());
         //创建箭头贴纸
         ArrowForward =register("arrow_forward",new ArrowBlocks());
         ArrowLeft =register("arrow_left",new ArrowBlocks());
@@ -174,18 +191,18 @@ public class AFRoadsBlockRegistry {
         IconDecelerateSticker =register("icon_decelerate_sticker",new IconBlocks());
         IconStopSticker =register("icon_stop_sticker",new IconBlocks());
         //创建装饰方块
-        Railings =register("railings",new Railings());
-        PavementRailings =register("pavement_railings",new PavementRailings());
-        ExpresswayRailingsBase =register("expressway_railings_base",new ExpresswayRailingsBase());
-        ExpresswayRailings =register("expressway_railings",new ExpresswayRailings());
-        ExpresswayRailingsType2 =register("expressway_railings_type2",new ExpresswayRailingsType2());
-        InsulationPanelsRailings =register("insulation_panels_railings",new InsulationPanelsRailings());
-        InsulationPanelsGrayPart1 =register("insulation_panels_gray_part1",new InsulationPanelsGrayPart1());
-        InsulationPanelsGrayPart2 =register("insulation_panels_gray_part2",new InsulationPanelsGrayPart2());
-        InsulationPanelsGrayPart3 =register("insulation_panels_gray_part3",new InsulationPanelsGrayPart3());
-        InsulationPanelsGrayPart4 =register("insulation_panels_gray_part4",new InsulationPanelsGrayPart4());
-        InsulationPanelsGrayPart5 =register("insulation_panels_gray_part5",new InsulationPanelsGrayPart5());
-        InsulationPanelsGrayPart6 =register("insulation_panels_gray_part6",new InsulationPanelsGrayPart6());
+        Railings =register("railings",new HorizontalRailings().setVoxelShapes(getRoad()));
+        PavementRailings =register("pavement_railings",new HorizontalRailings().setVoxelShapes(getPavement()));
+        ExpresswayRailingsBase =register("expressway_railings_base",new HorizontalRailings().setVoxelShapes(getExpresswayBase()));
+        ExpresswayRailings =register("expressway_railings",new HorizontalRailings().setVoxelShapes(getExpresswayRailings()));
+        ExpresswayRailingsType2 =register("expressway_railings_type2",new HorizontalRailings().setVoxelShapes(getExpresswayRailings()));
+        InsulationPanelsRailings =register("insulation_panels_railings",new HorizontalRailings().setVoxelShapes(getExpresswayGreenPanels()));
+        InsulationPanelsGrayPart1 =register("insulation_panels_gray_part1",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsVertical()));
+        InsulationPanelsGrayPart2 =register("insulation_panels_gray_part2",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsVertical()));
+        InsulationPanelsGrayPart3 =register("insulation_panels_gray_part3",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsCorner1()));
+        InsulationPanelsGrayPart4 =register("insulation_panels_gray_part4",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsCorner2()));
+        InsulationPanelsGrayPart5 =register("insulation_panels_gray_part5",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsHorizontal()));
+        InsulationPanelsGrayPart6 =register("insulation_panels_gray_part6",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsHorizontal()));
 
         BarrierBar =register("barrier_bar",new BarrierBar());
         TrafficLight =register("traffic_light",new TrafficLight());
@@ -226,6 +243,12 @@ public class AFRoadsBlockRegistry {
         RubbishBinMetal =register("rubbish_bin_metal",new RubbishBinMetal());
         TrashBinGreen =register("trash_bin_green",new TrashBinGreen());
         RoadNameSign =register("road_name_sign",new RoadNameSign());
+
+        //注册方块实体
+        TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
+        TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:traffic_light_pavement_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
+        ROAD_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_light_entity"), FabricBlockEntityTypeBuilder.create(RoadLightEntity::new,RoadLight).build(null));
+        ROAD_NAME_SIGN_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_name_sign_entity"), FabricBlockEntityTypeBuilder.create(RoadNameSignEntity::new,RoadNameSign).build(null));
 
 
         AFRoads.LOGGER.info("AFRoads Blocks Initialized");

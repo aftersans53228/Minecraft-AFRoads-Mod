@@ -6,6 +6,7 @@ import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlSouth;
 import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlWest;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -78,6 +79,6 @@ public  class TrafficLightPavement extends BlockWithEntity implements BlockEntit
         return BlockRenderType.MODEL;
     }
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, AFRoads.TRAFFIC_LIGHT_PAVEMENT_ENTITY, (world1, pos, state1, be) -> TrafficLightPavementEntity.tick(world1, pos, state1, state.get(FACING)));
+        return checkType(type, AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, (world1, pos, state1, be) -> TrafficLightPavementEntity.tick(world1, pos, state1, state.get(FACING)));
     }
 }

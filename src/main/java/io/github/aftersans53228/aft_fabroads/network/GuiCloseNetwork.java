@@ -5,6 +5,7 @@ import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import io.github.aftersans53228.aft_fabroads.block.RoadNameSignEntity;
 import io.github.aftersans53228.aft_fabroads.gui.ConfigGui;
 import io.github.aftersans53228.aft_fabroads.gui.ConfigScreen;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -30,7 +31,7 @@ public class GuiCloseNetwork {
         boolean dirRight =buf.readBoolean();//右边
         if (server != null) {
             server.execute(()->{
-                if (player.getEntityWorld().getBlockEntity(signPos) != null && player.getEntityWorld().getBlockEntity(signPos).getType() == AFRoads.ROAD_NAME_SIGN_ENTITY) {
+                if (player.getEntityWorld().getBlockEntity(signPos) != null && player.getEntityWorld().getBlockEntity(signPos).getType() == AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY) {
                     RoadNameSignEntity blockEntity__ = (RoadNameSignEntity) player.getEntityWorld().getBlockEntity(signPos);
                     World world =player.getEntityWorld();
                     world.setBlockState(signPos,world.getBlockState(signPos).with(BooleanProperty.of("dir_left"), dirLeft));

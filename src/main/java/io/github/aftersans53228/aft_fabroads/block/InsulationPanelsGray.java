@@ -15,30 +15,40 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class InsulationPanelsGrayPart3 extends HorizontalFacingBlock {
-    public InsulationPanelsGrayPart3() {
+public class InsulationPanelsGray extends HorizontalFacingBlock {
+    public List<VoxelShape> railingShapes = new ArrayList<>();
+    public InsulationPanelsGray() {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque());
+        this.railingShapes.add(VoxelShapes.empty());
+        this.railingShapes.add(VoxelShapes.empty());
+        this.railingShapes.add(VoxelShapes.empty());
+        this.railingShapes.add(VoxelShapes.empty());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
         Direction dir = state.get(FACING);
-        switch(dir) {
-            case NORTH:
-
-            case SOUTH:
-                return VoxelShapes.cuboid(0.4f, 0.0f, 0.0f, 0.6f, 0.625f, 1.0f);
-            case EAST:
-            case WEST:
-                return VoxelShapes.cuboid(0.0f, 0.0f, 0.4f, 1.0f, 0.625f, 0.6f);
-            default:
-                return VoxelShapes.fullCube();
-        }
+        return switch (dir) {
+            case NORTH ->this.railingShapes.get(0);
+            case SOUTH-> this.railingShapes.get(1);
+            case EAST ->this.railingShapes.get(2);
+            case WEST->this.railingShapes.get(3);
+            default -> VoxelShapes.fullCube();
+        };
+    }
+    public InsulationPanelsGray setVoxelShapes(List<VoxelShape> shapes){
+        this.railingShapes.set(0, shapes.get(0));
+        this.railingShapes.set(1, shapes.get(1));
+        this.railingShapes.set(2, shapes.get(2));
+        this.railingShapes.set(3, shapes.get(3));
+        return this;
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

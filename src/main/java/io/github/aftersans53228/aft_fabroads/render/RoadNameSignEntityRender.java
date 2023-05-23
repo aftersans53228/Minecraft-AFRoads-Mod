@@ -54,7 +54,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
 
 
         int strLenHalved = this.textRenderer.getWidth(roadName);
-        this.textRenderer.draw(roadName,0f,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        this.textRenderer.draw(roadName,-strLenHalved,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
         matrices.pop();
 
 

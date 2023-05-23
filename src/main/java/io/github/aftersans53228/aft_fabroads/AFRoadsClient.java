@@ -4,6 +4,7 @@ import io.github.aftersans53228.aft_fabroads.gui.ConfigGui;
 import io.github.aftersans53228.aft_fabroads.gui.ConfigScreen;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.RoadNameSignEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.TrafficLightEntityRender;
@@ -82,8 +83,11 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateNoLineFlip, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateWithLine, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateWithLineFlip, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateDoubleWL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LineDecelerateDoubleNL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineReversibleLanes, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(LineReversibleLanesFlip, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(LineReversibleLanesDouble, RenderLayer.getCutout());
         //地面箭头
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowForward, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ArrowLeft, RenderLayer.getCutout());
@@ -177,10 +181,10 @@ public class AFRoadsClient implements ClientModInitializer {
         FabricModelPredicateProviderRegistry.register(RoadTool, new Identifier("tool_mode"), (itemStack, clientWorld, livingEntity , i) -> AFRoadsClient.tool_mode);
 
         //注册方块实体渲染
-        BlockEntityRendererRegistry.register(AFRoads.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoads.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoads.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoads.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);
+        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
+        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
+        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
+        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);
 
         //gui
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:road_name_sign_gui_open"), (client, handler, buf, responseSender) -> {

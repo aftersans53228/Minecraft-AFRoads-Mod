@@ -33,8 +33,11 @@ public class RoadStickers {
                 stacks.add(new ItemStack(LineDecelerateNoLineFlipItem));
                 stacks.add(new ItemStack(LineDecelerateWithLineItem));
                 stacks.add(new ItemStack(LineDecelerateWithLineFlipItem));
+                stacks.add(new ItemStack(LineDecelerateDoubleWL));
+                stacks.add(new ItemStack(LineDecelerateDoubleNL));
                 stacks.add(new ItemStack(LineReversibleLanesItem));
                 stacks.add(new ItemStack(LineReversibleLanesFlipItem));
+                stacks.add(new ItemStack(LineReversibleLanesDoubleItem));
 
                 stacks.add(new ItemStack(ArrowForwardItem));
                 stacks.add(new ItemStack(ArrowLeftItem));

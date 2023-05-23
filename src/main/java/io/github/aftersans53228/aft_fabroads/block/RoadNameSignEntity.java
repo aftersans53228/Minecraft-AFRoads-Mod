@@ -1,6 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,7 +17,7 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
     private String roadName2rd = "Unnamed";
 
     public RoadNameSignEntity(BlockPos pos, BlockState state){
-            super(AFRoads.ROAD_NAME_SIGN_ENTITY, pos, state);
+            super(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, pos, state);
     }
     @Override
     public void readNbt(NbtCompound nbt) {
@@ -27,9 +28,8 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
-        NbtCompound nbts = new NbtCompound();
-        nbts.putString("road_name",this.roadName);
-        nbts.putString("road_name2rd",this.roadName2rd);
+        nbt.putString("road_name",this.roadName);
+        nbt.putString("road_name2rd",this.roadName2rd);
         return super.writeNbt(nbt);
     }
 
@@ -42,10 +42,7 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
 
     @Override
     public NbtCompound toClientTag(NbtCompound tag) {
-        NbtCompound nbts = new NbtCompound();
-        nbts.putString("road_name",this.roadName);
-        nbts.putString("road_name2rd",this.roadName2rd);
-        return this.writeNbt(nbts);
+        return this.writeNbt(tag);
     }
 
     public void setRoadNames(String roadName,String roadName2rd) {
