@@ -20,8 +20,11 @@ import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -30,6 +33,7 @@ import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 
 import java.util.function.Consumer;
 
+import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
 
@@ -103,6 +107,7 @@ public class AFRoadsClient implements ClientModInitializer {
         //地面图标
         BlockRenderLayerMap.INSTANCE.putBlock(IconDecelerateSticker, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IconStopSticker, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(IconGiverWaySticker, RenderLayer.getCutout());
         //道路装饰
         BlockRenderLayerMap.INSTANCE.putBlock(Railings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BarrierBar, RenderLayer.getCutout());
@@ -201,8 +206,22 @@ public class AFRoadsClient implements ClientModInitializer {
                 AFRoads.LOGGER.info("Open the\"Config Menu\"");
             });
         });
+        ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"disconnect_self"),((client, handler, buf, responseSender) -> {
+            client.execute(()->{
+                ClientConnection connection = client.getNetworkHandler().getConnection();
+                if (connection !=null){
+                    connection.disconnect(
+                        new LiteralText(
+                        I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n\n"
+                                +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+"§4"+"AFRoadsStatics.MOD_VERSION(Client)\n"
+                                +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+"§2"+"AFRoadsStatics.MOD_VERSION(Server)\n"
+                                +"§f(The operator self-disconnected.)")
+                    );
+                };
+            });
+        }));
 
-        registerNetworkReceiver(new Identifier(AFRoadsStatics.MOD_ID,"version_check"),OnConnectingVersionCheck::receiveVersionCheck);
+        registerNetworkReceiver(new Identifier(MOD_ID,"version_check"),OnConnectingVersionCheck::receiveVersionCheck);
 
     }
 }

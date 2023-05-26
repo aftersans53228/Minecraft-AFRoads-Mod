@@ -15,7 +15,11 @@ import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_VERSION;
 public abstract class AFRoadsMixin {
     @Inject(at = @At("TAIL"), method = "onPlayerConnect")
     private void onPlayerConnect(ClientConnection connection, ServerPlayerEntity player,CallbackInfo info) {
-        player.sendMessage(new LiteralText(String.format("§8AFRoads Mod loaded.\n§fVersion:§c%s.",MOD_VERSION)),false);
+        player.sendMessage(
+                new LiteralText(
+                    String.format("§8AFRoads Mod loaded.\n§fVersion:§c%s.", MOD_VERSION)
+                )
+                ,false);
 	}
 
 }

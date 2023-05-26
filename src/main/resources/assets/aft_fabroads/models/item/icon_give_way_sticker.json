@@ -1,0 +1,9 @@
+{
+  "parent": "aft_fabroads:block/icon/icon_give_way_sticker",
+  "textures": {
+    "bottom": "block/icon/icon_give_way_sticker",
+    "top": "block/icon/icon_give_way_sticker",
+    "side": "block/icon/icon_give_way_sticker"
+  }
+}
+

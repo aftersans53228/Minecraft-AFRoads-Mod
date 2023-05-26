@@ -9,8 +9,10 @@ import io.github.aftersans53228.aft_fabroads.block.stickerblock.ArrowBlocks;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.IconBlocks;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.*;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -80,6 +82,7 @@ public class AFRoadsBlockRegistry {
     //创建图标贴纸
     public static  Block IconDecelerateSticker;
     public static  Block IconStopSticker;
+    public static  Block IconGiverWaySticker;
     //创建装饰方块
     public static  Block Railings ;
     public static  Block PavementRailings ;
@@ -133,6 +136,10 @@ public class AFRoadsBlockRegistry {
     public static  Block RubbishBinMetal;
     public static  Block TrashBinGreen;
     public static  Block RoadNameSign ;
+
+    //misc
+    public static  Block LightSource;
+
 
     //方块实体
     public static BlockEntityType<TrafficLightEntity> TRAFFIC_LIGHT_ENTITY;
@@ -190,6 +197,7 @@ public class AFRoadsBlockRegistry {
         //创建图标贴纸
         IconDecelerateSticker =register("icon_decelerate_sticker",new IconBlocks());
         IconStopSticker =register("icon_stop_sticker",new IconBlocks());
+        IconGiverWaySticker =register("icon_give_way_sticker",new IconBlocks());
         //创建装饰方块
         Railings =register("railings",new HorizontalRailings().setVoxelShapes(getRoad()));
         PavementRailings =register("pavement_railings",new HorizontalRailings().setVoxelShapes(getPavement()));
@@ -243,6 +251,8 @@ public class AFRoadsBlockRegistry {
         RubbishBinMetal =register("rubbish_bin_metal",new RubbishBinMetal());
         TrashBinGreen =register("trash_bin_green",new TrashBinGreen());
         RoadNameSign =register("road_name_sign",new RoadNameSign());
+        //misc
+        //LightSource =register("light_source",new Block(FabricBlockSettings.of(Material.AIR).hardness(0.5f).luminance(15).noCollision().nonOpaque()));
 
         //注册方块实体
         TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));

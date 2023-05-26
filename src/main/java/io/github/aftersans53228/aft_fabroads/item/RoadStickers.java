@@ -53,6 +53,7 @@ public class RoadStickers {
 
                 stacks.add(new ItemStack(IconDecelerateStickerItem));
                 stacks.add(new ItemStack(IconStopStickerItem));
+                stacks.add(new ItemStack(IconGiveWayStickerItem));
             })
             .build();
 }

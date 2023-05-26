@@ -95,6 +95,7 @@ public class AFRoadsItemRegistry {
     //创建图标贴纸
     public static  Item IconDecelerateStickerItem;
     public static  Item IconStopStickerItem;
+    public static  Item IconGiveWayStickerItem;
     //创建装饰方块
     public static  Item RailingsItem ;
     public static  Item PavementRailingsItem ;
@@ -209,6 +210,7 @@ public class AFRoadsItemRegistry {
         //创建图标贴纸
         IconDecelerateStickerItem = registerSticker("icon_decelerate_sticker",IconDecelerateSticker);
         IconStopStickerItem = registerSticker("icon_stop_sticker",IconStopSticker);
+        IconGiveWayStickerItem =registerSticker("icon_give_way_sticker",IconGiverWaySticker);
         //创建装饰方块
         RailingsItem =registerDecoration("railings",Railings);
         PavementRailingsItem =registerDecoration("pavement_railings",PavementRailings);

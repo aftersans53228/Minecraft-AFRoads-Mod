@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RoadTool extends Item {
     public RoadTool() {
-        super(new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1));
+        super(new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1).maxDamage(10));
     }
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

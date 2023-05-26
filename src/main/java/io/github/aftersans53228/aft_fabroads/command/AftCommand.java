@@ -7,6 +7,7 @@ import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -21,6 +22,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class AftCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("afroads")
+                .requires(source -> source.hasPermissionLevel(0))
                 .then(literal("info")
                         .then(literal("zh_cn")
                                 .executes(context -> {
@@ -50,13 +52,13 @@ public class AftCommand {
                                     return 1;
                                 }))
                 )
-                        .then(literal("config")
+                .then(literal("config")
                                 .executes(context ->{
                                     ServerPlayerEntity player = context.getSource().getPlayer();
                                     ServerPlayNetworking.send((ServerPlayerEntity) player, new Identifier("aft_fabroads:config_open"), PacketByteBufs.empty());
                                     return 1;
                                 })
-                        )
+                )
                 .requires(source -> source.hasPermissionLevel(4))
                 .then(literal("timer_control")
                         .then(literal("reset")
@@ -78,7 +80,24 @@ public class AftCommand {
                                         }))
                         )
                 )
+                .then (literal("server-client")
+                        .then(literal("disconnection_games")
+                                .executes(context ->{
+                                    ServerPlayerEntity player = context.getSource().getPlayer();
+                                    ServerPlayNetworking.send(player,new Identifier(MOD_ID,"disconnect_self"),PacketByteBufs.empty());
+                                    return 1;
+                                })
+                        )
+                        .then(literal("server_version")
+                                .executes(context ->{
+                                    ServerPlayerEntity player = context.getSource().getPlayer();
+                                    player.sendMessage(new LiteralText(MOD_ID),false);
+                                    return 1;
+                                })
+                        )
+                )
         );
+
     }
 }
 
