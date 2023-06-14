@@ -87,6 +87,7 @@ public class AFRoadsBlockRegistry {
     public static  Block Railings ;
     public static  Block PavementRailings ;
     public static  Block ExpresswayRailingsBase ;
+    public static  Block ExpresswayIronRailings;
     public static  Block ExpresswayRailings ;
     public static  Block ExpresswayRailingsType2 ;
     public static  Block InsulationPanelsRailings ;
@@ -202,6 +203,7 @@ public class AFRoadsBlockRegistry {
         Railings =register("railings",new HorizontalRailings().setVoxelShapes(getRoad()));
         PavementRailings =register("pavement_railings",new HorizontalRailings().setVoxelShapes(getPavement()));
         ExpresswayRailingsBase =register("expressway_railings_base",new HorizontalRailings().setVoxelShapes(getExpresswayBase()));
+        ExpresswayIronRailings =register("expressway_iron_railings",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsCorner1()).setTipsMode(false));
         ExpresswayRailings =register("expressway_railings",new HorizontalRailings().setVoxelShapes(getExpresswayRailings()));
         ExpresswayRailingsType2 =register("expressway_railings_type2",new HorizontalRailings().setVoxelShapes(getExpresswayRailings()));
         InsulationPanelsRailings =register("insulation_panels_railings",new HorizontalRailings().setVoxelShapes(getExpresswayGreenPanels()));

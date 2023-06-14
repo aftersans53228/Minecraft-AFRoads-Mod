@@ -113,6 +113,7 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BarrierBar, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(PavementRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailingsBase, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayIronRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailingsType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsRailings, RenderLayer.getTranslucent());

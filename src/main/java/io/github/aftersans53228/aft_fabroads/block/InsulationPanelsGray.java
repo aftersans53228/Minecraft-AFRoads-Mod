@@ -20,12 +20,14 @@ import java.util.List;
 
 public class InsulationPanelsGray extends HorizontalFacingBlock {
     public List<VoxelShape> railingShapes = new ArrayList<>();
+    private boolean tipsMode = true;
     public InsulationPanelsGray() {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque());
         this.railingShapes.add(VoxelShapes.empty());
         this.railingShapes.add(VoxelShapes.empty());
         this.railingShapes.add(VoxelShapes.empty());
         this.railingShapes.add(VoxelShapes.empty());
+
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override
@@ -50,11 +52,17 @@ public class InsulationPanelsGray extends HorizontalFacingBlock {
         this.railingShapes.set(3, shapes.get(3));
         return this;
     }
+    public InsulationPanelsGray setTipsMode(boolean mode){
+        this.tipsMode = mode;
+        return  this;
+    }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.aft_fabroads.insulation_gray_tip"));
+        if (this.tipsMode){
+            tooltip.add(new TranslatableText("item.aft_fabroads.insulation_gray_tip"));
+        }
     }
 }

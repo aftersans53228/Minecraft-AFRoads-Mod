@@ -9,11 +9,15 @@ import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -39,23 +43,248 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         String roadName2rd=entity.getRoadNames().get(1);
         Boolean dirLeft = entity.getCachedState().get(BooleanProperty.of("dir_left"));
         Boolean dirRight = entity.getCachedState().get(BooleanProperty.of("dir_right"));
+        String leftDir;
+        String rightDir;
 
-        //1
-        matrices.push();
+
         int lightAbove = WorldRenderer.getLightmapCoordinates(entity.getWorld(), entity.getPos().up());
-        matrices.translate(0f,0f,0f) ;
-        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
 
+        //中文渲染1
+        matrices.push();
+        matrices.translate(0f,0.89f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        int strLenHalved = this.textRenderer.getWidth(roadName);
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()));
         //System.out.println(facing);
         //System.out.println(facing.asRotation());
-        matrices.scale(0.04F,0.04F,0.04F);
+        switch (facing){
+            case NORTH -> matrices.translate(0.5f,0f,-0.55f);
+            case SOUTH -> matrices.translate(-0.5f,0f,0.45f);
+            case EAST -> matrices.translate(0.5f,0f,0.45f);
+            case WEST -> matrices.translate(-0.5f,0f,-0.55f);
+        }
+        //MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
 
-
-
-        int strLenHalved = this.textRenderer.getWidth(roadName);
-        this.textRenderer.draw(roadName,-strLenHalved,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        matrices.scale(0.032f,0.032F,0.032f);
+        this.textRenderer.draw(roadName, (float) (-strLenHalved) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
         matrices.pop();
+
+        //中文渲染2
+        matrices.push();
+        matrices.translate(0f,0.89f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()-180));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing){
+            case SOUTH ->matrices.translate(0.5f,0f,-0.55f);
+            case NORTH -> matrices.translate(-0.5f,0f,0.45f);
+            case WEST -> matrices.translate(0.5f,0f,0.45f);
+            case EAST -> matrices.translate(-0.5f,0f,-0.55f);
+        }
+        matrices.scale(0.032f,0.032F,0.032f);
+        this.textRenderer.draw(roadName, (float) (-strLenHalved) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        matrices.pop();
+
+        //中文渲染方向1.1
+        matrices.push();
+        matrices.translate(0f,0.85f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing) {
+            case SOUTH -> {
+                matrices.translate(-0.5f, 0f, 0.45f);
+                leftDir = "东";
+            }
+            case NORTH -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                leftDir = "西";
+            }
+            case WEST -> {
+                matrices.translate(-0.5f, 0f, -0.55f);
+                leftDir = "南";
+            }
+            case EAST -> {
+                matrices.translate(0.5f, 0f, 0.45f);
+                leftDir = "北";
+            }
+            default -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                leftDir = "?";
+            }
+        }
+        if (dirLeft){
+            switch (facing){
+                case SOUTH->matrices.translate(-0.9f,0f,0f);
+                case WEST ->matrices.translate(-0.9f,0f,0f);
+                case NORTH->matrices.translate(-0.9f,0f,0f);
+                case EAST -> matrices.translate(-0.9f,0f,0f);
+            }
+            matrices.scale(0.02f,0.02F,0.02f);
+            this.textRenderer.draw(leftDir, (float) -(this.textRenderer.getWidth(leftDir)) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        }
+        matrices.pop();
+        //中文渲染方向1.2
+        matrices.push();
+        matrices.translate(0f,0.85f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing) {
+            case SOUTH -> {
+                matrices.translate(-0.5f, 0f, 0.45f);
+                rightDir = "西";
+            }
+            case NORTH -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                rightDir = "东";
+            }
+            case WEST -> {
+                matrices.translate(-0.5f, 0f, -0.55f);
+                rightDir = "北";
+            }
+            case EAST -> {
+                matrices.translate(0.5f, 0f, 0.45f);
+                rightDir = "南";
+            }
+            default -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                rightDir = "?";
+            }
+        }
+        if (dirRight){
+            switch (facing){
+                case SOUTH->matrices.translate(0.9f,0f,0f);
+                case WEST ->matrices.translate(0.9f,0f,0f);
+                case NORTH->matrices.translate(0.9f,0f,0f);
+                case EAST -> matrices.translate(0.9f,0f,0f);
+            }
+            matrices.scale(0.02f,0.02F,0.02f);
+            this.textRenderer.draw(rightDir, (float) -(this.textRenderer.getWidth(rightDir)) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        }
+        matrices.pop();
+
+        //中文渲染方向2.1
+        matrices.push();
+        matrices.translate(0f,0.85f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()-180));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing) {
+            case NORTH -> {
+                matrices.translate(-0.5f, 0f, 0.45f);
+                leftDir = "东";
+            }
+            case SOUTH -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                leftDir = "西";
+            }
+            case EAST -> {
+                matrices.translate(-0.5f, 0f, -0.55f);
+                leftDir = "南";
+            }
+            case WEST -> {
+                matrices.translate(0.5f, 0f, 0.45f);
+                leftDir = "北";
+            }
+            default -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                leftDir = "?";
+            }
+        }
+        if (dirLeft){
+            switch (facing){
+                case SOUTH->matrices.translate(0.9f,0f,0f);
+                case WEST ->matrices.translate(0.9f,0f,0f);
+                case NORTH->matrices.translate(0.9f,0f,0f);
+                case EAST -> matrices.translate(0.9f,0f,0f);
+            }
+            matrices.scale(0.02f,0.02F,0.02f);
+            this.textRenderer.draw(leftDir, (float) -(this.textRenderer.getWidth(leftDir)) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        }
+        matrices.pop();
+        //中文渲染方向2.2
+        matrices.push();
+        matrices.translate(0f,0.85f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()-180));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing) {
+            case NORTH -> {
+                matrices.translate(-0.5f, 0f, 0.45f);
+                rightDir = "西";
+            }
+            case SOUTH -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                rightDir = "东";
+            }
+            case EAST -> {
+                matrices.translate(-0.5f, 0f, -0.55f);
+                rightDir = "北";
+            }
+            case WEST -> {
+                matrices.translate(0.5f, 0f, 0.45f);
+                rightDir = "南";
+            }
+            default -> {
+                matrices.translate(0.5f, 0f, -0.55f);
+                rightDir = "?";
+            }
+        }
+        if (dirRight){
+            switch (facing){
+                case SOUTH->matrices.translate(-0.9f,0f,0f);
+                case WEST ->matrices.translate(-0.9f,0f,0f);
+                case NORTH->matrices.translate(-0.9f,0f,0f);
+                case EAST -> matrices.translate(-0.9f,0f,0f);
+            }
+            matrices.scale(0.02f,0.02F,0.02f);
+            this.textRenderer.draw(rightDir, (float) -(this.textRenderer.getWidth(rightDir)) /2,0F,0xFFFFFF,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        }
+        matrices.pop();
+
+        //英文渲染
+        matrices.push();
+        matrices.translate(0f,0.53f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        int Halved2 = this.textRenderer.getWidth(roadName2rd);
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing){
+            case NORTH -> matrices.translate(0.5f,0f,-0.55f);
+            case SOUTH -> matrices.translate(-0.5f,0f,0.45f);
+            case EAST -> matrices.translate(0.5f,0f,0.45f);
+            case WEST -> matrices.translate(-0.5f,0f,-0.55f);
+        }
+        //MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+
+        matrices.scale(0.015f,0.015F,0.015f);
+        this.textRenderer.draw(roadName2rd, (float) (-Halved2) /2,0F,0x000000,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        matrices.pop();
+
+        //英文渲染2
+        matrices.push();
+        matrices.translate(0f,0.53f,0f) ;
+        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(facing.asRotation()-180));
+        //System.out.println(facing);
+        //System.out.println(facing.asRotation());
+        switch (facing){
+            case SOUTH -> matrices.translate(0.5f,0f,-0.55f);
+            case NORTH -> matrices.translate(-0.5f,0f,0.45f);
+            case WEST -> matrices.translate(0.5f,0f,0.45f);
+            case EAST -> matrices.translate(-0.5f,0f,-0.55f);
+        }
+        matrices.scale(0.015f,0.015F,0.015f);
+        this.textRenderer.draw(roadName2rd, (float) (-Halved2) /2,0F,0x000000,false,matrices.peek().getModel(),vertexConsumers,false,0,lightAbove);
+        matrices.pop();
+
 
 
 

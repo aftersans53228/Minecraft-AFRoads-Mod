@@ -20,6 +20,7 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(BarrierBarItem));
                 stacks.add(new ItemStack(PavementRailingsItem));
                 stacks.add(new ItemStack(ExpresswayRailingsBaseItem));
+                stacks.add(new ItemStack(ExpresswayIronRailingsItem));
                 stacks.add(new ItemStack(ExpresswayRailingsItem));
                 stacks.add(new ItemStack(ExpresswayRailingsType2Item));
                 stacks.add(new ItemStack(InsulationPanelsRailingsItem));
