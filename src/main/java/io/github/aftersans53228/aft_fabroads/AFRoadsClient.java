@@ -1,7 +1,5 @@
 package io.github.aftersans53228.aft_fabroads;
 
-import io.github.aftersans53228.aft_fabroads.gui.ConfigGui;
-import io.github.aftersans53228.aft_fabroads.gui.ConfigScreen;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
@@ -114,6 +112,7 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(PavementRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailingsBase, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayIronRailings, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayIronRailings2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailings, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ExpresswayRailingsType2, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsRailings, RenderLayer.getTranslucent());
@@ -199,12 +198,6 @@ public class AFRoadsClient implements ClientModInitializer {
                 // 此 lambda 中的所有内容都在渲染线程上运行
                 client.setScreen(new RoadNameSignScreen(new RoadNameSignGui(RoadNameSignPos)));
                 AFRoads.LOGGER.info("Open the\"Road Name Sign\"'s gui. ");
-            });
-        });
-        ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:config_open"), (client, handler, buf, responseSender) -> {
-            client.execute(() -> {
-                client.setScreen(new ConfigScreen(new TranslatableText("text.gui.aft_fabroads.config_title"),new ConfigGui()));
-                AFRoads.LOGGER.info("Open the\"Config Menu\"");
             });
         });
         ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"disconnect_self"),((client, handler, buf, responseSender) -> {

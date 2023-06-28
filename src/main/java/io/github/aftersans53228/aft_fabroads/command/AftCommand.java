@@ -52,13 +52,6 @@ public class AftCommand {
                                     return 1;
                                 }))
                 )
-                .then(literal("config")
-                                .executes(context ->{
-                                    ServerPlayerEntity player = context.getSource().getPlayer();
-                                    ServerPlayNetworking.send((ServerPlayerEntity) player, new Identifier("aft_fabroads:config_open"), PacketByteBufs.empty());
-                                    return 1;
-                                })
-                )
                 .requires(source -> source.hasPermissionLevel(4))
                 .then(literal("timer_control")
                         .then(literal("reset")
@@ -91,7 +84,7 @@ public class AftCommand {
                         .then(literal("server_version")
                                 .executes(context ->{
                                     ServerPlayerEntity player = context.getSource().getPlayer();
-                                    player.sendMessage(new LiteralText(MOD_ID),false);
+                                    player.sendMessage(new LiteralText(MOD_VERSION),false);
                                     return 1;
                                 })
                         )

@@ -20,7 +20,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -31,6 +30,7 @@ public class AFRoads implements ModInitializer {
 	// 这样一来，很清楚哪个 mod 写了信息、警告和错误。
 	public static final Logger LOGGER = LogManager.getLogger("aft_fabroads");
 
+
 	public static void registerPlayerJoinEvent(Consumer<ServerPlayerEntity> consumer) {
 		ServerEntityEvents.ENTITY_LOAD.register((entity, serverWorld) -> {
 			if (entity instanceof ServerPlayerEntity
@@ -39,9 +39,9 @@ public class AFRoads implements ModInitializer {
 			}
 		});
 	}
-	public static void registerGuiClose(Identifier id,BiConsumer<PacketByteBuf,ServerPlayerEntity> consumer) {
+	public static void registerGuiClose(Identifier id,BiConsumer<PacketByteBuf, ServerPlayerEntity> consumer) {
 		ServerPlayNetworking.registerGlobalReceiver(id,(server, player, handler, buf, responseSender)->{
-			consumer.accept(buf,player);
+				consumer.accept(buf,player);
 		});
 	}
 
@@ -64,8 +64,10 @@ public class AFRoads implements ModInitializer {
 
     @Override
 	public void onInitialize() {
+
 		AFRoadsBlockRegistry.RegisterBlock();
 		AFRoadsItemRegistry.RegisterItem();
+
 
 
 		//command
@@ -82,17 +84,12 @@ public class AFRoads implements ModInitializer {
 
 		//服务端接发包
 		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);
-		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"), GuiCloseNetwork::receiveGuiCloseRNS);
+		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"),GuiCloseNetwork::receiveGuiCloseRNS);
+
 
 
 
 		LOGGER.info("AFRoads Misc Initialized");
-
-
-
-
-
-
 
 	}
 

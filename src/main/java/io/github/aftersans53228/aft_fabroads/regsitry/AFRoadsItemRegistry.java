@@ -101,6 +101,7 @@ public class AFRoadsItemRegistry {
     public static  Item PavementRailingsItem ;
     public static  Item ExpresswayRailingsBaseItem ;
     public static  Item ExpresswayIronRailingsItem;
+    public static  Item ExpresswayIronRailings2Item;
     public static  Item ExpresswayRailingsItem ;
     public static  Item ExpresswayRailingsType2Item ;
     public static  Item InsulationPanelsRailingsItem ;
@@ -217,6 +218,7 @@ public class AFRoadsItemRegistry {
         PavementRailingsItem =registerDecoration("pavement_railings",PavementRailings);
         ExpresswayRailingsBaseItem =registerDecoration("expressway_railings_base",ExpresswayRailingsBase);
         ExpresswayIronRailingsItem =registerDecoration("expressway_iron_railings",ExpresswayIronRailings);
+        ExpresswayIronRailings2Item =registerDecoration("expressway_iron_railings2",ExpresswayIronRailings2);
         ExpresswayRailingsItem =registerDecoration("expressway_railings",ExpresswayRailings);
         ExpresswayRailingsType2Item =registerDecoration("expressway_railings_type2",ExpresswayRailingsType2);
         InsulationPanelsRailingsItem =registerDecoration("insulation_panels_railings",InsulationPanelsRailings);

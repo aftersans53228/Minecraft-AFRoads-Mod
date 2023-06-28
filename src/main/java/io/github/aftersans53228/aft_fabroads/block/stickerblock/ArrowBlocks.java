@@ -21,6 +21,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 
 import java.util.List;
 
@@ -54,5 +55,11 @@ public class ArrowBlocks extends HorizontalFacingBlock {
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.aft_fabroads.arrow_tip"));
+    }
+
+    @Override
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        World world2 =(World) world;
+        world2.setBlockState(pos,state.with(is_Mini, true));
     }
 }

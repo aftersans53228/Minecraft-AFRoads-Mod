@@ -1,6 +1,5 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
@@ -16,9 +15,11 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
     private String roadName = "未命名";
     private String roadName2rd = "Unnamed";
 
+
     public RoadNameSignEntity(BlockPos pos, BlockState state){
             super(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, pos, state);
     }
+
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
@@ -45,8 +46,12 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
         return this.writeNbt(tag);
     }
 
-    public void setRoadNames(String roadName,String roadName2rd) {
+    public void setRoadNames(String roadName) {
         this.roadName = roadName;
+        this.markDirty();
+        world.updateListeners(pos, this.getCachedState(), this.getCachedState(), Block.NOTIFY_LISTENERS);
+    }
+    public void setRoadNames2(String roadName2rd){
         this.roadName2rd = roadName2rd;
         this.markDirty();
         world.updateListeners(pos, this.getCachedState(), this.getCachedState(), Block.NOTIFY_LISTENERS);
