@@ -38,9 +38,6 @@ dependencies {
 	//libGui
 	modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
 
-	//config
-	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.config_version}")
-	modApi "com.terraformersmc:modmenu:${project.modmenu_version}"
 
 
 

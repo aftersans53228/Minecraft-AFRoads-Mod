@@ -156,8 +156,8 @@ public class AFRoadsItemRegistry {
     public static void RegisterItem(){
         //Items
         RoadTool=register("road_tool",new RoadTool());
-        TrafficLightBulbRed=register("traffic_light_green_bulb", new Item(new FabricItemSettings()));
-        TrafficLightBulbGreen=register("traffic_light_red_bulb", new Item(new FabricItemSettings()));
+        TrafficLightBulbRed=register("traffic_light_red_bulb", new Item(new FabricItemSettings()));
+        TrafficLightBulbGreen=register("traffic_light_green_bulb", new Item(new FabricItemSettings()));
         TrafficLightBulbYellow=register("traffic_light_yellow_bulb", new Item(new FabricItemSettings()));
         TrafficLightPavementBulbRed=register("traffic_light_pavement_red_bulb", new Item(new FabricItemSettings()));
         TrafficLightPavementBulbGreen=register("traffic_light_pavement_green_bulb", new Item(new FabricItemSettings()));

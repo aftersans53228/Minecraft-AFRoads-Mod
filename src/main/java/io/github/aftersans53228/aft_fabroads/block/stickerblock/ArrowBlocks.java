@@ -57,9 +57,5 @@ public class ArrowBlocks extends HorizontalFacingBlock {
         tooltip.add(new TranslatableText("item.aft_fabroads.arrow_tip"));
     }
 
-    @Override
-    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-        World world2 =(World) world;
-        world2.setBlockState(pos,state.with(is_Mini, true));
-    }
+
 }

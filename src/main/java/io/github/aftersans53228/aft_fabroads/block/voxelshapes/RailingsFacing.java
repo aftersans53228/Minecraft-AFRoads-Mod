@@ -57,7 +57,7 @@ public class RailingsFacing {
         List<VoxelShape> shapes = new ArrayList<>();
         shapes.add(0,VoxelShapes.cuboid(0f, 0.0f, 0.0f, 0.6f, 0.625f, 1.0f));
         shapes.add(1,VoxelShapes.cuboid(0.4f, 0.0f, 0.0f, 1f, 0.625f, 1.0f));
-        shapes.add(2,VoxelShapes.cuboid(0.0f, 0.0f, 0.4f, 1.0f, 0.625f, 1.0f));
+        shapes.add(2,VoxelShapes.cuboid(0.0f, 0.0f, 0f, 1.0f, 0.625f, 0.6f));
         shapes.add(3,VoxelShapes.cuboid(0.0f, 0.0f, 0.4f, 1.0f, 0.625f, 1f));
         return shapes;
     }
