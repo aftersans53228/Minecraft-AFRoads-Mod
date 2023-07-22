@@ -22,7 +22,6 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class AftCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("afroads")
-                .requires(source -> source.hasPermissionLevel(0))
                 .then(literal("info")
                         .then(literal("zh_cn")
                                 .executes(context -> {

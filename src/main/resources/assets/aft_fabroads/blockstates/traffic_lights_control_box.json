@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=north,is_enable=true": {
+      "model": "aft_fabroads:block/traffic_lights_control_box", "y":  0
+    },
+    "facing=south,is_enable=true": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  180
+    },
+    "facing=west,is_enable=true": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  270
+    },
+    "facing=east,is_enable=true": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  90
+    },
+
+    "facing=north,is_enable=false": {
+      "model": "aft_fabroads:block/traffic_lights_control_box", "y":  0
+    },
+    "facing=south,is_enable=false": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  180
+    },
+    "facing=west,is_enable=false": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  270
+    },
+    "facing=east,is_enable=false": {
+      "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  90
+    }
+  }
+}

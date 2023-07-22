@@ -1,9 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
-import io.github.aftersans53228.aft_fabroads.block.TrafficLight;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightEntity;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.item.RoadTool;
+import io.github.aftersans53228.aft_fabroads.block.TrafficLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -16,6 +15,7 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
 import static net.minecraft.util.math.Direction.*;
@@ -48,46 +48,74 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
         //设置坐标
         matrices.translate(0.5, 0.5, 0.5);
         //设置旋转
-        if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==SOUTH){
+        Direction dir =blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING);
+        if (dir==SOUTH){
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
         }
+        else if (dir==NORTH){
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
+        }
+        else if (dir==EAST){
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270));
+        }
+        else if (dir==WEST){
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90));
+        }
         else{
-            if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==NORTH){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-            }
-            else{
-                if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==EAST){
-                    matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270));
-                }
-                else{
-                    if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==WEST){
-                        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90));
-                    }
-                    else{
-                        AFRoads.LOGGER.info("Unexpected traffic light orientation state.");
-                        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-                    }
-                }
-            }
+            AFRoads.LOGGER.info("Unexpected traffic light orientation state.");
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
         }
         //选择渲染类型
-        if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==0){
-            MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-        }
-        else{
-            if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==1){
-                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+        if(blockEntity.getWorld()!=null) {
+            TrafficLightsControlEntity controlBox;
+            if(blockEntity.getControlBoxPos()!=null) {
+                 controlBox= (TrafficLightsControlEntity) blockEntity.getWorld().getBlockEntity(blockEntity.getControlBoxPos());
             }
             else{
-                if (blockEntity.getCachedState().get(TrafficLight.TrafficType)==2){
-                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                }
-                else{
-                    AFRoads.LOGGER.info("Unexpected traffic light color state.");
-                    MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(new RoadTool(),1), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                controlBox =null;
+            }
+            if (controlBox != null) {
+                switch (dir) {
+                    case SOUTH, NORTH -> {
+                        String type = controlBox.getLightType("NS");
+                        switch (type) {
+                            case "forward_green":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            case "forward_red":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            case "forward_yellow":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            default:
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                        }
+                    }
+                    case EAST, WEST -> {
+                        String type = controlBox.getLightType("WE");
+                        switch (type) {
+                            case "forward_green":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            case "forward_red":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            case "forward_yellow":
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                            default:
+                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                                break;
+                        }
+                    }
+
                 }
             }
         }
+
+
 
         //GL拜拜了您内
         matrices.pop();

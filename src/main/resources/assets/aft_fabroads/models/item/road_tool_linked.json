@@ -2,7 +2,7 @@
 	"credit": "INFO_MESSAGES",
 	"parent": "minecraft:item/handheld",
 	"textures": {
-		"layer0": "aft_fabroads:item/road_tool"
+		"layer0": "aft_fabroads:item/road_tool_linked"
 	},
 	"display": {
 		"thirdperson_righthand": {
@@ -16,7 +16,7 @@
 			"scale": [0.85, 0.85, 0.85]
 		},
 		"firstperson_righthand": {
-			"rotation": [-27.75, -90, 0],
+			"rotation": [-27.5, -90, 0],
 			"translation": [1.13, 3.2, 0.63],
 			"scale": [0.68, 0.68, 0.68]
 		},

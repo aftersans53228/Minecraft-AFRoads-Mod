@@ -100,6 +100,7 @@ public class AFRoadsBlockRegistry {
     public static  Block InsulationPanelsGrayPart6 ;
 
     public static  Block BarrierBar;
+    public static  Block TrafficLightsControlBox;
     public static  Block TrafficLight ;
     public static  Block TrafficLightPavement ;
     public static  Block RoadLight ;
@@ -148,6 +149,7 @@ public class AFRoadsBlockRegistry {
     public static BlockEntityType<TrafficLightPavementEntity> TRAFFIC_LIGHT_PAVEMENT_ENTITY;
     public static BlockEntityType<RoadLightEntity>ROAD_LIGHT_ENTITY;
     public static BlockEntityType<RoadNameSignEntity>ROAD_NAME_SIGN_ENTITY;
+    public static BlockEntityType<TrafficLightsControlEntity>TRAFFIC_LIGHTS_CONTROL_ENTITY;
 
 
     public static void RegisterBlock(){
@@ -159,7 +161,7 @@ public class AFRoadsBlockRegistry {
         RoadSeamsBlockConcrete =register("road_seams_block_concrete",new RoadFullBlock("road_seam"));
         ConcreteSlab =register("concrete_slab",new ConcreteSlab());
         ConcreteStairs =register("concrete_stairs",new ConcreteStairs());
-        ConcreteStairsSmooth =register("concrete_stairs_smooth",new ConcreteStairsSmooth());
+        ConcreteStairsSmooth =register("concrete_stairs_smooth",new ConcreteStairs());
         ConcreteColumnsCorner =register("concrete_columns_corner",new ConcreteColumnsCorner());
         //创建划线贴纸
         LineStraight =register("line_straight",new LineBlocks());
@@ -217,9 +219,10 @@ public class AFRoadsBlockRegistry {
         InsulationPanelsGrayPart6 =register("insulation_panels_gray_part6",new InsulationPanelsGray().setVoxelShapes(getGrayPanelsHorizontal()));
 
         BarrierBar =register("barrier_bar",new BarrierBar());
-        TrafficLight =register("traffic_light",new TrafficLight());
-        TrafficLightPavement =register("traffic_light_pavement",new TrafficLightPavement());
-        RoadLight =register("road_light",new RoadLight());
+        TrafficLightsControlBox =register("traffic_lights_control_box",new TrafficLightsControlBox());
+        TrafficLight =setPillarConnect(register("traffic_light",new TrafficLight()));
+        TrafficLightPavement =setPillarConnect(register("traffic_light_pavement",new TrafficLightPavement()));
+        RoadLight =setPillarConnect(register("road_light",new RoadLight()));
 
         PillarBase =registerPillar("pillar_base",new PillarBase());
         HorizontalStraightPillar =registerPillar("horizontal_straight_pillar",new HorizontalStraightPillar());
@@ -254,7 +257,7 @@ public class AFRoadsBlockRegistry {
 
         RubbishBinMetal =register("rubbish_bin_metal",new RubbishBinMetal());
         TrashBinGreen =register("trash_bin_green",new TrashBinGreen());
-        RoadNameSign =register("road_name_sign",new RoadNameSign());
+        RoadNameSign =setPillarConnect(register("road_name_sign",new RoadNameSign()));
         //misc
         //LightSource =register("light_source",new Block(FabricBlockSettings.of(Material.AIR).hardness(0.5f).luminance(15).noCollision().nonOpaque()));
 
@@ -263,7 +266,7 @@ public class AFRoadsBlockRegistry {
         TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:traffic_light_pavement_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
         ROAD_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_light_entity"), FabricBlockEntityTypeBuilder.create(RoadLightEntity::new,RoadLight).build(null));
         ROAD_NAME_SIGN_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_name_sign_entity"), FabricBlockEntityTypeBuilder.create(RoadNameSignEntity::new,RoadNameSign).build(null));
-
+        TRAFFIC_LIGHTS_CONTROL_ENTITY=Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier("aft_fabroads:traffic_lights_control_entity"),FabricBlockEntityTypeBuilder.create(TrafficLightsControlEntity::new,TrafficLightsControlBox).build(null));
 
         AFRoads.LOGGER.info("AFRoads Blocks Initialized");
     }

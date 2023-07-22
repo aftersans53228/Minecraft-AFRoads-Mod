@@ -10,8 +10,9 @@ import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteColumnsCorner;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteSlab;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairs;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairsSmooth;
 import io.github.aftersans53228.aft_fabroads.item.RoadTool;
+import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
+import io.github.aftersans53228.aft_fabroads.item.RoadToolLinked;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -39,6 +40,8 @@ public class AFRoadsItemRegistry {
     }
     
     public static  Item RoadTool;
+    public static  Item RoadToolLinked;
+    public static  Item RoadToolAttribute;
     public static  Item TrafficLightBulbRed;
     public static  Item TrafficLightBulbGreen;
     public static  Item TrafficLightBulbYellow;
@@ -113,6 +116,7 @@ public class AFRoadsItemRegistry {
     public static  Item InsulationPanelsGrayPart6Item ;
 
     public static  Item BarrierBarItem;
+    public static  Item TrafficLightsControlBoxItem ;
     public static  Item TrafficLightItem ;
     public static  Item TrafficLightPavementItem ;
     public static  Item RoadLightItem ;
@@ -156,6 +160,8 @@ public class AFRoadsItemRegistry {
     public static void RegisterItem(){
         //Items
         RoadTool=register("road_tool",new RoadTool());
+        RoadToolLinked=register("road_tool_linked",new RoadToolLinked());
+        RoadToolAttribute =register("road_tool_attribute",new RoadToolAttribute());
         TrafficLightBulbRed=register("traffic_light_red_bulb", new Item(new FabricItemSettings()));
         TrafficLightBulbGreen=register("traffic_light_green_bulb", new Item(new FabricItemSettings()));
         TrafficLightBulbYellow=register("traffic_light_yellow_bulb", new Item(new FabricItemSettings()));
@@ -230,6 +236,7 @@ public class AFRoadsItemRegistry {
         InsulationPanelsGrayPart6Item =registerDecoration("insulation_panels_gray_part6",InsulationPanelsGrayPart6);
 
         BarrierBarItem =registerDecoration("barrier_bar",BarrierBar);
+        TrafficLightsControlBoxItem =registerDecoration("traffic_lights_control_box", TrafficLightsControlBox);
         TrafficLightItem =registerDecoration("traffic_light",TrafficLight);
         TrafficLightPavementItem =registerDecoration("traffic_light_pavement",TrafficLightPavement);
         RoadLightItem =registerDecoration("road_light",RoadLight);

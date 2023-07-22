@@ -1,6 +1,5 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -29,32 +28,30 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
 
 public  class TrafficLight extends BlockWithEntity implements BlockEntityProvider {
-    public static final IntProperty TrafficType = IntProperty.of("type",0,2);
     public static final BooleanProperty hasTimer = BooleanProperty.of("has_timer");
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
 
     public TrafficLight(){
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque().luminance(3));
-        setDefaultState(getStateManager().getDefaultState().with(TrafficType, 0));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(hasTimer,false));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-        stateManager.add(TrafficType);
         stateManager.add(Properties.HORIZONTAL_FACING);
         stateManager.add(hasTimer);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== RoadTool){
-            world.setBlockState(pos, state.with(hasTimer,! state.get(hasTimer)));
+        if (player.getMainHandStack().getItem()== RoadTool ){
+            world.setBlockState(pos, state.with(hasTimer, !state.get(hasTimer)));
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
@@ -152,7 +149,5 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, (world1, pos, state1, be) -> TrafficLightEntity.tick(world1, pos, state1, state.get(FACING)));
-    }
+
 }

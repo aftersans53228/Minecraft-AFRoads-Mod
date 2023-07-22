@@ -1,6 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.item;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlBox;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -31,6 +32,7 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(InsulationPanelsGrayPart4Item));
                 stacks.add(new ItemStack(InsulationPanelsGrayPart5Item));
                 stacks.add(new ItemStack(InsulationPanelsGrayPart6Item));
+                stacks.add(new ItemStack(TrafficLightsControlBoxItem));
                 stacks.add(new ItemStack(TrafficLightItem));
                 stacks.add(new ItemStack(TrafficLightPavementItem));
                 stacks.add(new ItemStack(RoadLightItem));

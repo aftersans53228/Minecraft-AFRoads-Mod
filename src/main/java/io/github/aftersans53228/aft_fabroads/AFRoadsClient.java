@@ -2,6 +2,7 @@ package io.github.aftersans53228.aft_fabroads;
 
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
+import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.RoadNameSignEntityRender;
@@ -11,29 +12,20 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.client.util.InputUtil;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import org.lwjgl.glfw.GLFW;
-import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 
 import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
 
 @Environment(EnvType.CLIENT)
 public class AFRoadsClient implements ClientModInitializer {
@@ -41,15 +33,6 @@ public class AFRoadsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(id, (client, handler, packet, responseSender) -> consumer.accept(packet));
     }
 
-    public static int tool_mode = 0;
-
-    private static KeyBinding keyBinding;{
-        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-        "key.aft_fabroads.change_tool_model", // 键绑定名称的翻译键
-        InputUtil.Type.KEYSYM, //键绑定的类型，键盘用 键SYM ，鼠标用 mouse 。
-        GLFW.GLFW_KEY_U, // 按下的键
-        "key.aft_fabroads.tool_keys" // 键绑定类别的翻译键。
-    ));}
 
     @Override
     @SuppressWarnings("all")
@@ -122,6 +105,7 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsGrayPart4, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsGrayPart5, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsGrayPart6, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(TrafficLightsControlBox, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(TrafficLight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TrafficLightPavement, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RoadLight, RenderLayer.getCutout());
@@ -161,29 +145,9 @@ public class AFRoadsClient implements ClientModInitializer {
 
 
 
-        //运行按键绑定
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (keyBinding.wasPressed()) {
-                if (tool_mode == 0) {
-                    assert client.player != null;
-                    tool_mode = 1;
-                    client.player.sendMessage(new TranslatableText("item.aft_fabroads.tool-mode_connect"), true);
-                }
-                else{
-                    if(tool_mode == 1){
-                        assert client.player != null;
-                        tool_mode = 0;
-                        client.player.sendMessage(new TranslatableText("item.aft_fabroads.tool-mode_normal"), true);
-                    }
-                }
-            }
-        });
-
-
-
 
         //注册一个道路工具变种模型
-        FabricModelPredicateProviderRegistry.register(RoadTool, new Identifier("tool_mode"), (itemStack, clientWorld, livingEntity , i) -> AFRoadsClient.tool_mode);
+        //FabricModelPredicateProviderRegistry.register(RoadTool, new Identifier("tool_mode"), (itemStack, clientWorld, livingEntity , i) -> tool_mode);
 
         //注册方块实体渲染
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
