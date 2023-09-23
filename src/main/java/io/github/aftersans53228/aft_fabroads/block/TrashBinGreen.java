@@ -1,6 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -27,6 +28,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadToolAttribute;
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadToolLinked;
 
 public class TrashBinGreen extends HorizontalFacingBlock {
     public static final BooleanProperty CR200j = BooleanProperty.of("cr200j");
@@ -41,12 +44,12 @@ public class TrashBinGreen extends HorizontalFacingBlock {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem()== RoadTool){
+        if (player.getMainHandStack().getItem().equals(RoadTool)){
             if (state.get(CR200j)) world.setBlockState(pos, state.with(CR200j, false));
             else world.setBlockState(pos, state.with(CR200j, true));
             return ActionResult.SUCCESS;
         }
-        if (! player.getMainHandStack().isEmpty()){
+        if ((! player.getMainHandStack().isEmpty())&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){
             player.getMainHandStack().setCount(0);
             if (!world.isClient) {
                 world.playSound(

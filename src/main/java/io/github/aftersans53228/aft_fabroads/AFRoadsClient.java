@@ -2,6 +2,7 @@ package io.github.aftersans53228.aft_fabroads;
 
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
+import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
@@ -180,6 +181,14 @@ public class AFRoadsClient implements ClientModInitializer {
         }));
 
         registerNetworkReceiver(new Identifier(MOD_ID,"version_check"),OnConnectingVersionCheck::receiveVersionCheck);
+
+        ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"attributes_item_required"),((client, handler, buf, responseSender) -> {
+            String s1 = buf.readString();
+            String s2 = buf.readString();
+            client.execute(() -> {
+                RoadToolAttribute.receiveAttributeItem(s1,s2, client.player);
+            });
+        }));
 
     }
 }
