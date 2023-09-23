@@ -45,8 +45,11 @@ public class TrashBinGreen extends HorizontalFacingBlock {
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem().equals(RoadTool)){
-            if (state.get(CR200j)) world.setBlockState(pos, state.with(CR200j, false));
-            else world.setBlockState(pos, state.with(CR200j, true));
+            if (state.get(CR200j)) {
+                world.setBlockState(pos, state.with(CR200j, false));
+            } else {
+                world.setBlockState(pos, state.with(CR200j, true));
+            }
             return ActionResult.SUCCESS;
         }
         if ((! player.getMainHandStack().isEmpty())&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){

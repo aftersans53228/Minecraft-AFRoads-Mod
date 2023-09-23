@@ -24,6 +24,10 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 
+/**
+ * @author Aftersans53228
+ * Mod Main Class
+ */
 public class AFRoads implements ModInitializer {
 	// 此记录器用于将文本写入控制台和日志文件。
 	// 使用您的 mod id 作为记录器的名称被认为是最佳实践。

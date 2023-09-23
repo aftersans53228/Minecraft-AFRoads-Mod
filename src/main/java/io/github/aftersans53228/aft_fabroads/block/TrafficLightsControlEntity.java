@@ -99,8 +99,9 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
 
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         TrafficLightsControlEntity entity = (TrafficLightsControlEntity) blockEntity;
-        if(state.get(BooleanProperty.of("is_enable"))){
+        if(Boolean.TRUE.equals(state.get(BooleanProperty.of("is_enable")))){
             if(!world.isClient()){
+                int temporaryVar = 0;
                 entity.timerTraffic +=1;
                 if(entity.timerTraffic == entity.getTimerLength()){
                     entity.timerTraffic =0;

@@ -28,6 +28,10 @@ import java.util.function.Consumer;
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
+/**
+ * @author Aftersans53228
+ * Mod Client Main Class
+ */
 @Environment(EnvType.CLIENT)
 public class AFRoadsClient implements ClientModInitializer {
     public static void registerNetworkReceiver(Identifier id, Consumer<PacketByteBuf> consumer) {
