@@ -34,9 +34,11 @@ public class IconBlocks extends HorizontalFacingBlock {
     protected void appendProperties(StateManager.Builder<Block, BlockState>stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         return VoxelShapes.cuboid(-1.0f, 0.0f, -1.0f, 2.0f, 0.00500f, 2.0f);
     }
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }

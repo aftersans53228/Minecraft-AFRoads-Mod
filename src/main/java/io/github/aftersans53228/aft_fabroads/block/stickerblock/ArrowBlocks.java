@@ -41,14 +41,20 @@ public class ArrowBlocks extends HorizontalFacingBlock {
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem()== RoadTool){
-            if (state.get(is_Mini)) world.setBlockState(pos, state.with(is_Mini, false));
-            else world.setBlockState(pos, state.with(is_Mini, true));
+            if (state.get(is_Mini)) {
+                world.setBlockState(pos, state.with(is_Mini, false));
+            } else {
+                world.setBlockState(pos, state.with(is_Mini, true));
+            }
         }
         return ActionResult.SUCCESS;
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
-        if (state.get(is_Mini)) return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1f, 0.00500f, 1.0f);
-        else return VoxelShapes.cuboid(-1.0f, 0.0f, -1.0f, 2.0f, 0.00500f, 2.0f);
+        if (state.get(is_Mini)) {
+            return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1f, 0.00500f, 1.0f);
+        } else {
+            return VoxelShapes.cuboid(-1.0f, 0.0f, -1.0f, 2.0f, 0.00500f, 2.0f);
+        }
     }
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());

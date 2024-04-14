@@ -45,7 +45,7 @@ public class RoadToolLinked extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(this.canLinkBlock.contains(context.getWorld().getBlockState(context.getBlockPos()).getBlock()) && context.getWorld().getBlockEntity(context.getBlockPos()) !=null) {
-            if (!context.getWorld().isClient()&& context.getWorld().getBlockEntity(context.getBlockPos()).getType() == AFRoadsBlockRegistry.TRAFFIC_LIGHTS_CONTROL_ENTITY) {
+            if (!context.getWorld().isClient()&& context.getWorld().getBlockEntity(context.getBlockPos()).getType().equals(AFRoadsBlockRegistry.TRAFFIC_LIGHTS_CONTROL_ENTITY)) {
                 if (this.boxPos == null) {
                     this.boxPos = context.getBlockPos();
                     context.getPlayer().sendMessage(new LiteralText("Select the CONTROL BOX."), true);
@@ -54,7 +54,7 @@ public class RoadToolLinked extends Item {
                 }
                 return ActionResult.SUCCESS;
             }
-            if (!context.getWorld().isClient()&& context.getWorld().getBlockEntity(context.getBlockPos()).getType() == AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY) {
+            if (!context.getWorld().isClient()&& context.getWorld().getBlockEntity(context.getBlockPos()).getType().equals(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY)) {
                 if (this.boxPos != null) {
                     TrafficLightEntity entity = (TrafficLightEntity) context.getWorld().getBlockEntity(context.getBlockPos());
                     entity.setControlBoxPos(this.boxPos);

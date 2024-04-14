@@ -1,13 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
-import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -15,10 +10,12 @@ import net.minecraft.util.Identifier;
 
 import static com.mojang.brigadier.arguments.IntegerArgumentType.integer;
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
-import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 
+/**
+ * @author aftersans53228
+ */
 public class AftCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("afroads")
@@ -52,26 +49,6 @@ public class AftCommand {
                                 }))
                 )
                 .requires(source -> source.hasPermissionLevel(4))
-                .then(literal("timer_control")
-                        .then(literal("reset")
-                                .executes(context -> {
-                                    AFRoads.traffic_lights_timer =0;
-                                    ServerPlayerEntity player = context.getSource().getPlayer();
-                                    player.sendMessage(new LiteralText("§7 [aft_fabroads]:traffic_lights_timer reset."), false);
-                                    AFRoads.LOGGER.info("Set [traffic_lights_timer] to:0");
-                                    return 1;
-                                }))
-                        .then(literal("set_tick")
-                                .then(argument("timer_set", integer(0,1200))
-                                        .executes(context -> {
-                                            AFRoads.traffic_lights_timer = context.getArgument("timer_set",Integer.class);
-                                            ServerPlayerEntity player = context.getSource().getPlayer();
-                                            player.sendMessage(new LiteralText("§7 [aft_fabroads]:Set traffic_lights_timer to:"+ AFRoads.traffic_lights_timer), false);
-                                            AFRoads.LOGGER.info("Set [traffic_lights_timer] to:"+ AFRoads.traffic_lights_timer);
-                                            return 1;
-                                        }))
-                        )
-                )
                 .then (literal("server-client")
                         .then(literal("disconnection_games")
                                 .executes(context ->{

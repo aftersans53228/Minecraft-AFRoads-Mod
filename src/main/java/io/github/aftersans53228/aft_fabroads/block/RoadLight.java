@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -25,6 +26,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -36,7 +38,7 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
 
 
     public RoadLight(){
-        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f).nonOpaque().luminance(5));
+        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f).nonOpaque());
         setDefaultState(getStateManager().getDefaultState().with(LightType, 0));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
@@ -76,24 +78,38 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
                 return VoxelShapes.fullCube();
         }
     }
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
+    @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return (BlockState)state.with(FACING, rotation.rotate(state.get(FACING)));
     }
+    @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
+    @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.aft_fabroads.road_light"));
     }
+/*
+    @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+        for(int i=1;i<15;i++){
+            if(world.getBlockState(pos.down(i)).getBlock().equals(Blocks.AIR)){
+                break;
+            };
+        }
 
+    }*/
 
-
+    @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new RoadLightEntity(pos, state);
     }
+    @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }

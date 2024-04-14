@@ -26,6 +26,7 @@ public class SignNormal  extends HorizontalFacingBlock {
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
         Direction dir = state.get(FACING);
         switch(dir) {
@@ -41,6 +42,7 @@ public class SignNormal  extends HorizontalFacingBlock {
                 return VoxelShapes.fullCube();
         }
     }
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }

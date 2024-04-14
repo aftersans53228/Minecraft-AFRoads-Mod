@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 @Environment(EnvType.CLIENT)
 public class RoadNameSignGui extends LightweightGuiDescription {
 
-    public RoadNameSignGui(BlockPos posofblock){
+    public RoadNameSignGui(BlockPos posOfBlock){
         //定义root
         WGridPanel root = new WGridPanel(9);
 
@@ -49,10 +49,10 @@ public class RoadNameSignGui extends LightweightGuiDescription {
         root.add(label2, 0, 7, 8, 2);
 
         //路牌名输入
-        WTextField road_name = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip"));
-        root.add(road_name,0,4,10,2);
-        WTextField road_name2rd = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip2rd"));
-        root.add(road_name2rd,0,9,10,2);
+        WTextField roadName = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip"));
+        root.add(roadName,0,4,10,2);
+        WTextField roadName2rd = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip2rd"));
+        root.add(roadName2rd,0,9,10,2);
 
         //放置于左右的方向设置
         WToggleButton toggleButtonLeft = new WToggleButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_dir_left"));
@@ -64,28 +64,27 @@ public class RoadNameSignGui extends LightweightGuiDescription {
         root.add(toggleButtonRight, 0,14, 2, 2);
 
         //应用和取消
-        WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_apply"));
+        WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.apply"));
         root.add(apply, 22, 16, 4, 3);
 
-        WButton cancel = new WButton(new TranslatableText("text.gui.aft_fabroads.road_name_sign_cancel"));
+        WButton cancel = new WButton(new TranslatableText("text.gui.aft_fabroads.cancel"));
         root.add(cancel, 17, 16, 4, 3);
 
         //当取消被按下后关闭gui
         cancel.setOnClick(() -> {
             // Close gui
             AFRoads.LOGGER.info("Close the\"Road Name Sign\"'s gui. ");
-
             MinecraftClient.getInstance().setScreen((Screen)null);
         });
         apply.setOnClick(()->{
             boolean dirLeft = toggleButtonLeft.getToggle();
             boolean dirRight = toggleButtonRight.getToggle();
-            String roadName = road_name.getText();
-            String roadName2 = road_name2rd.getText();
+            String roadName1 = roadName.getText();
+            String roadName2 = roadName2rd.getText();
                 //output value
                 PacketByteBuf buf = PacketByteBufs.create();
-                buf.writeBlockPos(posofblock);//方块坐标
-                buf.writeString(roadName);//道路名称
+                buf.writeBlockPos(posOfBlock);//方块坐标
+                buf.writeString(roadName1);//道路名称
                 buf.writeString(roadName2);//英语名称
                 buf.writeBoolean(dirLeft);//左侧方向指示
                 buf.writeBoolean(dirRight);//右侧方向指示

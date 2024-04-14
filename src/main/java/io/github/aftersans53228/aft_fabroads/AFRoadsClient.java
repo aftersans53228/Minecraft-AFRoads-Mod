@@ -1,7 +1,7 @@
 package io.github.aftersans53228.aft_fabroads;
 
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
-import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignScreen;
+import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
 import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
@@ -9,6 +9,7 @@ import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.RoadNameSignEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.TrafficLightEntityRender;
 import io.github.aftersans53228.aft_fabroads.render.TrafficLightPavementEntityRender;
+import io.github.cottonmc.cotton.gui.client.CottonClientScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -162,11 +163,19 @@ public class AFRoadsClient implements ClientModInitializer {
 
         //gui
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:road_name_sign_gui_open"), (client, handler, buf, responseSender) -> {
-            BlockPos RoadNameSignPos = buf.readBlockPos();
+            BlockPos roadNameSignPos = buf.readBlockPos();
             client.execute(() -> {
                 // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new RoadNameSignScreen(new RoadNameSignGui(RoadNameSignPos)));
+                client.setScreen(new CottonClientScreen(new RoadNameSignGui(roadNameSignPos)));
                 AFRoads.LOGGER.info("Open the\"Road Name Sign\"'s gui. ");
+            });
+        });
+        ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:traffic_control_box_gui_open"), (client, handler, buf, responseSender) -> {
+            BlockPos controlBoxPos = buf.readBlockPos();
+            client.execute(() -> {
+                // 此 lambda 中的所有内容都在渲染线程上运行
+                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos)));
+                    AFRoads.LOGGER.info("Open the\"Traffic Control Box\"'s gui. ");
             });
         });
         ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"disconnect_self"),((client, handler, buf, responseSender) -> {

@@ -14,6 +14,9 @@ import net.minecraft.world.World;
 
 import java.util.Objects;
 
+/**
+ * @author aftersans53228
+ */
 public class GuiCloseNetwork {
     public static void sendGuiClose(Identifier id,PacketByteBuf buf){
         ClientPlayNetworking.send(id,buf);

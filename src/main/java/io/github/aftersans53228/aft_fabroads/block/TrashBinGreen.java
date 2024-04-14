@@ -43,6 +43,7 @@ public class TrashBinGreen extends HorizontalFacingBlock {
         stateManager.add(CR200j);
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem().equals(RoadTool)){
             if (state.get(CR200j)) {
@@ -70,13 +71,15 @@ public class TrashBinGreen extends HorizontalFacingBlock {
         }
         return ActionResult.SUCCESS;
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
         return VoxelShapes.cuboid(0.125, 0, 0.125, 0.875, 1.51875, 0.875);
     }
-
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
+    @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add( new TranslatableText("item.aft_fabroads.trash_bin") );
     }

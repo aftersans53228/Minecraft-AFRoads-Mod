@@ -40,8 +40,11 @@ public class RoadMastPillar extends HorizontalFacingBlock {
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem()== RoadTool){
-            if (state.get(is_Bracket)) world.setBlockState(pos, state.with(is_Bracket, false));
-            else world.setBlockState(pos, state.with(is_Bracket, true));
+            if (state.get(is_Bracket)) {
+                world.setBlockState(pos, state.with(is_Bracket, false));
+            } else {
+                world.setBlockState(pos, state.with(is_Bracket, true));
+            }
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

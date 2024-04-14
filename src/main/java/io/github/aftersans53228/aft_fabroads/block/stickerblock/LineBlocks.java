@@ -38,19 +38,26 @@ public class LineBlocks extends HorizontalFacingBlock {
         stateManager.add(is_Yellow);
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getMainHandStack().getItem()== RoadTool){
-            if (state.get(is_Yellow)) world.setBlockState(pos, state.with(is_Yellow, false));
-            else world.setBlockState(pos, state.with(is_Yellow, true));
+            if (state.get(is_Yellow)) {
+                world.setBlockState(pos, state.with(is_Yellow, false));
+            } else {
+                world.setBlockState(pos, state.with(is_Yellow, true));
+            }
         }
         return ActionResult.SUCCESS;
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         return VoxelShapes.cuboid(0.0f, 0.0f, 0.0f, 1f, 0.00500f, 1.0f);
     }
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
     }
+    @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.aft_fabroads.line_tip"));
     }

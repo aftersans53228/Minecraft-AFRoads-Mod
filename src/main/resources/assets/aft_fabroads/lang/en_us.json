@@ -104,15 +104,6 @@
     "block.aft_fabroads.rubbish_bin_metal": "Metal Rubbish Bin",
     "block.aft_fabroads.trash_bin_green": "Green Trash Bin",
     "block.aft_fabroads.road_name_sign": "Road Name Sign",
-    "text.gui.aft_fabroads.road_name_sign_dir_left": "Direction:<---",
-    "text.gui.aft_fabroads.road_name_sign_dir_right": "Direction:--->",
-    "text.gui.aft_fabroads.road_name_sign_apply": "Apply",
-    "text.gui.aft_fabroads.road_name_sign_cancel": "Cancel",
-    "text.gui.aft_fabroads.road_name_sign_name-tip": "Road name",
-    "text.gui.aft_fabroads.road_name_sign_name-tip2rd": "2rd Road name",
-
-
-
 
     "item.aft_fabroads.road_tool":"§4§lRoad tool(state)",
     "item.aft_fabroads.road_tool_linked":"§4§lRoad tool(Link)",
@@ -145,7 +136,13 @@
     "key.aft_fabroads.tool_keys": "Aftersans53228's fabric road",
     "text.gui.aft_fabroads.road_name_sign_name": "Road Name",
     "text.gui.aft_fabroads.road_name_sign_name2": "2RD Name",
-    "text.gui.aft_fabroads.version_mistake": "AFRoads Version Inconsistency(between Client and Server).",
+    "text.gui.aft_fabroads.road_name_sign_dir_left": "Direction:<---",
+    "text.gui.aft_fabroads.road_name_sign_dir_right": "Direction:--->",
+    "text.gui.aft_fabroads.apply": "Apply",
+    "text.gui.aft_fabroads.cancel": "Cancel",
+    "text.gui.aft_fabroads.road_name_sign_name-tip": "Road name",
+    "text.gui.aft_fabroads.road_name_sign_name-tip2rd": "2rd Road name",
+    "text.gui.aft_fabroads.version_mistake": "AFRoads Version is inconsistent(between Client and Server).",
     "text.gui.aft_fabroads.version_mistake_client": "§fAFRoads Client Version:",
     "text.gui.aft_fabroads.version_mistake_server": "§fAFRoads Server Version:",
 
