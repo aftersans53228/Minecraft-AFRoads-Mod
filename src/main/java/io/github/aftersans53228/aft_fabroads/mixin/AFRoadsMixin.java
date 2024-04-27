@@ -1,3 +1,9 @@
+/*
+* 这个Mixin类仅做测试使用，在客户端进入世界时播送消息。
+* 未来可能会移除或改写该类，但该模组使用Mixin可能的用途尚不明确。
+* This Mixin class is for testing only ，it broadcasts a message when the client enters the world.
+* This CLASS may be removed or rewritten in the future, but it is unclear what the mod might do , with Mixin.
+*/
 package io.github.aftersans53228.aft_fabroads.mixin;
 
 import net.minecraft.network.ClientConnection;
@@ -11,6 +17,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_VERSION;
 
+/**
+ * @author aftersans53228
+ * Mixin Test
+ */
 @Mixin(PlayerManager.class)
 public abstract class AFRoadsMixin {
     @Inject(at = @At("TAIL"), method = "onPlayerConnect")

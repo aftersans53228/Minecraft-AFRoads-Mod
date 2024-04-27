@@ -31,7 +31,7 @@ import java.util.function.Consumer;
 public class AFRoads implements ModInitializer {
 	// 此记录器用于将文本写入控制台和日志文件。
 	// 使用您的 mod id 作为记录器的名称被认为是最佳实践。
-	// 这样一来，很清楚哪个 mod 写了信息、警告和错误。
+	// 这样一来，很清楚哪个 mod 打印了信息、警告和错误。
 	public static final Logger LOGGER = LogManager.getLogger("aft_fabroads");
 
 
@@ -77,7 +77,7 @@ public class AFRoads implements ModInitializer {
 		//command
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
 
-		//红绿灯计时器逻辑
+		//红绿灯计时器逻辑，即将取消
 		ServerTickEvents.END_SERVER_TICK.register((server)->
 		{
 			traffic_lights_timer = traffic_lights_timer +1 ;

@@ -148,13 +148,6 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(TrashBinGreen, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RoadNameSign, RenderLayer.getCutout());
 
-
-
-
-
-        //注册一个道路工具变种模型
-        //FabricModelPredicateProviderRegistry.register(RoadTool, new Identifier("tool_mode"), (itemStack, clientWorld, livingEntity , i) -> tool_mode);
-
         //注册方块实体渲染
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);

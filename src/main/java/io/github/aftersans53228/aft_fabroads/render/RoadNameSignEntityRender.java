@@ -33,7 +33,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
 
         final Direction facing = entity.getCachedState().get(HorizontalFacingBlock.FACING);
         //获取路牌属性
-        if (true) {
+        if (true) {//This is used to prepare for something in the future.
             String roadName = entity.getRoadNames().get(0);
             String roadName2rd = entity.getRoadNames().get(1);
             Boolean dirLeft = entity.getCachedState().get(BooleanProperty.of("dir_left"));
