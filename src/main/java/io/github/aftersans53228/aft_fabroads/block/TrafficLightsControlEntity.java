@@ -34,6 +34,7 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         this.NSlightType = nbt.getString("NS");
         this.WElightType = nbt.getString("WE");
         this.timeForward.clear();
+        this.timeTurn.clear();
         for (Integer i:nbt.getIntArray("forward")){
             this.timeForward.add(i);
         }

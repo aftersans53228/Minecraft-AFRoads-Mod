@@ -34,7 +34,7 @@ public class RubbishBinMetal extends HorizontalFacingBlock {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (! player.getMainHandStack().isEmpty()&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){
+        if (!player.isCreative() && ! player.getMainHandStack().isEmpty()&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){
             player.getMainHandStack().setCount(0);
             if (!world.isClient) {
                 world.playSound(

@@ -53,7 +53,7 @@ public class TrashBinGreen extends HorizontalFacingBlock {
             }
             return ActionResult.SUCCESS;
         }
-        if ((! player.getMainHandStack().isEmpty())&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){
+        if ((!player.isCreative() && ! player.getMainHandStack().isEmpty())&& !player.getMainHandStack().getItem().equals(RoadToolAttribute) && !player.getMainHandStack().getItem().equals(RoadToolLinked)){
             player.getMainHandStack().setCount(0);
             if (!world.isClient) {
                 world.playSound(

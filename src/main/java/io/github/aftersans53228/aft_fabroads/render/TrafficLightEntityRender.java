@@ -79,35 +79,27 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case SOUTH, NORTH -> {
                         String type = controlBox.getLightType("NS");
                         switch (type) {
-                            case "forward_green":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            case "forward_red":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            case "forward_yellow":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            default:
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
+                            case "forward_green" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            case "forward_red" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            case "forward_yellow", "disable" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            default ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         }
                     }
                     case EAST, WEST -> {
                         String type = controlBox.getLightType("WE");
                         switch (type) {
-                            case "forward_green":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            case "forward_red":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            case "forward_yellow":
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
-                            default:
-                                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                                break;
+                            case "forward_green" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            case "forward_red" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            case "forward_yellow", "disable" ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackYellow, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                            default ->
+                                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         }
                     }
 

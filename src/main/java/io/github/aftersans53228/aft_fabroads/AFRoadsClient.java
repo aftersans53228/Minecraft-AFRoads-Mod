@@ -1,5 +1,7 @@
 package io.github.aftersans53228.aft_fabroads;
 
+import com.sun.jna.StringArray;
+import io.github.aftersans53228.aft_fabroads.block.RoadNameSignEntity;
 import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
@@ -27,6 +29,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
@@ -161,8 +164,10 @@ public class AFRoadsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:road_name_sign_gui_open"), (client, handler, buf, responseSender) -> {
             BlockPos roadNameSignPos = buf.readBlockPos();
             client.execute(() -> {
+                RoadNameSignEntity entity=(RoadNameSignEntity) client.world.getBlockEntity(roadNameSignPos);
+                List<String> roadNames = entity.getRoadNames();
                 // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new CottonClientScreen(new RoadNameSignGui(roadNameSignPos)));
+                client.setScreen(new CottonClientScreen(new RoadNameSignGui(roadNameSignPos,roadNames,client.world)));
                 AFRoads.LOGGER.info("Open the\"Road Name Sign\"'s gui. ");
             });
         });

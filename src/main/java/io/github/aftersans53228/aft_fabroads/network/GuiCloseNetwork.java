@@ -74,7 +74,7 @@ public class GuiCloseNetwork {
                     timeForward.add(timeData[0]);
                     timeForward.add(timeData[1]);
                     timeTurn.add(timeData[2]);
-                    timeTurn.add(timeData[2]);
+                    timeTurn.add(timeData[3]);
                     blockEntity.setTimeData(timeForward,timeTurn);
                     AFRoads.LOGGER.info("Set Traffic lights Control Box {"+ Arrays.toString(timeData) + "} ,"+enabled );
                 }
