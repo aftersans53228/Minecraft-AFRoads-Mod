@@ -16,7 +16,7 @@ jobs:
           17,    # Current Java LTS
         ]
         # and run on both Linux and Windows
-        os: [ubuntu-22.10, windows-2022]
+        os: [windows-2022]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
       - name: Build Mods
         run: ./gradlew build
       - name: Capture Build Artifacts
-        if: ${{ runner.os == 'Linux' }} # Only upload artifacts built on one OS
+        if: ${{ runner.os == 'Windows' }} # Only upload artifacts built on one OS
         uses: actions/upload-artifact@v2
         with:
           path: build/libs/
