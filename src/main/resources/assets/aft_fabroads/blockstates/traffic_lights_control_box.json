@@ -1,15 +1,15 @@
 {
   "variants": {
-    "facing=north,is_enable=true": {
+    "facing=north": {
       "model": "aft_fabroads:block/traffic_lights_control_box", "y":  0
     },
-    "facing=south,is_enable=true": {
+    "facing=south": {
       "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  180
     },
-    "facing=west,is_enable=true": {
+    "facing=west": {
       "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  270
     },
-    "facing=east,is_enable=true": {
+    "facing=east": {
       "model": "aft_fabroads:block/traffic_lights_control_box" , "y":  90
     }
   }

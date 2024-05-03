@@ -89,6 +89,7 @@ public class AFRoads implements ModInitializer {
 		//服务端接发包
 		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);
 		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"),GuiCloseNetwork::receiveGuiCloseRNS);
+		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),GuiCloseNetwork::receiveGuiCloseTrafficLightsControlBox);
 
 
 

@@ -1,5 +1,6 @@
 package io.github.aftersans53228.aft_fabroads;
 
+import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
 import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
@@ -20,10 +21,12 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
@@ -166,8 +169,11 @@ public class AFRoadsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:traffic_control_box_gui_open"), (client, handler, buf, responseSender) -> {
             BlockPos controlBoxPos = buf.readBlockPos();
             client.execute(() -> {
+                ArrayList<Integer> timeData=new ArrayList<>();
+                TrafficLightsControlEntity entity=(TrafficLightsControlEntity)client.world.getBlockEntity(controlBoxPos);
+                timeData = entity.getTimerData();
                 // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos)));
+                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos,client.world.getBlockState(controlBoxPos).get(BooleanProperty.of("is_enable")),timeData)));
                     AFRoads.LOGGER.info("Open the\"Traffic Control Box\"'s gui. ");
             });
         });

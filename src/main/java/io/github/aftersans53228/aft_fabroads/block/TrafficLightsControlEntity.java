@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -32,6 +33,13 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
     public void readNbt(NbtCompound nbt) {
         this.NSlightType = nbt.getString("NS");
         this.WElightType = nbt.getString("WE");
+        this.timeForward.clear();
+        for (Integer i:nbt.getIntArray("forward")){
+            this.timeForward.add(i);
+        }
+        for (Integer i:nbt.getIntArray("turn")){
+            this.timeTurn.add(i);
+        }
         super.readNbt(nbt);
     }
 
@@ -39,6 +47,8 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
     public NbtCompound writeNbt(NbtCompound nbt) {
         nbt.putString("NS",this.NSlightType);
         nbt.putString("WE",this.WElightType);
+        nbt.putIntArray("forward",this.timeForward);
+        nbt.putIntArray("turn",this.timeTurn);
         return super.writeNbt(nbt);
     }
 
@@ -58,6 +68,29 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
             case "WE" -> this.WElightType;
             default -> throw new IllegalStateException("Unexpected traffic lights value type: " + arg);
         };
+    }
+
+    public ArrayList<Integer> getTimerData(){
+        ArrayList<Integer> inDt=new ArrayList<>();
+        inDt.addAll(this.timeForward);
+        inDt.addAll(this.timeTurn);
+        return inDt;
+    }
+    public void timerSettingReset(){
+        this.reset();
+    }
+    public void timerUsingStart(){
+        this.start();
+    }
+    public void setTimeData(ArrayList<Integer> timeForward1,ArrayList<Integer> timeTurn1){
+        TrafficLightsControlEntity entity = null;
+        if (world != null) {
+            entity = (TrafficLightsControlEntity) world.getBlockEntity(pos);
+            this.timeForward=timeForward1;
+            this.timeTurn=timeTurn1;
+            this.markDirty();
+            world.updateListeners(pos,entity.getCachedState(),entity.getCachedState(), Block.NOTIFY_LISTENERS);
+        }
     }
 
     private void start(){
@@ -84,8 +117,8 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         if (this.world!=null && !this.world.isClient()) {
             this.world.updateListeners(pos, this.getCachedState(), this.getCachedState(), Block.NOTIFY_LISTENERS);
         }
-
     }
+
     private int getTimerLength(){
         int timer = 40;
         for(Integer i:this.timeForward){
@@ -99,6 +132,9 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
 
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         TrafficLightsControlEntity entity = (TrafficLightsControlEntity) blockEntity;
+        if (entity.timeForward.isEmpty() || entity.timeTurn.isEmpty()){
+            entity.reset();
+        }
         if(Boolean.TRUE.equals(state.get(BooleanProperty.of("is_enable")))){
             if(!world.isClient()){
                 int temporaryVar = 0;
@@ -153,8 +189,8 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         else{
             entity.NSlightType = "disable";
             entity.WElightType = "disable";
-            entity.reset();
-            entity.start();
+            //entity.reset();
+            //entity.start();
         }
 
     }

@@ -1,6 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.gui;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
+import io.github.aftersans53228.aft_fabroads.network.GuiCloseNetwork;
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
@@ -8,12 +10,17 @@ import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.VerticalAlignment;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 /**
@@ -21,7 +28,7 @@ import java.util.function.Supplier;
  */
 @Environment(EnvType.CLIENT)
 public class TrafficControlBoxGui extends LightweightGuiDescription {
-    public TrafficControlBoxGui(BlockPos posOfBlock){
+    public TrafficControlBoxGui(BlockPos posOfBlock, Boolean enabled, ArrayList<Integer> timeData){
         WGridPanel root = new WGridPanel(9);
         root.setSize(254,160);
         root.setInsets(Insets.ROOT_PANEL);
@@ -48,10 +55,10 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
         WSlider sliderRedTurn =new WSlider(0,5, Axis.HORIZONTAL);
         WSlider sliderGreenTurn =new WSlider(0,30, Axis.HORIZONTAL);
         //设置滑块当前值
-        sliderRed.setValue(30);
-        sliderGreen.setValue(30);
-        sliderRedTurn.setValue(0);
-        sliderGreenTurn.setValue(0);
+        sliderRed.setValue(timeData.get(1));
+        sliderGreen.setValue(timeData.get(0));
+        sliderRedTurn.setValue(timeData.get(3));
+        sliderGreenTurn.setValue(timeData.get(2));
         //显示滑块
         root.add(sliderRed,0,3,10,2);
         root.add(sliderGreen,0,7,10,2);
@@ -82,7 +89,7 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
         //是否启用灯箱
         WLabel whetherEnabled = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_whether_enabled"));
         WToggleButton toggleButtonTimer = new WToggleButton();
-        toggleButtonTimer.setToggle(false);
+        toggleButtonTimer.setToggle(enabled);
         root.add(whetherEnabled, 20, 9, 2, 2);
         root.add(toggleButtonTimer, 21, 10, 2, 2);
 
@@ -101,6 +108,16 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
             sliderRedTurn.setValue(0);
             sliderGreenTurn.setValue(0);
             toggleButtonTimer.setToggle(false);
+        });
+        apply.setOnClick(()->{
+            //output value
+            PacketByteBuf buf = PacketByteBufs.create();
+            buf.writeBlockPos(posOfBlock);//方块坐标
+            buf.writeIntArray(new int[]{sliderGreen.getValue(), sliderRed.getValue(), sliderGreenTurn.getValue(), sliderRedTurn.getValue()});
+            buf.writeBoolean(toggleButtonTimer.getToggle());
+            AFRoads.LOGGER.info("Close the\"Traffic Control Box\"'s gui. ");
+            GuiCloseNetwork.sendGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),buf);
+            MinecraftClient.getInstance().setScreen((Screen) null);
         });
 
     }

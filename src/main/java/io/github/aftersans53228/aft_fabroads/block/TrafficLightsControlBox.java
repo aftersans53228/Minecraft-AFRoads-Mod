@@ -29,17 +29,17 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 
 public class TrafficLightsControlBox extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final BooleanProperty isEnable = BooleanProperty.of("is_enable");
+    public static final BooleanProperty IS_ENABLE = BooleanProperty.of("is_enable");
 
     public TrafficLightsControlBox() {
         super(FabricBlockSettings.of(Material.METAL).hardness(1.5f));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
-        setDefaultState(getStateManager().getDefaultState().with(isEnable,false));
+        setDefaultState(getStateManager().getDefaultState().with(IS_ENABLE,false));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
-        stateManager.add(isEnable);
+        stateManager.add(IS_ENABLE);
     }
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient() && player.getMainHandStack().getItem()== RoadTool) {
