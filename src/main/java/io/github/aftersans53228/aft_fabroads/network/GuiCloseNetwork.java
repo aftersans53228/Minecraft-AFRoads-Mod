@@ -34,7 +34,7 @@ public class GuiCloseNetwork {
         boolean dirRight =buf.readBoolean();//右边
         if (server != null) {
             server.execute(()->{
-                if (player.getEntityWorld().getBlockEntity(signPos) != null && player.getEntityWorld().getBlockEntity(signPos).getType() == AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY) {
+                if (player.getEntityWorld().getBlockEntity(signPos) != null && player.getEntityWorld().getBlockEntity(signPos).getType().equals(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY)) {
                     RoadNameSignEntity blockEntity = (RoadNameSignEntity) player.getEntityWorld().getBlockEntity(signPos);
                     World world =player.getEntityWorld();
                     world.setBlockState(signPos,world.getBlockState(signPos).with(BooleanProperty.of("dir_left"), dirLeft));
@@ -61,22 +61,16 @@ public class GuiCloseNetwork {
         MinecraftServer server =player.getServer();
         BlockPos boxPos =buf.readBlockPos();//坐标
         int[] timeData= buf.readIntArray();
-        Boolean enabled = buf.readBoolean();
+        boolean enabled = buf.readBoolean();
         if (server != null) {
             server.execute(()-> {
-                if (player.getEntityWorld().getBlockEntity(boxPos) != null && player.getEntityWorld().getBlockEntity(boxPos).getType() == AFRoadsBlockRegistry.TRAFFIC_LIGHTS_CONTROL_ENTITY) {
-                    TrafficLightsControlEntity blockEntity = (TrafficLightsControlEntity) player.getEntityWorld().getBlockEntity(boxPos);
-                    World world =player.getEntityWorld();
-                    world.setBlockState(boxPos,world.getBlockState(boxPos).with(BooleanProperty.of("is_enable"),enabled));
-                    blockEntity.setCachedState(blockEntity.getCachedState().with(BooleanProperty.of("is_enable"),enabled));
-                    ArrayList<Integer> timeForward = new ArrayList<>();
-                    ArrayList<Integer> timeTurn = new ArrayList<>();
-                    timeForward.add(timeData[0]);
-                    timeForward.add(timeData[1]);
-                    timeTurn.add(timeData[2]);
-                    timeTurn.add(timeData[3]);
-                    blockEntity.setTimeData(timeForward,timeTurn);
+                TrafficLightsControlEntity blockEntity = (TrafficLightsControlEntity) player.getEntityWorld().getBlockEntity(boxPos);
+                if (blockEntity != null && blockEntity.getType().equals(AFRoadsBlockRegistry.TRAFFIC_LIGHTS_CONTROL_ENTITY)) {
+                    blockEntity.setTimeData(timeData);
+                    if (enabled) blockEntity.start();
+                    else blockEntity.stop();
                     AFRoads.LOGGER.info("Set Traffic lights Control Box {"+ Arrays.toString(timeData) + "} ,"+enabled );
+                    blockEntity.markDirty();
                 }
                 else if (player.getEntityWorld().getBlockEntity(boxPos) == null) {
                     AFRoads.LOGGER.info("Invalid Block Entity.");

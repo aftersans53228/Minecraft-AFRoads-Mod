@@ -506,7 +506,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             }
             matrices.scale(1.1f,1.1f,1.1f);
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-
+            matrices.pop();
         }
     }
 }

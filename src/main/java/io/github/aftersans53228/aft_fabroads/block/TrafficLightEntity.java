@@ -51,11 +51,11 @@ public class TrafficLightEntity  extends BlockEntity implements BlockEntityClien
         this.boxPos =pos;
         this.markDirty();
         if (this.world != null) {
-            this.world.updateListeners(this.pos,this.getCachedState(),this.getCachedState(),Block.NOTIFY_LISTENERS);
+            this.world.updateListeners(this.pos,this.world.getBlockState(this.pos),this.world.getBlockState(this.pos),Block.NOTIFY_LISTENERS);
         }
     }
     public BlockPos getControlBoxPos(){
-        if (this.world != null && this.boxPos !=null &&this.world.getBlockState(boxPos)!=null && this.world.getBlockState(boxPos).getBlock() != AFRoadsBlockRegistry.TrafficLightsControlBox) {
+        if (this.world != null && this.boxPos !=null &&this.world.getBlockState(boxPos)!=null && ! this.world.getBlockState(boxPos).getBlock().equals(AFRoadsBlockRegistry.TrafficLightsControlBox)) {
             this.boxPos = null;
         }
         return this.boxPos;

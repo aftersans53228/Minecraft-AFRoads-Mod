@@ -174,11 +174,9 @@ public class AFRoadsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:traffic_control_box_gui_open"), (client, handler, buf, responseSender) -> {
             BlockPos controlBoxPos = buf.readBlockPos();
             client.execute(() -> {
-                ArrayList<Integer> timeData=new ArrayList<>();
                 TrafficLightsControlEntity entity=(TrafficLightsControlEntity)client.world.getBlockEntity(controlBoxPos);
-                timeData = entity.getTimerData();
                 // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos,client.world.getBlockState(controlBoxPos).get(BooleanProperty.of("is_enable")),timeData)));
+                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos,client.world.getBlockState(controlBoxPos).get(BooleanProperty.of("is_enable")),entity.getTimerData())));
                     AFRoads.LOGGER.info("Open the\"Traffic Control Box\"'s gui. ");
             });
         });

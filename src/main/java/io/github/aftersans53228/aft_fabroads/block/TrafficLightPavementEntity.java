@@ -15,42 +15,7 @@ public class TrafficLightPavementEntity extends BlockEntity {
         super(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, pos, state);
     }
     public static void tick(World world, BlockPos pos, BlockState state, Direction dir) {
-        int timer =  AFRoads.traffic_lights_timer;
-        switch(dir) {
-            case SOUTH:
-            case NORTH:
-                if (timer > 0 & timer < 40) {
-                world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 1));
-                break;
-                }
-                if (timer > 40 & timer <= 620) {
-                world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 0));
-                break;
-                }
-                if (timer > 620) {
-                world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 2));
-                break;
-                }
-            case EAST:
-            case WEST:
-
-                if (timer > 40 & timer < 580) {
-                    world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 2));
-                    break;
-                }
-                if (timer >= 580 & timer <= 620) {
-                    world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 1));
-                    break;
-                }
-                if (timer > 620) {
-                    world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 0));
-                    break;
-                }
-
-
-
-
-        }
+        world.setBlockState(pos, state.with(TrafficLightPavement.TrafficType, 1));
     }
 
 

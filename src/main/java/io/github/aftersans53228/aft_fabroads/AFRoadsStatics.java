@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
+/**
+ * @author aftersans53228
+ */
 public abstract class AFRoadsStatics {
     public static final String MOD_ID = "aft_fabroads";
     public static final Identifier MOD_ID_UTIL = new Identifier(MOD_ID,"aft_fabroads");

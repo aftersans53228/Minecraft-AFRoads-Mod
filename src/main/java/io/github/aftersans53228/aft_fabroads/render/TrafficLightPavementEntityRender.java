@@ -42,50 +42,6 @@ public class TrafficLightPavementEntityRender implements BlockEntityRenderer<Tra
 
         //调用GL
         matrices.push();
-        //设置坐标
-        matrices.translate(0.5, 0.5, 0.5);
-        //设置旋转
-        if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==SOUTH){
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
-        }
-        else{
-            if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==NORTH){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-            }
-            else{
-                if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==EAST){
-                    matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270));
-                }
-                else{
-                    if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==WEST){
-                        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90));
-                    }
-                    else{
-                        AFRoads.LOGGER.info("Unexpected traffic light orientation state.");
-                        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-                    }
-                }
-            }
-        }
-        //选择渲染类型
-        if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==0){
-            MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-        }
-        else{
-            if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==1){
-                MinecraftClient.getInstance().getItemRenderer().renderItem(stackRed, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-            }
-            else{
-                if (blockEntity.getCachedState().get(TrafficLightPavement.TrafficType)==2){
-                    MinecraftClient.getInstance().getItemRenderer().renderItem(stackGreen, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                }
-                else{
-                    AFRoads.LOGGER.info("Unexpected traffic light color state.");
-                    MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(new RoadTool(),1), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                }
-            }
-        }
-
         //GL拜拜了您内
         matrices.pop();
     }

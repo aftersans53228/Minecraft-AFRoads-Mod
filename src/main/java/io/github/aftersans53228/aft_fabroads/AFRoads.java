@@ -51,12 +51,6 @@ public class AFRoads implements ModInitializer {
 
 
 
-
-	//交通灯计时器
-	public static int traffic_lights_timer =0 ;
-
-
-
 	//创建物品组
 	public static final ItemGroup NormalRoadBlockGROUP = NormalRoadBlock.get();
 	public static final ItemGroup RoadStickersGROUP = RoadStickers.get();
@@ -76,15 +70,6 @@ public class AFRoads implements ModInitializer {
 
 		//command
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
-
-		//红绿灯计时器逻辑，即将取消
-		ServerTickEvents.END_SERVER_TICK.register((server)->
-		{
-			traffic_lights_timer = traffic_lights_timer +1 ;
-			if (traffic_lights_timer == 1200){
-				traffic_lights_timer = 0;
-			}
-		});
 
 		//服务端接发包
 		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);

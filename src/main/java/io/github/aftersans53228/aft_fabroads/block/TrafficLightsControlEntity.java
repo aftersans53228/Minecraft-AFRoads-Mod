@@ -17,10 +17,13 @@ import java.util.Arrays;
 import java.util.List;
 
 
+/**
+ * @author aftersans53228(AFT Transportation)
+ */
 public class TrafficLightsControlEntity extends BlockEntity  implements BlockEntityClientSerializable {
     private int timerTraffic =0;
-    private List<Integer> timeForward = new ArrayList<>();
-    private List<Integer> timeTurn = new ArrayList<>();
+    private int timerOrder = 0;
+    private int[] timeSequence = new int[]{};
     private String NSlightType = "";
     private String WElightType = "";
 
@@ -33,14 +36,7 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
     public void readNbt(NbtCompound nbt) {
         this.NSlightType = nbt.getString("NS");
         this.WElightType = nbt.getString("WE");
-        this.timeForward.clear();
-        this.timeTurn.clear();
-        for (Integer i:nbt.getIntArray("forward")){
-            this.timeForward.add(i);
-        }
-        for (Integer i:nbt.getIntArray("turn")){
-            this.timeTurn.add(i);
-        }
+        this.timeSequence = nbt.getIntArray("time_sequence");
         super.readNbt(nbt);
     }
 
@@ -48,8 +44,7 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
     public NbtCompound writeNbt(NbtCompound nbt) {
         nbt.putString("NS",this.NSlightType);
         nbt.putString("WE",this.WElightType);
-        nbt.putIntArray("forward",this.timeForward);
-        nbt.putIntArray("turn",this.timeTurn);
+        nbt.putIntArray("time_sequence",this.timeSequence);
         return super.writeNbt(nbt);
     }
 
@@ -71,47 +66,42 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         };
     }
 
-    public ArrayList<Integer> getTimerData(){
-        ArrayList<Integer> inDt=new ArrayList<>();
-        inDt.addAll(this.timeForward);
-        inDt.addAll(this.timeTurn);
-        return inDt;
+    public int[] getTimerData(){
+        return this.timeSequence;
     }
-    public void timerSettingReset(){
-        this.reset();
-    }
-    public void timerUsingStart(){
-        this.start();
-    }
-    public void setTimeData(ArrayList<Integer> timeForward1,ArrayList<Integer> timeTurn1){
-        TrafficLightsControlEntity entity = null;
-        if (world != null) {
-            entity = (TrafficLightsControlEntity) world.getBlockEntity(pos);
-            this.timeForward=timeForward1;
-            this.timeTurn=timeTurn1;
+    public void setTimeData(int[] timeSequence){
+        if (this.world != null) {
+            this.timeSequence = timeSequence;
             this.markDirty();
-            world.updateListeners(pos,entity.getCachedState(),entity.getCachedState(), Block.NOTIFY_LISTENERS);
+            this.world.updateListeners(pos,this.world.getBlockState(pos),this.world.getBlockState(pos), Block.NOTIFY_LISTENERS);
         }
     }
 
-    private void start(){
+    public void start(){
         this.timerTraffic=0;
         if (this.world != null) {
             this.world.setBlockState(this.pos,this.world.getBlockState(this.pos).with(BooleanProperty.of("is_enable"),true));
         }
     }
-
-    private void reset(){
+    public void stop(){
+        this.timerTraffic=0;
         if (this.world != null) {
             this.world.setBlockState(this.pos,this.world.getBlockState(this.pos).with(BooleanProperty.of("is_enable"),false));
         }
-        this.timerTraffic=0;
-        this.timeForward = new ArrayList<>();
-            this.timeForward.add(0,10);//绿（秒）
-            this.timeForward.add(1,10);//红（秒）
-        this.timeTurn =new ArrayList<>();
-            this.timeTurn.add(0,0);//转弯绿左（秒）
-            this.timeTurn.add(0,0);//转弯红左（秒）
+    }
+    public String getTimeLeft(){
+        if (this.timerTraffic < 200 && this.timerTraffic >=0){
+            return (this.timerTraffic/20 + 1) < 10 ? "0" + (this.timerTraffic / 20 + 1) : Integer.toString(this.timerTraffic/20 + 1);
+        }
+        else{
+            return " ";
+        }
+    }
+
+    private void reset(){
+        this.stop();
+        this.timerTraffic = -60;
+        this.timeSequence = new int[]{30,0,30,0};
         this.NSlightType = "disable";
         this.WElightType = "disable";
         this.markDirty();
@@ -120,79 +110,102 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         }
     }
 
-    private int getTimerLength(){
-        int timer = 40;
-        for(Integer i:this.timeForward){
-            timer+=(i*20);
-        }
-        for(Integer i:this.timeTurn){
-            timer+=(i*20);
-        }
-        return timer*2;
-    }
 
+    /*
+    * This method's logic is originally from "Solid-Block".
+    */
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
-        TrafficLightsControlEntity entity = (TrafficLightsControlEntity) blockEntity;
-        if (entity.timeForward.isEmpty() || entity.timeTurn.isEmpty()){
+        TrafficLightsControlEntity entity = (TrafficLightsControlEntity)blockEntity;
+        if(entity.timeSequence.length != 4){
             entity.reset();
         }
-        if(Boolean.TRUE.equals(state.get(BooleanProperty.of("is_enable")))){
-            if(!world.isClient()){
-                int temporaryVar = 0;
-                entity.timerTraffic +=1;
-                if(entity.timerTraffic == entity.getTimerLength()){
-                    entity.timerTraffic =0;
+        if (state.get(BooleanProperty.of("is_enable"))){
+            entity.timerTraffic --;
+            if (entity.timerTraffic < -40){
+                if (entity.timerOrder != 3){
+                    entity.timerOrder ++;
+                    entity.timerTraffic = entity.timeSequence[entity.timerOrder] * 20;
                 }
-                if (entity.timerTraffic <= entity.timeForward.get(0)*20){
-                    entity.NSlightType = "forward_green";
-                    entity.WElightType = "forward_red";
+                else {
+                    entity.timerOrder = 0;
+                    entity.timerTraffic = entity.timeSequence[0] * 20;
                 }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2)*20){
-                    entity.NSlightType = "forward_yellow";
-                    entity.WElightType = "forward_red";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1))*20){
-                    entity.NSlightType = "turn_left_red";
-                    entity.WElightType = "forward_red";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0))*20){
-                    entity.NSlightType = "turn_left";
-                    entity.WElightType = "forward_red";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2)*20){
-                    entity.NSlightType = "turn_left_yellow";
-                    entity.WElightType = "forward_red";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2+entity.timeForward.get(1))*20){
-                    entity.NSlightType = "forward_red";
-                    entity.WElightType = "forward_green";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2+entity.timeForward.get(1)+2)*20){
-                    entity.NSlightType = "forward_red";
-                    entity.WElightType = "forward_yellow";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2+entity.timeForward.get(1)+2+ entity.timeTurn.get(1))*20){
-                    entity.NSlightType = "forward_red";
-                    entity.WElightType = "turn_left_red";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2+entity.timeForward.get(1)+2+ entity.timeTurn.get(1)+ entity.timeTurn.get(0))*20){
-                    entity.NSlightType = "forward_red";
-                    entity.WElightType = "turn_left_green";
-                }
-                else if (entity.timerTraffic <= (entity.timeForward.get(0)+2+entity.timeForward.get(1)+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2+entity.timeForward.get(1)+2+ entity.timeTurn.get(1)+ entity.timeTurn.get(0)+2)*20){
-                    entity.NSlightType = "forward_red";
-                    entity.WElightType = "turn_left_yellow";
-                }
-                entity.markDirty();
-                world.updateListeners(pos,entity.getCachedState(),entity.getCachedState(), Block.NOTIFY_LISTENERS);
             }
+            if(entity.timerTraffic < 0) {
+                switch (entity.timerOrder) {
+                    case 0 -> {
+                        entity.NSlightType = "forward_yellow";
+                        entity.WElightType = "forward_red";
+                    }
+                    case 1 -> {
+                        entity.NSlightType = "turn_yellow";
+                        entity.WElightType = "turn_red";
+                    }
+                    case 2 -> {
+                        entity.NSlightType = "forward_red";
+                        entity.WElightType = "forward_yellow";
+                    }
+                    case 3 -> {
+                        entity.NSlightType = "turn_red";
+                        entity.WElightType = "turn_yellow";
+                    }
+                }
+            }
+            else if(entity.timerTraffic < 50){
+                switch (entity.timerOrder) {
+                    case 0 -> {
+                        if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.NSlightType = "forward_green";
+                        else entity.NSlightType = "forward_air";
+
+                        entity.WElightType = "forward_red";
+                    }
+                    case 1 -> {
+                        if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.NSlightType = "turn_green";
+                        else entity.NSlightType = "turn_air";
+
+                        entity.WElightType = "turn_red";
+                    }
+                    case 2 -> {
+                        entity.NSlightType = "forward_red";
+
+                        if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.WElightType = "forward_green";
+                        else  entity.WElightType = "forward_air";
+                    }
+                    case 3 -> {
+                        entity.NSlightType = "turn_red";
+
+                        if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.WElightType = "turn_green";
+                        else  entity.WElightType = "turn_air";
+                    }
+                }
+            }
+            else{
+                switch (entity.timerOrder) {
+                    case 0 -> {
+                        entity.NSlightType = "forward_green";
+                        entity.WElightType = "forward_red";
+                    }
+                    case 1 -> {
+                        entity.NSlightType = "turn_green";
+                        entity.WElightType = "turn_red";
+                    }
+                    case 2 -> {
+                        entity.NSlightType = "forward_red";
+                        entity.WElightType = "forward_green";
+                    }
+                    case 3 -> {
+                        entity.NSlightType = "turn_red";
+                        entity.WElightType = "turn_green";
+                    }
+                }
+            }
+            entity.markDirty();
+            world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
+
         }
         else{
-            entity.NSlightType = "disable";
-            entity.WElightType = "disable";
-            //entity.reset();
-            //entity.start();
+            entity.NSlightType = "disabled";
+            entity.WElightType = "disabled";
         }
-
     }
 }

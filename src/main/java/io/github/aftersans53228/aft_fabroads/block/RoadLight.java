@@ -65,18 +65,13 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
 
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
         Direction dir = state.get(FACING);
-        switch(dir) {
-            case NORTH:
-                return VoxelShapes.cuboid(0.3125, 0.44375, 0, 0.6875, 0.6125, 0.89375);
-            case SOUTH:
-                return VoxelShapes.cuboid(0.3125, 0.44375, 0.10625, 0.6875, 0.6125, 1);
-            case WEST:
-                return VoxelShapes.cuboid(0, 0.44375, 0.3125, 0.6875, 0.6125, 0.6875);
-            case EAST:
-                return VoxelShapes.cuboid(0.10625, 0.44375, 0.3125, 1, 0.6125, 0.6875);
-            default:
-                return VoxelShapes.fullCube();
-        }
+        return switch (dir) {
+            case NORTH -> VoxelShapes.cuboid(0.3125, 0.44375, 0, 0.6875, 0.6125, 0.89375);
+            case SOUTH -> VoxelShapes.cuboid(0.3125, 0.44375, 0.10625, 0.6875, 0.6125, 1);
+            case WEST -> VoxelShapes.cuboid(0, 0.44375, 0.3125, 0.6875, 0.6125, 0.6875);
+            case EAST -> VoxelShapes.cuboid(0.10625, 0.44375, 0.3125, 1, 0.6125, 0.6875);
+            default -> VoxelShapes.fullCube();
+        };
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

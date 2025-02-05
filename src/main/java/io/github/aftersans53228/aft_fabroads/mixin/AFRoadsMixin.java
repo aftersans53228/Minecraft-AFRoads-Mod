@@ -27,7 +27,7 @@ public abstract class AFRoadsMixin {
     private void onPlayerConnect(ClientConnection connection, ServerPlayerEntity player,CallbackInfo info) {
         player.sendMessage(
                 new LiteralText(
-                    String.format("§8AFRoads Mod loaded.\n§fVersion:§c%s.", MOD_VERSION)
+                    String.format("§8AFRoads Mod was loaded.\n§fVersion:§c%s.", MOD_VERSION)
                 )
                 ,false);
 	}
