@@ -118,6 +118,7 @@ public class AFRoadsItemRegistry {
     public static  Item BarrierBarItem;
     public static  Item TrafficLightsControlBoxItem ;
     public static  Item TrafficLightItem ;
+    public static  Item TrafficLightLeftTurnItem ;
     public static  Item TrafficLightPavementItem ;
     public static  Item RoadLightItem ;
 
@@ -238,6 +239,7 @@ public class AFRoadsItemRegistry {
         BarrierBarItem =registerDecoration("barrier_bar",BarrierBar);
         TrafficLightsControlBoxItem =registerDecoration("traffic_lights_control_box", TrafficLightsControlBox);
         TrafficLightItem =registerDecoration("traffic_light",TrafficLight);
+        TrafficLightLeftTurnItem =registerDecoration("traffic_light_left_turn",TrafficLightLeftTurn);
         TrafficLightPavementItem =registerDecoration("traffic_light_pavement",TrafficLightPavement);
         RoadLightItem =registerDecoration("road_light",RoadLight);
 

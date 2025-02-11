@@ -1,17 +1,13 @@
 package io.github.aftersans53228.aft_fabroads;
 
-import com.sun.jna.StringArray;
-import io.github.aftersans53228.aft_fabroads.block.RoadNameSignEntity;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlEntity;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadNameSignEntity;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
 import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
-import io.github.aftersans53228.aft_fabroads.render.RoadLightEntityRender;
-import io.github.aftersans53228.aft_fabroads.render.RoadNameSignEntityRender;
-import io.github.aftersans53228.aft_fabroads.render.TrafficLightEntityRender;
-import io.github.aftersans53228.aft_fabroads.render.TrafficLightPavementEntityRender;
+import io.github.aftersans53228.aft_fabroads.render.*;
 import io.github.cottonmc.cotton.gui.client.CottonClientScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -28,7 +24,6 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -47,7 +42,6 @@ public class AFRoadsClient implements ClientModInitializer {
 
 
     @Override
-    @SuppressWarnings("all")
     public void onInitializeClient() {
         //client Initialize
         // 如果有半透明纹理，可以将 RenderLayer.getCutout() 替换为 RenderLayer.getTranslucent()。
@@ -119,6 +113,7 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(InsulationPanelsGrayPart6, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(TrafficLightsControlBox, RenderLayer.getCutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(TrafficLight, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TrafficLightLeftTurn, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TrafficLightPavement, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RoadLight, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(PillarBase, RenderLayer.getCutout());
@@ -156,6 +151,7 @@ public class AFRoadsClient implements ClientModInitializer {
 
         //注册方块实体渲染
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
+        BlockEntityRendererRegistry.register(TRAFFIC_LIGHT_LEFT_TURN_ENTITY, TrafficLightLeftTurnEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
         BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);

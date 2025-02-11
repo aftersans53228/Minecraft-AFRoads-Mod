@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "has_timer=false,facing=north": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light"
+    },
+    "has_timer=false,facing=south": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  180
+    },
+    "has_timer=false,facing=west": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  270
+    },
+    "has_timer=false,facing=east": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light" , "y":  90
+    },
+
+    "has_timer=true,facing=north": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer"
+    },
+    "has_timer=true,facing=south": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  180
+    },
+    "has_timer=true,facing=west": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  270
+    },
+    "has_timer=true,facing=east": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_timer" , "y":  90
+    }
+
+  }
+}

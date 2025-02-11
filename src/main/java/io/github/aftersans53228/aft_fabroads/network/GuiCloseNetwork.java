@@ -1,8 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.network;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.block.RoadNameSignEntity;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlEntity;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadNameSignEntity;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
@@ -13,7 +13,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 

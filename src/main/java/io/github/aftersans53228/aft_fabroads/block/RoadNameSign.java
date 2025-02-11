@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadNameSignEntity;
 import io.github.aftersans53228.aft_fabroads.block.voxelshapes.Rns;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;

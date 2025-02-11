@@ -2,6 +2,7 @@ package io.github.aftersans53228.aft_fabroads.render;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
@@ -24,7 +25,7 @@ import net.minecraft.util.math.Vec3f;
 import static net.minecraft.util.math.Direction.*;
 
 @Environment(EnvType.CLIENT)
-public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLightEntity> {
+public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<TrafficLightLeftTurnEntity> {
     //获得物品stack
     private static final ItemStack STACK_RED = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbRed, 1);
     private static final ItemStack STACK_GREEN = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbGreen, 1);
@@ -32,12 +33,12 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
     private final TextRenderer textRenderer;
 
 
-    public TrafficLightEntityRender(BlockEntityRendererFactory.Context ctx) {
+    public TrafficLightLeftTurnEntityRender(BlockEntityRendererFactory.Context ctx) {
         this.textRenderer = ctx.getTextRenderer();
     }
 
     @Override
-    public void render(TrafficLightEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    public void render(TrafficLightLeftTurnEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         //GL 拉取
         matrices.push();
         //选择渲染类型,标记
@@ -75,11 +76,11 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case SOUTH, NORTH -> {
                         String type = controlBox.getLightType("NS");
                         switch (type) {
-                            case "forward_green" ->
+                            case "turn_green" ->
                                     MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_yellow" ->
+                            case "turn_yellow" ->
                                     MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_air", "disabled" -> {
+                            case "turn_air", "disabled" -> {
                                     break logicProgram;
                             }
                             default -> //and red
@@ -89,11 +90,11 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case EAST, WEST -> {
                         String type = controlBox.getLightType("WE");
                         switch (type) {
-                            case "forward_green" ->
+                            case "turn_green" ->
                                     MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_yellow" ->
+                            case "turn_yellow" ->
                                     MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_air", "disabled" -> {
+                            case "turn_air", "disabled" -> {
                                     break logicProgram;
                             }
                             default -> //and red

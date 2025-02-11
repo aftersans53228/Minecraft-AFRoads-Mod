@@ -1,4 +1,4 @@
-package io.github.aftersans53228.aft_fabroads.block;
+package io.github.aftersans53228.aft_fabroads.block.block_entites;
 
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;

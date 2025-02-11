@@ -1,6 +1,7 @@
-package io.github.aftersans53228.aft_fabroads.block;
+package io.github.aftersans53228.aft_fabroads.block.block_entites;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavement;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;

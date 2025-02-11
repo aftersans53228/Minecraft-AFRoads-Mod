@@ -34,6 +34,7 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(InsulationPanelsGrayPart6Item));
                 stacks.add(new ItemStack(TrafficLightsControlBoxItem));
                 stacks.add(new ItemStack(TrafficLightItem));
+                stacks.add(new ItemStack(TrafficLightLeftTurnItem));
                 stacks.add(new ItemStack(TrafficLightPavementItem));
                 stacks.add(new ItemStack(RoadLightItem));
                 stacks.add(new ItemStack(PillarBaseItem));
