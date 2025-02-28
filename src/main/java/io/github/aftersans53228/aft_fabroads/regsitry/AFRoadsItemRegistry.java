@@ -45,6 +45,9 @@ public class AFRoadsItemRegistry {
     public static  Item TrafficLightBulbRed;
     public static  Item TrafficLightBulbGreen;
     public static  Item TrafficLightBulbYellow;
+    public static  Item TrafficLightLeftBulbRed;
+    public static  Item TrafficLightLeftBulbGreen;
+    public static  Item TrafficLightLeftBulbYellow;
     public static  Item TrafficLightPavementBulbRed;
     public static  Item TrafficLightPavementBulbGreen;
     public static  Item RoadLightBulbCold;
@@ -166,6 +169,9 @@ public class AFRoadsItemRegistry {
         TrafficLightBulbRed=register("traffic_light_red_bulb", new Item(new FabricItemSettings()));
         TrafficLightBulbGreen=register("traffic_light_green_bulb", new Item(new FabricItemSettings()));
         TrafficLightBulbYellow=register("traffic_light_yellow_bulb", new Item(new FabricItemSettings()));
+        TrafficLightLeftBulbRed=register("traffic_light_left_red_bulb", new Item(new FabricItemSettings()));
+        TrafficLightLeftBulbGreen=register("traffic_light_left_green_bulb", new Item(new FabricItemSettings()));
+        TrafficLightLeftBulbYellow=register("traffic_light_left_yellow_bulb", new Item(new FabricItemSettings()));
         TrafficLightPavementBulbRed=register("traffic_light_pavement_red_bulb", new Item(new FabricItemSettings()));
         TrafficLightPavementBulbGreen=register("traffic_light_pavement_green_bulb", new Item(new FabricItemSettings()));
         RoadLightBulbCold=register("road_light_bulb_cold", new Item(new FabricItemSettings()));

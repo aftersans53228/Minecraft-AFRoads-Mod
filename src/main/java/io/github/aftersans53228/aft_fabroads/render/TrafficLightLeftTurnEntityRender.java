@@ -24,12 +24,15 @@ import net.minecraft.util.math.Vec3f;
 
 import static net.minecraft.util.math.Direction.*;
 
+/**
+ * @author aftersans53228
+ */
 @Environment(EnvType.CLIENT)
 public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<TrafficLightLeftTurnEntity> {
     //获得物品stack
-    private static final ItemStack STACK_RED = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbRed, 1);
-    private static final ItemStack STACK_GREEN = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbGreen, 1);
-    private static final ItemStack STACK_YELLOW = new ItemStack(AFRoadsItemRegistry.TrafficLightBulbYellow, 1);
+    private static final ItemStack STACK_RED = new ItemStack(AFRoadsItemRegistry.TrafficLightLeftBulbRed, 1);
+    private static final ItemStack STACK_GREEN = new ItemStack(AFRoadsItemRegistry.TrafficLightLeftBulbGreen, 1);
+    private static final ItemStack STACK_YELLOW = new ItemStack(AFRoadsItemRegistry.TrafficLightLeftBulbYellow, 1);
     private final TextRenderer textRenderer;
 
 
