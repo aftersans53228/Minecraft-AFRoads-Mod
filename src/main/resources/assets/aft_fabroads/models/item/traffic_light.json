@@ -1,3 +1,6 @@
 {
-  "parent": "aft_fabroads:block/traffic_light/traffic_light_green"
+  "parent": "aft_fabroads:block/traffic_light/traffic_light",
+  "textures": {
+		"1": "aft_fabroads:block/traffic_light/traffic_light_green"
+	}
 }

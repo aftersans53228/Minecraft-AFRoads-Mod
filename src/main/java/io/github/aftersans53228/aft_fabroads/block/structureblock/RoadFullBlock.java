@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 import java.util.List;
+import java.util.Random;
 
 public class RoadFullBlock extends HorizontalFacingBlock {
     private String type = "";
@@ -28,9 +29,17 @@ public class RoadFullBlock extends HorizontalFacingBlock {
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
+        Random rand = new Random();
+        return switch(rand.nextInt(5)){
+                case 1-> this.getDefaultState().with(Properties.HORIZONTAL_FACING,Direction.SOUTH);
+                case 2-> this.getDefaultState().with(Properties.HORIZONTAL_FACING,Direction.WEST);
+                case 3-> this.getDefaultState().with(Properties.HORIZONTAL_FACING,Direction.EAST);
+                default -> this.getDefaultState().with(Properties.HORIZONTAL_FACING,Direction.NORTH);
+        };
     }
+    @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         switch (this.type) {
             case "road_block" -> tooltip.add(new TranslatableText("item.aft_fabroads.road_block"));
