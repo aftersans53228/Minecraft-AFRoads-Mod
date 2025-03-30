@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadLightEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;

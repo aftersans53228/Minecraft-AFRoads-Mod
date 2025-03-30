@@ -44,6 +44,7 @@ public class RoadDecoration {
                 stacks.add(new ItemStack(VerticalCornerPillarItem));
                 stacks.add(new ItemStack(HorizontalTshapedPillarItem));
                 stacks.add(new ItemStack(VerticalTshapedPillarItem));
+                stacks.add(new ItemStack(VerticalTshapedPillarLargeItem));
                 stacks.add(new ItemStack(VerticalTshapedPillarType2Item));
                 stacks.add(new ItemStack(HorizontalStraightPillarThinItem));
                 stacks.add(new ItemStack(VerticalStraightPillarThinItem));

@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightPavementEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
 import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlEast;
 import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlNorth;
 import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlSouth;

@@ -1,10 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.item;
 
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightLeftTurn;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightsControlBox;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightEntity;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightLeftTurnEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -13,7 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
@@ -21,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;

@@ -1,7 +1,7 @@
 package io.github.aftersans53228.aft_fabroads;
 
-import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadNameSignEntity;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadNameSignEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
 import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;

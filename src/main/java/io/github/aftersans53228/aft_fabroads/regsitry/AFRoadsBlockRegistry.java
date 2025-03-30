@@ -3,7 +3,7 @@ package io.github.aftersans53228.aft_fabroads.regsitry;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import io.github.aftersans53228.aft_fabroads.block.*;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.*;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.*;
 import io.github.aftersans53228.aft_fabroads.block.pillarblock.*;
 import io.github.aftersans53228.aft_fabroads.block.signblock.SignNormal;
 import io.github.aftersans53228.aft_fabroads.block.stickerblock.ArrowBlocks;
@@ -116,6 +116,7 @@ public class AFRoadsBlockRegistry {
     public static  Block VerticalCornerPillar ;
     public static  Block HorizontalTshapedPillar ;
     public static  Block VerticalTshapedPillar ;
+    public static  Block VerticalTshapedPillarLarge ;
     public static  Block VerticalTshapedPillarType2 ;
     public static  Block RoadMastPillarBase ;
     public static  Block RoadMastPillar;
@@ -158,8 +159,8 @@ public class AFRoadsBlockRegistry {
 
 
     public static void RegisterBlock(){
-        RoadBlock =register("road_block",new RoadFullBlock("road_block"));
-        RoadBlockConcrete =register("road_block_concrete",new RoadFullBlock("road_block"));
+        RoadBlock =register("road_block",new RandomFullBlock("road_block"));
+        RoadBlockConcrete =register("road_block_concrete",new RandomFullBlock("road_block"));
         ManholeCover =register("manhole_cover",new RoadFullBlock("road_manhole_cover"));
         ManholeCoverConcrete =register("manhole_cover_concrete",new RoadFullBlock("road_manhole_cover"));
         RoadSeamsBlock =register("road_seams_block",new RoadFullBlock("road_seam"));
@@ -237,6 +238,7 @@ public class AFRoadsBlockRegistry {
         VerticalCornerPillar =registerPillar("vertical_corner_pillar",new VerticalCornerPillar());
         HorizontalTshapedPillar =registerPillar("horizontal_tshaped_pillar",new HorizontalTshapedPillar());
         VerticalTshapedPillar =registerPillar("vertical_tshaped_pillar",new VerticalTshapedPillar());
+        VerticalTshapedPillarLarge =registerPillar("vertical_tshaped_pillar_large",new VerticalTshapedPillar());
         VerticalTshapedPillarType2 =registerPillar("vertical_tshaped_pillar_type2",new VerticalTshapedPillarType2());
         RoadMastPillarBase =registerPillar("road_mast_pillar_base",new RoadMastPillarBase());
         RoadMastPillar =registerPillar("road_mast_pillar",new RoadMastPillar());

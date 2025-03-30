@@ -132,6 +132,7 @@ public class AFRoadsItemRegistry {
     public static  Item VerticalCornerPillarItem ;
     public static  Item HorizontalTshapedPillarItem ;
     public static  Item VerticalTshapedPillarItem ;
+    public static  Item VerticalTshapedPillarLargeItem ;
     public static  Item VerticalTshapedPillarType2Item ;
     public static  Item RoadMastPillarBaseItem ;
     public static  Item RoadMastPillarItem;
@@ -256,6 +257,7 @@ public class AFRoadsItemRegistry {
         VerticalCornerPillarItem =registerDecoration("vertical_corner_pillar",VerticalCornerPillar);
         HorizontalTshapedPillarItem =registerDecoration("horizontal_tshaped_pillar",HorizontalTshapedPillar);
         VerticalTshapedPillarItem =registerDecoration("vertical_tshaped_pillar",VerticalTshapedPillar);
+        VerticalTshapedPillarLargeItem =registerDecoration("vertical_tshaped_pillar_large",VerticalTshapedPillarLarge);
         VerticalTshapedPillarType2Item =registerDecoration("vertical_tshaped_pillar_type2",VerticalTshapedPillarType2);
         RoadMastPillarBaseItem =registerDecoration("road_mast_pillar_base",RoadMastPillarBase);
         RoadMastPillarItem =registerDecoration("road_mast_pillar",RoadMastPillar);

@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
-import io.github.aftersans53228.aft_fabroads.block.block_entites.RoadNameSignEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadNameSignEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.HorizontalFacingBlock;

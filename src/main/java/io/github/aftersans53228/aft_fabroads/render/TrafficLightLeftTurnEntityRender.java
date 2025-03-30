@@ -1,9 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightEntity;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightLeftTurnEntity;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

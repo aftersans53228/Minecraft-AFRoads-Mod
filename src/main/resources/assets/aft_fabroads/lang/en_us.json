@@ -80,6 +80,7 @@
     "block.aft_fabroads.vertical_corner_pillar": "Corner Pillar (Vertical)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "Tshaped Pillar (Horizontal)",
     "block.aft_fabroads.vertical_tshaped_pillar": "Tshaped Pillar (Vertical)",
+    "block.aft_fabroads.vertical_tshaped_pillar_large": "Tshaped Pillar (Vertical,Large)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "Tshaped Pillar (Vertical,Type2)",
     "block.aft_fabroads.horizontal_straight_pillar_thin": "Thin Straight Pillar (Horizontal)",
     "block.aft_fabroads.vertical_straight_pillar_thin": "Thin Straight Pillar (Vertical)",

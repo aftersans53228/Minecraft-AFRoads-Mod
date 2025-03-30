@@ -1,8 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightEntity;
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightsControlEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,13 +13,11 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 

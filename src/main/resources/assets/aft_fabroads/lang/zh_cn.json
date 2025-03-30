@@ -80,6 +80,7 @@
     "block.aft_fabroads.vertical_corner_pillar": "转角支柱(垂直)",
     "block.aft_fabroads.horizontal_tshaped_pillar": "T字型支柱(水平)",
     "block.aft_fabroads.vertical_tshaped_pillar": "T字型支柱(垂直)",
+    "block.aft_fabroads.vertical_tshaped_pillar_large": "大型T字型支柱(垂直)",
     "block.aft_fabroads.vertical_tshaped_pillar_type2": "T字型支柱(垂直，类型2)",
     "block.aft_fabroads.horizontal_straight_pillar_thin": "细直支柱(水平)",
     "block.aft_fabroads.vertical_straight_pillar_thin": "细直支柱(垂直)",

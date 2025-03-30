@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
-import io.github.aftersans53228.aft_fabroads.block.block_entites.TrafficLightPavementEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
