@@ -15,7 +15,7 @@ import net.minecraft.world.World;
  * @author aftersans53228(AFT Transportation)
  */
 public class TrafficLightsControlEntity extends BlockEntity  implements BlockEntityClientSerializable {
-    private int timerTraffic =0;
+    private int timerTraffic = 0;
     private int timerOrder = 0;
     private int[] timeSequence = new int[]{};
     private String NSlightType = "";
@@ -31,6 +31,8 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         this.NSlightType = nbt.getString("NS");
         this.WElightType = nbt.getString("WE");
         this.timeSequence = nbt.getIntArray("time_sequence");
+        this.timerTraffic = nbt.getInt("timer");
+        this.timerOrder = nbt.getInt("tod");
         super.readNbt(nbt);
     }
 
@@ -39,6 +41,8 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         nbt.putString("NS",this.NSlightType);
         nbt.putString("WE",this.WElightType);
         nbt.putIntArray("time_sequence",this.timeSequence);
+        nbt.putInt("timer",this.timerTraffic);
+        nbt.putInt("tod",this.timerOrder);
         return super.writeNbt(nbt);
     }
 
@@ -83,18 +87,31 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
             this.world.setBlockState(this.pos,this.world.getBlockState(this.pos).with(BooleanProperty.of("is_enable"),false));
         }
     }
-    public String getTimeLeft(){
-        if (this.timerTraffic < 200 && this.timerTraffic >=0){
-            return (this.timerTraffic/20 + 1) < 10 ? "0" + (this.timerTraffic / 20 + 1) : Integer.toString(this.timerTraffic/20 + 1);
+    public static String getTimeLeft(TrafficLightsControlEntity et,String type){ //What am fk doing??
+        if (!Integer.valueOf(type.charAt(0)-'0').equals(et.timerOrder) && !Integer.valueOf(type.charAt(0)-'0').equals((et.timerOrder + 1)>3 ? 0 : et.timerOrder + 1)){
+            return "";
         }
-        else{
-            return " ";
+        if (type.charAt(2) == 'R'){
+            if (et.timerTraffic < 160 && et.timerTraffic >= 0) {
+                return (et.timerTraffic / 20 + 1 + 2) < 10 ? "0" + (et.timerTraffic / 20 + 1 + 2) : Integer.toString(et.timerTraffic / 20 + 1 + 2);
+            } else if (et.timerTraffic < 0) {
+                return "0" + ((et.timerTraffic + 40) / 20 + 1);
+            }
         }
+        else if(type.charAt(2) == 'G'){
+            if (et.timerTraffic < 200 && et.timerTraffic >= 0) {
+                return (et.timerTraffic / 20 + 1) < 10 ? "0" + (et.timerTraffic / 20 + 1) : Integer.toString(et.timerTraffic / 20 + 1);
+            }
+            else{
+                return "";
+            }
+        }
+        return "";
     }
 
     private void reset(){
         this.stop();
-        this.timerTraffic = -60;
+        this.timerTraffic = -40;
         this.timeSequence = new int[]{30,0,30,0};
         this.NSlightType = "disable";
         this.WElightType = "disable";
@@ -106,7 +123,7 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
 
 
     /*
-    * This method's logic is originally from "Solid-Block".
+    * This method's logic was originally from "Solid-Block" and I made some extra parts.
     */
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         TrafficLightsControlEntity entity = (TrafficLightsControlEntity)blockEntity;
@@ -149,13 +166,13 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
                 switch (entity.timerOrder) {
                     case 0 -> {
                         if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.NSlightType = "forward_green";
-                        else entity.NSlightType = "forward_air";
+                        else entity.NSlightType = "forward_airG";
 
                         entity.WElightType = "forward_red";
                     }
                     case 1 -> {
                         if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.NSlightType = "turn_green";
-                        else entity.NSlightType = "turn_air";
+                        else entity.NSlightType = "turn_airG";
 
                         entity.WElightType = "turn_red";
                     }
@@ -163,13 +180,13 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
                         entity.NSlightType = "forward_red";
 
                         if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.WElightType = "forward_green";
-                        else  entity.WElightType = "forward_air";
+                        else  entity.WElightType = "forward_airG";
                     }
                     case 3 -> {
                         entity.NSlightType = "turn_red";
 
                         if(entity.timerTraffic/10 == 4 || entity.timerTraffic/10 == 2 || entity.timerTraffic/10 == 0) entity.WElightType = "turn_green";
-                        else  entity.WElightType = "turn_air";
+                        else  entity.WElightType = "turn_airG";
                     }
                 }
             }

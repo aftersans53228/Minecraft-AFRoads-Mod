@@ -40,7 +40,6 @@ public class AFRoadsClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(id, (client, handler, packet, responseSender) -> consumer.accept(packet));
     }
 
-
     @Override
     public void onInitializeClient() {
         //client Initialize

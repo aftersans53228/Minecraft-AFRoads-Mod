@@ -1,7 +1,9 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
+import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
@@ -18,9 +20,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Style;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
+import static io.github.aftersans53228.aft_fabroads.block.TrafficLight.hasTimer;
 import static net.minecraft.util.math.Direction.*;
 
 /**
@@ -38,84 +43,105 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
     public TrafficLightEntityRender(BlockEntityRendererFactory.Context ctx) {
         this.textRenderer = ctx.getTextRenderer();
     }
+    public static void getRotate(MatrixStack matrices,Direction dir){
+        //设置旋转
+        switch(dir){
+            case NORTH,SOUTH -> matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(dir.asRotation()-180));
+            case WEST,EAST -> matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(dir.asRotation()));
+        }
+    }
 
     @Override
     public void render(TrafficLightEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        //GL 拉取
-        matrices.push();
         //选择渲染类型,标记
         logicProgram:
         if(blockEntity.getWorld() !=  null) {//world is not NULL
             TrafficLightsControlEntity controlBox;
-            //设置坐标
-            matrices.translate(0.5, 0.5, 0.5);
-            //设置旋转
-            Direction dir =blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING);
-            if (dir==SOUTH){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
-            }
-            else if (dir==NORTH){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-            }
-            else if (dir==EAST){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270));
-            }
-            else if (dir==WEST){
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90));
-            }
-            else{
-                AFRoads.LOGGER.info("Unexpected traffic light orientation state.");
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
-            }
             if (blockEntity.getControlBoxPos() != null) {
                 controlBox = (TrafficLightsControlEntity) blockEntity.getWorld().getBlockEntity(blockEntity.getControlBoxPos());
+                Direction dir =blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING);
+
+                matrices.push();
+                //设置坐标
+                matrices.translate(0.5, 0.5, 0.5);
+                getRotate(matrices,dir);
+                this.renderLights(blockEntity,controlBox,dir,matrices,vertexConsumers);
+                matrices.pop();
 
             } else {
                 break logicProgram;
             }
-            if (controlBox != null) {
-                switch (dir) {
-                    case SOUTH, NORTH -> {
-                        String type = controlBox.getLightType("NS");
-                        switch (type) {
-                            case "forward_green" ->
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_yellow" ->
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_air", "disabled" -> {
-                                    break logicProgram;
-                            }
-                            default -> //and red
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                        }
-                    }
-                    case EAST, WEST -> {
-                        String type = controlBox.getLightType("WE");
-                        switch (type) {
-                            case "forward_green" ->
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_yellow" ->
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                            case "forward_air", "disabled" -> {
-                                    break logicProgram;
-                            }
-                            default -> //and red
-                                    MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
-                        }
-                    }
-
-                }
-                String timeLeft = controlBox.getTimeLeft();
-                final int lightAbove = WorldRenderer.getLightmapCoordinates(blockEntity.getWorld(), blockEntity.getPos().up());
-                this.textRenderer.draw(timeLeft, (float) -(this.textRenderer.getWidth(timeLeft)) / 2, 0F, 0xFFFFFF, false, matrices.peek().getModel(), vertexConsumers, false, 0, lightAbove);
-            }
         }
         else{
+            matrices.push();
             MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+            matrices.pop();
         }
 
-        //结束程序，弹出GL
-        matrices.pop();
+    }
+
+    private void renderLights(TrafficLightEntity blockEntity,TrafficLightsControlEntity controlBox ,Direction dir,MatrixStack matrices, VertexConsumerProvider vertexConsumers){
+        switch (dir) {
+            case SOUTH, NORTH -> {
+                String type = controlBox.getLightType("NS");
+                switch (type) {
+                    case "forward_green" -> {
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                        this.renderTexts(blockEntity,controlBox,dir,matrices,vertexConsumers,0,"0fG");//meaning: North&South Forward Green
+                    }
+                    case "forward_yellow" -> {
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                    }
+                    case "forward_airG" -> {
+                        this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"0fG");//meaning: North&South Forward Green
+                    }
+                    case "disabled"->{}
+                    default -> {//and red
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                        this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 2,"0fR");//meaning: North&South Forward Red
+                    }
+                }
+            }
+            case EAST, WEST -> {
+                String type = controlBox.getLightType("WE");
+                switch (type) {
+                    case "forward_green" -> {
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                        this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"2fG");//meaning: West&East Forward Green
+                    }
+                    case "forward_yellow" -> {
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                    }
+                    case "forward_airG" -> {
+                        this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"2fG");//meaning: West&East Forward Green
+                    }
+                    case "disabled"->{}
+                    default -> {//and red
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                        this.renderTexts(blockEntity, controlBox, dir,matrices, vertexConsumers, 2,"2fR");//meaning: West&East Forward Red
+                    }
+                }
+            }
+
+        }
+    }
+    private void renderTexts(TrafficLightEntity blockEntity, TrafficLightsControlEntity controlBox, Direction dir, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int colorType, String dirType){
+        if(blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
+            final Style digitStyle = Style.EMPTY.withFont(AFRoadsStatics.FONT_DIGIT7);
+            matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
+            String timeLeft = controlBox.getTimeLeft(controlBox,dirType);
+            matrices.translate(0, -0.2f, 0);
+            matrices.translate(0f, 0f, 0.12f);
+            if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
+            matrices.scale(0.015f, 0.015F, 0.015f);
+            switch (colorType) {
+                case 0 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 1 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 2 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+            }
+        }
+
     }
 
 
