@@ -42,4 +42,4 @@ An elevated road:
 
 ## License    
 
-Under the CC0 license.
+Under the MIT license.
