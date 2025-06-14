@@ -117,7 +117,7 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
             //output value
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeBlockPos(posOfBlock);//方块坐标
-            buf.writeIntArray(new int[]{sliderFNS.getValue(), sliderTNS.getValue() == 0 ? -40 :sliderTNS.getValue(), sliderFWE.getValue(), sliderTWE.getValue() == 0 ? -40 :sliderTWE.getValue()});
+            buf.writeIntArray(new int[]{sliderFNS.getValue(), sliderTNS.getValue() == 0 ? -80 :sliderTNS.getValue(), sliderFWE.getValue(), sliderTWE.getValue() == 0 ? -80 :sliderTWE.getValue()});
             buf.writeBoolean(toggleButtonTimer.getToggle());
             AFRoads.LOGGER.info("Close the\"Traffic Control Box\"'s gui. ");
             GuiCloseNetwork.sendGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),buf);

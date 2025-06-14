@@ -1,0 +1,12 @@
+{
+    "providers":[
+        {
+            "type":"ttf",
+            "file":"aft_fabroads:traffic_bzzyzt_1.ttf",
+            "oversample":3.0,
+            "size":11,
+            "shift":[-2,0.3]
+        }
+
+    ]
+}

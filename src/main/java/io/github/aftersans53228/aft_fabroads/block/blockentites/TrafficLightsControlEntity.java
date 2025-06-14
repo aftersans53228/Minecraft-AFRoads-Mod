@@ -93,9 +93,9 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         }
         if (type.charAt(2) == 'R'){
             if (et.timerTraffic < 160 && et.timerTraffic >= 0) {
-                return (et.timerTraffic / 20 + 1 + 2) < 10 ? "0" + (et.timerTraffic / 20 + 1 + 2) : Integer.toString(et.timerTraffic / 20 + 1 + 2);
+                return (et.timerTraffic / 20 + 1 + 4) < 10 ? "0" + (et.timerTraffic / 20 + 1 + 4) : Integer.toString(et.timerTraffic / 20 + 1 + 4);
             } else if (et.timerTraffic < 0) {
-                return "0" + ((et.timerTraffic + 40) / 20 + 1);
+                return "0" + ((et.timerTraffic + 80) / 20 + 1);
             }
         }
         else if(type.charAt(2) == 'G'){
@@ -132,7 +132,7 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
         }
         if (state.get(BooleanProperty.of("is_enable"))){
             entity.timerTraffic --;
-            if (entity.timerTraffic < -40){
+            if (entity.timerTraffic < -80){
                 if (entity.timerOrder != 3){
                     entity.timerOrder ++;
                     entity.timerTraffic = entity.timeSequence[entity.timerOrder] * 20;
@@ -142,24 +142,28 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
                     entity.timerTraffic = entity.timeSequence[0] * 20;
                 }
             }
-            if(entity.timerTraffic < 0) {
+            if(entity.timerTraffic < 0 ) {
                 switch (entity.timerOrder) {
                     case 0 -> {
-                        entity.NSlightType = "forward_yellow";
+                        entity.NSlightType = entity.timerTraffic > -41 ? "forward_yellow" : "forward_redE";
                         entity.WElightType = "forward_red";
                     }
                     case 1 -> {
-                        entity.NSlightType = "turn_yellow";
+                        entity.NSlightType = entity.timerTraffic > -41 ? "turn_yellow" : "turn_redE";
                         entity.WElightType = "turn_red";
                     }
                     case 2 -> {
                         entity.NSlightType = "forward_red";
-                        entity.WElightType = "forward_yellow";
+                        entity.WElightType = entity.timerTraffic > -41 ? "forward_yellow" : "forward_redE";
                     }
                     case 3 -> {
                         entity.NSlightType = "turn_red";
-                        entity.WElightType = "turn_yellow";
+                        entity.WElightType = entity.timerTraffic > -41 ? "turn_yellow" : "turn_redE";
                     }
+                }
+                if (entity.timerTraffic % 10 == 0 ){
+                    entity.markDirty();
+                    world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
                 }
             }
             else if(entity.timerTraffic < 50){
@@ -189,6 +193,10 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
                         else  entity.WElightType = "turn_airG";
                     }
                 }
+                if (entity.timerTraffic % 10 == 0){
+                    entity.markDirty();
+                    world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
+                }
             }
             else{
                 switch (entity.timerOrder) {
@@ -209,9 +217,11 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
                         entity.WElightType = "turn_green";
                     }
                 }
+                if (entity.timerTraffic % 20 == 0){
+                    entity.markDirty();
+                    world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
+                }
             }
-            entity.markDirty();
-            world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
 
         }
         else{

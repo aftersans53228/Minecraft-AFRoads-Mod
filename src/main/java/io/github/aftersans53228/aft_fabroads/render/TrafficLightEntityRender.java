@@ -1,9 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
-import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
-import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
@@ -12,7 +9,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.model.json.ModelTransformation;
@@ -21,12 +17,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.Style;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
+import static io.github.aftersans53228.aft_fabroads.AFRoadsClient.DIGIT7_STYLE;
 import static io.github.aftersans53228.aft_fabroads.block.TrafficLight.hasTimer;
-import static net.minecraft.util.math.Direction.*;
 
 /**
  * @author aftersans53228
@@ -95,6 +90,9 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case "forward_airG" -> {
                         this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"0fG");//meaning: North&South Forward Green
                     }
+                    case "forward_redE"-> {//ending red
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                    }
                     case "disabled"->{}
                     default -> {//and red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
@@ -115,6 +113,9 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case "forward_airG" -> {
                         this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"2fG");//meaning: West&East Forward Green
                     }
+                    case "forward_redE"-> {//ending red
+                        MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                    }
                     case "disabled"->{}
                     default -> {//and red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
@@ -127,18 +128,18 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
     }
     private void renderTexts(TrafficLightEntity blockEntity, TrafficLightsControlEntity controlBox, Direction dir, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int colorType, String dirType){
         if(blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
-            final Style digitStyle = Style.EMPTY.withFont(AFRoadsStatics.FONT_DIGIT7);
             matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
             String timeLeft = controlBox.getTimeLeft(controlBox,dirType);
             matrices.translate(0, -0.2f, 0);
-            matrices.translate(0f, 0f, 0.12f);
-            if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
+            matrices.translate(0f, 0f, 0.1f);
+            if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
+            else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
             matrices.scale(0.015f, 0.015F, 0.015f);
             switch (colorType) {
-                case 0 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
-                case 1 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
-                case 2 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(digitStyle), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 0 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 1 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 2 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
             }
         }
 

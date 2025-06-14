@@ -21,6 +21,7 @@ import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Style;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
@@ -36,6 +37,8 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistr
  */
 @Environment(EnvType.CLIENT)
 public class AFRoadsClient implements ClientModInitializer {
+    public static final Style DIGIT7_STYLE = Style.EMPTY.withFont(new Identifier(MOD_ID,"font_digit7"));
+    public static final Style JTZYF_STYLE = Style.EMPTY.withFont(new Identifier(MOD_ID,"traffic_bzzyzt_1"));
     public static void registerNetworkReceiver(Identifier id, Consumer<PacketByteBuf> consumer) {
         ClientPlayNetworking.registerGlobalReceiver(id, (client, handler, packet, responseSender) -> consumer.accept(packet));
     }
