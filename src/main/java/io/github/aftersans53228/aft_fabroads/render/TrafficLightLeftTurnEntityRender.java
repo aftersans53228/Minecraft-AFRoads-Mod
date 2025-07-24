@@ -129,7 +129,7 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
         if(blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
             matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
-            String timeLeft = controlBox.getTimeLeft(controlBox,dirType);
+            String timeLeft = TrafficLightsControlEntity.getTimeLeft(controlBox,dirType);
             matrices.translate(0, -0.2f, 0);
             matrices.translate(0f, 0f, 0.1f);
             if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);

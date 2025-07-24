@@ -124,8 +124,11 @@
     "item.aft_fabroads.road_block": "§8§o道路的基础材质。",
     "item.aft_fabroads.manhole": "§8§o一个井盖方块。",
     "item.aft_fabroads.road_seams": "§8§o一个有道路的接缝方块。",
-    "item.aft_fabroads.traffic_light_tip": "§8§o这是个交通灯，相隔一段时间自动转换颜色。",
-    "item.aft_fabroads.traffic_light_tip2": "§8§o使用道路工具(切换)更改普通或倒数计时器模式。(未完成)",
+    "item.aft_fabroads.traffic_light_tip": "§8§o这是个交通灯，相隔一段时间自动转换颜色(已链接状态)。",
+    "item.aft_fabroads.traffic_light_tip2": "§8§o使用道路工具(切换)更改普通或倒数计时器模式。",
+    "item.aft_fabroads.traffic_light_tip3": "§8§o使用道路工具(链接)链接交通灯控制箱。",
+    "item.aft_fabroads.traffic_light_control_box_tip": "§8§o使用道路工具(链接)可选中一个交通灯控制箱。",
+    "item.aft_fabroads.traffic_light_control_box_tip2": "§8§o随后你可以再次点击一个交通灯，使其与选中的控制箱链接。",
     "item.aft_fabroads.mast-pillar_tip": "§8§o使用道路工具(切换)更改普通或支撑架模式。",
     "item.aft_fabroads.stop_tip": "§8§o你先别急。",
     "item.aft_fabroads.tool2slab_tip":"请对单独的上/下半砖使用道路工具(切换)修改状态。",
@@ -163,5 +166,5 @@
 
     "text.return.aft_fabroads.tool_attribute1": "§f选中方块的属性\n-----------------\n方块状态:\n",
     "text.return.aft_fabroads.tool_attribute2": "§f\n-----------------\n方块实体(NBT):\n",
-    "text.return.aft_fabroads.tool_attribute3": "§f\n-----------------"
+    "text.return.aft_fabroads.tool_attribute3": "§f\n-----------------",
 }

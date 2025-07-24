@@ -277,6 +277,9 @@ public class AFRoadsBlockRegistry {
         ROAD_NAME_SIGN_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_name_sign_entity"), FabricBlockEntityTypeBuilder.create(RoadNameSignEntity::new,RoadNameSign).build(null));
         TRAFFIC_LIGHTS_CONTROL_ENTITY=Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier("aft_fabroads:traffic_lights_control_entity"),FabricBlockEntityTypeBuilder.create(TrafficLightsControlEntity::new,TrafficLightsControlBox).build(null));
 
+
+        AFRoadsStatics.CAN_LINK_BLOCK_PARENT.add(TrafficLightsControlBox);
+        AFRoadsStatics.CAN_LINK_BLOCK_SUB.addAll(AFRoadsStatics.TRAFFIC_LIGHTS);
         AFRoads.LOGGER.info("AFRoads Blocks Initialized");
     }
 }

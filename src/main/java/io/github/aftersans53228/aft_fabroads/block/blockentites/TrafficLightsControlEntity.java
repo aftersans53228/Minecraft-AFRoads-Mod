@@ -87,20 +87,23 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
             this.world.setBlockState(this.pos,this.world.getBlockState(this.pos).with(BooleanProperty.of("is_enable"),false));
         }
     }
-    public static String getTimeLeft(TrafficLightsControlEntity et,String type){ //What am fk doing??
-        if (!Integer.valueOf(type.charAt(0)-'0').equals(et.timerOrder) && !Integer.valueOf(type.charAt(0)-'0').equals((et.timerOrder + 1)>3 ? 0 : et.timerOrder + 1)){
+    public static String getTimeLeft(TrafficLightsControlEntity et,String type) {
+            return getTimeLeft(et.timerTraffic,et.timerOrder, type);
+    }
+    private static String getTimeLeft(int timerTicks, int timerOrder, String type){ //What am fk doing??
+        if (!Integer.valueOf(type.charAt(0)-'0').equals(timerOrder) && !Integer.valueOf(type.charAt(0)-'0').equals((timerOrder + 1)>3 ? 0 : timerOrder + 1)){
             return "";
         }
         if (type.charAt(2) == 'R'){
-            if (et.timerTraffic < 160 && et.timerTraffic >= 0) {
-                return (et.timerTraffic / 20 + 1 + 4) < 10 ? "0" + (et.timerTraffic / 20 + 1 + 4) : Integer.toString(et.timerTraffic / 20 + 1 + 4);
-            } else if (et.timerTraffic < 0) {
-                return "0" + ((et.timerTraffic + 80) / 20 + 1);
+            if (timerTicks < 160 && timerTicks >= 0) {
+                return (timerTicks / 20 + 1 + 4) < 10 ? "0" + (timerTicks / 20 + 1 + 4) : Integer.toString(timerTicks / 20 + 1 + 4);
+            } else if (timerTicks < 0) {
+                return "0" + ((timerTicks + 80) / 20 + 1);
             }
         }
         else if(type.charAt(2) == 'G'){
-            if (et.timerTraffic < 200 && et.timerTraffic >= 0) {
-                return (et.timerTraffic / 20 + 1) < 10 ? "0" + (et.timerTraffic / 20 + 1) : Integer.toString(et.timerTraffic / 20 + 1);
+            if (timerTicks < 200 && timerTicks >= 0) {
+                return (timerTicks / 20 + 1) < 10 ? "0" + (timerTicks / 20 + 1) : Integer.toString(timerTicks / 20 + 1);
             }
             else{
                 return "";

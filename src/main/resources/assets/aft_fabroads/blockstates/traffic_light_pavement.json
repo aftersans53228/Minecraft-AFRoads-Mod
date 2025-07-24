@@ -1,48 +1,16 @@
 {
   "variants": {
-    "type=0,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red"
+    "facing=north": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement"
     },
-    "type=0,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  180
+    "facing=south": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement" , "y":  180
     },
-    "type=0,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  270
+    "facing=west": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement" , "y":  270
     },
-    "type=0,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  90
-    },
-
-
-
-    "type=1,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red"
-    },
-    "type=1,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  180
-    },
-    "type=1,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  270
-    },
-    "type=1,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_red" , "y":  90
-    },
-
-
-
-    "type=2,facing=north": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_green"
-    },
-    "type=2,facing=south": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_green" , "y":  180
-    },
-
-    "type=2,facing=west": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_green" , "y":  270
-    },
-
-    "type=2,facing=east": {
-      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement_green" , "y":  90
+    "facing=east": {
+      "model": "aft_fabroads:block/traffic_light/traffic_light_pavement" , "y":  90
     }
   }
 }

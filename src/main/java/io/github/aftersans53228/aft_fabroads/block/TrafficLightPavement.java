@@ -68,6 +68,7 @@ public  class TrafficLightPavement extends BlockWithEntity implements BlockEntit
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_tip"));
+        tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_tip3"));
     }
 
 
@@ -77,8 +78,5 @@ public  class TrafficLightPavement extends BlockWithEntity implements BlockEntit
     }
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, (world1, pos, state1, be) -> TrafficLightPavementEntity.tick(world1, pos, state1, state.get(FACING)));
     }
 }
