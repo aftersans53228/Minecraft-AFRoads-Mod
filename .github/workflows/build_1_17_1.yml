@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: Build Mods (1.17.1)
+name: Build Mods (1.18)
 on: [pull_request, push]
 
 jobs:
