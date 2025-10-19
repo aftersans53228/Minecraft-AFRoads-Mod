@@ -129,7 +129,7 @@ public class TrafficLightPavementEntityRender implements BlockEntityRenderer<Tra
         if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
         else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
         matrices.scale(0.017f, 0.017F, 0.017f);
-        this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, color, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+        this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
     }
 
 

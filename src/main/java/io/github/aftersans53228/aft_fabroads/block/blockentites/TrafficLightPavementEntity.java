@@ -1,18 +1,18 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavement;
+import blue.endless.jankson.annotation.Nullable;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 
 
-public class TrafficLightPavementEntity extends BlockEntity implements BlockEntityClientSerializable {
+public class TrafficLightPavementEntity extends BlockEntity{
     private BlockPos boxPos ;
 
     public TrafficLightPavementEntity(BlockPos pos, BlockState state) {
@@ -31,23 +31,23 @@ public class TrafficLightPavementEntity extends BlockEntity implements BlockEnti
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         if (boxPos!=null) {
             nbt.putInt("box_x", boxPos.getX());
             nbt.putInt("box_y", boxPos.getY());
             nbt.putInt("box_z", boxPos.getZ());
         }
-        return super.writeNbt(nbt);
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
     }
 
     @Override
-    public void fromClientTag(NbtCompound tag) {
-        this.readNbt(tag);
-    }
-
-    @Override
-    public NbtCompound toClientTag(NbtCompound tag) {
-        return this.writeNbt(tag);
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
     }
 
     public void setControlBoxPos(BlockPos pos){

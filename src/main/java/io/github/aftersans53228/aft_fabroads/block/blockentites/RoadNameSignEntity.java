@@ -1,17 +1,20 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
+import blue.endless.jankson.annotation.Nullable;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClientSerializable {
+public class RoadNameSignEntity extends BlockEntity{
     private String roadName = "未命名";
     private String roadName2rd = "Unnamed";
 
@@ -28,22 +31,20 @@ public class RoadNameSignEntity extends BlockEntity  implements BlockEntityClien
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         nbt.putString("road_name",this.roadName);
         nbt.putString("road_name2rd",this.roadName2rd);
-        return super.writeNbt(nbt);
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
     }
 
     @Override
-    public void fromClientTag(NbtCompound tag) {
-        this.readNbt(tag);
-        this.roadName = tag.getString("road_name");
-        this.roadName2rd = tag.getString("road_name2rd");
-    }
-
-    @Override
-    public NbtCompound toClientTag(NbtCompound tag) {
-        return this.writeNbt(tag);
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
     }
 
     public void setRoadNames(String roadName) {

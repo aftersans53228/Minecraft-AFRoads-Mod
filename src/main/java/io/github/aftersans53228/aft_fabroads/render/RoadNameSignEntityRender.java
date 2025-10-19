@@ -97,7 +97,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         matrices.scale(scale, scale, scale);
         int textWidth = textRenderer.getWidth(text);
         textRenderer.draw(new LiteralText(text),
-                (float) -textWidth / 2, 0f, color, false, matrices.peek().getModel(), vertexConsumers, false, 0, light
+                (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
         );
         matrices.pop();
     }
@@ -129,7 +129,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             matrices.scale(scale, scale, scale);
             int textWidth = textRenderer.getWidth(directionText);
             textRenderer.draw(new LiteralText(directionText),
-                    (float) -textWidth / 2, 0f, color, false, matrices.peek().getModel(), vertexConsumers, false, 0, light
+                    (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
             );
         }
         else {

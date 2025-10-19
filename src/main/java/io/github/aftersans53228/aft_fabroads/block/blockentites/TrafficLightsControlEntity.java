@@ -1,11 +1,14 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
+import blue.endless.jankson.annotation.Nullable;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -14,7 +17,7 @@ import net.minecraft.world.World;
 /**
  * @author aftersans53228(AFT Transportation)
  */
-public class TrafficLightsControlEntity extends BlockEntity  implements BlockEntityClientSerializable {
+public class TrafficLightsControlEntity extends BlockEntity{
     private int timerTraffic = 0;
     private int timerOrder = 0;
     private int[] timeSequence = new int[]{};
@@ -37,23 +40,23 @@ public class TrafficLightsControlEntity extends BlockEntity  implements BlockEnt
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         nbt.putString("NS",this.NSlightType);
         nbt.putString("WE",this.WElightType);
         nbt.putIntArray("time_sequence",this.timeSequence);
         nbt.putInt("timer",this.timerTraffic);
         nbt.putInt("tod",this.timerOrder);
-        return super.writeNbt(nbt);
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
     }
 
     @Override
-    public void fromClientTag(NbtCompound tag) {
-        this.readNbt(tag);
-    }
-
-    @Override
-    public NbtCompound toClientTag(NbtCompound tag) {
-        return this.writeNbt(tag);
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
     }
 
     public String getLightType(String arg){

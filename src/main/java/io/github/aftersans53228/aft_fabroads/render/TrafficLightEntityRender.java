@@ -137,9 +137,9 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
             else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
             matrices.scale(0.015f, 0.015F, 0.015f);
             switch (colorType) {
-                case 0 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
-                case 1 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
-                case 2 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+                case 0 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+                case 1 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+                case 2 -> this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
             }
         }
 
