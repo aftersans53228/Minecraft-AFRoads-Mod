@@ -20,8 +20,8 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
@@ -183,7 +183,7 @@ public class AFRoadsClient implements ClientModInitializer {
                 ClientConnection connection = client.getNetworkHandler().getConnection();
                 if (connection !=null){
                     connection.disconnect(
-                        new LiteralText(
+                        Text.literal(
                         I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n\n"
                                 +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+"§4"+"AFRoadsStatics.MOD_VERSION(Client)\n"
                                 +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+"§2"+"AFRoadsStatics.MOD_VERSION(Server)\n"

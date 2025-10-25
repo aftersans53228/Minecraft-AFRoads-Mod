@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -62,7 +61,7 @@ public class InsulationPanelsGray extends HorizontalFacingBlock {
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         if (this.tipsMode){
-            tooltip.add(new TranslatableText("item.aft_fabroads.insulation_gray_tip"));
+            tooltip.add(Text.translatable("item.aft_fabroads.insulation_gray_tip"));
         }
     }
 }

@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -30,7 +30,7 @@ public class ConcreteSlab extends SlabBlock {
                 return ActionResult.SUCCESS;
             }
             if (state.get(TYPE) == SlabType.DOUBLE) {
-                player.sendMessage(new TranslatableText("item.aft_fabroads.tool2slab_tip"), true);
+                player.sendMessage(Text.translatable("item.aft_fabroads.tool2slab_tip"), true);
             }
         }
         return ActionResult.PASS;

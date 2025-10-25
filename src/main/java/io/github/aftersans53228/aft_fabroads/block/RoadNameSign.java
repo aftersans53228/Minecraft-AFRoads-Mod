@@ -18,7 +18,6 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -83,7 +82,7 @@ public  class RoadNameSign extends BlockWithEntity implements BlockEntityProvide
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.aft_fabroads.road_name_sign"));
+        tooltip.add(Text.translatable("item.aft_fabroads.road_name_sign"));
     }
 
 

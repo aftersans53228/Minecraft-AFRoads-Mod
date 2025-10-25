@@ -18,7 +18,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -76,23 +76,23 @@ public class RoadNameSignGui extends LightweightGuiDescription {
         setRootPanel(root);
 
         //标题
-        WLabel title = new WLabel(new TranslatableText("block.aft_fabroads.road_name_sign"));
+        WLabel title = new WLabel(Text.translatable("block.aft_fabroads.road_name_sign"));
         title.setVerticalAlignment(VerticalAlignment.TOP);
         root.add(title,0, 0, 12, 3);
 
         //内容
-        WLabel label = new WLabel(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name"));
+        WLabel label = new WLabel(Text.translatable("text.gui.aft_fabroads.road_name_sign_name"));
         root.add(label,0, 2, 8, 2);
 
 
-        WLabel label2 = new WLabel(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name2"));
+        WLabel label2 = new WLabel(Text.translatable("text.gui.aft_fabroads.road_name_sign_name2"));
         root.add(label2, 0, 7, 8, 2);
 
         //路牌名输入
-        WTextField roadName = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip"));
+        WTextField roadName = new WTextField(Text.translatable("text.gui.aft_fabroads.road_name_sign_name-tip"));
         roadName.setText(name1);
         root.add(roadName,0,4,11,2);
-        WTextField roadName2rd = new WTextField(new TranslatableText("text.gui.aft_fabroads.road_name_sign_name-tip2rd"));
+        WTextField roadName2rd = new WTextField(Text.translatable("text.gui.aft_fabroads.road_name_sign_name-tip2rd"));
         roadName2rd.setText(name2);
         root.add(roadName2rd,0,9,11,2);
 
@@ -112,14 +112,14 @@ public class RoadNameSignGui extends LightweightGuiDescription {
         root.add(labelRightDir, 19,6, 2, 1);
 
         //应用和取消
-        WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.apply"));
+        WButton apply = new WButton(Text.translatable("text.gui.aft_fabroads.apply"));
         root.add(apply, 22, 16, 4, 3);
 
-        WButton cancel = new WButton(new TranslatableText("text.gui.aft_fabroads.cancel"));
+        WButton cancel = new WButton(Text.translatable("text.gui.aft_fabroads.cancel"));
         root.add(cancel, 17, 16, 4, 3);
 
         //重置
-        WButton reset = new WButton(new TranslatableText("text.gui.aft_fabroads.reset"));
+        WButton reset = new WButton(Text.translatable("text.gui.aft_fabroads.reset"));
         root.add(reset, 0, 13, 11, 3);
 
         //当取消被按下后关闭gui

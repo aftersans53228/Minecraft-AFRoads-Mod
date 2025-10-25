@@ -7,9 +7,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
@@ -39,9 +37,9 @@ public class RandomFullBlock extends HorizontalFacingBlock {
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         switch (this.type) {
-            case "road_block" -> tooltip.add(new TranslatableText("item.aft_fabroads.road_block"));
-            case "todo" -> tooltip.add(new TranslatableText(" "));
-            default -> tooltip.add(new TranslatableText(""));
+            case "road_block" -> tooltip.add(Text.translatable("item.aft_fabroads.road_block"));
+            case "todo" -> tooltip.add(Text.translatable(" "));
+            default -> tooltip.add(Text.translatable(""));
         }
     }
 

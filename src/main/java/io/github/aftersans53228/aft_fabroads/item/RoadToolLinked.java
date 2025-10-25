@@ -16,7 +16,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -38,11 +37,11 @@ public class RoadToolLinked extends Item {
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
 
         // 默认为白色文本
-        tooltip.add( new TranslatableText(" ") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool_l.tip1") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool_l.tip2") );
-        tooltip.add( new TranslatableText(" ") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool.tip_all") );
+        tooltip.add( Text.translatable(" ") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool_l.tip1") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool_l.tip2") );
+        tooltip.add( Text.translatable(" ") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool.tip_all") );
     }
 
     @Override
@@ -51,9 +50,9 @@ public class RoadToolLinked extends Item {
             if (!context.getWorld().isClient() && context.getWorld().getBlockEntity(context.getBlockPos()).getType().equals(AFRoadsBlockRegistry.TRAFFIC_LIGHTS_CONTROL_ENTITY)) {
                 if (this.boxPos == null) {
                     this.boxPos = context.getBlockPos();
-                    context.getPlayer().sendMessage(new TranslatableText("text.gui.aft_fabroads.traffic_link_start"), true);
+                    context.getPlayer().sendMessage(Text.translatable("text.gui.aft_fabroads.traffic_link_start"), true);
                 } else {
-                    context.getPlayer().sendMessage(new TranslatableText("text.gui.aft_fabroads.traffic_link_start_wrong"), true);
+                    context.getPlayer().sendMessage(Text.translatable("text.gui.aft_fabroads.traffic_link_start_wrong"), true);
                 }
                 return ActionResult.SUCCESS;
             }
@@ -69,17 +68,17 @@ public class RoadToolLinked extends Item {
                     } else if (entity0 instanceof TrafficLightPavementEntity) {
                         ((TrafficLightPavementEntity) entity0).setControlBoxPos(this.boxPos);
                     }
-                    context.getPlayer().sendMessage(new TranslatableText("text.gui.aft_fabroads.traffic_link_end"), true);
+                    context.getPlayer().sendMessage(Text.translatable("text.gui.aft_fabroads.traffic_link_end"), true);
                     this.boxPos = null;
                     return ActionResult.SUCCESS;
                 } else {
-                    context.getPlayer().sendMessage(new TranslatableText("text.gui.aft_fabroads.traffic_link_end_wrong"), true);
+                    context.getPlayer().sendMessage(Text.translatable("text.gui.aft_fabroads.traffic_link_end_wrong"), true);
                     return ActionResult.PASS;
                 }
             }
         }
         else {
-            context.getPlayer().sendMessage(new TranslatableText("text.gui.aft_fabroads.traffic_link_start_wrong"), true);
+            context.getPlayer().sendMessage(Text.translatable("text.gui.aft_fabroads.traffic_link_start_wrong"), true);
         }
         return ActionResult.PASS;
     }

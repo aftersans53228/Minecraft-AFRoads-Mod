@@ -33,7 +33,7 @@
   ],
 
   "depends": {
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=16",
     "fabric-key-binding-api-v1": "*"
   }

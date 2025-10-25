@@ -13,7 +13,6 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -85,7 +84,7 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.aft_fabroads.road_light"));
+        tooltip.add(Text.translatable("item.aft_fabroads.road_light"));
     }
 /*
     @Override

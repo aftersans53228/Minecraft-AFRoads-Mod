@@ -17,7 +17,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
@@ -129,7 +129,7 @@ public class TrafficLightPavementEntityRender implements BlockEntityRenderer<Tra
         if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
         else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
         matrices.scale(0.017f, 0.017F, 0.017f);
-        this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+        this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
     }
 
 

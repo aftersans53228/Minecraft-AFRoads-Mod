@@ -14,7 +14,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -81,6 +80,6 @@ public class TrashBinGreen extends HorizontalFacingBlock {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.aft_fabroads.trash_bin") );
+        tooltip.add(Text.translatable("item.aft_fabroads.trash_bin") );
     }
 }

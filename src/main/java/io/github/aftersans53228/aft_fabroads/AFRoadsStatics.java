@@ -14,7 +14,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistr
 public abstract class AFRoadsStatics {
     public static final String MOD_ID = "aft_fabroads";
     public static final String MOD_VERSION = "1.0.3Dev-Update1-Build1";
-    public static final String MINECRAFT_VERSION = "1.18.x";
+    public static final String MINECRAFT_VERSION = "1.19.x";
     public static final List<Block> PILLAR_BLOCKS = new ArrayList<>();
     public static final List<Block> CAN_PILLAR_CONNECT = new ArrayList<>();
     public static final List<Block> TRAFFIC_LIGHTS = new ArrayList<>();

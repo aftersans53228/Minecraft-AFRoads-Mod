@@ -9,8 +9,7 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class OnConnectingVersionCheck {
@@ -28,10 +27,10 @@ public class OnConnectingVersionCheck {
                 ClientConnection connection = client.getNetworkHandler().getConnection();
                 if (connection != null ){
                     connection.disconnect(
-                            new LiteralText(
-                            I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n\n"
-                            +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+"§4"+AFRoadsStatics.MOD_VERSION+"\n"
-                            +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+"§2"+version+"\n"
+                            Text.literal(
+                                    I18n.translate("text.gui.aft_fabroads.version_mistake") + "\n\n"
+                                            + I18n.translate("text.gui.aft_fabroads.version_mistake_client") + "§4" + AFRoadsStatics.MOD_VERSION + "\n"
+                                            + I18n.translate("text.gui.aft_fabroads.version_mistake_server") + "§2" + version + "\n"
                             )
                     );
                 }

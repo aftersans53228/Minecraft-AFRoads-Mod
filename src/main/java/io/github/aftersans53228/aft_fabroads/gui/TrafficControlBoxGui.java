@@ -15,7 +15,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
@@ -35,22 +35,22 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
         setRootPanel(root);
 
         //标题
-        WLabel title = new WLabel(new TranslatableText("block.aft_fabroads.traffic_lights_control_box"));
+        WLabel title = new WLabel(Text.translatable("block.aft_fabroads.traffic_lights_control_box"));
         title.setVerticalAlignment(VerticalAlignment.TOP);
         root.add(title,0, 0, 12, 3);
 
-        WLabel title2 = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box"));
+        WLabel title2 = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box"));
         title.setVerticalAlignment(VerticalAlignment.TOP);
         root.add(title2,2, 2, 12, 3);
 
         //内容
-        WLabel labelFNS = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_fns"));
+        WLabel labelFNS = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box_fns"));
         root.add(labelFNS,0, 4, 8, 2);
-        WLabel labelFWE = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_fwe"));
+        WLabel labelFWE = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box_fwe"));
         root.add(labelFWE,0, 8, 8, 2);
-        WLabel labelTNS = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_tns"));
+        WLabel labelTNS = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box_tns"));
         root.add(labelTNS,0, 12, 8, 2);
-        WLabel labelTWE = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_twe"));
+        WLabel labelTWE = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box_twe"));
         root.add(labelTWE,0, 16, 8, 2);
 
         //滑块
@@ -80,18 +80,18 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
         root.add(labelShowGreenTurn,11, 18, 4, 1);
 
         //应用和取消
-        WButton apply = new WButton(new TranslatableText("text.gui.aft_fabroads.apply"));
+        WButton apply = new WButton(Text.translatable("text.gui.aft_fabroads.apply"));
         root.add(apply, 22, 16, 4, 3);
 
-        WButton cancel = new WButton(new TranslatableText("text.gui.aft_fabroads.cancel"));
+        WButton cancel = new WButton(Text.translatable("text.gui.aft_fabroads.cancel"));
         root.add(cancel, 17, 16, 4, 3);
 
         //重置
-        WButton reset = new WButton(new TranslatableText("text.gui.aft_fabroads.reset"));
+        WButton reset = new WButton(Text.translatable("text.gui.aft_fabroads.reset"));
         root.add(reset, 20, 3, 4, 3);
 
         //是否启用灯箱
-        WLabel whetherEnabled = new WLabel(new TranslatableText("text.gui.aft_fabroads.traffic_control_box_whether_enabled"));
+        WLabel whetherEnabled = new WLabel(Text.translatable("text.gui.aft_fabroads.traffic_control_box_whether_enabled"));
         WToggleButton toggleButtonTimer = new WToggleButton();
         toggleButtonTimer.setToggle(enabled);
         root.add(whetherEnabled, 20, 9, 2, 2);

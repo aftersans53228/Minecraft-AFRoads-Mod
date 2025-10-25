@@ -16,7 +16,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
@@ -96,7 +96,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         }
         matrices.scale(scale, scale, scale);
         int textWidth = textRenderer.getWidth(text);
-        textRenderer.draw(new LiteralText(text),
+        textRenderer.draw(Text.literal(text),
                 (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
         );
         matrices.pop();
@@ -128,7 +128,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             String directionText = DIRECTION_MAP.get(facing).get(directionKey);
             matrices.scale(scale, scale, scale);
             int textWidth = textRenderer.getWidth(directionText);
-            textRenderer.draw(new LiteralText(directionText),
+            textRenderer.draw(Text.literal(directionText),
                     (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
             );
         }

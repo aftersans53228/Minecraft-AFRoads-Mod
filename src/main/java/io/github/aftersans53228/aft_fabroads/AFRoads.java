@@ -10,7 +10,7 @@ import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -69,7 +69,7 @@ public class AFRoads implements ModInitializer {
 
 
 		//command
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> AftCommand.register(dispatcher));
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> AftCommand.register(dispatcher));
 
 		//服务端接发包
 		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);

@@ -7,7 +7,6 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -75,6 +74,6 @@ public class SmartPillar extends ConnectingBlock {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.aft_fabroads.smart_pillar") );
+        tooltip.add(Text.translatable("item.aft_fabroads.smart_pillar") );
     }
 }

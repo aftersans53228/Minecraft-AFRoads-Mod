@@ -20,7 +20,6 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -69,8 +68,8 @@ public class TrafficLightsControlBox extends BlockWithEntity implements BlockEnt
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_control_box_tip"));
-        tooltip.add(new TranslatableText("item.aft_fabroads.traffic_light_control_box_tip2"));
+        tooltip.add(Text.translatable("item.aft_fabroads.traffic_light_control_box_tip"));
+        tooltip.add(Text.translatable("item.aft_fabroads.traffic_light_control_box_tip2"));
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

@@ -17,9 +17,7 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -37,11 +35,11 @@ public class RoadToolAttribute extends Item {
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         // 默认为白色文本
-        tooltip.add( new TranslatableText(" ") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool_a.tip1") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool_a.tip2") );
-        tooltip.add( new TranslatableText(" ") );
-        tooltip.add( new TranslatableText("item.aft_fabroads.road_tool.tip_all") );
+        tooltip.add( Text.translatable(" ") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool_a.tip1") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool_a.tip2") );
+        tooltip.add( Text.translatable(" ") );
+        tooltip.add( Text.translatable("item.aft_fabroads.road_tool.tip_all") );
     }
 
     @Override
@@ -88,7 +86,7 @@ public class RoadToolAttribute extends Item {
             textBuilder.append(s2);
             textBuilder.append(I18n.translate("text.return.aft_fabroads.tool_attribute3"));
             if (player!=null) {
-                player.sendMessage(new LiteralText(textBuilder.toString()), false);
+                player.sendMessage(Text.literal(textBuilder.toString()), false);
             }
         });
     }
