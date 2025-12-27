@@ -5,6 +5,7 @@ import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsCon
 import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.OverlayTexture;
@@ -126,7 +127,7 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
         }
     }
     private void renderTexts(TrafficLightLeftTurnEntity blockEntity,TrafficLightsControlEntity controlBox,Direction dir,MatrixStack matrices, VertexConsumerProvider vertexConsumers,int colorType,String dirType){
-        if(blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
+        if(! blockEntity.getWorld().getBlockState(blockEntity.getPos()).equals(Blocks.AIR.getDefaultState()) && blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
             matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
             String timeLeft = TrafficLightsControlEntity.getTimeLeft(controlBox,dirType);
