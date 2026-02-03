@@ -1,9 +1,22 @@
 {
-    "variants": {
-      "facing=north": { "model": "aft_fabroads:block/road_block_concrete"},
-      "facing=east":  { "model": "aft_fabroads:block/road_block_concrete", "y":  90},
-      "facing=south": { "model": "aft_fabroads:block/road_block_concrete", "y": 180},
-      "facing=west":  { "model": "aft_fabroads:block/road_block_concrete", "y": 270 }
-    }
+  "variants": {
+    "": [
+      {
+        "model": "aft_fabroads:block/road_block_concrete"
+      },
+      {
+        "model": "aft_fabroads:block/road_block_concrete",
+        "y": 90
+      },
+      {
+        "model": "aft_fabroads:block/road_block_concrete",
+        "y": 180
+      },
+      {
+        "model": "aft_fabroads:block/road_block_concrete",
+        "y": 270
+      }
+    ]
   }
+}
 
