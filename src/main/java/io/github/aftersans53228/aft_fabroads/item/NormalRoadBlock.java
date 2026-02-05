@@ -1,31 +1,21 @@
 package io.github.aftersans53228.aft_fabroads.item;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
+
+import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadBlockItem;
 
 public class NormalRoadBlock {
     public static ItemGroup get() {
         return ITEM_GROUP;
     }
 
-    private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier("aft_fabroads", "normal_road_blocks"))
+    private static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(AFRoadsStatics.MOD_ID, "normal_road_blocks"))
             .icon(() -> new ItemStack(RoadBlockItem))
-            .appendItems(stacks -> {
-                stacks.add(new ItemStack(RoadBlockItem));
-                stacks.add(new ItemStack(RoadBlockConcreteItem));
-                stacks.add(new ItemStack(ManholeCoverItem));
-                stacks.add(new ItemStack(ManholeCoverConcreteItem));
-                stacks.add(new ItemStack(RoadSeamsBlockItem));
-                stacks.add(new ItemStack(RoadSeamsBlockConcreteItem));
-                stacks.add(new ItemStack(ConcreteSlabItem));
-                stacks.add(new ItemStack(ConcreteStairsItem));
-                stacks.add(new ItemStack(ConcreteStairsSmoothItem));
-                stacks.add(new ItemStack(ConcreteColumnsCornerItem));
-            })
+            .displayName(Text.translatable("itemGroup.aft_fabroads.normal_road_blocks"))
             .build();
 }

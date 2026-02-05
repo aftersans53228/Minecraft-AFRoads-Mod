@@ -31,7 +31,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistr
 public class RoadToolLinked extends Item {
     private BlockPos boxPos = null;
     public RoadToolLinked() {
-        super(new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1).maxDamage(10));
+        super(new FabricItemSettings().maxCount(1).maxDamage(10));
     }
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

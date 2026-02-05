@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 
 public class RoadToolAttribute extends Item {
     public RoadToolAttribute() {
-        super(new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1).maxDamage(10));
+        super(new FabricItemSettings().maxCount(1).maxDamage(10));
     }
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {

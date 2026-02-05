@@ -10,33 +10,30 @@ import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteColumnsCorner;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteSlab;
 import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairs;
-import io.github.aftersans53228.aft_fabroads.item.RoadTool;
-import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
-import io.github.aftersans53228.aft_fabroads.item.RoadToolLinked;
+import io.github.aftersans53228.aft_fabroads.item.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoads.*;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
 public class AFRoadsItemRegistry {
     private static Item register(String id, Item item) {
-        return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), item);
-
+        return (Item)Registry.register(Registries.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), item);
     }
     private static Item registerBlock(String id, Block block) {
-        return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(NormalRoadBlockGROUP)));
+        return (Item)Registry.register(Registries.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings()));
     }
     private static Item registerSticker(String id, Block block) {
-        return (Item)Registry.register(Registry.ITEM,new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadStickersGROUP)));
+        return (Item)Registry.register(Registries.ITEM,new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings()));
     }
     private static Item registerDecoration(String id, Block block) {
-        return (Item)Registry.register(Registry.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings().group(RoadDecorationsGROUP)));
+        return (Item)Registry.register(Registries.ITEM, new Identifier(AFRoadsStatics.MOD_ID,id), new BlockItem(block,new Item.Settings()));
     }
     
     public static  Item RoadTool;
@@ -287,5 +284,116 @@ public class AFRoadsItemRegistry {
         RoadNameSignItem =registerDecoration("road_name_sign",RoadNameSign);
 
         AFRoads.LOGGER.info("AFRoads Items Initialized");
+
+        ItemGroupEvents.modifyEntriesEvent(RoadStickers.get()).register(content -> {
+            content.add(new ItemStack(LineStraightItem));
+            content.add(new ItemStack(LineCornerItem));
+            content.add(new ItemStack(LineTshapedItem));
+            content.add(new ItemStack(LineCrossItem));
+            content.add(new ItemStack(LineDiagonalItem));
+            content.add(new ItemStack(LineLeftBendItem));
+            content.add(new ItemStack(LineRightBendItem));
+            content.add(new ItemStack(LineForkLeftItem));
+            content.add(new ItemStack(LineForkRightItem));
+            content.add(new ItemStack(LineStraightThickItem));
+            content.add(new ItemStack(LineStraightDuoLineItem));
+            content.add(new ItemStack(LineStraightDuoThickItem));
+            content.add(new ItemStack(LineStraightDuoThickDashedItem));
+            content.add(new ItemStack(LineDecelerateNoLineItem));
+            content.add(new ItemStack(LineDecelerateNoLineFlipItem));
+            content.add(new ItemStack(LineDecelerateWithLineItem));
+            content.add(new ItemStack(LineDecelerateWithLineFlipItem));
+            content.add(new ItemStack(LineDecelerateDoubleWL));
+            content.add(new ItemStack(LineDecelerateDoubleNL));
+            content.add(new ItemStack(LineReversibleLanesItem));
+            content.add(new ItemStack(LineReversibleLanesFlipItem));
+            content.add(new ItemStack(LineReversibleLanesDoubleItem));
+
+            content.add(new ItemStack(ArrowForwardItem));
+            content.add(new ItemStack(ArrowLeftItem));
+            content.add(new ItemStack(ArrowRightItem));
+            content.add(new ItemStack(ArrowForwardLeftItem));
+            content.add(new ItemStack(ArrowForwardRightItem));
+            content.add(new ItemStack(ArrowLeftRightItem));
+            content.add(new ItemStack(ArrowBackItem));
+            content.add(new ItemStack(ArrowBackLeftItem));
+            content.add(new ItemStack(ArrowBackForwardItem));
+            content.add(new ItemStack(ArrowConfluenceLeftItem));
+            content.add(new ItemStack(ArrowConfluenceRightItem));
+
+            content.add(new ItemStack(IconDecelerateStickerItem));
+            content.add(new ItemStack(IconStopStickerItem));
+            content.add(new ItemStack(IconGiveWayStickerItem));
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(RoadDecoration.get()).register(content -> {
+            content.add(new ItemStack(RailingsItem));
+            content.add(new ItemStack(BarrierBarItem));
+            content.add(new ItemStack(PavementRailingsItem));
+            content.add(new ItemStack(ExpresswayRailingsBaseItem));
+            content.add(new ItemStack(ExpresswayIronRailingsItem));
+            content.add(new ItemStack(ExpresswayIronRailings2Item));
+            content.add(new ItemStack(ExpresswayRailingsItem));
+            content.add(new ItemStack(ExpresswayRailingsType2Item));
+            content.add(new ItemStack(InsulationPanelsRailingsItem));
+            content.add(new ItemStack(InsulationPanelsGrayPart1Item));
+            content.add(new ItemStack(InsulationPanelsGrayPart2Item));
+            content.add(new ItemStack(InsulationPanelsGrayPart3Item));
+            content.add(new ItemStack(InsulationPanelsGrayPart4Item));
+            content.add(new ItemStack(InsulationPanelsGrayPart5Item));
+            content.add(new ItemStack(InsulationPanelsGrayPart6Item));
+            content.add(new ItemStack(TrafficLightItem));
+            content.add(new ItemStack(TrafficLightPavementItem));
+            content.add(new ItemStack(RoadLightItem));
+            content.add(new ItemStack(PillarBaseItem));
+            content.add(new ItemStack(HorizontalStraightPillarItem));
+            content.add(new ItemStack(VerticalStraightPillarItem));
+            content.add(new ItemStack(HorizontalCornerPillarItem));
+            content.add(new ItemStack(VerticalCornerPillarItem));
+            content.add(new ItemStack(HorizontalTshapedPillarItem));
+            content.add(new ItemStack(VerticalTshapedPillarItem));
+            content.add(new ItemStack(VerticalTshapedPillarType2Item));
+            content.add(new ItemStack(HorizontalStraightPillarThinItem));
+            content.add(new ItemStack(VerticalStraightPillarThinItem));
+            content.add(new ItemStack(VerticalCornerPillarThinItem));
+            content.add(new ItemStack(RoadMastPillarBaseItem));
+            content.add(new ItemStack(RoadMastPillarItem));
+            content.add(new ItemStack(SmartPillarItem));
+            content.add(new ItemStack(SmartPillarThinItem));
+            content.add(new ItemStack(SignIndicatorDirectionLeftItem));
+            content.add(new ItemStack(SignIndicatorDirectionRightItem));
+            content.add(new ItemStack(SignIndicatorDirectionCarItem));
+            content.add(new ItemStack(SignIndicatorDirectionBicycleItem));
+            content.add(new ItemStack(SignBanNoDriveItem));
+            content.add(new ItemStack(SignBanStopItem));
+            content.add(new ItemStack(SignBanSpeedLimit05Item));
+            content.add(new ItemStack(SignBanSpeedLimit20Item));
+            content.add(new ItemStack(SignBanSpeedLimit30Item));
+            content.add(new ItemStack(SignBanSpeedLimit40Item));
+            content.add(new ItemStack(SignBanSpeedLimit50Item));
+            content.add(new ItemStack(SignBanSpeedLimit60Item));
+            content.add(new ItemStack(SignBanSpeedLimit70Item));
+            content.add(new ItemStack(SignBanSpeedLimit80Item));
+            content.add(new ItemStack(RubbishBinMetalItem));
+            content.add(new ItemStack(TrashBinGreenItem));
+            content.add(new ItemStack(RoadNameSignItem));
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(NormalRoadBlock.get()).register(content -> {
+            content.add(new ItemStack(RoadBlockItem));
+            content.add(new ItemStack(RoadBlockConcreteItem));
+            content.add(new ItemStack(ManholeCoverItem));
+            content.add(new ItemStack(ManholeCoverConcreteItem));
+            content.add(new ItemStack(RoadSeamsBlockItem));
+            content.add(new ItemStack(RoadSeamsBlockConcreteItem));
+            content.add(new ItemStack(ConcreteSlabItem));
+            content.add(new ItemStack(ConcreteStairsItem));
+            content.add(new ItemStack(ConcreteStairsSmoothItem));
+            content.add(new ItemStack(ConcreteColumnsCornerItem));
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+            content.add(new ItemStack(RoadTool));
+        });
     }
 }

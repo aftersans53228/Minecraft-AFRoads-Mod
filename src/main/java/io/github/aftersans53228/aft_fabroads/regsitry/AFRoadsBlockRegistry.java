@@ -13,19 +13,20 @@ import io.github.aftersans53228.aft_fabroads.block.structureblock.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import static io.github.aftersans53228.aft_fabroads.block.voxelshapes.RailingsFacing.*;
 
 public class AFRoadsBlockRegistry {
     
     private static Block register(String id, Block block) {
-        return (Block)Registry.register(Registry.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
+        return (Block)Registry.register(Registries.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
     }
     private static Block registerPillar(String id, Block block) {
         AFRoadsStatics.PILLAR_BLOCKS.add(block);
-        return (Block)Registry.register(Registry.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
+        return (Block)Registry.register(Registries.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
     }
     private static Block setPillarConnect(Block block){
         AFRoadsStatics.CAN_PILLAR_CONNECT.add(block);
@@ -33,7 +34,7 @@ public class AFRoadsBlockRegistry {
     }
     private static Block registerTrafficLight(String id, Block block){
         AFRoadsStatics.TRAFFIC_LIGHTS.add(block);
-        return (Block)Registry.register(Registry.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
+        return (Block)Registry.register(Registries.BLOCK, new Identifier(AFRoadsStatics.MOD_ID,id), block);
     }
 
 
@@ -270,12 +271,12 @@ public class AFRoadsBlockRegistry {
         //LightSource =register("light_source",new Block(FabricBlockSettings.of(Material.AIR).hardness(0.5f).luminance(15).noCollision().nonOpaque()));
 
         //注册方块实体
-        TRAFFIC_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
-        TRAFFIC_LIGHT_LEFT_TURN_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_left_turn_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightLeftTurnEntity::new,TrafficLightLeftTurn).build(null));
-        TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:traffic_light_pavement_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
-        ROAD_LIGHT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_light_entity"), FabricBlockEntityTypeBuilder.create(RoadLightEntity::new,RoadLight).build(null));
-        ROAD_NAME_SIGN_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_name_sign_entity"), FabricBlockEntityTypeBuilder.create(RoadNameSignEntity::new,RoadNameSign).build(null));
-        TRAFFIC_LIGHTS_CONTROL_ENTITY=Registry.register(Registry.BLOCK_ENTITY_TYPE,new Identifier("aft_fabroads:traffic_lights_control_entity"),FabricBlockEntityTypeBuilder.create(TrafficLightsControlEntity::new,TrafficLightsControlBox).build(null));
+        TRAFFIC_LIGHT_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightEntity::new,TrafficLight).build(null));
+        TRAFFIC_LIGHT_LEFT_TURN_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier ("aft_fabroads:traffic_light_left_turn_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightLeftTurnEntity::new,TrafficLightLeftTurn).build(null));
+        TRAFFIC_LIGHT_PAVEMENT_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:traffic_light_pavement_entity"), FabricBlockEntityTypeBuilder.create(TrafficLightPavementEntity::new,TrafficLightPavement).build(null));
+        ROAD_LIGHT_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_light_entity"), FabricBlockEntityTypeBuilder.create(RoadLightEntity::new,RoadLight).build(null));
+        ROAD_NAME_SIGN_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("aft_fabroads:road_name_sign_entity"), FabricBlockEntityTypeBuilder.create(RoadNameSignEntity::new,RoadNameSign).build(null));
+        TRAFFIC_LIGHTS_CONTROL_ENTITY=Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("aft_fabroads:traffic_lights_control_entity"),FabricBlockEntityTypeBuilder.create(TrafficLightsControlEntity::new,TrafficLightsControlBox).build(null));
 
 
         AFRoadsStatics.CAN_LINK_BLOCK_PARENT.add(TrafficLightsControlBox);
