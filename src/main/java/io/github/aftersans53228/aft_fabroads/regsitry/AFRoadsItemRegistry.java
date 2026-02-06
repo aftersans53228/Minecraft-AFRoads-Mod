@@ -2,24 +2,18 @@ package io.github.aftersans53228.aft_fabroads.regsitry;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
-import io.github.aftersans53228.aft_fabroads.block.*;
-import io.github.aftersans53228.aft_fabroads.block.pillarblock.*;
-import io.github.aftersans53228.aft_fabroads.block.signblock.*;
-import io.github.aftersans53228.aft_fabroads.block.stickerblock.ArrowBlocks;
-import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteColumnsCorner;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteSlab;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairs;
 import io.github.aftersans53228.aft_fabroads.item.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
-import static io.github.aftersans53228.aft_fabroads.AFRoads.*;
 import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
 public class AFRoadsItemRegistry {
@@ -342,7 +336,9 @@ public class AFRoadsItemRegistry {
             content.add(new ItemStack(InsulationPanelsGrayPart4Item));
             content.add(new ItemStack(InsulationPanelsGrayPart5Item));
             content.add(new ItemStack(InsulationPanelsGrayPart6Item));
+            content.add(new ItemStack(TrafficLightsControlBoxItem));
             content.add(new ItemStack(TrafficLightItem));
+            content.add(new ItemStack(TrafficLightLeftTurnItem));
             content.add(new ItemStack(TrafficLightPavementItem));
             content.add(new ItemStack(RoadLightItem));
             content.add(new ItemStack(PillarBaseItem));
@@ -352,6 +348,7 @@ public class AFRoadsItemRegistry {
             content.add(new ItemStack(VerticalCornerPillarItem));
             content.add(new ItemStack(HorizontalTshapedPillarItem));
             content.add(new ItemStack(VerticalTshapedPillarItem));
+            content.add(new ItemStack(VerticalTshapedPillarLargeItem));
             content.add(new ItemStack(VerticalTshapedPillarType2Item));
             content.add(new ItemStack(HorizontalStraightPillarThinItem));
             content.add(new ItemStack(VerticalStraightPillarThinItem));
@@ -394,6 +391,8 @@ public class AFRoadsItemRegistry {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
             content.add(new ItemStack(RoadTool));
+            content.add(new ItemStack(RoadToolAttribute));
+            content.add(new ItemStack(RoadToolLinked));
         });
     }
 }

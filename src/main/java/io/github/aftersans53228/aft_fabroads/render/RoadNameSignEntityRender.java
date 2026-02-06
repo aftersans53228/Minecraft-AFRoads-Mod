@@ -12,13 +12,14 @@ import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 import java.util.Map;
 
@@ -67,26 +68,26 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         renderTextLayer(matrices, vertexConsumers, roadName, facing, false, 0.89f, 0.032f, 0xFFFFFF, light);
         renderTextLayer(matrices, vertexConsumers, roadName, facing, true, 0.89f, 0.032f, 0xFFFFFF, light);
         // 渲染方向指示器（中文）
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "left_1st", false, false, 0.85f, 0.02f, 0xFFFFFF, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "right_1st", true, false, 0.85f, 0.02f, 0xFFFFFF, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "back_left_1st", false, true, 0.85f, 0.02f, 0xFFFFFF, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "back_right_1st", true, true, 0.85f, 0.02f, 0xFFFFFF, light);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "left_1st", false, false, 0.85f, 0.02f, 0xFFFFFF, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "right_1st", true, false, 0.85f, 0.02f, 0xFFFFFF, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "back_left_1st", false, true, 0.85f, 0.02f, 0xFFFFFF, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "back_right_1st", true, true, 0.85f, 0.02f, 0xFFFFFF, light,entity);
         // 渲染英文文本
         renderTextLayer(matrices, vertexConsumers, roadName2rd, facing, false, 0.54f, 0.015f, 0x000000, light);
         renderTextLayer(matrices, vertexConsumers, roadName2rd, facing, true, 0.54f, 0.015f, 0x000000, light);
         // 渲染方向指示器（英文）
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "left_2nd", false, false, 0.54f, 0.017f, 0x000000, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "right_2nd", true, false, 0.54f, 0.017f, 0x000000, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "back_left_2nd", false, true, 0.54f, 0.017f, 0x000000, light);
-        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "back_right_2nd", true, true, 0.54f, 0.017f, 0x000000, light);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "left_2nd", false, false, 0.54f, 0.017f, 0x000000, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "right_2nd", true, false, 0.54f, 0.017f, 0x000000, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirLeft, "back_left_2nd", false, true, 0.54f, 0.017f, 0x000000, light,entity);
+        renderDirectionIndicator(matrices, vertexConsumers, facing, dirRight, "back_right_2nd", true, true, 0.54f, 0.017f, 0x000000, light,entity);
     }
     // 渲染文本层（主路名）
     private void renderTextLayer(MatrixStack matrices, VertexConsumerProvider vertexConsumers, String text, Direction facing, boolean isBackFace, float yOffset, float scale, int color, int light) {
         matrices.push();
         matrices.translate(0f, yOffset, 0f);
-        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180));
         float rotation = facing.asRotation() + (isBackFace ? -180 : 0);
-        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(rotation));
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotation));
         // 设置位置偏移
         switch (facing) {
             case NORTH -> matrices.translate(isBackFace ? -0.5f : 0.5f, 0f, isBackFace ? 0.46f : -0.54f);
@@ -97,19 +98,19 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
         matrices.scale(scale, scale, scale);
         int textWidth = textRenderer.getWidth(text);
         textRenderer.draw(Text.literal(text),
-                (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
+                (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers,TextRenderer.TextLayerType.NORMAL, 0, light
         );
         matrices.pop();
     }
 
     // 渲染方向指示器
-    private void renderDirectionIndicator(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Direction facing, boolean isEnabled, String directionKey, boolean isRightSide, boolean isBackFace, float yOffset, float scale, int color, int light) {
+    private void renderDirectionIndicator(MatrixStack matrices, VertexConsumerProvider vertexConsumers, Direction facing, boolean isEnabled, String directionKey, boolean isRightSide, boolean isBackFace, float yOffset, float scale, int color, int light,RoadNameSignEntity entity) {
         matrices.push();
         matrices.translate(0f, yOffset, 0f);
-        matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
+        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180));
 
         float rotation = facing.asRotation() + (isBackFace ? -180 : 0);
-        matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(rotation));
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotation));
         // 设置基础位置
         switch (facing) {
             case NORTH -> matrices.translate(isBackFace ? -0.5f : 0.5f, 0f, isBackFace ? 0.46f : -0.54f);
@@ -129,7 +130,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             matrices.scale(scale, scale, scale);
             int textWidth = textRenderer.getWidth(directionText);
             textRenderer.draw(Text.literal(directionText),
-                    (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, light
+                    (float) -textWidth / 2, 0f, color, false, matrices.peek().getPositionMatrix(), vertexConsumers,TextRenderer.TextLayerType.NORMAL, 0, light
             );
         }
         else {
@@ -137,7 +138,7 @@ public class RoadNameSignEntityRender implements BlockEntityRenderer<RoadNameSig
             if (directionKey.contains("1st")) {
                 matrices.translate(0f, 0.08f, 0.012f);
                 matrices.scale(0.3f, 0.3f, 0.3f);
-                MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformation.Mode.GROUND, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                MinecraftClient.getInstance().getItemRenderer().renderItem(new ItemStack(Items.BARRIER), ModelTransformationMode.GROUND, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,entity.getWorld(), 0);
             }
         }
         

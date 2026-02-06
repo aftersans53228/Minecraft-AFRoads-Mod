@@ -11,11 +11,11 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 import static net.minecraft.util.math.Direction.*;
 
@@ -34,27 +34,27 @@ public class RoadLightEntityRender implements BlockEntityRenderer<RoadLightEntit
         matrices.translate(0.5, 0.5, 0.5);
         //设置旋转
         if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==SOUTH){
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
         }
         else if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==NORTH){
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(0));
         }
         else if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==EAST){
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(270));
         }
         else if (blockEntity.getCachedState().get(Properties.HORIZONTAL_FACING)==WEST){
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90));
         }
         else{
             AFRoads.LOGGER.info("Unexpected road light orientation state.");
-            matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(0));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(0));
         }
         //选择渲染类型
             if (blockEntity.getCachedState().get(RoadLight.LightType)==0){
-                MinecraftClient.getInstance().getItemRenderer().renderItem(ROAD_LIGHT_BULB_COLD, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                MinecraftClient.getInstance().getItemRenderer().renderItem(ROAD_LIGHT_BULB_COLD, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
             }
             else{
-                MinecraftClient.getInstance().getItemRenderer().renderItem(ROAD_LIGHT_BULB_WARM, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
+                MinecraftClient.getInstance().getItemRenderer().renderItem(ROAD_LIGHT_BULB_WARM, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
             }
 
         //GL拜拜了您内

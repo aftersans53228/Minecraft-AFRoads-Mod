@@ -72,7 +72,7 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing());
     }
     @Override
     public BlockState rotate(BlockState state, BlockRotation rotation) {
