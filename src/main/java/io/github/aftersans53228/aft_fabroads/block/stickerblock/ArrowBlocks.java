@@ -29,7 +29,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 public class ArrowBlocks extends HorizontalFacingBlock {
     public static final BooleanProperty is_Mini = BooleanProperty.of("is_mini");
     public ArrowBlocks() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(0.1f).nonOpaque());
+        super(FabricBlockSettings.create().mapColor(MapColor.WHITE).hardness(0.1f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(is_Mini, false));
     }

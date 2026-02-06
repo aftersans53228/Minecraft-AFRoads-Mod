@@ -26,7 +26,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 public class RubbishBinMetal extends HorizontalFacingBlock {
 
     public RubbishBinMetal() {
-        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override

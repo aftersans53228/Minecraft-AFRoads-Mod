@@ -1,23 +1,23 @@
 package io.github.aftersans53228.aft_fabroads.block.structureblock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.MapColor;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
 import java.util.List;
-import java.util.Random;
 
 public class RandomFullBlock extends HorizontalFacingBlock {
     private String type = "";
     public RandomFullBlock(String type) {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.8f).nonOpaque());
         this.type = type;
     }
     @Override

@@ -10,7 +10,7 @@ import net.minecraft.world.BlockView;
 public class VerticalStraightPillar extends Block {
 
     public VerticalStraightPillar() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
       }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {

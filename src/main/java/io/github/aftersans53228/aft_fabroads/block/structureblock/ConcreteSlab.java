@@ -16,7 +16,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 
 public class ConcreteSlab extends SlabBlock {
     public ConcreteSlab() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.8f).nonOpaque());
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.8f).nonOpaque());
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

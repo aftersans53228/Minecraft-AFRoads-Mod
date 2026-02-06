@@ -21,7 +21,7 @@ public class InsulationPanelsGray extends HorizontalFacingBlock {
     public List<VoxelShape> railingShapes = new ArrayList<>();
     private boolean tipsMode = true;
     public InsulationPanelsGray() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque());
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         this.railingShapes.add(VoxelShapes.empty());
         this.railingShapes.add(VoxelShapes.empty());
         this.railingShapes.add(VoxelShapes.empty());

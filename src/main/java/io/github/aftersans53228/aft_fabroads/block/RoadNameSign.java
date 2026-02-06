@@ -38,7 +38,7 @@ public  class RoadNameSign extends BlockWithEntity implements BlockEntityProvide
 
 
     public RoadNameSign(){
-        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f).nonOpaque());
+        super(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(DirLeft, true));
         setDefaultState(getStateManager().getDefaultState().with(DirRight, true));

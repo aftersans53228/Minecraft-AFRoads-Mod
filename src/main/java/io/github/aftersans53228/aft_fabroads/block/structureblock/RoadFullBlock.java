@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.MapColor;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -15,12 +15,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
 import java.util.List;
-import java.util.Random;
 
 public class RoadFullBlock extends HorizontalFacingBlock {
     private String type = "";
     public RoadFullBlock(String type) {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         this.type = type;
     }

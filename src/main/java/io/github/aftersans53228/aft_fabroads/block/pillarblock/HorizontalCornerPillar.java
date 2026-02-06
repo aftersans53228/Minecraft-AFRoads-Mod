@@ -14,13 +14,14 @@ import net.minecraft.world.BlockView;
 public class HorizontalCornerPillar extends HorizontalFacingBlock {
 
     public HorizontalCornerPillar() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
         Direction dir = state.get(FACING);
         return switch (dir) {
@@ -31,7 +32,7 @@ public class HorizontalCornerPillar extends HorizontalFacingBlock {
             default -> VoxelShapes.fullCube();
         };
     }
-
+    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing());
     }

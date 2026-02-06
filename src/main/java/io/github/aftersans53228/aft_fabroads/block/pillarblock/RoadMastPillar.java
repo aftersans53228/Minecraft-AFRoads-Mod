@@ -28,7 +28,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 public class RoadMastPillar extends HorizontalFacingBlock {
     public static final BooleanProperty is_Bracket = BooleanProperty.of("is_bracket");
     public RoadMastPillar() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(is_Bracket, false));
     }

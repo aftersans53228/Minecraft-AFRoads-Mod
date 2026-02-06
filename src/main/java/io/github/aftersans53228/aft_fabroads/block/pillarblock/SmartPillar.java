@@ -19,7 +19,7 @@ import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
 
 public class SmartPillar extends ConnectingBlock {
     public SmartPillar() {
-        super(0.125f, FabricBlockSettings.of(Material.STONE).hardness(1.5f) );
+        super(0.125f, FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque() );
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(NORTH, false)
                 .with(EAST, false)

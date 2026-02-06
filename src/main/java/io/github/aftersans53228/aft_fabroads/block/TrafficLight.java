@@ -35,7 +35,7 @@ public  class TrafficLight extends BlockWithEntity implements BlockEntityProvide
 
 
     public TrafficLight(){
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f).nonOpaque().luminance(3));
+        super(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).hardness(1.8f).nonOpaque().luminance(3));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(hasTimer,false));
     }

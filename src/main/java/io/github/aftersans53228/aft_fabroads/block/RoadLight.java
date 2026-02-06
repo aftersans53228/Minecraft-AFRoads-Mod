@@ -35,7 +35,7 @@ public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
 
 
     public RoadLight(){
-        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f).nonOpaque());
+        super(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(getStateManager().getDefaultState().with(LightType, 0));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }

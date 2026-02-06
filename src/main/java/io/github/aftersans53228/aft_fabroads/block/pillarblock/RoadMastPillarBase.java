@@ -14,7 +14,7 @@ import net.minecraft.world.BlockView;
 public class RoadMastPillarBase extends HorizontalFacingBlock {
 
     public RoadMastPillarBase() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override

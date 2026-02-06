@@ -33,7 +33,7 @@ import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry
 public class TrashBinGreen extends HorizontalFacingBlock {
     public static final BooleanProperty CR200j = BooleanProperty.of("cr200j");
     public TrashBinGreen() {
-        super(FabricBlockSettings.of(Material.BAMBOO).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.GREEN).hardness(1.8f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(CR200j,false));
     }

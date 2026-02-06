@@ -29,7 +29,7 @@ public class HorizontalRailings extends HorizontalFacingBlock {
     public static final IntProperty is_Turn = IntProperty.of("is_turn",0,2);
     public List<VoxelShape> railingShapes = new ArrayList<>();
     public HorizontalRailings() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         this.railingShapes.add(0,VoxelShapes.empty());
         this.railingShapes.add(1,VoxelShapes.empty());
         this.railingShapes.add(2,VoxelShapes.empty());

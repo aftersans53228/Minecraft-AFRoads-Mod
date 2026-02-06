@@ -38,7 +38,7 @@ public class TrafficLightsControlBox extends BlockWithEntity implements BlockEnt
     public static final BooleanProperty IS_ENABLE = BooleanProperty.of("is_enable");
 
     public TrafficLightsControlBox() {
-        super(FabricBlockSettings.of(Material.METAL).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).hardness(1.8f));
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
         setDefaultState(getStateManager().getDefaultState().with(IS_ENABLE,false));
     }

@@ -14,7 +14,7 @@ import net.minecraft.world.BlockView;
 public class VerticalCornerPillarThin extends HorizontalFacingBlock {
 
     public VerticalCornerPillarThin() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.3f));
+        super(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
     @Override

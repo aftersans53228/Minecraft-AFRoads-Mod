@@ -18,7 +18,7 @@ import net.minecraft.world.BlockView;
 
 public class SignNormal  extends HorizontalFacingBlock {
     public SignNormal() {
-        super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+        super(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).hardness(1.5f).nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
