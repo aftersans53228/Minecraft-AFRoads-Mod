@@ -1,18 +1,14 @@
 package io.github.aftersans53228.aft_fabroads.item;
 
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavement;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
@@ -21,10 +17,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
 /**
  * @author aftersans53228

@@ -1,12 +1,9 @@
 package io.github.aftersans53228.aft_fabroads;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
 
 /**
  * @author aftersans53228
