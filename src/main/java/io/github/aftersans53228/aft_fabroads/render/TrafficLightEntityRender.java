@@ -2,7 +2,7 @@ package io.github.aftersans53228.aft_fabroads.render;
 
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Blocks;
@@ -12,7 +12,6 @@ import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;

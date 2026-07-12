@@ -1,6 +1,5 @@
 package io.github.aftersans53228.aft_fabroads.block.stickerblock;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -23,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.RoadTool;
 
 public class LineBlocks extends HorizontalFacingBlock {
     public static final BooleanProperty is_Yellow = BooleanProperty.of("is_yellow");

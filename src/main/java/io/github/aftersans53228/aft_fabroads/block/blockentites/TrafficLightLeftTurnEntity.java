@@ -1,7 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
-import blue.endless.jankson.annotation.Nullable;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -42,7 +41,6 @@ public class TrafficLightLeftTurnEntity extends BlockEntity{
         }
     }
 
-    @Nullable
     @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
         return BlockEntityUpdateS2CPacket.create(this);

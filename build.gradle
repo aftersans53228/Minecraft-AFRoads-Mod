@@ -1,12 +1,8 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'fabric-loom' version '1.5.8'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
@@ -19,11 +15,9 @@ repositories {
 
 	//libGui
 	maven {
-		name = "CottonMC"
-		url = "https://server.bbkr.space/artifactory/libs-release"
+		name = "AlexIIL"
+		url = "https://staging.alexiil.uk/maven/"
 	}
-	maven { url "https://maven.shedaniel.me/" }
-	maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 dependencies {
@@ -37,9 +31,6 @@ dependencies {
 
 	//libGui
 	modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
-
-
-
 
 }
 
@@ -61,6 +52,8 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

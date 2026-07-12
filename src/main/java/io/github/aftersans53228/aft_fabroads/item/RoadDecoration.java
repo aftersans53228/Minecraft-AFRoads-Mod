@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.TrafficLightItem;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.TrafficLightItem;
 
 public class RoadDecoration {
     public static ItemGroup get() {

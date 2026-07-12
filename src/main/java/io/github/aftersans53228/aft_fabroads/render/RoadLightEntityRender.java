@@ -3,7 +3,7 @@ package io.github.aftersans53228.aft_fabroads.render;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.RoadLight;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadLightEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

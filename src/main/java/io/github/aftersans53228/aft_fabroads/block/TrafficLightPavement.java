@@ -1,17 +1,11 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlEast;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlNorth;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlSouth;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PtlWest;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PillarShapes;
 
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -28,7 +22,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -48,14 +41,7 @@ public  class TrafficLightPavement extends BlockWithEntity implements BlockEntit
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
-        Direction dir = state.get(FACING);
-        return switch (dir) {
-            case NORTH -> PtlNorth.getShape();
-            case SOUTH -> PtlSouth.getShape();
-            case EAST -> PtlEast.getShape();
-            case WEST -> PtlWest.getShape();
-            default -> VoxelShapes.fullCube();
-        };
+        return PillarShapes.getPtlShape(state.get(FACING));
     }
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing());
