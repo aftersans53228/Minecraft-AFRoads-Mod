@@ -1,13 +1,11 @@
 package io.github.aftersans53228.aft_fabroads.item;
 
-import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.*;
 
 public class RoadDecoration {
     public static ItemGroup get() {

@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.RoadTool;
 
 public class HorizontalRailings extends HorizontalFacingBlock {
     public static final IntProperty is_Turn = IntProperty.of("is_turn",0,2);

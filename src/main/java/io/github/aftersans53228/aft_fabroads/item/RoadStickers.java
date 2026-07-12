@@ -5,7 +5,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.*;
 
 public class RoadStickers {
     public static ItemGroup get() {

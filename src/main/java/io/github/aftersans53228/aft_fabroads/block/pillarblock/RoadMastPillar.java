@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.pillarblock;
 
-import io.github.aftersans53228.aft_fabroads.AFRoads;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PillarShapes;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -17,13 +17,12 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.RoadTool;
 
 public class RoadMastPillar extends HorizontalFacingBlock {
     public static final BooleanProperty is_Bracket = BooleanProperty.of("is_bracket");
@@ -50,12 +49,7 @@ public class RoadMastPillar extends HorizontalFacingBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
-        Direction dir = state.get(FACING);
-        return switch(dir) {
-            case NORTH, SOUTH -> VoxelShapes.cuboid(0, 0f, 0.375, 1f, 1f, 0.625);
-            case EAST, WEST -> VoxelShapes.cuboid(0.375, 0f, 0f, 0.625, 1f, 1f);
-            default -> VoxelShapes.fullCube();
-        };
+        return PillarShapes.getRoadMastShape(state.get(FACING));
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

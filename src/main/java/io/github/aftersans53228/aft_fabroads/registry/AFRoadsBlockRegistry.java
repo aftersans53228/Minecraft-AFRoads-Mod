@@ -1,4 +1,4 @@
-package io.github.aftersans53228.aft_fabroads.regsitry;
+package io.github.aftersans53228.aft_fabroads.registry;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;

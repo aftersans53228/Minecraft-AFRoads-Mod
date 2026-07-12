@@ -1,4 +1,4 @@
-package io.github.aftersans53228.aft_fabroads.regsitry;
+package io.github.aftersans53228.aft_fabroads.registry;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
@@ -11,7 +11,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 
 public class AFRoadsItemRegistry {
     private static Item register(String id, Item item) {

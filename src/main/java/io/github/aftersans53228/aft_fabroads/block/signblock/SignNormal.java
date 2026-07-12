@@ -1,19 +1,14 @@
 package io.github.aftersans53228.aft_fabroads.block.signblock;
 
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignEast;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignNorth;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignSouth;
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignWest;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.SignShapes;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.server.command.PublishCommand;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
 public class SignNormal  extends HorizontalFacingBlock {
@@ -28,19 +23,7 @@ public class SignNormal  extends HorizontalFacingBlock {
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext ctx) {
-        Direction dir = state.get(FACING);
-        switch(dir) {
-            case NORTH:
-                return SignNorth.getShape();
-            case SOUTH:
-                return SignSouth.getShape();
-            case EAST:
-                return SignEast.getShape();
-            case WEST:
-                return SignWest.getShape();
-            default:
-                return VoxelShapes.fullCube();
-        }
+        return SignShapes.getShape(state.get(FACING));
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
