@@ -6,7 +6,7 @@ import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
 import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
 import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
 import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.render.*;
 import io.github.cottonmc.cotton.gui.client.CottonClientScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 
 /**
  * @author Aftersans53228

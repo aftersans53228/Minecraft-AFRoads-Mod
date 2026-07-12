@@ -1,18 +1,8 @@
-package io.github.aftersans53228.aft_fabroads.regsitry;
+package io.github.aftersans53228.aft_fabroads.registry;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
-import io.github.aftersans53228.aft_fabroads.block.*;
-import io.github.aftersans53228.aft_fabroads.block.pillarblock.*;
-import io.github.aftersans53228.aft_fabroads.block.signblock.*;
-import io.github.aftersans53228.aft_fabroads.block.stickerblock.ArrowBlocks;
-import io.github.aftersans53228.aft_fabroads.block.stickerblock.LineBlocks;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteColumnsCorner;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteSlab;
-import io.github.aftersans53228.aft_fabroads.block.structureblock.ConcreteStairs;
-import io.github.aftersans53228.aft_fabroads.item.RoadTool;
-import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
-import io.github.aftersans53228.aft_fabroads.item.RoadToolLinked;
+import io.github.aftersans53228.aft_fabroads.item.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -21,8 +11,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import static io.github.aftersans53228.aft_fabroads.AFRoads.*;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 
 public class AFRoadsItemRegistry {
     private static Item register(String id, Item item) {

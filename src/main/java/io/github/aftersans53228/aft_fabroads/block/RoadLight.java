@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.RoadTool;
 
 public  class RoadLight extends BlockWithEntity implements BlockEntityProvider {
     public static final IntProperty LightType = IntProperty.of("type",0,1);

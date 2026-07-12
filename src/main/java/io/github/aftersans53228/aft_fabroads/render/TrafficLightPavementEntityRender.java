@@ -1,11 +1,8 @@
 package io.github.aftersans53228.aft_fabroads.render;
 
-import io.github.aftersans53228.aft_fabroads.block.TrafficLightPavement;
-import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightEntity;
-import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightLeftTurnEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.OverlayTexture;
@@ -22,7 +19,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 
 import static io.github.aftersans53228.aft_fabroads.AFRoadsClient.DIGIT7_STYLE;
-import static io.github.aftersans53228.aft_fabroads.block.TrafficLight.hasTimer;
 
 
 public class TrafficLightPavementEntityRender implements BlockEntityRenderer<TrafficLightPavementEntity> {

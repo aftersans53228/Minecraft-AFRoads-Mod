@@ -5,8 +5,8 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.*;
 
 public class RoadStickers {
     public static ItemGroup get() {
