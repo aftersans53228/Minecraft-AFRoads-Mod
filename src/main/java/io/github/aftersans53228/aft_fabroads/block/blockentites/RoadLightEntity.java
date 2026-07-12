@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;

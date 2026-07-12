@@ -19,11 +19,9 @@ repositories {
 
 	//libGui
 	maven {
-		name = "CottonMC"
-		url = "https://server.bbkr.space/artifactory/libs-release"
+		name = "AlexIIL"
+		url = "https://staging.alexiil.uk/maven/"
 	}
-	maven { url "https://maven.shedaniel.me/" }
-	maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 dependencies {

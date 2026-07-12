@@ -3,7 +3,7 @@ package io.github.aftersans53228.aft_fabroads.network;
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadNameSignEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;

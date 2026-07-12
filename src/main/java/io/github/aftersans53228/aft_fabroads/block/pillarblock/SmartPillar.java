@@ -15,7 +15,7 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry.*;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
 
 public class SmartPillar extends ConnectingBlock {

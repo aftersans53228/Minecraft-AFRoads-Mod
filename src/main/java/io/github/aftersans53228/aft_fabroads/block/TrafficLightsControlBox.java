@@ -1,7 +1,7 @@
 package io.github.aftersans53228.aft_fabroads.block;
 
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsItemRegistry.RoadTool;
+import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry.RoadTool;
 
 public class TrafficLightsControlBox extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;

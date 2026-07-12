@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.pillarblock;
 
-import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PBase;
+import io.github.aftersans53228.aft_fabroads.block.voxelshapes.PillarShapes;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,6 +15,6 @@ public class PillarBase extends Block {
         super(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
     }
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
-        return PBase.getShape();
+        return PillarShapes.getBaseShape();
     }
 }

@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
-import io.github.aftersans53228.aft_fabroads.regsitry.AFRoadsBlockRegistry;
+import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
