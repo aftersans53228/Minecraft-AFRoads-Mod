@@ -11,6 +11,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import static io.github.aftersans53228.aft_fabroads.AFRoads.*;
 import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 
 public class AFRoadsItemRegistry {
