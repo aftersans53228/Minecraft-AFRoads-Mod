@@ -4,26 +4,17 @@ import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadNameSignEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-/**
- * @author aftersans53228
- */
-public class GuiCloseNetwork {
-    public static void sendGuiClose(Identifier id,PacketByteBuf buf){
-        ClientPlayNetworking.send(id,buf);
-    }
-
+public class ServerReceive {
     public static void receiveGuiCloseRNS(PacketByteBuf buf, ServerPlayerEntity player){
         MinecraftServer server =player.getServer();
         BlockPos signPos =buf.readBlockPos();//坐标
@@ -79,5 +70,4 @@ public class GuiCloseNetwork {
 
 
     }
-
 }

@@ -1,34 +1,22 @@
 package io.github.aftersans53228.aft_fabroads;
 
-import io.github.aftersans53228.aft_fabroads.block.blockentites.RoadNameSignEntity;
-import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
-import io.github.aftersans53228.aft_fabroads.gui.RoadNameSignGui;
-import io.github.aftersans53228.aft_fabroads.gui.TrafficControlBoxGui;
-import io.github.aftersans53228.aft_fabroads.item.RoadToolAttribute;
-import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
+import io.github.aftersans53228.aft_fabroads.network.ClientReceive;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.render.*;
-import io.github.cottonmc.cotton.gui.client.CottonClientScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.resource.language.I18n;
-import net.minecraft.network.ClientConnection;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Style;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
-import java.util.List;
 import java.util.function.Consumer;
 
-import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.MOD_ID;
+import static io.github.aftersans53228.aft_fabroads.AFRoadsStatics.*;
 import static io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry.*;
 
 /**
@@ -152,56 +140,33 @@ public class AFRoadsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(RoadNameSign, RenderLayer.getCutout());
 
         //注册方块实体渲染
-        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
-        BlockEntityRendererRegistry.register(TRAFFIC_LIGHT_LEFT_TURN_ENTITY, TrafficLightLeftTurnEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
-        BlockEntityRendererRegistry.register(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);
+        BlockEntityRendererFactories.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_ENTITY, TrafficLightEntityRender::new);
+        BlockEntityRendererFactories.register(TRAFFIC_LIGHT_LEFT_TURN_ENTITY, TrafficLightLeftTurnEntityRender::new);
+        BlockEntityRendererFactories.register(AFRoadsBlockRegistry.TRAFFIC_LIGHT_PAVEMENT_ENTITY, TrafficLightPavementEntityRender::new);
+        BlockEntityRendererFactories.register(AFRoadsBlockRegistry.ROAD_LIGHT_ENTITY, RoadLightEntityRender::new);
+        BlockEntityRendererFactories.register(AFRoadsBlockRegistry.ROAD_NAME_SIGN_ENTITY, RoadNameSignEntityRender::new);
 
         //gui
-        ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:road_name_sign_gui_open"), (client, handler, buf, responseSender) -> {
-            BlockPos roadNameSignPos = buf.readBlockPos();
-            client.execute(() -> {
-                RoadNameSignEntity entity=(RoadNameSignEntity) client.world.getBlockEntity(roadNameSignPos);
-                List<String> roadNames = entity.getRoadNames();
-                // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new CottonClientScreen(new RoadNameSignGui(roadNameSignPos,roadNames,client.world)));
-                AFRoads.LOGGER.info("Open the\"Road Name Sign\"'s gui. ");
-            });
-        });
-        ClientPlayNetworking.registerGlobalReceiver( new Identifier("aft_fabroads:traffic_control_box_gui_open"), (client, handler, buf, responseSender) -> {
-            BlockPos controlBoxPos = buf.readBlockPos();
-            client.execute(() -> {
-                TrafficLightsControlEntity entity=(TrafficLightsControlEntity)client.world.getBlockEntity(controlBoxPos);
-                // 此 lambda 中的所有内容都在渲染线程上运行
-                client.setScreen(new CottonClientScreen(new TrafficControlBoxGui(controlBoxPos,client.world.getBlockState(controlBoxPos).get(BooleanProperty.of("is_enable")),entity.getTimerData())));
-                    AFRoads.LOGGER.info("Open the\"Traffic Control Box\"'s gui. ");
-            });
-        });
-        ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"disconnect_self"),((client, handler, buf, responseSender) -> {
-            client.execute(()->{
-                ClientConnection connection = client.getNetworkHandler().getConnection();
-                if (connection !=null){
-                    connection.disconnect(
-                        Text.literal(
-                        I18n.translate("text.gui.aft_fabroads.version_mistake")+"\n\n"
-                                +I18n.translate("text.gui.aft_fabroads.version_mistake_client")+"§4"+"AFRoadsStatics.MOD_VERSION(Client)\n"
-                                +I18n.translate("text.gui.aft_fabroads.version_mistake_server")+"§2"+"AFRoadsStatics.MOD_VERSION(Server)\n"
-                                +"§f(The operator self-disconnected.)")
-                    );
-                };
-            });
-        }));
+        registerNetworkReceiver(
+                new Identifier(MOD_ID, "road_name_sign_gui_open"),
+                ClientReceive::receiveRoadNameSignGuiOpen
+        );
+        registerNetworkReceiver(
+                new Identifier(MOD_ID, "traffic_control_box_gui_open"),
+                ClientReceive::receiveTrafficLightsControlBoxGuiOpen
+        );
+        //version check
+        registerNetworkReceiver(
+                new Identifier(MOD_ID,"version_check"),
+                ClientReceive::receiveVersionCheck
+        );
+        //attributes tool send message
+        registerNetworkReceiver(
+                new Identifier(MOD_ID,"attributes_item_required"),
+                ClientReceive::receiveToolCallBlockAttributes
+        );
 
-        registerNetworkReceiver(new Identifier(MOD_ID,"version_check"),OnConnectingVersionCheck::receiveVersionCheck);
 
-        ClientPlayNetworking.registerGlobalReceiver(new Identifier(MOD_ID,"attributes_item_required"),((client, handler, buf, responseSender) -> {
-            String s1 = buf.readString();
-            String s2 = buf.readString();
-            client.execute(() -> {
-                RoadToolAttribute.receiveAttributeItem(s1,s2, client.player);
-            });
-        }));
 
     }
 }

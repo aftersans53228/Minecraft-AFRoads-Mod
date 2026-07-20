@@ -1,12 +1,8 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
@@ -19,11 +15,20 @@ repositories {
 
 	//libGui
 	maven {
-		name = "CottonMC"
-		url = "https://server.bbkr.space/artifactory/libs-release"
+		name = "AlexIIL"
+		url = "https://staging.alexiil.uk/maven/"
 	}
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.terraformersmc.com/releases/" }
+}
+loom {
+	splitEnvironmentSourceSets()
+	mods {
+		"aft_fabroads" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
 }
 
 dependencies {
@@ -33,21 +38,18 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	//libGui
 	modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
-
-
-
-
 }
 
 processResources {
-	inputs.property "version", project.version
+	def version = project.version
+	inputs.property "version", version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand "version": version
 	}
 }
 
@@ -61,11 +63,17 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_$projectName"}
 	}
 }
 

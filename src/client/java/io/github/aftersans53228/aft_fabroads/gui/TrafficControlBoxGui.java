@@ -2,7 +2,7 @@ package io.github.aftersans53228.aft_fabroads.gui;
 
 import io.github.aftersans53228.aft_fabroads.AFRoads;
 import io.github.aftersans53228.aft_fabroads.AFRoadsStatics;
-import io.github.aftersans53228.aft_fabroads.network.GuiCloseNetwork;
+import io.github.aftersans53228.aft_fabroads.network.ClientSend;
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.*;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
@@ -18,10 +18,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.function.Supplier;
 
 /**
  * @author aftersans53228
@@ -120,7 +116,7 @@ public class TrafficControlBoxGui extends LightweightGuiDescription {
             buf.writeIntArray(new int[]{sliderFNS.getValue(), sliderTNS.getValue() == 0 ? -80 :sliderTNS.getValue(), sliderFWE.getValue(), sliderTWE.getValue() == 0 ? -80 :sliderTWE.getValue()});
             buf.writeBoolean(toggleButtonTimer.getToggle());
             AFRoads.LOGGER.info("Close the\"Traffic Control Box\"'s gui. ");
-            GuiCloseNetwork.sendGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),buf);
+            ClientSend.sendGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),buf);
             MinecraftClient.getInstance().setScreen((Screen) null);
         });
 

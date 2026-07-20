@@ -5,8 +5,8 @@ import io.github.aftersans53228.aft_fabroads.command.AftCommand;
 import io.github.aftersans53228.aft_fabroads.item.NormalRoadBlock;
 import io.github.aftersans53228.aft_fabroads.item.RoadDecoration;
 import io.github.aftersans53228.aft_fabroads.item.RoadStickers;
-import io.github.aftersans53228.aft_fabroads.network.GuiCloseNetwork;
-import io.github.aftersans53228.aft_fabroads.network.OnConnectingVersionCheck;
+import io.github.aftersans53228.aft_fabroads.network.ServerReceive;
+import io.github.aftersans53228.aft_fabroads.network.ServerSend;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry;
 import net.fabricmc.api.ModInitializer;
@@ -71,9 +71,9 @@ public class AFRoads implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> AftCommand.register(dispatcher));
 
 		//服务端接发包
-		registerPlayerJoinEvent(OnConnectingVersionCheck::sendVersionCheck);
-		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"),GuiCloseNetwork::receiveGuiCloseRNS);
-		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),GuiCloseNetwork::receiveGuiCloseTrafficLightsControlBox);
+		registerPlayerJoinEvent(ServerSend::sendVersionCheck);
+		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"road_name_sign_gui_close"),ServerReceive::receiveGuiCloseRNS);
+		registerGuiClose(new Identifier(AFRoadsStatics.MOD_ID,"traffic_lights_control_box_gui_close"),ServerReceive::receiveGuiCloseTrafficLightsControlBox);
 
 
 

@@ -3,6 +3,8 @@ package io.github.aftersans53228.aft_fabroads.render;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightPavementEntity;
 import io.github.aftersans53228.aft_fabroads.block.blockentites.TrafficLightsControlEntity;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsItemRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.OverlayTexture;
@@ -21,6 +23,7 @@ import net.minecraft.util.math.RotationAxis;
 import static io.github.aftersans53228.aft_fabroads.AFRoadsClient.DIGIT7_STYLE;
 
 
+@Environment(EnvType.CLIENT)
 public class TrafficLightPavementEntityRender implements BlockEntityRenderer<TrafficLightPavementEntity> {
     //获得物品stack
     private static final ItemStack STACK_RED = new ItemStack(AFRoadsItemRegistry.TrafficLightPavementBulbRed, 1);

@@ -1,6 +1,6 @@
 package io.github.aftersans53228.aft_fabroads.block.blockentites;
 
-import blue.endless.jankson.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import io.github.aftersans53228.aft_fabroads.registry.AFRoadsBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
