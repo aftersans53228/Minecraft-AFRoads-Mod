@@ -108,7 +108,7 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
                         this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"2fG");//meaning: West&East Forward Green
                     }
-                    case "forward_yellow" -> {
+                    case "forward_yellow", "disabled" -> {
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
                     }
                     case "forward_airG" -> {
@@ -117,7 +117,6 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
                     case "forward_redE"-> {//ending red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
                     }
-                    case "disabled"->{}
                     default -> {//and red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformationMode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers,blockEntity.getWorld(), 0);
                         this.renderTexts(blockEntity, controlBox, dir,matrices, vertexConsumers, 2,"2fR");//meaning: West&East Forward Red
@@ -131,16 +130,23 @@ public class TrafficLightEntityRender implements BlockEntityRenderer<TrafficLigh
         if(! blockEntity.getWorld().getBlockState(blockEntity.getPos()).equals(Blocks.AIR.getDefaultState()) && blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
             matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180));
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
-            String timeLeft = TrafficLightsControlEntity.getTimeLeft(controlBox,dirType);
+            String timeLeft = controlBox.getTimeLeft(dirType);
             matrices.translate(0, -0.2f, 0);
             matrices.translate(0f, 0f, 0.1f);
-            if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
-            else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
+            if (timeLeft.contains("11")) {
+                matrices.translate(-0.0365f, 0f, 0f);
+            } else if (timeLeft.contains("1")) {
+                matrices.translate(-0.016f, 0f, 0f);
+            }
             matrices.scale(0.015f, 0.015F, 0.015f);
+            matrices.translate(-(this.textRenderer.getWidth(timeLeft)), -0.0f, 0.0f);
+            if(timeLeft.length()>2){
+                matrices.scale(0,0,0);
+            }
             switch (colorType) {
-                case 0 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
-                case 1 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
-                case 2 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
+                case 0 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0, 0x00ff33, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
+                case 1 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0, 0xffcc00, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
+                case 2 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0, 0xff0000, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, 15728880);
             }
         }
 
