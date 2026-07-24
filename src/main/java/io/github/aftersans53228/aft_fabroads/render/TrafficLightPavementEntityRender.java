@@ -119,13 +119,17 @@ public class TrafficLightPavementEntityRender implements BlockEntityRenderer<Tra
     private void renderTexts(TrafficLightPavementEntity blockEntity, TrafficLightsControlEntity controlBox, int color, MatrixStack matrices, VertexConsumerProvider vertexConsumers, String dirType,float offset){
         matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
-        String timeLeft = TrafficLightsControlEntity.getTimeLeft(controlBox,dirType);
+        String timeLeft = controlBox.getTimeLeft(dirType);
         matrices.translate(0, -0.2f + offset, 0);
         matrices.translate(0f, 0f, 0.085f);
-        if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
-        else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
+        if (timeLeft.contains("11")) {
+            matrices.translate(-0.0365f, 0f, 0f);
+        } else if (timeLeft.contains("1")) {
+            matrices.translate(-0.016f, 0f, 0f);
+        }
         matrices.scale(0.017f, 0.017F, 0.017f);
-        this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, color, false, matrices.peek().getModel(), vertexConsumers, false, 0, 15728880);
+        matrices.translate(-(this.textRenderer.getWidth(timeLeft)), -0.0f, 0.0f);
+        this.textRenderer.draw(new LiteralText(timeLeft).setStyle(DIGIT7_STYLE), 0, 0F, color, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
     }
 
 
