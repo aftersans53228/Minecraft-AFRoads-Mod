@@ -84,7 +84,7 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         this.renderTexts(blockEntity,controlBox,dir,matrices,vertexConsumers,0,"1tG");//meaning: North&South Turn Green
                     }
-                    case "turn_yellow" -> {
+                    case "turn_yellow","disabled" -> {
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                     }
                     case "turn_airG" -> {
@@ -93,7 +93,6 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
                     case "turn_redE"-> {//ending red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                     }
-                    case "disabled"->{}
                     default -> {//and red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 2,"1tR");//meaning: North&South Turn Red
@@ -107,7 +106,7 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_GREEN, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         this.renderTexts(blockEntity, controlBox,dir, matrices, vertexConsumers, 0,"3tG");//meaning: West&East Turn Green
                     }
-                    case "turn_yellow" -> {
+                    case "turn_yellow","disabled" -> {
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_YELLOW, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                     }
                     case "turn_airG" -> {
@@ -116,7 +115,6 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
                     case "turn_redE"-> {//ending red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                     }
-                    case "disabled"->{}
                     default -> {//and red
                         MinecraftClient.getInstance().getItemRenderer().renderItem(STACK_RED, ModelTransformation.Mode.GROUND, 15728880, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, 0);
                         this.renderTexts(blockEntity, controlBox, dir,matrices, vertexConsumers, 2,"3tR");//meaning: West&East Turn Red
@@ -130,16 +128,20 @@ public class TrafficLightLeftTurnEntityRender implements BlockEntityRenderer<Tra
         if(! blockEntity.getWorld().getBlockState(blockEntity.getPos()).equals(Blocks.AIR.getDefaultState()) && blockEntity.getWorld().getBlockState(blockEntity.getPos()).get(hasTimer)){
             matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(180));
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180));
-            String timeLeft = TrafficLightsControlEntity.getTimeLeft(controlBox,dirType);
+            String timeLeft = controlBox.getTimeLeft(dirType);
             matrices.translate(0, -0.2f, 0);
             matrices.translate(0f, 0f, 0.1f);
-            if (timeLeft.contains("11")) matrices.translate(-0.037f, 0f, 0f);
-            else if (timeLeft.contains("1")) matrices.translate(-0.017f, 0f, 0f);
+            if (timeLeft.contains("11")) {
+                matrices.translate(-0.0365f, 0f, 0f);
+            } else if (timeLeft.contains("1")) {
+                matrices.translate(-0.016f, 0f, 0f);
+            }
             matrices.scale(0.015f, 0.015F, 0.015f);
+            matrices.translate(-(this.textRenderer.getWidth(timeLeft)), -0.0f, 0.0f);
             switch (colorType) {
-                case 0 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0x00ff33, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
-                case 1 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xffcc00, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
-                case 2 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), (float) -(this.textRenderer.getWidth(timeLeft)), 0F, 0xff0000, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+                case 0 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0F, 0x00ff33, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+                case 1 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0F, 0xffcc00, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
+                case 2 -> this.textRenderer.draw(Text.literal(timeLeft).setStyle(DIGIT7_STYLE), 0, 0F, 0xff0000, false, matrices.peek().getPositionMatrix(), vertexConsumers, false, 0, 15728880);
             }
         }
 

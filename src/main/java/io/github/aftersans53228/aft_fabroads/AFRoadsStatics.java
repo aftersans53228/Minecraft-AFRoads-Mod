@@ -10,8 +10,8 @@ import java.util.List;
  */
 public abstract class AFRoadsStatics {
     public static final String MOD_ID = "aft_fabroads";
-    public static final String MOD_VERSION = "1.0.3Dev-Update1-Build1";
-    public static final String MINECRAFT_VERSION = "1.19.*";
+    public static final String MOD_VERSION = "1.0.3Final";
+    public static final String MINECRAFT_VERSION = "1.19.2";
     public static final List<Block> PILLAR_BLOCKS = new ArrayList<>();
     public static final List<Block> CAN_PILLAR_CONNECT = new ArrayList<>();
     public static final List<Block> TRAFFIC_LIGHTS = new ArrayList<>();
