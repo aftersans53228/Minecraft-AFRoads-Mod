@@ -13,6 +13,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 
 /**
  * @author aftersans53228(AFT Transportation)
@@ -90,34 +92,51 @@ public class TrafficLightsControlEntity extends BlockEntity{
             this.world.setBlockState(this.pos,this.world.getBlockState(this.pos).with(BooleanProperty.of("is_enable"),false));
         }
     }
-    public static String getTimeLeft(TrafficLightsControlEntity et,String type) {
-            return getTimeLeft(et.timerTraffic,et.timerOrder, type);
-    }
-    private static String getTimeLeft(int timerTicks, int timerOrder, String type){ //What am fk doing??
-        if (!Integer.valueOf(type.charAt(0)-'0').equals(timerOrder) && !Integer.valueOf(type.charAt(0)-'0').equals((timerOrder + 1)>3 ? 0 : timerOrder + 1)){
+    public String getTimeLeft(String type) {
+        if (type == null || type.length() < 3) {
             return "";
         }
-        if (type.charAt(2) == 'R'){
-            if (timerTicks < 160 && timerTicks >= 0) {
-                return (timerTicks / 20 + 1 + 4) < 10 ? "0" + (timerTicks / 20 + 1 + 4) : Integer.toString(timerTicks / 20 + 1 + 4);
-            } else if (timerTicks < 0) {
-                return "0" + ((timerTicks + 80) / 20 + 1);
+        if (this.timeSequence == null || this.timeSequence.length != 4) {
+            return "";
+        }
+        int group = type.charAt(0) - '0';   // 组别（0~3）
+        char mode = type.charAt(2);          // 'R' 或 'G'
+        int current = this.timerOrder;
+        int next = (current + 1) % 4;
+        int skip = (current + 2) % 4;       // 隔一个
+        // 如果 timeSequence[next] <= 0，说明该阶段配置为 0 秒（空闲/过渡态），
+        // 在 tick() 中会表现为 timerTraffic 立即变负并快速归零到 -80 然后重置。
+        // 此时我们应该“隔一个”，即跳过下一个，匹配下下个（skip）。
+        boolean isNextInvalid = (this.timeSequence[next] <= 0);
+        int target1 = current;
+        int target2 = isNextInvalid ? skip : next;
+        // 如果 type 的组别不匹配 target1 或 target2，则不显示
+        if (group != target1 && group != target2) {
+            return "";
+        }
+        int ticks = this.timerTraffic;
+        int seconds = -1;
+
+        if (mode == 'R') { // 剩余时间模式（包含黄灯补偿）
+            if (ticks >= 0 && ticks < 160) {
+                seconds = ticks / 20 + 5;   // 加 4 秒（黄灯/过渡补偿）
+            } else if (ticks < 0) {
+                seconds = (ticks + 80) / 20 + 1;
+            }
+        } else if (mode == 'G') { // 绿灯纯计时模式
+            if (ticks >= 0 && ticks < 200) {
+                seconds = ticks / 20 + 1;
             }
         }
-        else if(type.charAt(2) == 'G'){
-            if (timerTicks < 200 && timerTicks >= 0) {
-                return (timerTicks / 20 + 1) < 10 ? "0" + (timerTicks / 20 + 1) : Integer.toString(timerTicks / 20 + 1);
-            }
-            else{
-                return "";
-            }
+        if (seconds <= 0) {
+            return "";
         }
-        return "";
+        return String.format("%02d", seconds);
     }
 
     private void reset(){
         this.stop();
-        this.timerTraffic = -40;
+        this.timerTraffic = -80;
         this.timeSequence = new int[]{30,0,30,0};
         this.NSlightType = "disable";
         this.WElightType = "disable";
@@ -138,6 +157,7 @@ public class TrafficLightsControlEntity extends BlockEntity{
         }
         if (state.get(BooleanProperty.of("is_enable"))){
             entity.timerTraffic --;
+            test:
             if (entity.timerTraffic < -80){
                 if (entity.timerOrder != 3){
                     entity.timerOrder ++;
@@ -230,9 +250,11 @@ public class TrafficLightsControlEntity extends BlockEntity{
             }
 
         }
-        else{
+        else if(!Objects.equals(entity.NSlightType, "disabled")){
             entity.NSlightType = "disabled";
             entity.WElightType = "disabled";
+            entity.markDirty();
+            world.updateListeners(entity.pos,world.getBlockState(entity.pos),world.getBlockState(entity.pos),Block.NOTIFY_LISTENERS);
         }
     }
 }

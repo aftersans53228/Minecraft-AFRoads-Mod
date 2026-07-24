@@ -28,10 +28,6 @@
     ]
 
   },
-  "mixins": [
-    "aft_fabroads.mixins.json"
-  ],
-
   "depends": {
     "minecraft": "1.18.x",
     "java": ">=16",
